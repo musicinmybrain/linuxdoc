@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>LinuxDoc &mdash; LinuxDoc 20181010 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="kernel-doc introduction" href="kernel-doc-intro.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> LinuxDoc
+          
+
+          
+            
+            <img src="_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20181010
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="kernel-doc-intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install LinuxDoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linuxdoc-howto/index.html">LinuxDoc HowTo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmd-line.html">Command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Patch Linux Kernel Documentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">LinuxDoc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>LinuxDoc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linuxdoc">
+<span id="id1"></span><h1>LinuxDoc<a class="headerlink" href="#linuxdoc" title="Permalink to this headline">¶</a></h1>
+<p>The LinuxDoc library contains <a class="reference external" href="http://www.sphinx-doc.org/">sphinx-doc</a> extensions and command line tools to
+extract documentation from C/C++ source file comments. Even if this project
+started in context of the Linux-Kernel documentation (where the name comes
+from), you can use these extensions in common <a class="reference external" href="http://www.sphinx-doc.org/">sphinx-doc</a> projects.  If this is
+unclear to you, take a look at our <a class="reference internal" href="kernel-doc-intro.html#kernel-doc-intro"><span class="std std-ref">Introduction</span></a>.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kernel-doc-intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kernel-doc-intro.html#by-example">by example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernel-doc-intro.html#linuxdoc-feature-overview">LinuxDoc feature overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install LinuxDoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linuxdoc-howto/index.html">LinuxDoc HowTo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linuxdoc-howto/index.html#kernel-doc">kernel-doc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/kernel-doc-syntax.html">kernel-doc syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/kernel-doc-directive.html">kernel-doc in reST documents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/kernel-doc-examples.html">Examples &amp; Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/kernel-doc-modes.html">parsing modes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linuxdoc-howto/index.html#other-topics">other topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/kfigure.html">Scalable figure and image handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/table-markup.html">About tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/cdomain.html">Customized sphinx c-domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/man-pages.html">man pages from kernel-doc comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="linuxdoc-howto/kernel-include-directive.html">Use kernel-include in reST documents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmd-line.html">Command line tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmd-line.html#kernel-autodoc"><code class="docutils literal notranslate"><span class="pre">kernel-autodoc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd-line.html#kernel-lintdoc"><code class="docutils literal notranslate"><span class="pre">kernel-lintdoc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd-line.html#kernel-doc"><code class="docutils literal notranslate"><span class="pre">kernel-doc</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Patch Linux Kernel Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linux.html#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>LinuxDoc is hosted at github: <a class="reference external" href="https://github.com/return42/linuxdoc">https://github.com/return42/linuxdoc</a></p>
+<div class="section" id="known-applications">
+<h2>Known applications<a class="headerlink" href="#known-applications" title="Permalink to this headline">¶</a></h2>
+<p>There is a <em>POC</em> which made use of LinuxDoc.  The <em>POC</em> demonstrates and tests
+some alternative concepts for the Linux-Kernel documentation.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/return42/sphkerneldoc">https://github.com/return42/sphkerneldoc</a> for the output see</li>
+<li><a class="reference external" href="https://h2626237.stratoserver.net/kernel">https://h2626237.stratoserver.net/kernel</a></li>
+</ul>
+</div>
+<div class="section" id="source-code">
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="linuxdoc-api/linuxdoc.html">linuxdoc package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linuxdoc-api/linuxdoc.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linuxdoc-api/linuxdoc.html#module-linuxdoc">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="kernel-doc-intro.html" class="btn btn-neutral float-right" title="kernel-doc introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018 Markus Heiser
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

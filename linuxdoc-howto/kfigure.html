@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scalable figure and image handling &mdash; LinuxDoc 20181010 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About tables" href="table-markup.html" />
+    <link rel="prev" title="Vintage kernel-doc mode" href="vintage-kernel-doc-mode.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> LinuxDoc
+          
+
+          
+            
+            <img src="../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20181010
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../kernel-doc-intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install LinuxDoc</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">LinuxDoc HowTo</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#kernel-doc">kernel-doc</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#other-topics">other topics</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scalable figure and image handling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-figure-kernel-image">kernel-figure &amp; kernel-image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#kernel-render">kernel-render</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="table-markup.html">About tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cdomain.html">Customized sphinx c-domain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man-pages.html">man pages from kernel-doc comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kernel-include-directive.html">Use kernel-include in reST documents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cmd-line.html">Command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux.html">Patch Linux Kernel Documentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">LinuxDoc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">LinuxDoc HowTo</a> &raquo;</li>
+        
+      <li>Scalable figure and image handling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/linuxdoc-howto/kfigure.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scalable-figure-and-image-handling">
+<span id="kfigure"></span><h1>Scalable figure and image handling<a class="headerlink" href="#scalable-figure-and-image-handling" title="Permalink to this headline">¶</a></h1>
+<p>LinuxDoc brings the <a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#module-linuxdoc.kfigure" title="linuxdoc.kfigure"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxdoc.kfigure</span></code></a> Sphinx extension which implements
+scalable image handling.  Scalable here means; <em>scalable</em> in sense of the build
+process.  The build for image formats depends on image’s source format and
+output’s destination format.  Different builder prefer different image formats,
+e.g. <em>latex</em> builder prefer PDF while <em>html</em> builder prefer SVG format for
+images.  To get a pdf from a SVG input a third party converter is needed.
+Normally in absence of such a converter tool, the build process will break.
+From the authors POV it’s annoying to care about the build process when handling
+with images, especially since he has no possibility to influence the build
+process on every build host out there.</p>
+<p>With the directives of <a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#module-linuxdoc.kfigure" title="linuxdoc.kfigure"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxdoc.kfigure</span></code></a>, if a third party converter is
+missed, the build process will spit out a message about and continues with a
+lower quality in the output.  Even if the output is e.g. a raw SVG or DOT, in
+some use cases it might be a solution that fits.  As we say, its <em>scalable</em>: If
+you are the operator of a build host, install the recommended tools and you will
+always get the best quality.  For this the <a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#module-linuxdoc.kfigure" title="linuxdoc.kfigure"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxdoc.kfigure</span></code></a> implements
+a central <a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.convert_image" title="linuxdoc.kfigure.convert_image"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert_image</span></code></a> function
+which is used by the directives:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">kernel-figure</span></code> <a class="reference internal" href="#kernel-figure"><span class="std std-ref">[ref]</span></a></dt>
+<dd>Except remote URI and glob pattern, it’s a full replacement for the
+<a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure">figure</a> directive (<a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelFigure" title="linuxdoc.kfigure.KernelFigure"><code class="xref py py-class docutils literal notranslate"><span class="pre">KernelFigure</span></code></a>)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">kernel-image</span></code> <a class="reference internal" href="#kernel-image"><span class="std std-ref">[ref]</span></a></dt>
+<dd>A full replacement (except remote URI and glob pattern) for the
+<a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image">image</a> directive (<a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelImage" title="linuxdoc.kfigure.KernelImage"><code class="xref py py-class docutils literal notranslate"><span class="pre">KernelImage</span></code></a>)</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">kernel-render</span></code> <a class="reference internal" href="#kernel-render"><span class="std std-ref">[ref]</span></a></dt>
+<dd><p class="first">Renders the block content by a converter tool (<a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender" title="linuxdoc.kfigure.KernelRender"><code class="xref py py-class docutils literal notranslate"><span class="pre">KernelRender</span></code></a>).  Comparably to the <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure">figure</a>
+directive with the assumption that the content of the image is given in the
+block and not in an external image file.  This directive is helpful for use
+cases where the image markup is editable and written by the author himself
+(e.g. a small DOT graph).</p>
+<p>Has all the options known from the figure directive, plus option caption.  If
+caption has a value, a figure node with the caption is inserted.  If not, a
+image node is inserted.</p>
+<p>Supported markups:</p>
+<ul class="last simple">
+<li><a class="reference external" href="https://graphviz.gitlab.io/_pages/doc/info/lang.html">DOT</a>: render embedded Graphviz’s DOC language (<a class="reference external" href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf">Graphviz’s dot</a>)</li>
+<li><a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a>: render embedded Scalable Vector Graphics</li>
+<li>… <em>developable</em></li>
+</ul>
+</dd>
+</dl>
+<p>As already mentioned, the directives kernel-figure, kernel-image and
+kernel-render are based on one central function.  In the current expansion stage
+<a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.convert_image" title="linuxdoc.kfigure.convert_image"><code class="xref py py-func docutils literal notranslate"><span class="pre">convert_image</span></code></a> uses the following
+tools (latex builder is used when generating PDF):</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">dot(1)</span></code> <a class="reference external" href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf">Graphviz’s dot</a> command</li>
+<li><code class="docutils literal notranslate"><span class="pre">convert(1)</span></code> command from <a class="reference external" href="https://www.imagemagick.org">ImageMagick</a></li>
+</ul>
+<p>To summarize the build strategies:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://graphviz.gitlab.io/_pages/doc/info/lang.html">DOT</a> content, if <a class="reference external" href="https://graphviz.gitlab.io/_pages/pdf/dotguide.pdf">Graphviz’s dot</a> command is not available<ul>
+<li>html builder: the DOT language is inserted as literal block.</li>
+<li>latex builder: the DOT language is inserted as literal block.</li>
+</ul>
+</li>
+<li><a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a> content<ul>
+<li>html builder: always insert SVG</li>
+<li>latex builder: if <a class="reference external" href="https://www.imagemagick.org">ImageMagick</a> is not available the raw SVG is inserted as
+literal-block.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition-recommended-build-tools admonition" id="kfigure-build-tools">
+<p class="first admonition-title">recommended build tools</p>
+<p class="last">With the directives from <a class="reference internal" href="../linuxdoc-api/linuxdoc.kfigure.html#module-linuxdoc.kfigure" title="linuxdoc.kfigure"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxdoc.kfigure</span></code></a> the build process is
+flexible.  To get best results in the generated output format, install
+<a class="reference external" href="https://www.imagemagick.org">ImageMagick</a> and <a class="reference external" href="https://graphviz.gitlab.io">Graphviz</a>.</p>
+</div>
+<div class="section" id="kernel-figure-kernel-image">
+<span id="kernel-image"></span><span id="kernel-figure"></span><h2>kernel-figure &amp; kernel-image<a class="headerlink" href="#kernel-figure-kernel-image" title="Permalink to this headline">¶</a></h2>
+<p>If you want to add an image, you should use the <code class="docutils literal notranslate"><span class="pre">kernel-figure</span></code> and
+<code class="docutils literal notranslate"><span class="pre">kernel-image</span></code> directives.  Except remote URI and glob pattern, they are full
+replacements for the <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure">figure</a> and <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image">image</a>
+directive.  Here you will find a few recommendations for use, for a complete
+description see <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#images">reST markup</a>.</p>
+<p>If you want to insert a image into your documentation, prefer a scalable
+<a class="reference external" href="https://en.wikipedia.org/wiki/Vector_graphics">vector-graphics</a> format over a <a class="reference external" href="https://en.wikipedia.org/wiki/Raster_graphics">raster-graphics</a> format.  With scalable
+<a class="reference external" href="https://en.wikipedia.org/wiki/Vector_graphics">vector-graphics</a> there is a chance, that the rendered output going to be best.
+<a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a> is a common and standardized <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_graphics">vector-graphics</a> format and there are many
+tools available to create and edit <a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a> images.  That’s why its recommended
+to use <a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a> in most use cases.</p>
+<p>In the literal block below, you will find a simple example on how to insert a
+<a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a> figure (image) with the <code class="docutils literal notranslate"><span class="pre">kernel[-figure|image]</span></code> directive, about
+rendering please note <a class="reference internal" href="#kfigure-build-tools"><span class="std std-ref">build tools</span></a>:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_svg_image_example:</span>
+
+<span class="p">..</span> <span class="ow">kernel-figure</span><span class="p">::</span>  svg_image.svg
+   <span class="nc">:alt:</span>    <span class="nf">simple SVG image</span>
+
+    SVG figure example
+
+The first line in this example is only to show how an anchor is set and what
+a reference to it looks like <span class="na">:ref:</span><span class="nv">`svg_image_example`</span>.
+</pre></div>
+</div>
+<div class="rst-example admonition">
+<p class="first admonition-title">kernel-figure SVG</p>
+<div class="figure" id="id2">
+<img alt="simple SVG image" src="../_images/svg_image.svg" /><p class="caption"><span class="caption-text">SVG figure example</span></p>
+</div>
+<p class="last">The first line in this example is only to show how an anchor is set and what
+a reference to it looks like <a class="reference internal" href="#svg-image-example"><span class="std std-ref">SVG figure example</span></a>.</p>
+</div>
+<p>In addition to the <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure">figure</a> and <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image">image</a>,
+kernel-figure and kernel-image also support <a class="reference external" href="https://graphviz.gitlab.io/_pages/doc/info/lang.html">DOT</a> formated files.  A simple
+example is shown in figure <a class="reference internal" href="#hello-dot-file"><span class="std std-ref">DOT’s hello world example</span></a>.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">kernel-figure</span><span class="p">::</span>  hello.dot
+  <span class="nc">:alt:</span>    <span class="nf">hello world</span>
+
+  DOT&#39;s hello world example
+</pre></div>
+</div>
+<div class="rst-example admonition">
+<p class="first admonition-title">kernel-figure DOT</p>
+<div class="figure" id="id3">
+<img alt="hello world" src="../_images/hello.svg" /><p class="caption"><span class="caption-text">DOT’s hello world example</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="kernel-render">
+<span id="id1"></span><h2>kernel-render<a class="headerlink" href="#kernel-render" title="Permalink to this headline">¶</a></h2>
+<p>Embed <em>render</em> markups (languages) like Graphviz’s <a class="reference external" href="https://graphviz.gitlab.io/_pages/doc/info/lang.html">DOT</a> or <a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a> are provided by
+the kernel-render directive. The <a class="reference internal" href="#kernel-render">kernel-render</a> directive has all the options
+known from the <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image">image</a> directive (<a class="reference internal" href="#kernel-figure">kernel-figure</a>), plus option
+<code class="docutils literal notranslate"><span class="pre">caption</span></code>.  If <code class="docutils literal notranslate"><span class="pre">caption</span></code> has a value, a <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#figure">figure</a> like node is
+inserted into the <a class="reference external" href="http://www.sphinx-doc.org/en/master/extdev/tutorial.html?highlight=doctree#build-phases">doctree</a>.  If not, a <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#image">image</a> like node is
+inserted.</p>
+<div class="section" id="dot-markup">
+<h3>DOT markup<a class="headerlink" href="#dot-markup" title="Permalink to this headline">¶</a></h3>
+<p>A simple example of embedded <a class="reference external" href="https://graphviz.gitlab.io/_pages/doc/info/lang.html">DOT</a> is shown in figure <a class="reference internal" href="#hello-dot-render"><span class="std std-ref">Embedded DOT (Graphviz) code</span></a>:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_hello_dot_render:</span>
+
+<span class="p">..</span> <span class="ow">kernel-render</span><span class="p">::</span> DOT
+   <span class="nc">:alt:</span> <span class="nf">foobar digraph</span>
+   <span class="nc">:caption:</span> <span class="nf">Embedded **DOT** (Graphviz) code</span>
+
+   digraph foo {
+     &quot;bar&quot; -&gt; &quot;baz&quot;;
+   }
+
+ A <span class="s">``caption``</span> is needed, if you want to refer the figure:
+ <span class="na">:ref:</span><span class="nv">`hello_dot_render`</span>.
+</pre></div>
+</div>
+<p>Please note <a class="reference internal" href="#kfigure-build-tools"><span class="std std-ref">build tools</span></a>.  If <a class="reference external" href="https://graphviz.gitlab.io">Graphviz</a> is
+installed, you will see an vector image.  If not, the raw markup is inserted as
+<em>literal-block</em>.</p>
+<div class="rst-example admonition">
+<p class="first admonition-title">kernel-render DOT</p>
+<div class="figure" id="id4">
+<span id="hello-dot-render"></span><img alt="foobar digraph" src="../_images/DOT-57a4a7f78690d0b6b884bc59f36e84cfb0b61f76.svg" /><p class="caption"><span class="caption-text">Embedded <strong>DOT</strong> (Graphviz) code</span></p>
+</div>
+<p class="last">A <code class="docutils literal notranslate"><span class="pre">caption</span></code> is needed, if you want to refer the figure:
+<a class="reference internal" href="#hello-dot-render"><span class="std std-ref">Embedded DOT (Graphviz) code</span></a>.</p>
+</div>
+</div>
+<div class="section" id="svg-markup">
+<h3>SVG markup<a class="headerlink" href="#svg-markup" title="Permalink to this headline">¶</a></h3>
+<p>A simple example of embedded <a class="reference external" href="https://www.w3.org/TR/SVG11/expanded-toc.html">SVG</a> is shown in figure <a class="reference internal" href="#hello-svg-render"><span class="std std-ref">Embedded SVG markup</span></a>:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_hello_svg_render:</span>
+
+<span class="p">..</span> <span class="ow">kernel-render</span><span class="p">::</span> SVG
+   <span class="nc">:caption:</span> <span class="nf">Embedded **SVG** markup</span>
+   <span class="nc">:alt:</span> <span class="nf">so-nw-arrow</span>
+
+   &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+   &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;
+        baseProfile=&quot;full&quot; width=&quot;70px&quot; height=&quot;40px&quot;
+        viewBox=&quot;0 0 700 400&quot;
+        &gt;
+     &lt;line x1=&quot;180&quot; y1=&quot;370&quot;
+           x2=&quot;500&quot; y2=&quot;50&quot;
+           stroke=&quot;black&quot; stroke-width=&quot;15px&quot;
+           /&gt;
+     &lt;polygon points=&quot;585 0 525 25 585 50&quot;
+              transform=&quot;rotate(135 525 25)&quot;
+              /&gt;
+   &lt;/svg&gt;
+</pre></div>
+</div>
+<div class="rst-example admonition">
+<p class="first admonition-title">kernel-render SVG</p>
+<div class="last figure" id="id5">
+<span id="hello-svg-render"></span><img alt="so-nw-arrow" src="../_images/SVG-1fb7029fa2cc454a267bae271cccb2c591387416.svg" /><p class="caption"><span class="caption-text">Embedded <strong>SVG</strong> markup</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="table-markup.html" class="btn btn-neutral float-right" title="About tables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vintage-kernel-doc-mode.html" class="btn btn-neutral" title="Vintage kernel-doc mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018 Markus Heiser
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

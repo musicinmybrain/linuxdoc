@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>linuxdoc.rstKernelDoc &mdash; LinuxDoc 20181010 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> LinuxDoc
+          
+
+          
+            
+            <img src="../../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20181010
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../kernel-doc-intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install LinuxDoc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-howto/index.html">LinuxDoc HowTo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cmd-line.html">Command line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../linux.html">Patch Linux Kernel Documentation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">LinuxDoc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>linuxdoc.rstKernelDoc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for linuxdoc.rstKernelDoc</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8; mode: python -*-</span>
+<span class="c1"># pylint: disable=missing-docstring, invalid-name</span>
+<span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    rstKernelDoc</span>
+<span class="sd">    ~~~~~~~~~~~~</span>
+
+<span class="sd">    Implementation of the ``kernel-doc`` reST-directive.</span>
+
+<span class="sd">    :copyright:  Copyright (C) 2018 Markus Heiser</span>
+<span class="sd">    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.</span>
+
+<span class="sd">    The ``kernel-doc`` (:py:class:`KernelDoc`) directive includes contend from</span>
+<span class="sd">    linux kernel source code comments.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># imports</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">StringIO</span>
+
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">docutils</span> <span class="k">import</span> <span class="n">nodes</span>
+<span class="kn">from</span> <span class="nn">docutils.parsers.rst</span> <span class="k">import</span> <span class="n">Directive</span><span class="p">,</span> <span class="n">directives</span>
+<span class="kn">from</span> <span class="nn">docutils.utils</span> <span class="k">import</span> <span class="n">SystemMessage</span>
+<span class="kn">from</span> <span class="nn">docutils.statemachine</span> <span class="k">import</span> <span class="n">ViewList</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">compat</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">kernel_doc</span> <span class="k">as</span> <span class="n">kerneldoc</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># common globals</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># The version numbering follows numbering of the specification</span>
+<span class="c1"># (Documentation/books/kernel-doc-HOWTO).</span>
+<span class="n">__version__</span>  <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span>
+
+<span class="n">PARSER_CACHE</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">app_log</span> <span class="o">=</span> <span class="n">compat</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;application&#39;</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;kernel_doc_raise_error&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;env&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;kernel_doc_verbose_warn&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;env&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;kernel_doc_mode&#39;</span><span class="p">,</span> <span class="s2">&quot;reST&quot;</span><span class="p">,</span> <span class="s1">&#39;env&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;kernel_doc_mansect&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;env&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;kernel_doc_exp_method&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;env&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;kernel_doc_exp_ids&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;env&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_config_value</span><span class="p">(</span><span class="s1">&#39;kernel_doc_known_attrs&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;env&#39;</span><span class="p">)</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s2">&quot;kernel-doc&quot;</span><span class="p">,</span> <span class="n">KernelDoc</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span>
+        <span class="p">,</span> <span class="n">parallel_read_safe</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="p">,</span> <span class="n">parallel_write_safe</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span></div>
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="KernelDocParser"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDocParser">[docs]</a><span class="k">class</span> <span class="nc">KernelDocParser</span><span class="p">(</span><span class="n">kerneldoc</span><span class="o">.</span><span class="n">Parser</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="c1"># pylint: disable=deprecated-method</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">KernelDocParser</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>
+
+    <span class="c1"># -------------------------------------------------</span>
+    <span class="c1"># bind the parser logging to the sphinx application</span>
+    <span class="c1"># -------------------------------------------------</span>
+
+    <span class="c1"># pylint: disable=arguments-differ</span>
+
+<div class="viewcode-block" id="KernelDocParser.error"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDocParser.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;fname&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">fname</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;line_no&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">replace</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;line_no&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">line_no</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%(fname)s</span><span class="s2">:</span><span class="si">%(line_no)s</span><span class="s2">: [kernel-doc ERROR] : &quot;</span> <span class="o">+</span> <span class="n">message</span><span class="p">)</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">app_log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KernelDocParser.warn"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDocParser.warn">[docs]</a>    <span class="k">def</span> <span class="nf">warn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;fname&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">fname</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;line_no&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">replace</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;line_no&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">line_no</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">warnings</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%(fname)s</span><span class="s2">:</span><span class="si">%(line_no)s</span><span class="s2">: [kernel-doc WARN] : &quot;</span> <span class="o">+</span> <span class="n">message</span><span class="p">)</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">app_log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KernelDocParser.info"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDocParser.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;fname&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">fname</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;line_no&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">replace</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;line_no&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">line_no</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%(fname)s</span><span class="s2">:</span><span class="si">%(line_no)s</span><span class="s2">: [kernel-doc INFO] : &quot;</span> <span class="o">+</span> <span class="n">message</span><span class="p">)</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KernelDocParser.debug"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDocParser.debug">[docs]</a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">replace</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">verbosity</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;fname&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">fname</span>
+        <span class="n">replace</span><span class="p">[</span><span class="s2">&quot;line_no&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">replace</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;line_no&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">line_no</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">%(fname)s</span><span class="s2">:</span><span class="si">%(line_no)s</span><span class="s2">: [kernel-doc DEBUG] : &quot;</span> <span class="o">+</span> <span class="n">message</span><span class="p">)</span> <span class="o">%</span> <span class="n">replace</span>
+        <span class="n">app_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="FaultyOption"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.FaultyOption">[docs]</a><span class="k">class</span> <span class="nc">FaultyOption</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="KernelDoc"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc">[docs]</a><span class="k">class</span> <span class="nc">KernelDoc</span><span class="p">(</span><span class="n">Directive</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;KernelDoc (``kernel-doc``) directive&quot;&quot;&quot;</span>
+
+    <span class="n">required_arguments</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">optional_arguments</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">final_argument_whitespace</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">option_spec</span> <span class="o">=</span> <span class="p">{</span>
+
+        <span class="c1"># see https://github.com/PyCQA/pylint/issues/289</span>
+        <span class="c1"># pylint: disable=bad-continuation</span>
+
+        <span class="s2">&quot;doc&quot;</span>          <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span> <span class="c1"># aka lines containing !P</span>
+        <span class="p">,</span> <span class="s2">&quot;no-header&quot;</span>  <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">flag</span>
+
+        <span class="p">,</span> <span class="s2">&quot;export&quot;</span>     <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged</span>          <span class="c1"># aka lines containing !E</span>
+        <span class="p">,</span> <span class="s2">&quot;internal&quot;</span>   <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged</span>          <span class="c1"># aka lines containing !I</span>
+        <span class="p">,</span> <span class="s2">&quot;functions&quot;</span>  <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span> <span class="c1"># aka lines containing !F</span>
+        <span class="p">,</span> <span class="s2">&quot;exp-method&quot;</span> <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span>
+        <span class="p">,</span> <span class="s2">&quot;exp-ids&quot;</span>    <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span>
+        <span class="p">,</span> <span class="s2">&quot;known-attrs&quot;</span><span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span>
+
+        <span class="p">,</span> <span class="s2">&quot;debug&quot;</span>      <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">flag</span>               <span class="c1"># insert generated reST as code-block</span>
+
+        <span class="p">,</span> <span class="s2">&quot;snippets&quot;</span>   <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span>
+        <span class="p">,</span> <span class="s2">&quot;language&quot;</span>   <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span>
+        <span class="p">,</span> <span class="s2">&quot;linenos&quot;</span>    <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">flag</span>
+
+        <span class="c1"># module name / used as id-prefix</span>
+        <span class="p">,</span> <span class="s2">&quot;module&quot;</span>     <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged_required</span>
+        <span class="p">,</span> <span class="s2">&quot;man-sect&quot;</span>   <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">nonnegative_int</span>
+
+        <span class="c1"># The encoding of the source file with the kernel-doc comments. The</span>
+        <span class="c1"># default is the config.source_encoding from sphinx configuration and</span>
+        <span class="c1"># this default is utf-8-sig</span>
+        <span class="p">,</span> <span class="s2">&quot;encoding&quot;</span>   <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">encoding</span>
+
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="KernelDoc.getParserOptions"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc.getParserOptions">[docs]</a>    <span class="k">def</span> <span class="nf">getParserOptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-many-branches, too-many-statements</span>
+
+        <span class="n">fname</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">src_tree</span>  <span class="o">=</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">SRCTREE</span>
+        <span class="n">exp_files</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># file pattern to search for EXPORT_SYMBOL</span>
+        <span class="n">exp_method</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;exp-method&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_exp_method</span><span class="p">)</span>
+        <span class="n">exp_ids</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;exp-ids&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_exp_ids</span><span class="p">)</span>
+        <span class="n">known_attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;known-attrs&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_known_attrs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;./&quot;</span><span class="p">):</span>
+            <span class="c1"># the prefix &quot;./&quot; indicates a relative pathname</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">:]</span>
+            <span class="n">src_tree</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">current_source</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="s2">&quot;internal&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="ow">and</span> <span class="s2">&quot;export&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">FaultyOption</span><span class="p">(</span>
+                <span class="s2">&quot;Options &#39;export&#39; and &#39;internal&#39; are orthogonal,&quot;</span>
+                <span class="s2">&quot; can&#39;t use them togehter&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;snippets&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">rest</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;snippets&quot;</span><span class="p">,</span> <span class="s2">&quot;linenos&quot;</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">,</span> <span class="s2">&quot;debug&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">rest</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">FaultyOption</span><span class="p">(</span>
+                    <span class="s2">&quot;kernel-doc &#39;snippets&#39; has non of these options: </span><span class="si">%s</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rest</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;reST&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel-doc&quot;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">FaultyOption</span><span class="p">(</span>
+                <span class="s2">&quot;unknow kernel-doc mode: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_mode</span><span class="p">)</span>
+
+        <span class="c1"># set parse adjustments</span>
+
+        <span class="n">ctx</span>  <span class="o">=</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">ParserContext</span><span class="p">()</span>
+        <span class="n">opts</span> <span class="o">=</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">ParseOptions</span><span class="p">(</span>
+            <span class="n">rel_fname</span>       <span class="o">=</span> <span class="n">fname</span>
+            <span class="p">,</span> <span class="n">src_tree</span>      <span class="o">=</span> <span class="n">src_tree</span>
+            <span class="p">,</span> <span class="n">id_prefix</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;module&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="p">,</span> <span class="n">encoding</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">source_encoding</span><span class="p">)</span>
+            <span class="p">,</span> <span class="n">verbose_warn</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_verbose_warn</span>
+            <span class="p">,</span> <span class="n">markup</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_mode</span>
+            <span class="p">,</span> <span class="n">man_sect</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;man-sect&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="p">,</span> <span class="n">exp_method</span>    <span class="o">=</span> <span class="n">exp_method</span>
+            <span class="p">,</span> <span class="n">exp_ids</span>       <span class="o">=</span> <span class="p">(</span><span class="n">exp_ids</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="p">,</span> <span class="n">known_attrs</span>   <span class="o">=</span> <span class="p">(</span><span class="n">known_attrs</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="p">,)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="s2">&quot;doc&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>
+             <span class="ow">and</span> <span class="n">opts</span><span class="o">.</span><span class="n">man_sect</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">man_sect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_mansect</span>
+
+        <span class="n">opts</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">FaultyOption</span><span class="p">(</span>
+                <span class="s2">&quot;kernel-doc refers to nonexisting document </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+
+        <span class="c1"># always skip preamble and epilog in kernel-doc directives</span>
+        <span class="n">opts</span><span class="o">.</span><span class="n">skip_preamble</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">opts</span><span class="o">.</span><span class="n">skip_epilog</span>   <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="s2">&quot;doc&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>
+             <span class="ow">and</span> <span class="s2">&quot;export&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>
+             <span class="ow">and</span> <span class="s2">&quot;internal&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>
+             <span class="ow">and</span> <span class="s2">&quot;functions&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span>
+             <span class="ow">and</span> <span class="s2">&quot;snippets&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span> <span class="p">):</span>
+            <span class="c1"># if no explicit content is selected, then print all, including all</span>
+            <span class="c1"># DOC sections</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">use_all_docs</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">if</span> <span class="s2">&quot;doc&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">no_header</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;no-header&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">use_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;doc&quot;</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="s2">&quot;export&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="c1"># gather exported symbols and add them to the list of names</span>
+            <span class="n">kerneldoc</span><span class="o">.</span><span class="n">Parser</span><span class="o">.</span><span class="n">gather_context</span><span class="p">(</span><span class="n">kerneldoc</span><span class="o">.</span><span class="n">readFile</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">),</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+            <span class="n">exp_files</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;export&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">error_missing</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">elif</span> <span class="s2">&quot;internal&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="c1"># gather exported symbols and add them to the ignore-list of names</span>
+            <span class="n">kerneldoc</span><span class="o">.</span><span class="n">Parser</span><span class="o">.</span><span class="n">gather_context</span><span class="p">(</span><span class="n">kerneldoc</span><span class="o">.</span><span class="n">readFile</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">),</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+            <span class="n">exp_files</span><span class="o">.</span><span class="n">extend</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;internal&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="s2">&quot;functions&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">error_missing</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">use_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;functions&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">exp_files</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;./&quot;</span><span class="p">):</span> <span class="c1"># &quot;./&quot; indicates a relative pathname</span>
+                <span class="n">pattern</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">current_source</span><span class="p">))</span>
+                    <span class="p">,</span> <span class="n">pattern</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pattern</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">kerneldoc</span><span class="o">.</span><span class="n">SRCTREE</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">glob</span><span class="o">.</span><span class="n">has_magic</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+                 <span class="ow">and</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">lexists</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span> <span class="p">):</span>
+                <span class="c1"># if pattern is a filename (is not a glob pattern) and this file</span>
+                <span class="c1"># does not exists, an error is raised.</span>
+                <span class="k">raise</span> <span class="n">FaultyOption</span><span class="p">(</span><span class="s2">&quot;file not found: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">pattern</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">pattern</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">note_dependency</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+                <span class="n">kerneldoc</span><span class="o">.</span><span class="n">Parser</span><span class="o">.</span><span class="n">gather_context</span><span class="p">(</span><span class="n">kerneldoc</span><span class="o">.</span><span class="n">readFile</span><span class="p">(</span><span class="n">fname</span><span class="p">),</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;export&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ctx</span><span class="o">.</span><span class="n">exported_symbols</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">FaultyOption</span><span class="p">(</span><span class="s2">&quot;using option :export: but there are no exported symbols&quot;</span><span class="p">)</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">use_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">exported_symbols</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;internal&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">opts</span><span class="o">.</span><span class="n">skip_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">exported_symbols</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">opts</span></div>
+
+<div class="viewcode-block" id="KernelDoc.errMsg"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc.errMsg">[docs]</a>    <span class="k">def</span> <span class="nf">errMsg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state_machine</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+            <span class="n">msg</span>
+            <span class="p">,</span> <span class="n">nodes</span><span class="o">.</span><span class="n">literal_block</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">block_text</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_text</span><span class="p">)</span>
+            <span class="p">,</span> <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span> <span class="p">)</span>
+
+        <span class="c1"># raise exception on error?</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">kernel_doc_raise_error</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">SystemMessage</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="c1"># insert oops/todo admonition, this is the replacement of the escape</span>
+        <span class="c1"># sequences &quot;!C&lt;filename&gt; &quot; formerly used in the DocBook-SGML template</span>
+        <span class="c1"># files.</span>
+        <span class="n">todo</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">.. todo::&quot;</span>
+                <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">    Oops: Document generation inconsistency.&quot;</span>
+                <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">    The template for this document tried to insert&quot;</span>
+                <span class="s2">&quot; structured comment at this point, but an error occoured.&quot;</span>
+                <span class="s2">&quot; This dummy section is inserted to allow generation to continue.::&quot;</span>
+                <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">error</span><span class="o">.</span><span class="n">astext</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+            <span class="n">todo</span> <span class="o">+=</span>  <span class="s2">&quot;        &quot;</span> <span class="o">+</span> <span class="n">l</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="n">todo</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state_machine</span><span class="o">.</span><span class="n">insert_input</span><span class="p">(</span><span class="n">todo</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="KernelDoc.parseSource"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc.parseSource">[docs]</a>    <span class="k">def</span> <span class="nf">parseSource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">opts</span><span class="p">):</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">PARSER_CACHE</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">parser</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">note_dependency</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
+            <span class="c1">#app_log.info(&quot;parse kernel-doc comments from: %s&quot; % opts.fname)</span>
+            <span class="n">parser</span> <span class="o">=</span> <span class="n">KernelDocParser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">app</span><span class="p">,</span> <span class="n">opts</span><span class="p">,</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">NullTranslator</span><span class="p">())</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+            <span class="n">PARSER_CACHE</span><span class="p">[</span><span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">]</span> <span class="o">=</span> <span class="n">parser</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">setOptions</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">parser</span></div>
+
+<div class="viewcode-block" id="KernelDoc.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c1"># FIXME: think about again; these members has been added for convenience</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="kc">None</span>                     <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doc</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">document</span>      <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">env</span>    <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span>  <span class="o">=</span> <span class="p">[]</span>                       <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">file_insertion_enabled</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">FaultyOption</span><span class="p">(</span><span class="s1">&#39;docutils: file insertion disabled&#39;</span><span class="p">)</span>
+            <span class="n">opts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getParserOptions</span><span class="p">()</span>
+            <span class="c1"># FIXME: think about again; these members has been added for convenience</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parseSource</span><span class="p">(</span><span class="n">opts</span><span class="p">)</span> <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getNodes</span><span class="p">())</span>
+
+        <span class="k">except</span> <span class="n">FaultyOption</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">errMsg</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span></div>
+
+
+<div class="viewcode-block" id="KernelDoc.getNodes"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc.getNodes">[docs]</a>    <span class="k">def</span> <span class="nf">getNodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-many-branches, too-many-statements, too-many-locals</span>
+
+        <span class="n">translator</span> <span class="o">=</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">ReSTTranslator</span><span class="p">()</span>
+        <span class="n">lines</span>      <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="n">content</span>    <span class="o">=</span> <span class="n">WriterList</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="p">)</span>
+
+        <span class="c1"># translate</span>
+
+        <span class="k">if</span> <span class="s2">&quot;debug&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">rstout</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">rstout</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_dump_storage</span><span class="p">(</span><span class="n">translator</span><span class="o">=</span><span class="n">translator</span><span class="p">)</span>
+            <span class="n">code_block</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">.. code-block:: rst</span><span class="se">\n</span><span class="s2">    :linenos:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">rstout</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+                <span class="n">code_block</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span> <span class="o">+</span> <span class="n">l</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">code_block</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+
+        <span class="k">elif</span> <span class="s2">&quot;snippets&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">selected</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;snippets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">names</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">snippets</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="n">not_found</span> <span class="o">=</span> <span class="p">[</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">selected</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+            <span class="n">found</span>     <span class="o">=</span> <span class="p">[</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">selected</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">not_found</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">errMsg</span><span class="p">(</span><span class="s2">&quot;selected snippets(s) not found:</span><span class="se">\n</span><span class="s2">    </span><span class="si">%s</span><span class="s2">&quot;</span>
+                            <span class="o">%</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    ,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">not_found</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+                <span class="n">code_block</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">.. code-block:: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;language&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s2">&quot;linenos&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+                    <span class="n">code_block</span> <span class="o">+=</span> <span class="s2">&quot;    :linenos:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">snipsnap</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">while</span> <span class="n">found</span> <span class="p">:</span>
+                    <span class="n">snipsnap</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">snippets</span><span class="p">[</span><span class="n">found</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">snipsnap</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+                    <span class="n">code_block</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    &quot;</span> <span class="o">+</span> <span class="n">l</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="n">code_block</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">content</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_dump_storage</span><span class="p">(</span><span class="n">translator</span><span class="o">=</span><span class="n">translator</span><span class="p">)</span>
+
+        <span class="c1"># check translation</span>
+
+        <span class="k">if</span> <span class="s2">&quot;functions&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">selected</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;functions&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">names</span>     <span class="o">=</span> <span class="n">translator</span><span class="o">.</span><span class="n">translated_names</span>
+            <span class="n">not_found</span> <span class="o">=</span> <span class="p">[</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">selected</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">not_found</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">errMsg</span><span class="p">(</span>
+                    <span class="s2">&quot;selected section(s) not found:</span><span class="se">\n</span><span class="s2">    </span><span class="si">%s</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    ,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">not_found</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="s2">&quot;export&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
+            <span class="n">selected</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">use_names</span>
+            <span class="n">names</span>     <span class="o">=</span> <span class="n">translator</span><span class="o">.</span><span class="n">translated_names</span>
+            <span class="n">not_found</span> <span class="o">=</span> <span class="p">[</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">selected</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">not_found</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">errMsg</span><span class="p">(</span>
+                    <span class="s2">&quot;exported definitions not found:</span><span class="se">\n</span><span class="s2">    </span><span class="si">%s</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">    ,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">not_found</span><span class="p">))</span>
+
+        <span class="c1"># add lines to content list</span>
+        <span class="n">reSTfname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">document</span><span class="o">.</span><span class="n">current_source</span>
+
+        <span class="n">content</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
+                <span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">reSTfname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">)</span>
+
+        <span class="n">node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">section</span><span class="p">()</span>
+        <span class="c1"># necessary so that the child nodes get the right source/line set</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">document</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">document</span>
+        <span class="k">with</span> <span class="n">compat</span><span class="o">.</span><span class="n">switch_source_input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+            <span class="c1"># hack around title style bookkeeping</span>
+            <span class="n">buf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">memo</span><span class="o">.</span><span class="n">title_styles</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">memo</span><span class="o">.</span><span class="n">section_level</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">memo</span><span class="o">.</span><span class="n">title_styles</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">memo</span><span class="o">.</span><span class="n">section_level</span> <span class="o">=</span> <span class="p">[],</span> <span class="mi">0</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">nested_parse</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="n">match_titles</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">memo</span><span class="o">.</span><span class="n">title_styles</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">memo</span><span class="o">.</span><span class="n">section_level</span> <span class="o">=</span> <span class="n">buf</span>
+        <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="n">children</span></div></div>
+
+
+<span class="c1"># ==============================================================================</span>
+<div class="viewcode-block" id="WriterList"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.WriterList">[docs]</a><span class="k">class</span> <span class="nc">WriterList</span><span class="p">(</span><span class="n">ViewList</span><span class="p">):</span>
+<span class="c1"># ==============================================================================</span>
+    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;docutils ViewList with write method.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">ViewList</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parser</span> <span class="o">=</span> <span class="n">parser</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_offset</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_buffer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<div class="viewcode-block" id="WriterList.write"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.WriterList.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cont</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_offset</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">offset</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">line_buffer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">offset</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_buffer</span> <span class="o">+=</span> <span class="n">cont</span></div>
+
+<div class="viewcode-block" id="WriterList.flush"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.WriterList.flush">[docs]</a>    <span class="k">def</span> <span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">_i</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">line_buffer</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">fname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_offset</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">line_buffer</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018 Markus Heiser
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
