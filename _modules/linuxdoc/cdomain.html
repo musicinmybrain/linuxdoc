@@ -1,368 +1,279 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>linuxdoc.cdomain &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>linuxdoc.cdomain &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/tabs.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+    <script src="../../_static/sphinx_tabs/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="search" title="Search" href="../../search.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../../';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../../index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="../../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-howto/index.html">LinuxDoc HowTo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../linux.html">Patch Linux Kernel Documentation</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-        
-      <li>linuxdoc.cdomain</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <h1>Source code for linuxdoc.cdomain</h1><div class="highlight"><pre>
-<span></span><span class="c1"># -*- coding: utf-8; mode: python -*-</span>
-<span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    cdomain</span>
-<span class="sd">    ~~~~~~~</span>
+<span></span># -*- coding: utf-8; mode: python -*-
+u&quot;&quot;&quot;
+    cdomain
+    ~~~~~~~
 
-<span class="sd">    Replacement for the sphinx c-domain.</span>
+    Replacement for the sphinx c-domain.
 
-<span class="sd">    :copyright:  Copyright (C) 2018 Markus Heiser</span>
-<span class="sd">    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.</span>
+    :copyright:  Copyright (C) 2018 Markus Heiser
+    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
 
-<span class="sd">    For user documentation see :ref:`customized-c-domain`.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+    For user documentation see :ref:`customized-c-domain`.
+&quot;&quot;&quot;
 
-<span class="kn">from</span> <span class="nn">docutils</span> <span class="k">import</span> <span class="n">nodes</span>
-<span class="kn">from</span> <span class="nn">docutils.parsers.rst</span> <span class="k">import</span> <span class="n">directives</span>
+import re
 
-<span class="kn">import</span> <span class="nn">sphinx</span>
-<span class="kn">from</span> <span class="nn">sphinx</span> <span class="k">import</span> <span class="n">addnodes</span>
-<span class="kn">from</span> <span class="nn">sphinx.locale</span> <span class="k">import</span> <span class="n">_</span>
-<span class="kn">from</span> <span class="nn">sphinx.domains.c</span> <span class="k">import</span> <span class="n">c_funcptr_sig_re</span><span class="p">,</span> <span class="n">c_sig_re</span>
-<span class="kn">from</span> <span class="nn">sphinx.domains.c</span> <span class="k">import</span> <span class="n">CObject</span> <span class="k">as</span> <span class="n">Base_CObject</span>
-<span class="kn">from</span> <span class="nn">sphinx.domains.c</span> <span class="k">import</span> <span class="n">CDomain</span> <span class="k">as</span> <span class="n">Base_CDomain</span>
+from docutils import nodes
+from docutils.parsers.rst import directives
 
-<span class="n">__version__</span>  <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span>
+import sphinx
+from sphinx import addnodes
+from sphinx.locale import _
+from sphinx.domains.c import CObject as Base_CObject
+from sphinx.domains.c import CDomain as Base_CDomain
 
-<span class="c1"># Get Sphinx version</span>
-<span class="n">major</span><span class="p">,</span> <span class="n">minor</span><span class="p">,</span> <span class="n">patch</span> <span class="o">=</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># pylint: disable=invalid-name</span>
+# fixes https://github.com/sphinx-doc/sphinx/commit/0f49e30c51b5cc5055cda5b4b294c2dd9d1df573#r38750737
 
-<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>  <span class="c1"># pylint: disable=missing-docstring</span>
+# pylint: disable=invalid-name
+c_sig_re = re.compile(
+    r&#39;&#39;&#39;^([^(]*?)          # return type
+        ([\w:.]+)  \s*     # thing name (colon allowed for C++)
+        (?: \((.*)\) )?    # optionally arguments
+        (\s+const)? $      # const specifier
+    &#39;&#39;&#39;, re.VERBOSE)
 
-    <span class="n">app</span><span class="o">.</span><span class="n">override_domain</span><span class="p">(</span><span class="n">CDomain</span><span class="p">)</span>
+c_funcptr_sig_re = re.compile(
+    r&#39;&#39;&#39;^([^(]+?)          # return type
+        (\( [^()]+ \)) \s* # name in parentheses
+        \( (.*) \)         # arguments
+        (\s+const)? $      # const specifier
+    &#39;&#39;&#39;, re.VERBOSE)
+# pylint: enable=invalid-name
 
-    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
-        <span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">,</span>
-        <span class="n">parallel_read_safe</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">parallel_write_safe</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="p">)</span></div>
+__version__  = &#39;1.0.1&#39;
 
-<div class="viewcode-block" id="CObject"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject">[docs]</a><span class="k">class</span> <span class="nc">CObject</span><span class="p">(</span><span class="n">Base_CObject</span><span class="p">):</span>
+# Get Sphinx version
+major, minor, patch = sphinx.version_info[:3]  # pylint: disable=invalid-name
 
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Description of a C language object.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">option_spec</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged</span>
-    <span class="p">}</span>
+<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.setup">[docs]</a>def setup(app):  # pylint: disable=missing-docstring
 
-    <span class="n">is_function_like_macro</span> <span class="o">=</span> <span class="kc">False</span>
+    app.add_domain(CDomain, override=True)
 
-<div class="viewcode-block" id="CObject.handle_func_like_macro"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.handle_func_like_macro">[docs]</a>    <span class="k">def</span> <span class="nf">handle_func_like_macro</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">signode</span><span class="p">):</span>
-        <span class="sa">u</span><span class="sd">&quot;&quot;&quot;Handles signatures of function-like macros.</span>
+    return dict(
+        version = __version__,
+        parallel_read_safe = True,
+        parallel_write_safe = True
+    )</div>
 
-<span class="sd">        If the objtype is &#39;function&#39; and the the signature ``sig`` is a</span>
-<span class="sd">        function-like macro, the name of the macro is returned. Otherwise</span>
-<span class="sd">        ``False`` is returned.  &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CObject"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject">[docs]</a>class CObject(Base_CObject):
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">objtype</span> <span class="o">==</span> <span class="s1">&#39;function&#39;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+    &quot;&quot;&quot;
+    Description of a C language object.
+    &quot;&quot;&quot;
+    option_spec = {
+        &quot;name&quot; : directives.unchanged
+    }
 
-        <span class="n">m</span> <span class="o">=</span> <span class="n">c_funcptr_sig_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>  <span class="c1"># pylint: disable=invalid-name</span>
-        <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">m</span> <span class="o">=</span> <span class="n">c_sig_re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">sig</span><span class="p">)</span>      <span class="c1"># pylint: disable=invalid-name</span>
-            <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;no match&#39;</span><span class="p">)</span>
+    is_function_like_macro = False
 
-        <span class="n">rettype</span><span class="p">,</span> <span class="n">fullname</span><span class="p">,</span> <span class="n">arglist</span><span class="p">,</span> <span class="n">_const</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
-        <span class="n">arglist</span> <span class="o">=</span> <span class="n">arglist</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">rettype</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">arglist</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+<div class="viewcode-block" id="CObject.handle_func_like_macro"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.handle_func_like_macro">[docs]</a>    def handle_func_like_macro(self, sig, signode):
+        u&quot;&quot;&quot;Handles signatures of function-like macros.
 
-        <span class="n">arglist</span> <span class="o">=</span> <span class="n">arglist</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;`&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># remove markup</span>
-        <span class="n">arglist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arglist</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+        If the objtype is &#39;function&#39; and the the signature ``sig`` is a
+        function-like macro, the name of the macro is returned. Otherwise
+        ``False`` is returned.  &quot;&quot;&quot;
 
-        <span class="c1"># has the first argument a type?</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arglist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+        if not self.objtype == &#39;function&#39;:
+            return False
 
-        <span class="c1"># This is a function-like macro, it&#39;s arguments are typeless!</span>
-        <span class="n">signode</span>  <span class="o">+=</span> <span class="n">addnodes</span><span class="o">.</span><span class="n">desc_name</span><span class="p">(</span><span class="n">fullname</span><span class="p">,</span> <span class="n">fullname</span><span class="p">)</span>
-        <span class="n">paramlist</span> <span class="o">=</span> <span class="n">addnodes</span><span class="o">.</span><span class="n">desc_parameterlist</span><span class="p">()</span>
-        <span class="n">signode</span>  <span class="o">+=</span> <span class="n">paramlist</span>
+        m = c_funcptr_sig_re.match(sig)  # pylint: disable=invalid-name
+        if m is None:
+            m = c_sig_re.match(sig)      # pylint: disable=invalid-name
+            if m is None:
+                raise ValueError(&#39;no match&#39;)
 
-        <span class="k">for</span> <span class="n">argname</span> <span class="ow">in</span> <span class="n">arglist</span><span class="p">:</span>
-            <span class="n">param</span> <span class="o">=</span> <span class="n">addnodes</span><span class="o">.</span><span class="n">desc_parameter</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">noemph</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="c1"># separate by non-breaking space in the output</span>
-            <span class="n">param</span> <span class="o">+=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">emphasis</span><span class="p">(</span><span class="n">argname</span><span class="p">,</span> <span class="n">argname</span><span class="p">)</span>
-            <span class="n">paramlist</span> <span class="o">+=</span> <span class="n">param</span>
+        rettype, fullname, arglist, _const = m.groups()
+        arglist = arglist.strip()
+        if rettype or not arglist:
+            return False
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">is_function_like_macro</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">return</span> <span class="n">fullname</span></div>
+        arglist = arglist.replace(&#39;`&#39;, &#39;&#39;).replace(&#39;\\ &#39;, &#39;&#39;) # remove markup
+        arglist = [a.strip() for a in arglist.split(&quot;,&quot;)]
 
-<div class="viewcode-block" id="CObject.handle_signature"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.handle_signature">[docs]</a>    <span class="k">def</span> <span class="nf">handle_signature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">signode</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Transform a C signature into RST nodes.&quot;&quot;&quot;</span>
+        # has the first argument a type?
+        if len(arglist[0].split(&quot; &quot;)) &gt; 1:
+            return False
 
-        <span class="n">fullname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_func_like_macro</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">signode</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">fullname</span><span class="p">:</span>
-            <span class="n">fullname</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CObject</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">handle_signature</span><span class="p">(</span><span class="n">sig</span><span class="p">,</span> <span class="n">signode</span><span class="p">)</span>
+        # This is a function-like macro, it&#39;s arguments are typeless!
+        signode  += addnodes.desc_name(fullname, fullname)
+        paramlist = addnodes.desc_parameterlist()
+        signode  += paramlist
 
-        <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">objtype</span> <span class="o">==</span> <span class="s1">&#39;function&#39;</span><span class="p">:</span>
-                <span class="n">fullname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="c1"># FIXME: handle :name: value of other declaration types?</span>
-                <span class="k">pass</span>
-        <span class="k">return</span> <span class="n">fullname</span></div>
+        for argname in arglist:
+            param = addnodes.desc_parameter(&#39;&#39;, &#39;&#39;, noemph=True)
+            # separate by non-breaking space in the output
+            param += nodes.emphasis(argname, argname)
+            paramlist += param
 
-<div class="viewcode-block" id="CObject.add_target_and_index"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.add_target_and_index">[docs]</a>    <span class="k">def</span> <span class="nf">add_target_and_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">sig</span><span class="p">,</span> <span class="n">signode</span><span class="p">):</span>
-        <span class="c1"># for C API items we add a prefix since names are usually not qualified</span>
-        <span class="c1"># by a module name and so easily clash with e.g. section titles</span>
-        <span class="n">targetname</span> <span class="o">=</span> <span class="s1">&#39;c.&#39;</span> <span class="o">+</span> <span class="n">name</span>
-        <span class="k">if</span> <span class="n">targetname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">document</span><span class="o">.</span><span class="n">ids</span><span class="p">:</span>
-            <span class="n">signode</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">targetname</span><span class="p">)</span>
-            <span class="n">signode</span><span class="p">[</span><span class="s1">&#39;ids&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">targetname</span><span class="p">)</span>
-            <span class="n">signode</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">document</span><span class="o">.</span><span class="n">note_explicit_target</span><span class="p">(</span><span class="n">signode</span><span class="p">)</span>
-            <span class="n">inv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">domaindata</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="s1">&#39;objects&#39;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">name</span> <span class="ow">in</span> <span class="n">inv</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">nitpicky</span><span class="p">):</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">objtype</span> <span class="o">==</span> <span class="s1">&#39;function&#39;</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;c:func&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">nitpick_ignore</span><span class="p">:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">state_machine</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                            <span class="s1">&#39;duplicate C object description of </span><span class="si">%s</span><span class="s1">, &#39;</span> <span class="o">%</span> <span class="n">name</span> <span class="o">+</span>
-                            <span class="s1">&#39;other instance in &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">doc2path</span><span class="p">(</span><span class="n">inv</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span>
-                            <span class="n">line</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">)</span>
-            <span class="n">inv</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">docname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">objtype</span><span class="p">)</span>
+        self.is_function_like_macro = True
+        return fullname</div>
 
-        <span class="n">indextext</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_index_text</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">indextext</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">major</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">minor</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-                <span class="c1"># indexnode&#39;s tuple changed in 1.4</span>
-                <span class="c1"># https://github.com/sphinx-doc/sphinx/commit/e6a5a3a92e938fcd75866b4227db9e0524d58f7c</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">indexnode</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                    <span class="p">(</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">indextext</span><span class="p">,</span> <span class="n">targetname</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">indexnode</span><span class="p">[</span><span class="s1">&#39;entries&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                    <span class="p">(</span><span class="s1">&#39;single&#39;</span><span class="p">,</span> <span class="n">indextext</span><span class="p">,</span> <span class="n">targetname</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span></div>
+<div class="viewcode-block" id="CObject.handle_signature"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.handle_signature">[docs]</a>    def handle_signature(self, sig, signode):
+        &quot;&quot;&quot;Transform a C signature into RST nodes.&quot;&quot;&quot;
 
-<div class="viewcode-block" id="CObject.get_index_text"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.get_index_text">[docs]</a>    <span class="k">def</span> <span class="nf">get_index_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_function_like_macro</span><span class="p">:</span>  <span class="c1"># pylint: disable=no-else-return</span>
-            <span class="k">return</span> <span class="n">_</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> (C macro)&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">name</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">CObject</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_index_text</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div></div>
+        fullname = self.handle_func_like_macro(sig, signode)
+        if not fullname:
+            fullname = super(CObject, self).handle_signature(sig, signode)
 
-<div class="viewcode-block" id="CDomain"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CDomain">[docs]</a><span class="k">class</span> <span class="nc">CDomain</span><span class="p">(</span><span class="n">Base_CDomain</span><span class="p">):</span>
+        if &quot;name&quot; in self.options:
+            if self.objtype == &#39;function&#39;:
+                fullname = self.options[&quot;name&quot;]
+            else:
+                # FIXME: handle :name: value of other declaration types?
+                pass
+        return fullname</div>
 
-    <span class="sd">&quot;&quot;&quot;C language domain.</span>
+<div class="viewcode-block" id="CObject.add_target_and_index"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.add_target_and_index">[docs]</a>    def add_target_and_index(self, name, sig, signode):
+        # for C API items we add a prefix since names are usually not qualified
+        # by a module name and so easily clash with e.g. section titles
+        targetname = &#39;c.&#39; + name
+        if targetname not in self.state.document.ids:
+            signode[&#39;names&#39;].append(targetname)
+            signode[&#39;ids&#39;].append(targetname)
+            signode[&#39;first&#39;] = (not self.names)
+            self.state.document.note_explicit_target(signode)
+            inv = self.env.domaindata[&#39;c&#39;][&#39;objects&#39;]
+            if (name in inv and self.env.config.nitpicky):
+                if self.objtype == &#39;function&#39;:
+                    if (&#39;c:func&#39;, name) not in self.env.config.nitpick_ignore:
+                        self.state_machine.reporter.warning(
+                            &#39;duplicate C object description of %s, &#39; % name +
+                            &#39;other instance in &#39; + self.env.doc2path(inv[name][0]),
+                            line=self.lineno)
+            inv[name] = (self.env.docname, self.objtype)
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span>
-    <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-    <span class="n">directives</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">CObject</span><span class="p">,</span>
-        <span class="s1">&#39;member&#39;</span><span class="p">:</span>   <span class="n">CObject</span><span class="p">,</span>
-        <span class="s1">&#39;macro&#39;</span><span class="p">:</span>    <span class="n">CObject</span><span class="p">,</span>
-        <span class="s1">&#39;type&#39;</span><span class="p">:</span>     <span class="n">CObject</span><span class="p">,</span>
-        <span class="s1">&#39;var&#39;</span><span class="p">:</span>      <span class="n">CObject</span><span class="p">,</span>
-    <span class="p">}</span>
-    <span class="s2">&quot;Use :py:class:`CObject &lt;linuxdoc.cdomain.CObject&gt;` directives.&quot;</span></div>
+        indextext = self.get_index_text(name)
+        if indextext:
+            if major == 1 and minor &lt; 4:
+                # indexnode&#39;s tuple changed in 1.4
+                # https://github.com/sphinx-doc/sphinx/commit/e6a5a3a92e938fcd75866b4227db9e0524d58f7c
+                self.indexnode[&#39;entries&#39;].append(
+                    (&#39;single&#39;, indextext, targetname, &#39;&#39;))
+            else:
+                self.indexnode[&#39;entries&#39;].append(
+                    (&#39;single&#39;, indextext, targetname, &#39;&#39;, None))</div>
+
+<div class="viewcode-block" id="CObject.get_index_text"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CObject.get_index_text">[docs]</a>    def get_index_text(self, name):
+        if self.is_function_like_macro:  # pylint: disable=no-else-return
+            return _(&#39;%s (C macro)&#39;) % name
+        else:
+            return super(CObject, self).get_index_text(name)</div></div>
+
+<div class="viewcode-block" id="CDomain"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.CDomain">[docs]</a>class CDomain(Base_CDomain):
+
+    &quot;&quot;&quot;C language domain.
+
+    &quot;&quot;&quot;
+    name = &#39;c&#39;
+    label = &#39;C&#39;
+    directives = {
+        &#39;function&#39;: CObject,
+        &#39;member&#39;:   CObject,
+        &#39;macro&#39;:    CObject,
+        &#39;type&#39;:     CObject,
+        &#39;var&#39;:      CObject,
+    }
+    &quot;Use :py:class:`CObject &lt;linuxdoc.cdomain.CObject&gt;` directives.&quot;</div>
 </pre></div>
 
-           </div>
-           
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../../index.html">Overview</a>
+    <ul>
+      <li><a href="../index.html">Module code</a>
+        
+          
+          </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../../_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

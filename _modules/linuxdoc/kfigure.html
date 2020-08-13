@@ -1,737 +1,630 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>linuxdoc.kfigure &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>linuxdoc.kfigure &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/tabs.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+    <script src="../../_static/sphinx_tabs/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="search" title="Search" href="../../search.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../../';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../../index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="../../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-howto/index.html">LinuxDoc HowTo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../linux.html">Patch Linux Kernel Documentation</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-        
-      <li>linuxdoc.kfigure</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <h1>Source code for linuxdoc.kfigure</h1><div class="highlight"><pre>
-<span></span><span class="c1"># -*- coding: utf-8; mode: python -*-</span>
-<span class="c1"># pylint: disable=invalid-name, missing-docstring, too-many-branches</span>
+<span></span># -*- coding: utf-8; mode: python -*-
+# pylint: disable=invalid-name, missing-docstring, too-many-branches
+# pylint: disable=unnecessary-pass
 
-<span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    scalable figure and image handling</span>
-<span class="sd">    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
-
-<span class="sd">    Sphinx extension which implements scalable image handling.</span>
-
-<span class="sd">    :copyright:  Copyright (C) 2018 Markus Heiser</span>
-<span class="sd">    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.</span>
-
-<span class="sd">    User documentation see :ref:`kfigure`</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">from</span> <span class="nn">hashlib</span> <span class="k">import</span> <span class="n">sha1</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="kn">from</span> <span class="nn">docutils</span> <span class="k">import</span> <span class="n">nodes</span>
-<span class="kn">from</span> <span class="nn">docutils.statemachine</span> <span class="k">import</span> <span class="n">ViewList</span>
-<span class="kn">from</span> <span class="nn">docutils.parsers.rst</span> <span class="k">import</span> <span class="n">directives</span>
-<span class="kn">from</span> <span class="nn">docutils.parsers.rst.directives</span> <span class="k">import</span> <span class="n">images</span>
-<span class="kn">import</span> <span class="nn">sphinx</span>
-
-<span class="kn">from</span> <span class="nn">sphinx.util.nodes</span> <span class="k">import</span> <span class="n">clean_astext</span>
-<span class="kn">from</span> <span class="nn">six</span> <span class="k">import</span> <span class="n">iteritems</span>
-
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">compat</span>
-<span class="n">app_log</span> <span class="o">=</span> <span class="n">compat</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;application&#39;</span><span class="p">)</span>
-
-<span class="n">PY3</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span>
-
-<span class="k">if</span> <span class="n">PY3</span><span class="p">:</span>
-    <span class="n">_unicode</span> <span class="o">=</span> <span class="nb">str</span>       <span class="c1"># pylint: disable=invalid-name</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">_unicode</span> <span class="o">=</span> <span class="n">unicode</span>   <span class="c1"># pylint: disable=undefined-variable, invalid-name</span>
-
-<span class="c1"># Get Sphinx version</span>
-<span class="n">major</span><span class="p">,</span> <span class="n">minor</span><span class="p">,</span> <span class="n">patch</span> <span class="o">=</span> <span class="n">sphinx</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># pylint: disable=invalid-name</span>
-<span class="k">if</span> <span class="n">major</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">minor</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="c1"># patches.Figure only landed in Sphinx 1.4</span>
-    <span class="kn">from</span> <span class="nn">sphinx.directives.patches</span> <span class="k">import</span> <span class="n">Figure</span>  <span class="c1"># pylint: disable=ungrouped-imports</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">Figure</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">Figure</span>
-
-<span class="n">__version__</span>  <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
-
-<span class="c1"># simple helper</span>
-<span class="c1"># -------------</span>
-
-<div class="viewcode-block" id="which"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.which">[docs]</a><span class="k">def</span> <span class="nf">which</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>  <span class="c1"># pylint: disable=inconsistent-return-statements</span>
-    <span class="sd">&quot;&quot;&quot;Searches the ``cmd`` in the ``PATH`` environment.</span>
-
-<span class="sd">    This *which* searches the PATH for executable ``cmd`` . First match is</span>
-<span class="sd">    returned, if nothing is found, ``None`` is returned.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">envpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PATH&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">defpath</span>
-    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">envpath</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="p">):</span>
-        <span class="n">fname</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="n">cmd</span>
-        <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">fname</span></div>
-
-<div class="viewcode-block" id="mkdir"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.mkdir">[docs]</a><span class="k">def</span> <span class="nf">mkdir</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mo">0o775</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">folder</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="file2literal"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.file2literal">[docs]</a><span class="k">def</span> <span class="nf">file2literal</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">literal_block</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">node</span></div>
-
-<div class="viewcode-block" id="isNewer"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.isNewer">[docs]</a><span class="k">def</span> <span class="nf">isNewer</span><span class="p">(</span><span class="n">path1</span><span class="p">,</span> <span class="n">path2</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns True if ``path1`` is newer than ``path2``</span>
-
-<span class="sd">    If ``path1`` exists and is newer than ``path2`` the function returns</span>
-<span class="sd">    ``True`` is returned otherwise ``False``</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path1</span><span class="p">)</span>
-            <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path1</span><span class="p">)</span><span class="o">.</span><span class="n">st_ctime</span> <span class="o">&gt;</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="n">path2</span><span class="p">)</span><span class="o">.</span><span class="n">st_ctime</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="pass_handle"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.pass_handle">[docs]</a><span class="k">def</span> <span class="nf">pass_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>  <span class="c1"># pylint: disable=unused-argument</span>
-    <span class="k">pass</span></div>
-
-<span class="c1"># setup conversion tools and sphinx extension</span>
-<span class="c1"># -------------------------------------------</span>
-
-<span class="c1"># Graphviz&#39;s dot(1) support</span>
-<span class="n">dot_cmd</span> <span class="o">=</span> <span class="kc">None</span>
-
-<span class="c1"># ImageMagick&#39; convert(1) support</span>
-<span class="n">convert_cmd</span> <span class="o">=</span> <span class="kc">None</span>
-
-
-<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.setup">[docs]</a><span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="n">app</span><span class="p">):</span>
-    <span class="c1"># check toolchain first</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;builder-inited&#39;</span><span class="p">,</span> <span class="n">setupTools</span><span class="p">)</span>
-
-    <span class="c1"># image handling</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s2">&quot;kernel-image&quot;</span><span class="p">,</span>  <span class="n">KernelImage</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">kernel_image</span><span class="p">,</span>
-                 <span class="n">html</span>    <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_image</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">latex</span>   <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_image</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">texinfo</span> <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_image</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">text</span>    <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_image</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">man</span>     <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_image</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span> <span class="p">)</span>
-
-    <span class="c1"># figure handling</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s2">&quot;kernel-figure&quot;</span><span class="p">,</span> <span class="n">KernelFigure</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">kernel_figure</span><span class="p">,</span>
-                 <span class="n">html</span>    <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_figure</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">latex</span>   <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_figure</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">texinfo</span> <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_figure</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">text</span>    <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_figure</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">man</span>     <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_figure</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span> <span class="p">)</span>
-
-    <span class="c1"># render handling</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_directive</span><span class="p">(</span><span class="s1">&#39;kernel-render&#39;</span><span class="p">,</span> <span class="n">KernelRender</span><span class="p">)</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">kernel_render</span><span class="p">,</span>
-                 <span class="n">html</span>    <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_render</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">latex</span>   <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_render</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">texinfo</span> <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_render</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">text</span>    <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_render</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span>
-                 <span class="n">man</span>     <span class="o">=</span> <span class="p">(</span><span class="n">visit_kernel_render</span><span class="p">,</span> <span class="n">pass_handle</span><span class="p">),</span> <span class="p">)</span>
-
-    <span class="n">app</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;doctree-read&#39;</span><span class="p">,</span> <span class="n">add_kernel_figure_to_std_domain</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
-        <span class="n">version</span> <span class="o">=</span> <span class="n">__version__</span><span class="p">,</span>
-        <span class="n">parallel_read_safe</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">parallel_write_safe</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="setupTools"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.setupTools">[docs]</a><span class="k">def</span> <span class="nf">setupTools</span><span class="p">(</span><span class="n">app</span><span class="p">):</span> <span class="c1"># pylint: disable=unused-argument</span>
-    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Check available build tools and log some *verbose* messages.</span>
-
-<span class="sd">    This function is called once, when the builder is initiated.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">global</span> <span class="n">dot_cmd</span><span class="p">,</span> <span class="n">convert_cmd</span>  <span class="c1"># pylint: disable=global-statement</span>
-
-    <span class="c1"># pylint: disable=deprecated-method</span>
-    <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s2">&quot;kfigure: check installed tools ...&quot;</span><span class="p">)</span>
-
-    <span class="n">dot_cmd</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="s1">&#39;dot&#39;</span><span class="p">)</span>
-    <span class="n">convert_cmd</span> <span class="o">=</span> <span class="n">which</span><span class="p">(</span><span class="s1">&#39;convert&#39;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">dot_cmd</span><span class="p">:</span>
-        <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s2">&quot;use dot(1) from: &quot;</span> <span class="o">+</span> <span class="n">dot_cmd</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">app_log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;dot(1) not found, for better output quality install &quot;</span>
-                     <span class="s2">&quot;graphviz from http://www.graphviz.org&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">convert_cmd</span><span class="p">:</span>
-        <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s2">&quot;use convert(1) from: &quot;</span> <span class="o">+</span> <span class="n">convert_cmd</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">app_log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;convert(1) not found, for SVG to PDF conversion install &quot;</span>
-            <span class="s2">&quot;ImageMagick (https://www.imagemagick.org)&quot;</span><span class="p">)</span></div>
-
-
-<span class="c1"># integrate conversion tools</span>
-<span class="c1"># --------------------------</span>
-
-<span class="n">RENDER_MARKUP_EXT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1"># The &#39;.ext&#39; must be handled by convert_image(..) function&#39;s *in_ext* input.</span>
-    <span class="c1"># &lt;name&gt; : &lt;.ext&gt;</span>
-    <span class="s1">&#39;DOT&#39;</span> <span class="p">:</span> <span class="s1">&#39;.dot&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;SVG&#39;</span> <span class="p">:</span> <span class="s1">&#39;.svg&#39;</span>
-<span class="p">}</span>
-
-<div class="viewcode-block" id="convert_image"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.convert_image">[docs]</a><span class="k">def</span> <span class="nf">convert_image</span><span class="p">(</span><span class="n">img_node</span><span class="p">,</span> <span class="n">translator</span><span class="p">,</span> <span class="n">src_fname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert a image node for the builder.</span>
-
-<span class="sd">    Different builder prefer different image formats, e.g. *latex* builder</span>
-<span class="sd">    prefer PDF while *html* builder prefer SVG format for images.</span>
-
-<span class="sd">    This function handles output image formats in dependence of source the</span>
-<span class="sd">    format (of the image) and the translator&#39;s output format.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">app</span>
-
-    <span class="n">fname</span><span class="p">,</span> <span class="n">in_ext</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">]))</span>
-    <span class="k">if</span> <span class="n">src_fname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">src_fname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">srcdir</span><span class="p">,</span> <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">])</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">src_fname</span><span class="p">):</span>
-            <span class="n">src_fname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">])</span>
-
-    <span class="n">dst_fname</span> <span class="o">=</span> <span class="kc">None</span>
-
-    <span class="c1"># in kernel builds, use &#39;make SPHINXOPTS=-v&#39; to see verbose messages</span>
-
-    <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;assert best format for: &#39;</span> <span class="o">+</span> <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">])</span>
-
-    <span class="k">if</span> <span class="n">in_ext</span> <span class="o">==</span> <span class="s1">&#39;.dot&#39;</span><span class="p">:</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">dot_cmd</span><span class="p">:</span>
-            <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s2">&quot;dot from graphviz not available / include DOT raw.&quot;</span><span class="p">)</span>
-            <span class="n">img_node</span><span class="o">.</span><span class="n">replace_self</span><span class="p">(</span><span class="n">file2literal</span><span class="p">(</span><span class="n">src_fname</span><span class="p">))</span>
-
-        <span class="k">elif</span> <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s1">&#39;latex&#39;</span><span class="p">:</span>
-            <span class="n">dst_fname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.pdf&#39;</span><span class="p">)</span>
-            <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.pdf&#39;</span>
-            <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;candidates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;*&#39;</span><span class="p">:</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.pdf&#39;</span><span class="p">}</span>
-
-
-        <span class="k">elif</span> <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s1">&#39;html&#39;</span><span class="p">:</span>
-            <span class="n">dst_fname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span>
-                <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">imagedir</span><span class="p">,</span>
-                <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.svg&#39;</span><span class="p">)</span>
-            <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">imgpath</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.svg&#39;</span><span class="p">)</span>
-            <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;candidates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s1">&#39;*&#39;</span><span class="p">:</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">imgpath</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.svg&#39;</span><span class="p">)}</span>
-
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># all other builder formats will include DOT as raw</span>
-            <span class="n">img_node</span><span class="o">.</span><span class="n">replace_self</span><span class="p">(</span><span class="n">file2literal</span><span class="p">(</span><span class="n">src_fname</span><span class="p">))</span>
-
-    <span class="k">elif</span> <span class="n">in_ext</span> <span class="o">==</span> <span class="s1">&#39;.svg&#39;</span><span class="p">:</span>
-
-        <span class="k">if</span> <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s1">&#39;latex&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">convert_cmd</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s2">&quot;no SVG to PDF conversion available / include SVG raw.&quot;</span><span class="p">)</span>
-                <span class="n">img_node</span><span class="o">.</span><span class="n">replace_self</span><span class="p">(</span><span class="n">file2literal</span><span class="p">(</span><span class="n">src_fname</span><span class="p">))</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">dst_fname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.pdf&#39;</span><span class="p">)</span>
-                <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.pdf&#39;</span>
-                <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;candidates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;*&#39;</span><span class="p">:</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.pdf&#39;</span><span class="p">}</span>
-
-    <span class="k">if</span> <span class="n">dst_fname</span><span class="p">:</span>
-        <span class="c1"># the builder needs not to copy one more time, so pop it if exists.</span>
-        <span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">],</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="n">_name</span> <span class="o">=</span> <span class="n">dst_fname</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">translator</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">outdir</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
-
-        <span class="k">if</span> <span class="n">isNewer</span><span class="p">(</span><span class="n">dst_fname</span><span class="p">,</span> <span class="n">src_fname</span><span class="p">):</span>
-            <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s2">&quot;convert: </span><span class="si">{out}</span><span class="s2">/</span><span class="si">%s</span><span class="s2"> already exists and is newer&quot;</span> <span class="o">%</span> <span class="n">_name</span><span class="p">)</span>
-
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">dst_fname</span><span class="p">))</span>
-
-            <span class="k">if</span> <span class="n">in_ext</span> <span class="o">==</span> <span class="s1">&#39;.dot&#39;</span><span class="p">:</span>
-                <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;convert DOT to: </span><span class="si">{out}</span><span class="s1">/&#39;</span> <span class="o">+</span> <span class="n">_name</span><span class="p">)</span>
-                <span class="n">ok</span> <span class="o">=</span> <span class="n">dot2format</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">src_fname</span><span class="p">,</span> <span class="n">dst_fname</span><span class="p">)</span>
-
-            <span class="k">elif</span> <span class="n">in_ext</span> <span class="o">==</span> <span class="s1">&#39;.svg&#39;</span><span class="p">:</span>
-                <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;convert SVG to: </span><span class="si">{out}</span><span class="s1">/&#39;</span> <span class="o">+</span> <span class="n">_name</span><span class="p">)</span>
-                <span class="n">ok</span> <span class="o">=</span> <span class="n">svg2pdf</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">src_fname</span><span class="p">,</span> <span class="n">dst_fname</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
-                <span class="n">img_node</span><span class="o">.</span><span class="n">replace_self</span><span class="p">(</span><span class="n">file2literal</span><span class="p">(</span><span class="n">src_fname</span><span class="p">))</span></div>
-
-
-<div class="viewcode-block" id="dot2format"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.dot2format">[docs]</a><span class="k">def</span> <span class="nf">dot2format</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">dot_fname</span><span class="p">,</span> <span class="n">out_fname</span><span class="p">):</span> <span class="c1"># pylint: disable=unused-argument</span>
-    <span class="sd">&quot;&quot;&quot;Converts DOT file to ``out_fname`` using ``dot(1)``.</span>
-
-<span class="sd">    * ``dot_fname`` pathname of the input DOT file, including extension ``.dot``</span>
-<span class="sd">    * ``out_fname`` pathname of the output file, including format extension</span>
-
-<span class="sd">    The *format extension* depends on the ``dot`` command (see ``man dot``</span>
-<span class="sd">    option ``-Txxx``). Normally you will use one of the following extensions:</span>
-
-<span class="sd">    - ``.ps`` for PostScript,</span>
-<span class="sd">    - ``.svg`` or ``svgz`` for Structured Vector Graphics,</span>
-<span class="sd">    - ``.fig`` for XFIG graphics and</span>
-<span class="sd">    - ``.png`` or ``gif`` for common bitmap graphics.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">out_format</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">out_fname</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="n">dot_cmd</span><span class="p">,</span> <span class="s1">&#39;-T</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">out_format</span><span class="p">,</span> <span class="n">dot_fname</span><span class="p">]</span>
-    <span class="n">exit_code</span> <span class="o">=</span> <span class="mi">42</span>
-
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_fname</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
-        <span class="n">exit_code</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdout</span> <span class="o">=</span> <span class="n">out</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">exit_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="c1"># pylint: disable=deprecated-method</span>
-            <span class="n">app_log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Error #</span><span class="si">%d</span><span class="s2"> when calling: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">exit_code</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">)))</span>
-    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">exit_code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="svg2pdf"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.svg2pdf">[docs]</a><span class="k">def</span> <span class="nf">svg2pdf</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">svg_fname</span><span class="p">,</span> <span class="n">pdf_fname</span><span class="p">):</span> <span class="c1"># pylint: disable=unused-argument</span>
-    <span class="sd">&quot;&quot;&quot;Converts SVG to PDF with ``convert(1)`` command.</span>
-
-<span class="sd">    Uses ``convert(1)`` from ImageMagick (https://www.imagemagick.org) for</span>
-<span class="sd">    conversion.  Returns ``True`` on success and ``False`` if an error occurred.</span>
-
-<span class="sd">    * ``svg_fname`` pathname of the input SVG file with extension (``.svg``)</span>
-<span class="sd">    * ``pdf_name``  pathname of the output PDF file with extension (``.pdf``)</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="n">convert_cmd</span><span class="p">,</span> <span class="n">svg_fname</span><span class="p">,</span> <span class="n">pdf_fname</span><span class="p">]</span>
-    <span class="c1"># use stdout and stderr from parent</span>
-    <span class="n">exit_code</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">exit_code</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># pylint: disable=deprecated-method</span>
-        <span class="n">app_log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Error #</span><span class="si">%d</span><span class="s2"> when calling: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">exit_code</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cmd</span><span class="p">)))</span>
-    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">exit_code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span></div>
-
-
-<span class="c1"># image handling</span>
-<span class="c1"># ---------------------</span>
-
-<div class="viewcode-block" id="visit_kernel_image"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.visit_kernel_image">[docs]</a><span class="k">def</span> <span class="nf">visit_kernel_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Visitor of the ``kernel_image`` Node.</span>
-
-<span class="sd">    Handles the ``image`` child-node with the ``convert_image(...)``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">img_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">convert_image</span><span class="p">(</span><span class="n">img_node</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="kernel_image"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.kernel_image">[docs]</a><span class="k">class</span> <span class="nc">kernel_image</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">image</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Node for ``kernel-image`` directive.&quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
-
-<div class="viewcode-block" id="KernelImage"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelImage">[docs]</a><span class="k">class</span> <span class="nc">KernelImage</span><span class="p">(</span><span class="n">images</span><span class="o">.</span><span class="n">Image</span><span class="p">):</span>
-    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;KernelImage directive</span>
-
-<span class="sd">    Earns everything from ``.. image::`` directive, except *remote URI* and</span>
-<span class="sd">    *glob* pattern. The KernelImage wraps a image node into a</span>
-<span class="sd">    kernel_image node. See ``visit_kernel_image``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="KernelImage.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelImage.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">uri</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.*&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">uri</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;://&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">severe</span><span class="p">(</span>
-                <span class="s1">&#39;Error in &quot;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&quot;: glob pattern and remote images are not allowed&#39;</span>
-                <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">uri</span><span class="p">))</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">.</span><span class="n">system_message</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">result</span>
-        <span class="p">(</span><span class="n">image_node</span><span class="p">,)</span> <span class="o">=</span> <span class="n">result</span>
-        <span class="c1"># wrap image node into a kernel_image node / see visitors</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">kernel_image</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">image_node</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">node</span><span class="p">]</span></div></div>
-
-<span class="c1"># figure handling</span>
-<span class="c1"># ---------------------</span>
-
-<div class="viewcode-block" id="visit_kernel_figure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.visit_kernel_figure">[docs]</a><span class="k">def</span> <span class="nf">visit_kernel_figure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Visitor of the ``kernel_figure`` Node.</span>
-
-<span class="sd">    Handles the ``image`` child-node with the ``convert_image(...)``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">img_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">convert_image</span><span class="p">(</span><span class="n">img_node</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="kernel_figure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.kernel_figure">[docs]</a><span class="k">class</span> <span class="nc">kernel_figure</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">figure</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Node for ``kernel-figure`` directive.&quot;&quot;&quot;</span></div>
-
-<div class="viewcode-block" id="KernelFigure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelFigure">[docs]</a><span class="k">class</span> <span class="nc">KernelFigure</span><span class="p">(</span><span class="n">Figure</span><span class="p">):</span>
-    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;KernelImage directive</span>
-
-<span class="sd">    Earns everything from ``.. figure::`` directive, except *remote URI* and</span>
-<span class="sd">    *glob* pattern.  The KernelFigure wraps a figure node into a kernel_figure</span>
-<span class="sd">    node. See ``visit_kernel_figure``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-<div class="viewcode-block" id="KernelFigure.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelFigure.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">uri</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">uri</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.*&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">uri</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;://&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">severe</span><span class="p">(</span>
-                <span class="s1">&#39;Error in &quot;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&quot;:&#39;</span>
-                <span class="s1">&#39; glob pattern and remote images are not allowed&#39;</span>
-                <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">uri</span><span class="p">))</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">Figure</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nodes</span><span class="o">.</span><span class="n">system_message</span><span class="p">):</span>
-            <span class="k">return</span> <span class="n">result</span>
-        <span class="p">(</span><span class="n">figure_node</span><span class="p">,)</span> <span class="o">=</span> <span class="n">result</span>
-        <span class="c1"># wrap figure node into a kernel_figure node / see visitors</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">kernel_figure</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">figure_node</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">node</span><span class="p">]</span></div></div>
-
-
-<span class="c1"># render handling</span>
-<span class="c1"># ---------------------</span>
-
-<div class="viewcode-block" id="visit_kernel_render"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.visit_kernel_render">[docs]</a><span class="k">def</span> <span class="nf">visit_kernel_render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Visitor of the ``kernel_render`` Node.</span>
-
-<span class="sd">    If rendering tools available, save the markup of the ``literal_block`` child</span>
-<span class="sd">    node into a file and replace the ``literal_block`` node with a new created</span>
-<span class="sd">    ``image`` node, pointing to the saved markup file. Afterwards, handle the</span>
-<span class="sd">    image child-node with the ``convert_image(...)``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">srclang</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;srclang&#39;</span><span class="p">)</span>
-
-    <span class="c1"># pylint: disable=deprecated-method</span>
-    <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s1">&#39;visit kernel-render node lang: &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">srclang</span><span class="p">))</span>
-
-    <span class="n">tmp_ext</span> <span class="o">=</span> <span class="n">RENDER_MARKUP_EXT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">srclang</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">tmp_ext</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">app_log</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;kernel-render: &quot;</span><span class="si">%s</span><span class="s1">&quot; unknown / include raw.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">srclang</span><span class="p">))</span>
-        <span class="k">return</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">dot_cmd</span> <span class="ow">and</span> <span class="n">tmp_ext</span> <span class="o">==</span> <span class="s1">&#39;.dot&#39;</span><span class="p">:</span>
-        <span class="n">app_log</span><span class="o">.</span><span class="n">verbose</span><span class="p">(</span><span class="s2">&quot;dot from graphviz not available / include raw.&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
-
-    <span class="n">literal_block</span> <span class="o">=</span> <span class="n">node</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="n">code</span>      <span class="o">=</span> <span class="n">literal_block</span><span class="o">.</span><span class="n">astext</span><span class="p">()</span>
-    <span class="n">hashobj</span>   <span class="o">=</span> <span class="n">code</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="c1">#  str(node.attributes)</span>
-    <span class="n">fname</span>     <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">srclang</span><span class="p">,</span> <span class="n">sha1</span><span class="p">(</span><span class="n">hashobj</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()))</span>
-
-    <span class="n">tmp_fname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">imagedir</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="n">tmp_ext</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">tmp_fname</span><span class="p">):</span>
-        <span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">tmp_fname</span><span class="p">))</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tmp_fname</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-
-    <span class="n">img_node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">rawsource</span><span class="p">,</span> <span class="o">**</span><span class="n">node</span><span class="o">.</span><span class="n">attributes</span><span class="p">)</span>
-    <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;uri&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">imgpath</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="n">tmp_ext</span><span class="p">)</span>
-    <span class="n">img_node</span><span class="p">[</span><span class="s1">&#39;candidates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;*&#39;</span><span class="p">:</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">imgpath</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="n">tmp_ext</span><span class="p">)}</span>
-
-    <span class="n">literal_block</span><span class="o">.</span><span class="n">replace_self</span><span class="p">(</span><span class="n">img_node</span><span class="p">)</span>
-    <span class="n">convert_image</span><span class="p">(</span><span class="n">img_node</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">tmp_fname</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="kernel_render"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.kernel_render">[docs]</a><span class="k">class</span> <span class="nc">kernel_render</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">General</span><span class="p">,</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Inline</span><span class="p">,</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Element</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Node for ``kernel-render`` directive.&quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
-
-<div class="viewcode-block" id="KernelRender"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender">[docs]</a><span class="k">class</span> <span class="nc">KernelRender</span><span class="p">(</span><span class="n">Figure</span><span class="p">):</span>
-    <span class="sa">u</span><span class="sd">&quot;&quot;&quot;KernelRender directive</span>
-
-<span class="sd">    Render content by external tool.  Has all the options known from the</span>
-<span class="sd">    *figure*  directive, plus option ``caption``.  If ``caption`` has a</span>
-<span class="sd">    value, a figure node with the *caption* is inserted. If not, a image node is</span>
-<span class="sd">    inserted.</span>
-
-<span class="sd">    The KernelRender directive wraps the text of the directive into a</span>
-<span class="sd">    literal_block node and wraps it into a kernel_render node. See</span>
-<span class="sd">    ``visit_kernel_render``.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">has_content</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">required_arguments</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">optional_arguments</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">final_argument_whitespace</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="c1"># earn options from &#39;figure&#39;</span>
-    <span class="n">option_spec</span> <span class="o">=</span> <span class="n">Figure</span><span class="o">.</span><span class="n">option_spec</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">option_spec</span><span class="p">[</span><span class="s1">&#39;caption&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged</span>
-
-<div class="viewcode-block" id="KernelRender.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">build_node</span><span class="p">()]</span></div>
-
-<div class="viewcode-block" id="KernelRender.build_node"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender.build_node">[docs]</a>    <span class="k">def</span> <span class="nf">build_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-        <span class="n">srclang</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">srclang</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">RENDER_MARKUP_EXT</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">state_machine</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                <span class="s1">&#39;Unknown source language &quot;</span><span class="si">%s</span><span class="s1">&quot;, use one of: </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="n">srclang</span><span class="p">,</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">RENDER_MARKUP_EXT</span><span class="o">.</span><span class="n">keys</span><span class="p">())),</span>
-                <span class="n">line</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">)]</span>
-
-        <span class="n">code</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">code</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-            <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">state_machine</span><span class="o">.</span><span class="n">reporter</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-                <span class="s1">&#39;Ignoring &quot;</span><span class="si">%s</span><span class="s1">&quot; directive without content.&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
-                <span class="n">line</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lineno</span><span class="p">)]</span>
-
-        <span class="n">node</span> <span class="o">=</span> <span class="n">kernel_render</span><span class="p">()</span>
-        <span class="n">node</span><span class="p">[</span><span class="s1">&#39;alt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;alt&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="n">node</span><span class="p">[</span><span class="s1">&#39;srclang&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">srclang</span>
-        <span class="n">literal_node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">literal_block</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
-        <span class="n">node</span> <span class="o">+=</span> <span class="n">literal_node</span>
-
-        <span class="n">caption</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;caption&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">caption</span><span class="p">:</span>
-            <span class="c1"># parse caption&#39;s content</span>
-            <span class="n">parsed</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">Element</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">nested_parse</span><span class="p">(</span>
-                <span class="n">ViewList</span><span class="p">([</span><span class="n">caption</span><span class="p">],</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">content_offset</span><span class="p">,</span> <span class="n">parsed</span><span class="p">)</span>
-            <span class="n">caption_node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">caption</span><span class="p">(</span>
-                <span class="n">parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rawsource</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">)</span>
-            <span class="n">caption_node</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">source</span>
-            <span class="n">caption_node</span><span class="o">.</span><span class="n">line</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">line</span>
-
-            <span class="n">figure_node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="n">figure_node</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
-            <span class="n">figure_node</span> <span class="o">+=</span> <span class="n">caption_node</span>
-
-            <span class="n">node</span> <span class="o">=</span> <span class="n">figure_node</span>
-
-        <span class="k">return</span> <span class="n">node</span></div></div>
-
-<div class="viewcode-block" id="add_kernel_figure_to_std_domain"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.add_kernel_figure_to_std_domain">[docs]</a><span class="k">def</span> <span class="nf">add_kernel_figure_to_std_domain</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">doctree</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Add kernel-figure anchors to &#39;std&#39; domain.</span>
-
-<span class="sd">    The ``StandardDomain.process_doc(..)`` method does not know how to resolve</span>
-<span class="sd">    the caption (label) of ``kernel-figure`` directive (it only knows about</span>
-<span class="sd">    standard nodes, e.g. table, figure etc.). Without any additional handling</span>
-<span class="sd">    this will result in a &#39;undefined label&#39; for kernel-figures.</span>
-
-<span class="sd">    This handle adds labels of kernel-figure to the &#39;std&#39; domain labels.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">std</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">domains</span><span class="p">[</span><span class="s2">&quot;std&quot;</span><span class="p">]</span>
-    <span class="n">docname</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">docname</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">std</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">explicit</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">doctree</span><span class="o">.</span><span class="n">nametypes</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">explicit</span><span class="p">:</span>
-            <span class="k">continue</span>
-        <span class="n">labelid</span> <span class="o">=</span> <span class="n">doctree</span><span class="o">.</span><span class="n">nameids</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">labelid</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">continue</span>
-        <span class="n">node</span> <span class="o">=</span> <span class="n">doctree</span><span class="o">.</span><span class="n">ids</span><span class="p">[</span><span class="n">labelid</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">tagname</span> <span class="o">==</span> <span class="s1">&#39;kernel_figure&#39;</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">next_node</span><span class="p">():</span>
-                <span class="k">if</span> <span class="n">n</span><span class="o">.</span><span class="n">tagname</span> <span class="o">==</span> <span class="s1">&#39;caption&#39;</span><span class="p">:</span>
-                    <span class="n">sectname</span> <span class="o">=</span> <span class="n">clean_astext</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-                    <span class="c1"># add label to std domain</span>
-                    <span class="n">labels</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">docname</span><span class="p">,</span> <span class="n">labelid</span><span class="p">,</span> <span class="n">sectname</span>
-                    <span class="k">break</span></div>
+u&quot;&quot;&quot;
+    scalable figure and image handling
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Sphinx extension which implements scalable image handling.
+
+    :copyright:  Copyright (C) 2018 Markus Heiser
+    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
+
+    User documentation see :ref:`kfigure`
+    &quot;&quot;&quot;
+
+import os
+from os import path
+import subprocess
+from hashlib import sha1
+import sys
+
+from docutils import nodes
+from docutils.statemachine import ViewList
+from docutils.parsers.rst import directives
+from docutils.parsers.rst.directives import images
+import sphinx
+
+from sphinx.util.nodes import clean_astext
+from six import iteritems
+
+from . import compat
+app_log = compat.getLogger(&#39;application&#39;)
+
+PY3 = sys.version_info[0] == 3
+
+if PY3:
+    _unicode = str       # pylint: disable=invalid-name
+else:
+    _unicode = unicode   # pylint: disable=undefined-variable, invalid-name
+
+# Get Sphinx version
+major, minor, patch = sphinx.version_info[:3]  # pylint: disable=invalid-name
+if major == 1 and minor &gt; 3:
+    # patches.Figure only landed in Sphinx 1.4
+    from sphinx.directives.patches import Figure  # pylint: disable=ungrouped-imports
+else:
+    Figure = images.Figure
+
+__version__  = &#39;1.0.0&#39;
+
+# simple helper
+# -------------
+
+<div class="viewcode-block" id="which"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.which">[docs]</a>def which(cmd):  # pylint: disable=inconsistent-return-statements
+    &quot;&quot;&quot;Searches the ``cmd`` in the ``PATH`` environment.
+
+    This *which* searches the PATH for executable ``cmd`` . First match is
+    returned, if nothing is found, ``None`` is returned.
+    &quot;&quot;&quot;
+    envpath = os.environ.get(&#39;PATH&#39;, None) or os.defpath
+    for folder in envpath.split(os.pathsep):
+        fname = folder + os.sep + cmd
+        if path.isfile(fname):
+            return fname</div>
+
+<div class="viewcode-block" id="mkdir"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.mkdir">[docs]</a>def mkdir(folder, mode=0o775):
+    if not path.isdir(folder):
+        os.makedirs(folder, mode)</div>
+
+<div class="viewcode-block" id="file2literal"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.file2literal">[docs]</a>def file2literal(fname):
+    with open(fname, &quot;r&quot;) as src:
+        data = src.read()
+        node = nodes.literal_block(data, data)
+    return node</div>
+
+<div class="viewcode-block" id="isNewer"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.isNewer">[docs]</a>def isNewer(path1, path2):
+    &quot;&quot;&quot;Returns True if ``path1`` is newer than ``path2``
+
+    If ``path1`` exists and is newer than ``path2`` the function returns
+    ``True`` is returned otherwise ``False``
+    &quot;&quot;&quot;
+    return (path.exists(path1)
+            and os.stat(path1).st_ctime &gt; os.stat(path2).st_ctime)</div>
+
+<div class="viewcode-block" id="pass_handle"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.pass_handle">[docs]</a>def pass_handle(self, node):  # pylint: disable=unused-argument
+    pass</div>
+
+# setup conversion tools and sphinx extension
+# -------------------------------------------
+
+# Graphviz&#39;s dot(1) support
+dot_cmd = None
+
+# ImageMagick&#39; convert(1) support
+convert_cmd = None
+
+
+<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.setup">[docs]</a>def setup(app):
+    # check toolchain first
+    app.connect(&#39;builder-inited&#39;, setupTools)
+
+    # image handling
+    app.add_directive(&quot;kernel-image&quot;,  KernelImage)
+    app.add_node(kernel_image,
+                 html    = (visit_kernel_image, pass_handle),
+                 latex   = (visit_kernel_image, pass_handle),
+                 texinfo = (visit_kernel_image, pass_handle),
+                 text    = (visit_kernel_image, pass_handle),
+                 man     = (visit_kernel_image, pass_handle), )
+
+    # figure handling
+    app.add_directive(&quot;kernel-figure&quot;, KernelFigure)
+    app.add_node(kernel_figure,
+                 html    = (visit_kernel_figure, pass_handle),
+                 latex   = (visit_kernel_figure, pass_handle),
+                 texinfo = (visit_kernel_figure, pass_handle),
+                 text    = (visit_kernel_figure, pass_handle),
+                 man     = (visit_kernel_figure, pass_handle), )
+
+    # render handling
+    app.add_directive(&#39;kernel-render&#39;, KernelRender)
+    app.add_node(kernel_render,
+                 html    = (visit_kernel_render, pass_handle),
+                 latex   = (visit_kernel_render, pass_handle),
+                 texinfo = (visit_kernel_render, pass_handle),
+                 text    = (visit_kernel_render, pass_handle),
+                 man     = (visit_kernel_render, pass_handle), )
+
+    app.connect(&#39;doctree-read&#39;, add_kernel_figure_to_std_domain)
+
+    return dict(
+        version = __version__,
+        parallel_read_safe = True,
+        parallel_write_safe = True
+    )</div>
+
+
+<div class="viewcode-block" id="setupTools"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.setupTools">[docs]</a>def setupTools(app): # pylint: disable=unused-argument
+    u&quot;&quot;&quot;
+    Check available build tools and log some *verbose* messages.
+
+    This function is called once, when the builder is initiated.
+    &quot;&quot;&quot;
+    global dot_cmd, convert_cmd  # pylint: disable=global-statement
+
+    # pylint: disable=deprecated-method
+    app_log.verbose(&quot;kfigure: check installed tools ...&quot;)
+
+    dot_cmd = which(&#39;dot&#39;)
+    convert_cmd = which(&#39;convert&#39;)
+
+    if dot_cmd:
+        app_log.verbose(&quot;use dot(1) from: &quot; + dot_cmd)
+    else:
+        app_log.warn(&quot;dot(1) not found, for better output quality install &quot;
+                     &quot;graphviz from http://www.graphviz.org&quot;)
+    if convert_cmd:
+        app_log.verbose(&quot;use convert(1) from: &quot; + convert_cmd)
+    else:
+        app_log.warn(
+            &quot;convert(1) not found, for SVG to PDF conversion install &quot;
+            &quot;ImageMagick (https://www.imagemagick.org)&quot;)</div>
+
+
+# integrate conversion tools
+# --------------------------
+
+RENDER_MARKUP_EXT = {
+    # The &#39;.ext&#39; must be handled by convert_image(..) function&#39;s *in_ext* input.
+    # &lt;name&gt; : &lt;.ext&gt;
+    &#39;DOT&#39; : &#39;.dot&#39;,
+    &#39;SVG&#39; : &#39;.svg&#39;
+}
+
+<div class="viewcode-block" id="convert_image"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.convert_image">[docs]</a>def convert_image(img_node, translator, src_fname=None):
+    &quot;&quot;&quot;Convert a image node for the builder.
+
+    Different builder prefer different image formats, e.g. *latex* builder
+    prefer PDF while *html* builder prefer SVG format for images.
+
+    This function handles output image formats in dependence of source the
+    format (of the image) and the translator&#39;s output format.
+    &quot;&quot;&quot;
+    app = translator.builder.app
+
+    fname, in_ext = path.splitext(path.basename(img_node[&#39;uri&#39;]))
+    if src_fname is None:
+        src_fname = path.join(translator.builder.srcdir, img_node[&#39;uri&#39;])
+        if not path.exists(src_fname):
+            src_fname = path.join(translator.builder.outdir, img_node[&#39;uri&#39;])
+
+    dst_fname = None
+
+    # in kernel builds, use &#39;make SPHINXOPTS=-v&#39; to see verbose messages
+
+    app_log.verbose(&#39;assert best format for: &#39; + img_node[&#39;uri&#39;])
+
+    if in_ext == &#39;.dot&#39;:
+
+        if not dot_cmd:
+            app_log.verbose(&quot;dot from graphviz not available / include DOT raw.&quot;)
+            img_node.replace_self(file2literal(src_fname))
+
+        elif translator.builder.format == &#39;latex&#39;:
+            dst_fname = path.join(translator.builder.outdir, fname + &#39;.pdf&#39;)
+            img_node[&#39;uri&#39;] = fname + &#39;.pdf&#39;
+            img_node[&#39;candidates&#39;] = {&#39;*&#39;: fname + &#39;.pdf&#39;}
+
+
+        elif translator.builder.format == &#39;html&#39;:
+            dst_fname = path.join(
+                translator.builder.outdir,
+                translator.builder.imagedir,
+                fname + &#39;.svg&#39;)
+            img_node[&#39;uri&#39;] = path.join(
+                translator.builder.imgpath, fname + &#39;.svg&#39;)
+            img_node[&#39;candidates&#39;] = {
+                &#39;*&#39;: path.join(translator.builder.imgpath, fname + &#39;.svg&#39;)}
+
+        else:
+            # all other builder formats will include DOT as raw
+            img_node.replace_self(file2literal(src_fname))
+
+    elif in_ext == &#39;.svg&#39;:
+
+        if translator.builder.format == &#39;latex&#39;:
+            if convert_cmd is None:
+                app_log.verbose(&quot;no SVG to PDF conversion available / include SVG raw.&quot;)
+                img_node.replace_self(file2literal(src_fname))
+            else:
+                dst_fname = path.join(translator.builder.outdir, fname + &#39;.pdf&#39;)
+                img_node[&#39;uri&#39;] = fname + &#39;.pdf&#39;
+                img_node[&#39;candidates&#39;] = {&#39;*&#39;: fname + &#39;.pdf&#39;}
+
+    if dst_fname:
+        # the builder needs not to copy one more time, so pop it if exists.
+        translator.builder.images.pop(img_node[&#39;uri&#39;], None)
+        _name = dst_fname[len(translator.builder.outdir) + 1:]
+
+        if isNewer(dst_fname, src_fname):
+            app_log.verbose(&quot;convert: {out}/%s already exists and is newer&quot; % _name)
+
+        else:
+            ok = False
+            mkdir(path.dirname(dst_fname))
+
+            if in_ext == &#39;.dot&#39;:
+                app_log.verbose(&#39;convert DOT to: {out}/&#39; + _name)
+                ok = dot2format(app, src_fname, dst_fname)
+
+            elif in_ext == &#39;.svg&#39;:
+                app_log.verbose(&#39;convert SVG to: {out}/&#39; + _name)
+                ok = svg2pdf(app, src_fname, dst_fname)
+
+            if not ok:
+                img_node.replace_self(file2literal(src_fname))</div>
+
+
+<div class="viewcode-block" id="dot2format"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.dot2format">[docs]</a>def dot2format(app, dot_fname, out_fname): # pylint: disable=unused-argument
+    &quot;&quot;&quot;Converts DOT file to ``out_fname`` using ``dot(1)``.
+
+    * ``dot_fname`` pathname of the input DOT file, including extension ``.dot``
+    * ``out_fname`` pathname of the output file, including format extension
+
+    The *format extension* depends on the ``dot`` command (see ``man dot``
+    option ``-Txxx``). Normally you will use one of the following extensions:
+
+    - ``.ps`` for PostScript,
+    - ``.svg`` or ``svgz`` for Structured Vector Graphics,
+    - ``.fig`` for XFIG graphics and
+    - ``.png`` or ``gif`` for common bitmap graphics.
+
+    &quot;&quot;&quot;
+    out_format = path.splitext(out_fname)[1][1:]
+    cmd = [dot_cmd, &#39;-T%s&#39; % out_format, dot_fname]
+    exit_code = 42
+
+    with open(out_fname, &quot;w&quot;) as out:
+        exit_code = subprocess.call(cmd, stdout = out)
+        if exit_code != 0:
+            # pylint: disable=deprecated-method
+            app_log.warn(&quot;Error #%d when calling: %s&quot; % (exit_code, &quot; &quot;.join(cmd)))
+    return bool(exit_code == 0)</div>
+
+<div class="viewcode-block" id="svg2pdf"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.svg2pdf">[docs]</a>def svg2pdf(app, svg_fname, pdf_fname): # pylint: disable=unused-argument
+    &quot;&quot;&quot;Converts SVG to PDF with ``convert(1)`` command.
+
+    Uses ``convert(1)`` from ImageMagick (https://www.imagemagick.org) for
+    conversion.  Returns ``True`` on success and ``False`` if an error occurred.
+
+    * ``svg_fname`` pathname of the input SVG file with extension (``.svg``)
+    * ``pdf_name``  pathname of the output PDF file with extension (``.pdf``)
+
+    &quot;&quot;&quot;
+    cmd = [convert_cmd, svg_fname, pdf_fname]
+    # use stdout and stderr from parent
+    exit_code = subprocess.call(cmd)
+    if exit_code != 0:
+        # pylint: disable=deprecated-method
+        app_log.warn(&quot;Error #%d when calling: %s&quot; % (exit_code, &quot; &quot;.join(cmd)))
+    return bool(exit_code == 0)</div>
+
+
+# image handling
+# ---------------------
+
+<div class="viewcode-block" id="visit_kernel_image"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.visit_kernel_image">[docs]</a>def visit_kernel_image(self, node):
+    &quot;&quot;&quot;Visitor of the ``kernel_image`` Node.
+
+    Handles the ``image`` child-node with the ``convert_image(...)``.
+    &quot;&quot;&quot;
+    img_node = node[0]
+    convert_image(img_node, self)</div>
+
+<div class="viewcode-block" id="kernel_image"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.kernel_image">[docs]</a>class kernel_image(nodes.image):
+    &quot;&quot;&quot;Node for ``kernel-image`` directive.&quot;&quot;&quot;
+    pass</div>
+
+<div class="viewcode-block" id="KernelImage"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelImage">[docs]</a>class KernelImage(images.Image):
+    u&quot;&quot;&quot;KernelImage directive
+
+    Earns everything from ``.. image::`` directive, except *remote URI* and
+    *glob* pattern. The KernelImage wraps a image node into a
+    kernel_image node. See ``visit_kernel_image``.
+    &quot;&quot;&quot;
+
+<div class="viewcode-block" id="KernelImage.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelImage.run">[docs]</a>    def run(self):
+        uri = self.arguments[0]
+        if uri.endswith(&#39;.*&#39;) or uri.find(&#39;://&#39;) != -1:
+            raise self.severe(
+                &#39;Error in &quot;%s: %s&quot;: glob pattern and remote images are not allowed&#39;
+                % (self.name, uri))
+        result = images.Image.run(self)
+        if len(result) == 2 or isinstance(result[0], nodes.system_message):
+            return result
+        (image_node,) = result
+        # wrap image node into a kernel_image node / see visitors
+        node = kernel_image(&#39;&#39;, image_node)
+        return [node]</div></div>
+
+# figure handling
+# ---------------------
+
+<div class="viewcode-block" id="visit_kernel_figure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.visit_kernel_figure">[docs]</a>def visit_kernel_figure(self, node):
+    &quot;&quot;&quot;Visitor of the ``kernel_figure`` Node.
+
+    Handles the ``image`` child-node with the ``convert_image(...)``.
+    &quot;&quot;&quot;
+    img_node = node[0][0]
+    convert_image(img_node, self)</div>
+
+<div class="viewcode-block" id="kernel_figure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.kernel_figure">[docs]</a>class kernel_figure(nodes.figure):
+    &quot;&quot;&quot;Node for ``kernel-figure`` directive.&quot;&quot;&quot;</div>
+
+<div class="viewcode-block" id="KernelFigure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelFigure">[docs]</a>class KernelFigure(Figure):
+    u&quot;&quot;&quot;KernelImage directive
+
+    Earns everything from ``.. figure::`` directive, except *remote URI* and
+    *glob* pattern.  The KernelFigure wraps a figure node into a kernel_figure
+    node. See ``visit_kernel_figure``.
+    &quot;&quot;&quot;
+
+<div class="viewcode-block" id="KernelFigure.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelFigure.run">[docs]</a>    def run(self):
+        uri = self.arguments[0]
+        if uri.endswith(&#39;.*&#39;) or uri.find(&#39;://&#39;) != -1:
+            raise self.severe(
+                &#39;Error in &quot;%s: %s&quot;:&#39;
+                &#39; glob pattern and remote images are not allowed&#39;
+                % (self.name, uri))
+        result = Figure.run(self)
+        if len(result) == 2 or isinstance(result[0], nodes.system_message):
+            return result
+        (figure_node,) = result
+        # wrap figure node into a kernel_figure node / see visitors
+        node = kernel_figure(&#39;&#39;, figure_node)
+        return [node]</div></div>
+
+
+# render handling
+# ---------------------
+
+<div class="viewcode-block" id="visit_kernel_render"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.visit_kernel_render">[docs]</a>def visit_kernel_render(self, node):
+    &quot;&quot;&quot;Visitor of the ``kernel_render`` Node.
+
+    If rendering tools available, save the markup of the ``literal_block`` child
+    node into a file and replace the ``literal_block`` node with a new created
+    ``image`` node, pointing to the saved markup file. Afterwards, handle the
+    image child-node with the ``convert_image(...)``.
+    &quot;&quot;&quot;
+    srclang = node.get(&#39;srclang&#39;)
+
+    # pylint: disable=deprecated-method
+    app_log.verbose(&#39;visit kernel-render node lang: &quot;%s&quot;&#39; % (srclang))
+
+    tmp_ext = RENDER_MARKUP_EXT.get(srclang, None)
+    if tmp_ext is None:
+        app_log.warn(&#39;kernel-render: &quot;%s&quot; unknown / include raw.&#39; % (srclang))
+        return
+
+    if not dot_cmd and tmp_ext == &#39;.dot&#39;:
+        app_log.verbose(&quot;dot from graphviz not available / include raw.&quot;)
+        return
+
+    literal_block = node[0]
+
+    code      = literal_block.astext()
+    hashobj   = code.encode(&#39;utf-8&#39;) #  str(node.attributes)
+    fname     = path.join(&#39;%s-%s&#39; % (srclang, sha1(hashobj).hexdigest()))
+
+    tmp_fname = path.join(
+        self.builder.outdir, self.builder.imagedir, fname + tmp_ext)
+
+    if not path.isfile(tmp_fname):
+        mkdir(path.dirname(tmp_fname))
+        with open(tmp_fname, &quot;w&quot;) as out:
+            out.write(code)
+
+    img_node = nodes.image(node.rawsource, **node.attributes)
+    img_node[&#39;uri&#39;] = path.join(self.builder.imgpath, fname + tmp_ext)
+    img_node[&#39;candidates&#39;] = {
+        &#39;*&#39;: path.join(self.builder.imgpath, fname + tmp_ext)}
+
+    literal_block.replace_self(img_node)
+    convert_image(img_node, self, tmp_fname)</div>
+
+
+<div class="viewcode-block" id="kernel_render"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.kernel_render">[docs]</a>class kernel_render(nodes.General, nodes.Inline, nodes.Element):
+    &quot;&quot;&quot;Node for ``kernel-render`` directive.&quot;&quot;&quot;
+    pass</div>
+
+<div class="viewcode-block" id="KernelRender"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender">[docs]</a>class KernelRender(Figure):
+    u&quot;&quot;&quot;KernelRender directive
+
+    Render content by external tool.  Has all the options known from the
+    *figure*  directive, plus option ``caption``.  If ``caption`` has a
+    value, a figure node with the *caption* is inserted. If not, a image node is
+    inserted.
+
+    The KernelRender directive wraps the text of the directive into a
+    literal_block node and wraps it into a kernel_render node. See
+    ``visit_kernel_render``.
+    &quot;&quot;&quot;
+    has_content = True
+    required_arguments = 1
+    optional_arguments = 0
+    final_argument_whitespace = False
+
+    # earn options from &#39;figure&#39;
+    option_spec = Figure.option_spec.copy()
+    option_spec[&#39;caption&#39;] = directives.unchanged
+
+<div class="viewcode-block" id="KernelRender.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender.run">[docs]</a>    def run(self):
+        return [self.build_node()]</div>
+
+<div class="viewcode-block" id="KernelRender.build_node"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender.build_node">[docs]</a>    def build_node(self):
+
+        srclang = self.arguments[0].strip()
+        if srclang not in RENDER_MARKUP_EXT.keys():
+            return [self.state_machine.reporter.warning(
+                &#39;Unknown source language &quot;%s&quot;, use one of: %s.&#39; % (
+                    srclang, &quot;,&quot;.join(RENDER_MARKUP_EXT.keys())),
+                line=self.lineno)]
+
+        code = &#39;\n&#39;.join(self.content)
+        if not code.strip():
+            return [self.state_machine.reporter.warning(
+                &#39;Ignoring &quot;%s&quot; directive without content.&#39; % (
+                    self.name),
+                line=self.lineno)]
+
+        node = kernel_render()
+        node[&#39;alt&#39;] = self.options.get(&#39;alt&#39;,&#39;&#39;)
+        node[&#39;srclang&#39;] = srclang
+        literal_node = nodes.literal_block(code, code)
+        node += literal_node
+
+        caption = self.options.get(&#39;caption&#39;)
+        if caption:
+            # parse caption&#39;s content
+            parsed = nodes.Element()
+            self.state.nested_parse(
+                ViewList([caption], source=&#39;&#39;), self.content_offset, parsed)
+            caption_node = nodes.caption(
+                parsed[0].rawsource, &#39;&#39;, *parsed[0].children)
+            caption_node.source = parsed[0].source
+            caption_node.line = parsed[0].line
+
+            figure_node = nodes.figure(&#39;&#39;, node)
+            for k,v in self.options.items():
+                figure_node[k] = v
+            figure_node += caption_node
+
+            node = figure_node
+
+        return node</div></div>
+
+<div class="viewcode-block" id="add_kernel_figure_to_std_domain"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.add_kernel_figure_to_std_domain">[docs]</a>def add_kernel_figure_to_std_domain(app, doctree):
+    &quot;&quot;&quot;Add kernel-figure anchors to &#39;std&#39; domain.
+
+    The ``StandardDomain.process_doc(..)`` method does not know how to resolve
+    the caption (label) of ``kernel-figure`` directive (it only knows about
+    standard nodes, e.g. table, figure etc.). Without any additional handling
+    this will result in a &#39;undefined label&#39; for kernel-figures.
+
+    This handle adds labels of kernel-figure to the &#39;std&#39; domain labels.
+    &quot;&quot;&quot;
+
+    std = app.env.domains[&quot;std&quot;]
+    docname = app.env.docname
+    labels = std.data[&quot;labels&quot;]
+
+    for name, explicit in iteritems(doctree.nametypes):
+        if not explicit:
+            continue
+        labelid = doctree.nameids[name]
+        if labelid is None:
+            continue
+        node = doctree.ids[labelid]
+
+        if node.tagname == &#39;kernel_figure&#39;:
+            for n in node.next_node():
+                if n.tagname == &#39;caption&#39;:
+                    sectname = clean_astext(n)
+                    # add label to std domain
+                    labels[name] = docname, labelid, sectname
+                    break</div>
 </pre></div>
 
-           </div>
-           
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../../index.html">Overview</a>
+    <ul>
+      <li><a href="../index.html">Module code</a>
+        
+          
+          </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../../_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

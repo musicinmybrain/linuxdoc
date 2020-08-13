@@ -1,189 +1,54 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>kernel-doc syntax &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>kernel-doc syntax &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kernel-doc in reST documents" href="kernel-doc-directive.html" />
-    <link rel="prev" title="LinuxDoc HowTo" href="index.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="prev" title="LinuxDoc HowTo" href="index.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="kernel-doc-directive.html" title="kernel-doc in reST documents"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="LinuxDoc HowTo"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">LinuxDoc HowTo</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">LinuxDoc HowTo</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#kernel-doc">kernel-doc</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">kernel-doc syntax</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#functions">functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#structs-unions">structs, unions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enums-typedefs">enums, typedefs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#documentation-blocks">documentation blocks</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#highlight-pattern">highlight pattern</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#snippets">Snippets</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="kernel-doc-directive.html">kernel-doc in reST documents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kernel-doc-examples.html">Examples &amp; Tests</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kernel-doc-modes.html">parsing modes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#other-topics">other topics</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux.html">Patch Linux Kernel Documentation</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">LinuxDoc HowTo</a> &raquo;</li>
-        
-      <li>kernel-doc syntax</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/linuxdoc-howto/kernel-doc-syntax.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="kernel-doc-syntax">
 <span id="id1"></span><h1>kernel-doc syntax<a class="headerlink" href="#kernel-doc-syntax" title="Permalink to this headline">¶</a></h1>
 <p>The format of a block comment is like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/**
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/**
  * (data-type|DOC)? name(:)? (- short description)?
 (* @x: (description of parameter/member x)?)*
 (* a blank line)?
@@ -195,14 +60,14 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">(...)?</span></code> signifies optional structure and</li>
-<li><code class="docutils literal notranslate"><span class="pre">(...)*</span></code> signifies 0 or more structure elements</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(...)?</span></code> signifies optional structure and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(...)*</span></code> signifies 0 or more structure elements</p></li>
 </ul>
 <p>The name of the function, data-type respectively DOC is used as the section
 header. The names of section headers must be unique per source file.</p>
 <div class="section" id="functions">
 <span id="kernel-doc-syntax-functions"></span><h2>functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/**
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/**
  * function_name(:)? (- short description)?
 (* @parameterx: (description of parameter x)?)*
 (* a blank line)?
@@ -592,19 +457,19 @@ example:</p>
 further processed, scanning for the following special patterns, which are
 highlighted appropriately.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">user_function()</span></code> : function</li>
-<li><code class="docutils literal notranslate"><span class="pre">&#64;a</span></code> : name of a parameter</li>
-<li><code class="docutils literal notranslate"><span class="pre">&amp;struct</span> <span class="pre">my_struct</span></code> : name of a structure (including the word struct)</li>
-<li><code class="docutils literal notranslate"><span class="pre">&amp;union</span> <span class="pre">my_union</span></code> : name of a union</li>
-<li><code class="docutils literal notranslate"><span class="pre">&amp;my_struct-&gt;a</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;my_struct.b</span></code> -  member of a struct or union.</li>
-<li><code class="docutils literal notranslate"><span class="pre">&amp;enum</span> <span class="pre">my_enum</span></code> : name of a enum</li>
-<li><code class="docutils literal notranslate"><span class="pre">&amp;typedef</span> <span class="pre">my_typedef</span></code> : name of a typedef</li>
-<li><code class="docutils literal notranslate"><span class="pre">%CONST</span></code> : name of a constant.</li>
-<li><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_function()</span></code> : function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;a</span></code> : name of a parameter</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;struct</span> <span class="pre">my_struct</span></code> : name of a structure (including the word struct)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;union</span> <span class="pre">my_union</span></code> : name of a union</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;my_struct-&gt;a</span></code> or <code class="docutils literal notranslate"><span class="pre">&amp;my_struct.b</span></code> -  member of a struct or union.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;enum</span> <span class="pre">my_enum</span></code> : name of a enum</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;typedef</span> <span class="pre">my_typedef</span></code> : name of a typedef</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%CONST</span></code> : name of a constant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</p></li>
 </ul>
 <p>The kernel-doc parser translates the pattern above to the corresponding <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">reST</a>
 markups (<a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html">sphinx domains</a>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- :c:func:`user_function` : function
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- :c:func:`user_function` : function
 - ``a`` : name of a parameter
 - :c:type:`struct my_struct &lt;my_struct&gt;` : name of a structure (including the word struct)
 - :c:type:`union my_union &lt;my_union&gt;` : name of a union
@@ -624,8 +489,8 @@ kernel-doc comment. You don’t have to use the <em>highlight</em> pattern, if y
 highlight pattern, you have to escape them in other uses: <code class="docutils literal notranslate"><span class="pre">\$...</span></code>, <code class="docutils literal notranslate"><span class="pre">\&amp;...</span></code>
 and <code class="docutils literal notranslate"><span class="pre">\&#64;...</span></code>.</p>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">The highlight pattern, are non regular reST markups. They are only available
+<p class="admonition-title">Hint</p>
+<p>The highlight pattern, are non regular reST markups. They are only available
 within kernel-doc comments, helping C developers to write short and compact
 documentation in source code comments. You can’t use them in plain reST files
 (“.rst”). If you are editing “.rst” files (e.g. files under <code class="docutils literal notranslate"><span class="pre">Documentation</span></code>)
@@ -636,11 +501,11 @@ please use the corresponding <a class="reference external" href="http://www.sphi
 <span id="kernel-doc-syntax-snippets"></span><h2>Snippets<a class="headerlink" href="#snippets" title="Permalink to this headline">¶</a></h2>
 <p>The kernel-doc Parser supports a comment-markup for snippets out of the source
 code. To start a region to snip insert:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">parse</span><span class="o">-</span><span class="n">SNIP</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">snippet</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">*/</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* parse-SNIP: &lt;snippet-name&gt; */
 </pre></div>
 </div>
 <p>The snippet region stops with a new snippet region or at the next:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">parse</span><span class="o">-</span><span class="n">SNAP</span><span class="p">:</span> <span class="o">*/</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* parse-SNAP: */
 </pre></div>
 </div>
 <p>Jump to <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-snippets"><span class="std std-ref">Snippets</span></a> to see an example.</p>
@@ -648,62 +513,71 @@ code. To start a region to snip insert:</p>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="kernel-doc-directive.html" class="btn btn-neutral float-right" title="kernel-doc in reST documents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral" title="LinuxDoc HowTo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../index.html">Overview</a>
+    <ul>
+      <li><a href="index.html">LinuxDoc HowTo</a>
+        <ul>
+          <li>Previous: <a href="index.html" title="previous chapter">LinuxDoc HowTo</a>
+          <li>Next: <a href="kernel-doc-directive.html" title="next chapter">kernel-doc in reST documents</a></ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+  <h3>Contents</h3>
+  <ul>
+<li><a class="reference internal" href="#">kernel-doc syntax</a><ul>
+<li><a class="reference internal" href="#functions">functions</a></li>
+<li><a class="reference internal" href="#structs-unions">structs, unions</a></li>
+<li><a class="reference internal" href="#enums-typedefs">enums, typedefs</a></li>
+<li><a class="reference internal" href="#documentation-blocks">documentation blocks</a></li>
+<li><a class="reference internal" href="#highlight-pattern">highlight pattern</a></li>
+<li><a class="reference internal" href="#snippets">Snippets</a></li>
+</ul>
+</li>
+</ul>
 
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

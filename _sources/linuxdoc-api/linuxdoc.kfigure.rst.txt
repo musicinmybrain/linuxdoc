@@ -2,6 +2,6 @@ linuxdoc.kfigure module
 =======================
 
 .. automodule:: linuxdoc.kfigure
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

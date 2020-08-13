@@ -2,6 +2,6 @@ linuxdoc.cdomain module
 =======================
 
 .. automodule:: linuxdoc.cdomain
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

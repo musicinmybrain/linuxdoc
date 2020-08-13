@@ -2,6 +2,6 @@ linuxdoc.kernel\_doc module
 ===========================
 
 .. automodule:: linuxdoc.kernel_doc
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

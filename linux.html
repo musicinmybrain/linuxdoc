@@ -1,218 +1,106 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Patch Linux Kernel Documentation &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patch Linux Kernel Documentation &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="linuxdoc package" href="linuxdoc-api/linuxdoc.html" />
-    <link rel="prev" title="Remarks for Kernel developer" href="kernel_dev_remarks.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="prev" title="Remarks for Kernel developer" href="kernel_dev_remarks.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = './';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="linuxdoc-api/linuxdoc.html" title="linuxdoc package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kernel_dev_remarks.html" title="Remarks for Kernel developer"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LinuxDoc 20200812 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linuxdoc-howto/index.html">LinuxDoc HowTo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Patch Linux Kernel Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#discussion">Discussion</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Patch Linux Kernel Documentation</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/linux.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="patch-linux-kernel-documentation">
 <span id="patch-linux-kernel"></span><h1>Patch Linux Kernel Documentation<a class="headerlink" href="#patch-linux-kernel-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="sidebar">
+<p class="sidebar-title">update 2020-08</p>
+<p>This article left here for historical reasons.</p>
+<p>(TL;DR) Now we have kernel v5.9 and something in kernel’s doc-build chain has
+been changed.  The LinuxDoc project is <strong>no longer a drop-in replacement for
+the sphinx-doc build chain of the linux Kernel.</strong></p>
+</div>
 <p>The LinuxDoc project is a drop-in replacement for the sphinx-doc build chain of
 the linux Kernel (see <a class="reference internal" href="kernel_dev_remarks.html#kernel-dev-remarks"><span class="std std-ref">Remarks for Kernel developer</span></a>).  If you like to see how the
 LinuxDoc extensions build your kernel documentation (HTML, man, …) install
 LinuxDoc and replace the extensions in the <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>.  Here is the patch:</p>
 <ul class="simple">
-<li><a class="reference download internal" download="" href="_downloads/6415adf35de1b87329bf08686be1130f/patch_linux.patch"><code class="xref download docutils literal notranslate"><span class="pre">linux</span> <span class="pre">patch</span></code></a></li>
+<li><p><a class="reference download internal" download="" href="_downloads/609eb7b44d5d217d12bb6ea79277fa2e/patch_linux.patch"><code class="xref download docutils literal notranslate"><span class="pre">linux</span> <span class="pre">patch</span></code></a></p></li>
 </ul>
 <p>You might need a virtualenv to install LinuxDoc.  If this is all to much for
 you, just clone LinuxDoc and work like a developer will do.  Here is what we
 recommend:</p>
 <ol class="arabic">
-<li><p class="first">jump to a folder we can use and clone LinuxDoc. If not already done, clone
+<li><p>jump to a folder we can use and clone LinuxDoc. If not already done, clone
 Kernel’s sources also:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~/Downloads
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd ~/Downloads
 $ git clone https://github.com/return42/linuxdoc.git
 $ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 </pre></div>
 </div>
 </li>
-<li><p class="first">Patch Kernel’s sources.  The variable <code class="docutils literal notranslate"><span class="pre">srctree</span></code> points to Kernel’s sources
+<li><p>Patch Kernel’s sources.  The variable <code class="docutils literal notranslate"><span class="pre">srctree</span></code> points to Kernel’s sources
 and is optional, its default is <code class="docutils literal notranslate"><span class="pre">../linux</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd linuxdoc
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ cd linuxdoc
 $ make srctree=../linux patch_linux
 </pre></div>
 </div>
 </li>
-<li><p class="first">build the virtualenv in <code class="docutils literal notranslate"><span class="pre">local/py3</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ make pyenv-install
+<li><p>build the virtualenv in <code class="docutils literal notranslate"><span class="pre">local/py3</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ make pyenv-install
   PYENV     local/py3
   ACTIVATE  source ./local/py3/bin/activate
 </pre></div>
 </div>
 </li>
-<li><p class="first">To use sphinx-build from virtualenv, activate it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ source local/py3/bin/activate
+<li><p>To use sphinx-build from virtualenv, activate it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ source local/py3/bin/activate
 (py3) $
 </pre></div>
 </div>
 <p>Within the virtualenv you see a <code class="docutils literal notranslate"><span class="pre">(py3)</span></code> in bash’s prompt.  Now lets look
 what <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command will be used within this environment:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(py3) $ which sphinx-build
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(py3) $ which sphinx-build
 /home/user/Downloads/linuxdoc/local/py3/bin/sphinx-build
 </pre></div>
 </div>
 </li>
 </ol>
 <p>With the <code class="docutils literal notranslate"><span class="pre">(py3)</span></code> environment we build Kernel’s Makefile targets:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(py3) $ cd ../linux
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(py3) $ cd ../linux
 (py3) $ make SPHINXOPTS=&quot;-j auto&quot; htmldocs mandocs
 </pre></div>
 </div>
@@ -224,8 +112,8 @@ with N processes where possible (see <a class="reference external" href="http://
 performance manner nor in the produced output.  Lets discuss this various
 aspects.</p>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">From the user’s scope of view, most of the extensions work like the one from
+<p class="admonition-title">Hint</p>
+<p>From the user’s scope of view, most of the extensions work like the one from
 the kernel source tree.  Mainly the <code class="docutils literal notranslate"><span class="pre">kernel-doc</span></code> extension from source tree
 is replaced by the <code class="docutils literal notranslate"><span class="pre">rstKernelDoc</span></code> Sphinx extension and a <em>man page</em> builder
 is added.  The <code class="docutils literal notranslate"><span class="pre">rstKernelDoc</span></code> replacement is a <em>superset</em> with additional
@@ -237,73 +125,74 @@ more strict/verbose.</p>
 </div>
 <p>Some comments about the build:</p>
 <ul class="simple">
-<li>ATM the PDF build is fragile and mostly broken. Both, the <em>linux kernel
+<li><p>ATM the PDF build is fragile and mostly broken. Both, the <em>linux kernel
 documentation</em> and the LinuxDoc have problems to build PDF.  If you give it a
-try use target <code class="docutils literal notranslate"><span class="pre">pdfdocs</span></code>.</li>
-<li>The build shows much more log messages, particularly the <em>kernel-doc</em> parser
+try use target <code class="docutils literal notranslate"><span class="pre">pdfdocs</span></code>.</p></li>
+<li><p>The build shows much more log messages, particularly the <em>kernel-doc</em> parser
 is more strict and spits out a lot of warnings and errors to improve your
-kernel-doc comments in the source code.</li>
+kernel-doc comments in the source code.</p></li>
 </ul>
 </div>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="linuxdoc-api/linuxdoc.html" class="btn btn-neutral float-right" title="linuxdoc package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="kernel_dev_remarks.html" class="btn btn-neutral" title="Remarks for Kernel developer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="index.html">Overview</a>
+    <ul>
+          <li>Previous: <a href="kernel_dev_remarks.html" title="previous chapter">Remarks for Kernel developer</a>
+          <li>Next: <a href="linuxdoc-api/linuxdoc.html" title="next chapter">linuxdoc package</a>
+    </ul>
+  </li>
+</ul>
+  <h3>Contents</h3>
+  <ul>
+<li><a class="reference internal" href="#">Patch Linux Kernel Documentation</a><ul>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
 
-  <script type="text/javascript" src="_static/js/theme.js"></script>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

@@ -2,6 +2,6 @@ linuxdoc.lint module
 ====================
 
 .. automodule:: linuxdoc.lint
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

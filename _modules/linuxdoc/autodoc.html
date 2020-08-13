@@ -1,437 +1,329 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>linuxdoc.autodoc &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>linuxdoc.autodoc &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/tabs.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+    <script src="../../_static/sphinx_tabs/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="search" title="Search" href="../../search.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../../';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../../index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="../../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-howto/index.html">LinuxDoc HowTo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../linux.html">Patch Linux Kernel Documentation</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-        
-      <li>linuxdoc.autodoc</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <h1>Source code for linuxdoc.autodoc</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python3</span>
-<span class="c1"># -*- coding: utf-8; mode: python -*-</span>
-<span class="sa">u</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    autodoc</span>
-<span class="sd">    ~~~~~~~</span>
+<span></span>#!/usr/bin/env python3
+# -*- coding: utf-8; mode: python -*-
+u&quot;&quot;&quot;
+    autodoc
+    ~~~~~~~
 
-<span class="sd">    Implementation of the ``kernel-autodoc`` command.</span>
+    Implementation of the ``kernel-autodoc`` command.
 
-<span class="sd">    :copyright:  Copyright (C) 2018 Markus Heiser</span>
-<span class="sd">    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.</span>
+    :copyright:  Copyright (C) 2018 Markus Heiser
+    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
 
-<span class="sd">    The ``kernel-autodoc`` command extracts documentation from Linux kernel&#39;s</span>
-<span class="sd">    source code comments, see ``--help``::</span>
+    The ``kernel-autodoc`` command extracts documentation from Linux kernel&#39;s
+    source code comments, see ``--help``::
 
-<span class="sd">        $ kernel-autodoc --help</span>
+        $ kernel-autodoc --help
 
-<span class="sd">&quot;&quot;&quot;</span>
+&quot;&quot;&quot;
 
-<span class="c1"># ------------------------------------------------------------------------------</span>
-<span class="c1"># imports</span>
-<span class="c1"># ------------------------------------------------------------------------------</span>
+# ------------------------------------------------------------------------------
+# imports
+# ------------------------------------------------------------------------------
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">multiprocessing</span>
+import sys
+import argparse
+import multiprocessing
 
-<span class="kn">import</span> <span class="nn">six</span>
+import six
 
-<span class="kn">from</span> <span class="nn">fspath</span> <span class="k">import</span> <span class="n">FSPath</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">kernel_doc</span> <span class="k">as</span> <span class="n">kerneldoc</span>
-<span class="kn">from</span> <span class="nn">.kernel_doc</span> <span class="k">import</span> <span class="n">Container</span>
+from fspath import FSPath
+from . import kernel_doc as kerneldoc
+from .kernel_doc import Container
 
 
-<span class="c1"># ------------------------------------------------------------------------------</span>
-<span class="c1"># config</span>
-<span class="c1"># ------------------------------------------------------------------------------</span>
+# ------------------------------------------------------------------------------
+# config
+# ------------------------------------------------------------------------------
 
-<span class="n">MARKUP</span> <span class="o">=</span> <span class="s2">&quot;kernel-doc&quot;</span> <span class="c1"># &quot;reST&quot;</span>
-<span class="n">MSG</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stderr__</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;INFO : </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">)</span>
-<span class="n">ERR</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stderr__</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;ERROR: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">)</span>
-<span class="n">FATAL</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stderr__</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;FATAL: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">)</span>
+MARKUP = &quot;kernel-doc&quot; # &quot;reST&quot;
+MSG    = lambda msg: sys.__stderr__.write(&quot;INFO : %s\n&quot; % msg)
+ERR    = lambda msg: sys.__stderr__.write(&quot;ERROR: %s\n&quot; % msg)
+FATAL  = lambda msg: sys.__stderr__.write(&quot;FATAL: %s\n&quot; % msg)
 
-<span class="n">TEMPLATE_INDEX</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
-<span class="s2">.. -*- coding: utf-8; mode: rst -*-</span>
+TEMPLATE_INDEX=&quot;&quot;&quot;\
+.. -*- coding: utf-8; mode: rst -*-
 
-<span class="s2">================================================================================</span>
-<span class="si">%(title)s</span><span class="s2"></span>
-<span class="s2">================================================================================</span>
+================================================================================
+%(title)s
+================================================================================
 
-<span class="s2">.. toctree::</span>
-<span class="s2">    :maxdepth: 1</span>
+.. toctree::
+    :maxdepth: 1
 
-<span class="s2">&quot;&quot;&quot;</span>
+&quot;&quot;&quot;
 
-<span class="n">EPILOG</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&quot;&quot;&quot;This implementation of autodoc uses the kernel-doc parser from the linuxdoc</span>
-<span class="s2">extension, for details see: https://return42.github.io/linuxdoc/cmd-line.html&quot;&quot;&quot;</span>
+EPILOG = u&quot;&quot;&quot;This implementation of autodoc uses the kernel-doc parser from the linuxdoc
+extension, for details see: https://return42.github.io/linuxdoc/cmd-line.html&quot;&quot;&quot;
 
-<span class="n">CMD</span> <span class="o">=</span> <span class="kc">None</span>
+CMD = None
 
-<span class="c1"># ------------------------------------------------------------------------------</span>
-<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-<span class="c1"># ------------------------------------------------------------------------------</span>
+# ------------------------------------------------------------------------------
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.main">[docs]</a>def main():
+# ------------------------------------------------------------------------------
 
-    <span class="s2">&quot;Parse *kernel-doc* comments from source code (main)&quot;</span>
+    &quot;Parse *kernel-doc* comments from source code (main)&quot;
 
-    <span class="k">global</span> <span class="n">CMD</span>  <span class="c1"># pylint: disable=global-statement</span>
+    global CMD  # pylint: disable=global-statement
 
-    <span class="n">CLI</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>  <span class="c1"># pylint: disable=invalid-name</span>
-        <span class="n">description</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Parse *kernel-doc* comments from source code&quot;</span><span class="p">)</span>
-        <span class="p">,</span> <span class="n">epilog</span> <span class="o">=</span> <span class="n">EPILOG</span>
-        <span class="p">,</span> <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+    CLI = argparse.ArgumentParser(  # pylint: disable=invalid-name
+        description = (&quot;Parse *kernel-doc* comments from source code&quot;)
+        , epilog = EPILOG
+        , formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    <span class="n">CLI</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;srctree&quot;</span>
-        <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s2">&quot;Folder of source code.&quot;</span>
-        <span class="p">,</span> <span class="nb">type</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">ABSPATH</span><span class="p">)</span>
+    CLI.add_argument(
+        &quot;srctree&quot;
+        , help    = &quot;Folder of source code.&quot;
+        , type    = lambda x: FSPath(x).ABSPATH)
 
-    <span class="n">CLI</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;doctree&quot;</span>
-        <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s2">&quot;Folder to place reST documentation.&quot;</span>
-        <span class="p">,</span> <span class="nb">type</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">ABSPATH</span><span class="p">)</span>
+    CLI.add_argument(
+        &quot;doctree&quot;
+        , help    = &quot;Folder to place reST documentation.&quot;
+        , type    = lambda x: FSPath(x).ABSPATH)
 
-    <span class="n">CLI</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;--sloppy&quot;</span>
-        <span class="p">,</span> <span class="n">action</span>  <span class="o">=</span> <span class="s2">&quot;store_true&quot;</span>
-        <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s2">&quot;Sloppy comment check, reports only severe errors.&quot;</span><span class="p">)</span>
+    CLI.add_argument(
+        &quot;--sloppy&quot;
+        , action  = &quot;store_true&quot;
+        , help    = &quot;Sloppy comment check, reports only severe errors.&quot;)
 
-    <span class="n">CLI</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;--force&quot;</span>
-        <span class="p">,</span> <span class="n">action</span>  <span class="o">=</span> <span class="s2">&quot;store_true&quot;</span>
-        <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s2">&quot;Don&#39;t stop if doctree exists.&quot;</span><span class="p">)</span>
+    CLI.add_argument(
+        &quot;--force&quot;
+        , action  = &quot;store_true&quot;
+        , help    = &quot;Don&#39;t stop if doctree exists.&quot;)
 
-    <span class="n">CLI</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;--threads&quot;</span>
-        <span class="p">,</span> <span class="nb">type</span>    <span class="o">=</span>  <span class="nb">int</span>
-        <span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span>
-        <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="s2">&quot;Use up to n threads.&quot;</span><span class="p">)</span>
+    CLI.add_argument(
+        &quot;--threads&quot;
+        , type    =  int
+        , default = multiprocessing.cpu_count()
+        , help    = &quot;Use up to n threads.&quot;)
 
-    <span class="n">CLI</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;--markup&quot;</span>
-        <span class="p">,</span> <span class="n">choices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;reST&quot;</span><span class="p">,</span> <span class="s2">&quot;kernel-doc&quot;</span><span class="p">]</span>
-        <span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;reST&quot;</span>
-        <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">&quot;Markup of the comments. Change this option only if you know&quot;</span>
-            <span class="s2">&quot; what you do. New comments must be marked up with reST!&quot;</span><span class="p">))</span>
+    CLI.add_argument(
+        &quot;--markup&quot;
+        , choices = [&quot;reST&quot;, &quot;kernel-doc&quot;]
+        , default = &quot;reST&quot;
+        , help    = (
+            &quot;Markup of the comments. Change this option only if you know&quot;
+            &quot; what you do. New comments must be marked up with reST!&quot;))
 
-    <span class="n">CLI</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
-        <span class="s2">&quot;--rst-files&quot;</span>
-        <span class="p">,</span> <span class="nb">type</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">FSPath</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">ABSPATH</span>
-        <span class="p">,</span> <span class="n">help</span>    <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">&quot;File that list source files, which has comments in reST markup.&quot;</span>
-            <span class="s2">&quot; Use kernel-grepdoc command to generate those file.&quot;</span><span class="p">))</span>
+    CLI.add_argument(
+        &quot;--rst-files&quot;
+        , type    = lambda x: FSPath(x).ABSPATH
+        , help    = (
+            &quot;File that list source files, which has comments in reST markup.&quot;
+            &quot; Use kernel-grepdoc command to generate those file.&quot;))
 
-    <span class="n">CMD</span> <span class="o">=</span> <span class="n">CLI</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    CMD = CLI.parse_args()
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">CMD</span><span class="o">.</span><span class="n">srctree</span><span class="o">.</span><span class="n">EXISTS</span><span class="p">:</span>
-        <span class="n">ERR</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> does not exists.&quot;</span> <span class="o">%</span> <span class="n">CMD</span><span class="o">.</span><span class="n">srctree</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    if not CMD.srctree.EXISTS:
+        ERR(&quot;%s does not exists.&quot; % CMD.srctree)
+        sys.exit(42)
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">CMD</span><span class="o">.</span><span class="n">srctree</span><span class="o">.</span><span class="n">ISDIR</span><span class="p">:</span>
-        <span class="n">ERR</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is not a folder.&quot;</span> <span class="o">%</span> <span class="n">CMD</span><span class="o">.</span><span class="n">srctree</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    if not CMD.srctree.ISDIR:
+        ERR(&quot;%s is not a folder.&quot; % CMD.srctree)
+        sys.exit(42)
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">CMD</span><span class="o">.</span><span class="n">force</span> <span class="ow">and</span> <span class="n">CMD</span><span class="o">.</span><span class="n">doctree</span><span class="o">.</span><span class="n">EXISTS</span><span class="p">:</span>
-        <span class="n">ERR</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is in the way, remove it first&quot;</span> <span class="o">%</span> <span class="n">CMD</span><span class="o">.</span><span class="n">doctree</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+    if not CMD.force and CMD.doctree.EXISTS:
+        ERR(&quot;%s is in the way, remove it first&quot; % CMD.doctree)
+        sys.exit(42)
 
-    <span class="k">if</span> <span class="n">CMD</span><span class="o">.</span><span class="n">markup</span> <span class="o">==</span> <span class="s2">&quot;kernel-doc&quot;</span> <span class="ow">and</span> <span class="n">CMD</span><span class="o">.</span><span class="n">rst_files</span><span class="p">:</span>
-        <span class="n">CMD</span><span class="o">.</span><span class="n">rst_files</span> <span class="o">=</span> <span class="n">CMD</span><span class="o">.</span><span class="n">rst_files</span><span class="o">.</span><span class="n">readFile</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">CMD</span><span class="o">.</span><span class="n">rst_files</span> <span class="o">=</span> <span class="p">[]</span>
+    if CMD.markup == &quot;kernel-doc&quot; and CMD.rst_files:
+        CMD.rst_files = CMD.rst_files.readFile().splitlines()
+    else:
+        CMD.rst_files = []
 
-    <span class="k">if</span> <span class="n">CMD</span><span class="o">.</span><span class="n">threads</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">pool</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Pool</span><span class="p">(</span><span class="n">CMD</span><span class="o">.</span><span class="n">threads</span><span class="p">)</span>
-        <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">autodoc_file</span><span class="p">,</span> <span class="n">gather_filenames</span><span class="p">(</span><span class="n">CMD</span><span class="p">))</span>
-        <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">gather_filenames</span><span class="p">(</span><span class="n">CMD</span><span class="p">):</span>
-            <span class="n">autodoc_file</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    if CMD.threads &gt; 1:
+        pool = multiprocessing.Pool(CMD.threads)
+        pool.map(autodoc_file, gather_filenames(CMD))
+        pool.close()
+        pool.join()
+    else:
+        for fname in gather_filenames(CMD):
+            autodoc_file(fname)
 
-    <span class="n">insert_index_files</span><span class="p">(</span><span class="n">CMD</span><span class="o">.</span><span class="n">doctree</span><span class="p">)</span></div>
+    insert_index_files(CMD.doctree)</div>
 
-<span class="c1"># ------------------------------------------------------------------------------</span>
-<div class="viewcode-block" id="gather_filenames"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.gather_filenames">[docs]</a><span class="k">def</span> <span class="nf">gather_filenames</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
-<span class="c1"># ------------------------------------------------------------------------------</span>
+# ------------------------------------------------------------------------------
+<div class="viewcode-block" id="gather_filenames"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.gather_filenames">[docs]</a>def gather_filenames(cmd):
+# ------------------------------------------------------------------------------
 
-    <span class="s2">&quot;yield .c &amp; .h filenames&quot;</span>
+    &quot;yield .c &amp; .h filenames&quot;
 
-    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">cmd</span><span class="o">.</span><span class="n">srctree</span><span class="o">.</span><span class="n">reMatchFind</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^.*\.[ch]$&quot;</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">fname</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">CMD</span><span class="o">.</span><span class="n">srctree</span><span class="o">/</span><span class="s2">&quot;Documentation&quot;</span><span class="p">):</span>
-            <span class="k">continue</span>
-        <span class="k">yield</span> <span class="n">fname</span></div>
+    for fname in cmd.srctree.reMatchFind(r&quot;^.*\.[ch]$&quot;):
+        if fname.startswith(CMD.srctree/&quot;Documentation&quot;):
+            continue
+        yield fname</div>
 
-<span class="c1"># ------------------------------------------------------------------------------</span>
-<div class="viewcode-block" id="autodoc_file"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.autodoc_file">[docs]</a><span class="k">def</span> <span class="nf">autodoc_file</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-<span class="c1"># ------------------------------------------------------------------------------</span>
+# ------------------------------------------------------------------------------
+<div class="viewcode-block" id="autodoc_file"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.autodoc_file">[docs]</a>def autodoc_file(fname):
+# ------------------------------------------------------------------------------
 
-    <span class="s2">&quot;generate documentation from fname&quot;</span>
+    &quot;generate documentation from fname&quot;
 
-    <span class="n">fname</span>  <span class="o">=</span> <span class="n">fname</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">CMD</span><span class="o">.</span><span class="n">srctree</span><span class="p">)</span>
-    <span class="n">markup</span> <span class="o">=</span> <span class="n">CMD</span><span class="o">.</span><span class="n">markup</span>
+    fname  = fname.relpath(CMD.srctree)
+    markup = CMD.markup
 
-    <span class="k">if</span> <span class="n">CMD</span><span class="o">.</span><span class="n">markup</span> <span class="o">==</span> <span class="s2">&quot;kernel-doc&quot;</span> <span class="ow">and</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">CMD</span><span class="o">.</span><span class="n">rst_files</span><span class="p">:</span>
-        <span class="n">markup</span> <span class="o">=</span> <span class="s2">&quot;reST&quot;</span>
+    if CMD.markup == &quot;kernel-doc&quot; and fname in CMD.rst_files:
+        markup = &quot;reST&quot;
 
-    <span class="n">opts</span> <span class="o">=</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">ParseOptions</span><span class="p">(</span>
-        <span class="n">rel_fname</span>       <span class="o">=</span> <span class="n">fname</span>
-        <span class="p">,</span> <span class="n">src_tree</span>      <span class="o">=</span> <span class="n">CMD</span><span class="o">.</span><span class="n">srctree</span>
-        <span class="p">,</span> <span class="n">verbose_warn</span>  <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span><span class="n">CMD</span><span class="o">.</span><span class="n">sloppy</span><span class="p">)</span>
-        <span class="p">,</span> <span class="n">use_all_docs</span>  <span class="o">=</span> <span class="kc">True</span>
-        <span class="p">,</span> <span class="n">markup</span>        <span class="o">=</span> <span class="n">markup</span> <span class="p">)</span>
+    opts = kerneldoc.ParseOptions(
+        rel_fname       = fname
+        , src_tree      = CMD.srctree
+        , verbose_warn  = not (CMD.sloppy)
+        , use_all_docs  = True
+        , markup        = markup )
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">Parser</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">NullTranslator</span><span class="p">())</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
-        <span class="n">FATAL</span><span class="p">(</span><span class="s2">&quot;kernel-doc markup of </span><span class="si">%s</span><span class="s2"> seems buggy / can&#39;t parse&quot;</span> <span class="o">%</span> <span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
-        <span class="k">return</span>
+    parser = kerneldoc.Parser(opts, kerneldoc.NullTranslator())
+    try:
+        parser.parse()
+    except Exception:  # pylint: disable=broad-except
+        FATAL(&quot;kernel-doc markup of %s seems buggy / can&#39;t parse&quot; % opts.fname)
+        return
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">parser</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">dump_storage</span><span class="p">:</span>
-        <span class="c1"># no kernel-doc comments found</span>
-        <span class="n">MSG</span><span class="p">(</span><span class="s2">&quot;parsed: NONE comments: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
-        <span class="k">return</span>
+    if not parser.ctx.dump_storage:
+        # no kernel-doc comments found
+        MSG(&quot;parsed: NONE comments: %s&quot; % opts.fname)
+        return
 
-    <span class="n">MSG</span><span class="p">(</span><span class="s2">&quot;parsed: </span><span class="si">%4d</span><span class="s2"> comments: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">dump_storage</span><span class="p">),</span> <span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">))</span>
+    MSG(&quot;parsed: %4d comments: %s&quot; % (len(parser.ctx.dump_storage), opts.fname))
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">rst</span> <span class="o">=</span> <span class="n">six</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
-        <span class="n">translator</span> <span class="o">=</span> <span class="n">kerneldoc</span><span class="o">.</span><span class="n">ReSTTranslator</span><span class="p">()</span>
-        <span class="n">opts</span><span class="o">.</span><span class="n">out</span>   <span class="o">=</span> <span class="n">rst</span>
+    try:
+        rst = six.StringIO()
+        translator = kerneldoc.ReSTTranslator()
+        opts.out   = rst
 
-        <span class="c1"># First try to output reST, this might fail, because the kernel-doc</span>
-        <span class="c1"># parser part is to tollerant (&quot;bad lines&quot;, &quot;function name and function</span>
-        <span class="c1"># declaration are different&quot;, etc ...).</span>
-        <span class="n">parser</span><span class="o">.</span><span class="n">parse_dump_storage</span><span class="p">(</span><span class="n">translator</span><span class="o">=</span><span class="n">translator</span><span class="p">)</span>
+        # First try to output reST, this might fail, because the kernel-doc
+        # parser part is to tollerant (&quot;bad lines&quot;, &quot;function name and function
+        # declaration are different&quot;, etc ...).
+        parser.parse_dump_storage(translator=translator)
 
-        <span class="n">out_file</span> <span class="o">=</span> <span class="n">CMD</span><span class="o">.</span><span class="n">doctree</span> <span class="o">/</span> <span class="n">fname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.rst&quot;</span>
-        <span class="n">out_file</span><span class="o">.</span><span class="n">DIRNAME</span><span class="o">.</span><span class="n">makedirs</span><span class="p">()</span>
-        <span class="k">with</span> <span class="n">out_file</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">rst</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+        out_file = CMD.doctree / fname.replace(&quot;.&quot;,&quot;_&quot;) + &quot;.rst&quot;
+        out_file.DIRNAME.makedirs()
+        with out_file.openTextFile(mode=&quot;w&quot;) as out:
+            out.write(rst.getvalue())
 
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
-        <span class="n">FATAL</span><span class="p">(</span><span class="s2">&quot;kernel-doc markup of </span><span class="si">%s</span><span class="s2"> seems buggy / can&#39;t parse&quot;</span> <span class="o">%</span> <span class="n">opts</span><span class="o">.</span><span class="n">fname</span><span class="p">)</span>
-        <span class="k">return</span></div>
+    except Exception:  # pylint: disable=broad-except
+        FATAL(&quot;kernel-doc markup of %s seems buggy / can&#39;t parse&quot; % opts.fname)
+        return</div>
 
-<span class="c1"># ------------------------------------------------------------------------------</span>
-<div class="viewcode-block" id="insert_index_files"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.insert_index_files">[docs]</a><span class="k">def</span> <span class="nf">insert_index_files</span><span class="p">(</span><span class="n">root_folder</span><span class="p">):</span>
-<span class="c1"># ------------------------------------------------------------------------------</span>
+# ------------------------------------------------------------------------------
+<div class="viewcode-block" id="insert_index_files"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.autodoc.html#linuxdoc.autodoc.insert_index_files">[docs]</a>def insert_index_files(root_folder):
+# ------------------------------------------------------------------------------
 
-    <span class="s2">&quot;From root_folder traverse over subfolders and generate all index.rst files &quot;</span>
+    &quot;From root_folder traverse over subfolders and generate all index.rst files &quot;
 
-    <span class="k">for</span> <span class="n">folder</span><span class="p">,</span> <span class="n">dirnames</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">root_folder</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
-        <span class="n">ctx</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span> <span class="n">title</span> <span class="o">=</span> <span class="n">folder</span><span class="o">.</span><span class="n">FILENAME</span> <span class="p">)</span>
-        <span class="n">dirnames</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-        <span class="n">filenames</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-        <span class="n">index_file</span> <span class="o">=</span> <span class="n">folder</span> <span class="o">/</span> <span class="s2">&quot;index.rst&quot;</span>
-        <span class="n">MSG</span><span class="p">(</span><span class="s2">&quot;create index: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">index_file</span><span class="p">)</span>
-        <span class="k">with</span> <span class="n">index_file</span><span class="o">.</span><span class="n">openTextFile</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index</span><span class="p">:</span>
-            <span class="n">index</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">TEMPLATE_INDEX</span> <span class="o">%</span> <span class="n">ctx</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">_d</span> <span class="ow">in</span> <span class="n">dirnames</span><span class="p">:</span>
-                <span class="n">index</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;    </span><span class="si">%s</span><span class="s2">/index</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">_d</span><span class="o">.</span><span class="n">FILENAME</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">_f</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">_f</span><span class="o">.</span><span class="n">FILENAME</span> <span class="o">==</span> <span class="s2">&quot;index&quot;</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="n">index</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;    </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">_f</span><span class="o">.</span><span class="n">FILENAME</span><span class="p">)</span></div>
+    for folder, dirnames, filenames in root_folder.walk():
+        ctx = Container( title = folder.FILENAME )
+        dirnames.sort()
+        filenames.sort()
+        index_file = folder / &quot;index.rst&quot;
+        MSG(&quot;create index: %s&quot; % index_file)
+        with index_file.openTextFile(mode=&quot;w&quot;) as index:
+            index.write(TEMPLATE_INDEX % ctx)
+            for _d in dirnames:
+                index.write(&quot;    %s/index\n&quot; % _d.FILENAME)
+            for _f in filenames:
+                if _f.FILENAME == &quot;index&quot;:
+                    continue
+                index.write(&quot;    %s\n&quot; % _f.FILENAME)</div>
 </pre></div>
 
-           </div>
-           
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../../index.html">Overview</a>
+    <ul>
+      <li><a href="../index.html">Module code</a>
+        
+          
+          </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../../_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

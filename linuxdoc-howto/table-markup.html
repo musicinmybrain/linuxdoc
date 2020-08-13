@@ -1,191 +1,55 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>About tables &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About tables &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Customized sphinx c-domain" href="cdomain.html" />
-    <link rel="prev" title="Scalable figure and image handling" href="kfigure.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="prev" title="Scalable figure and image handling" href="kfigure.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="cdomain.html" title="Customized sphinx c-domain"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kfigure.html" title="Scalable figure and image handling"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">LinuxDoc HowTo</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">LinuxDoc HowTo</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#kernel-doc">kernel-doc</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#other-topics">other topics</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="kfigure.html">Scalable figure and image handling</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">About tables</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#intro">Intro</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ascii-art-tables">ASCII-art tables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#list-table-directives">List table directives</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#csv-table">CSV table</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nested-tables">Nested Tables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#raw-html-tables">raw HTML tables</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cdomain.html">Customized sphinx c-domain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="man-pages.html">man pages from kernel-doc comments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kernel-include-directive.html">Use kernel-include in reST documents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux.html">Patch Linux Kernel Documentation</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">LinuxDoc HowTo</a> &raquo;</li>
-        
-      <li>About tables</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/linuxdoc-howto/table-markup.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="about-tables">
 <span id="xref-table-concerns"></span><h1>About tables<a class="headerlink" href="#about-tables" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <a class="reference internal" href="#rest-flat-table"><span class="std std-ref">flat-table</span></a> directive is the most <strong>diff friendly</strong> table
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="#rest-flat-table"><span class="std std-ref">flat-table</span></a> directive is the most <strong>diff friendly</strong> table
 markup, it is preferred in the Linux kernel tree.</p>
 </div>
 <div class="section" id="intro">
@@ -202,8 +66,8 @@ horizontal and vertical expansion is handled by a scrollbar. On print medias
 line-breaking a pre-formated text in the layout process ends mostly in unwanted
 results.</p>
 <div class="admonition hint">
-<p class="first admonition-title">Hint</p>
-<p class="last">Tables and pre-formated text in itself violate the separation of <em>presentation
+<p class="admonition-title">Hint</p>
+<p>Tables and pre-formated text in itself violate the separation of <em>presentation
 from content</em>, but we will never be able to entirely renounce them. Use them
 with care, if your content should be rendered well, in the wide variation of
 output formats.</p>
@@ -219,8 +83,8 @@ modifying ASCII-art tables is not meaningful, e.g. widening a cell generates a
 diff in which also changes are included, which are only ascribable to the
 ASCII-art (see also <a class="reference internal" href="#list-table-directives"><span class="std std-ref">List table directives</span></a>).</p>
 <ul class="simple">
-<li><a class="reference external" href="https://www.emacswiki.org/emacs/TableMode">Emacs Table Mode</a></li>
-<li><a class="reference external" href="http://www.tablesgenerator.com/text_tables">Online Tables Generator</a></li>
+<li><p><a class="reference external" href="https://www.emacswiki.org/emacs/TableMode">Emacs Table Mode</a></p></li>
+<li><p><a class="reference external" href="http://www.tablesgenerator.com/text_tables">Online Tables Generator</a></p></li>
 </ul>
 <div class="section" id="simple-tables">
 <h3>Simple tables<a class="headerlink" href="#simple-tables" title="Permalink to this headline">¶</a></h3>
@@ -241,32 +105,32 @@ False  True
 </pre></div>
 </div>
 <p>Rendered as:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head" colspan="2">Inputs</th>
-<th class="head">Output</th>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Inputs</p></th>
+<th class="head"><p>Output</p></th>
 </tr>
-<tr class="row-even"><th class="head">A</th>
-<th class="head">B</th>
-<th class="head">A or B</th>
+<tr class="row-even"><th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>A or B</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-odd"><td colspan="3">False</td>
+<tbody>
+<tr class="row-odd"><td colspan="3"><p>False</p></td>
 </tr>
-<tr class="row-even"><td colspan="3">True</td>
+<tr class="row-even"><td colspan="3"><p>True</p></td>
 </tr>
-<tr class="row-odd"><td>True</td>
-<td>False</td>
-<td>True</td>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
 </tr>
-<tr class="row-even"><td>False</td>
-<td colspan="2">True</td>
+<tr class="row-even"><td><p>False</p></td>
+<td colspan="2"><p>True</p></td>
 </tr>
 </tbody>
 </table>
@@ -288,37 +152,37 @@ False  True
 </pre></div>
 </div>
 <p>Rendered as:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="34%" />
-<col width="34%" />
-<col width="31%" />
+<col style="width: 34%" />
+<col style="width: 34%" />
+<col style="width: 31%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Header 1</th>
-<th class="head">Header 2</th>
-<th class="head">Header 3</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Header 1</p></th>
+<th class="head"><p>Header 2</p></th>
+<th class="head"><p>Header 3</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>body row 1</td>
-<td>column 2</td>
-<td>column 3</td>
+<tbody>
+<tr class="row-even"><td><p>body row 1</p></td>
+<td><p>column 2</p></td>
+<td><p>column 3</p></td>
 </tr>
-<tr class="row-odd"><td>body row 2</td>
-<td colspan="2">Cells may span columns.</td>
+<tr class="row-odd"><td><p>body row 2</p></td>
+<td colspan="2"><p>Cells may span columns.</p></td>
 </tr>
-<tr class="row-even"><td>body row 3</td>
-<td rowspan="2">Cells may
-span rows.</td>
-<td rowspan="2"><ul class="first last simple">
-<li>Cells</li>
-<li>contain</li>
-<li>blocks.</li>
+<tr class="row-even"><td><p>body row 3</p></td>
+<td rowspan="2"><p>Cells may
+span rows.</p></td>
+<td rowspan="2"><ul class="simple">
+<li><p>Cells</p></li>
+<li><p>contain</p></li>
+<li><p>blocks.</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td>body row 4</td>
+<tr class="row-odd"><td><p>body row 4</p></td>
 </tr>
 </tbody>
 </table>
@@ -334,8 +198,8 @@ more meaningful, because it is limited to the modified content.</p>
 <span id="rest-list-table"></span><h3>list-table<a class="headerlink" href="#list-table" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">list-tables</span></code> has no ability to <em>colspan</em> nor <em>rowspan</em>:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">list-table</span><span class="p">::</span> table title
-   <span class="nc">:header-rows:</span> <span class="nf">1</span>
-   <span class="nc">:stub-columns:</span> <span class="nf">1</span>
+   <span class="nc">:header-rows:</span> 1
+   <span class="nc">:stub-columns:</span> 1
 
    <span class="m">*</span> - ..
      <span class="m">-</span> head col 1
@@ -355,31 +219,31 @@ more meaningful, because it is limited to the modified content.</p>
 </pre></div>
 </div>
 <p>Rendered as:</p>
-<table border="1" class="docutils" id="id2">
+<table class="docutils align-default" id="id2">
 <caption><span class="caption-text">table title</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
+<thead>
 <tr class="row-odd"><th class="head stub"></th>
-<th class="head">head col 1</th>
-<th class="head">head col 2</th>
+<th class="head"><p>head col 1</p></th>
+<th class="head"><p>head col 2</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><th class="stub">stub col row 1</th>
-<td>column</td>
-<td>column</td>
+<tbody>
+<tr class="row-even"><th class="stub"><p>stub col row 1</p></th>
+<td><p>column</p></td>
+<td><p>column</p></td>
 </tr>
-<tr class="row-odd"><th class="stub">stub col row 2</th>
-<td>column</td>
-<td>column</td>
+<tr class="row-odd"><th class="stub"><p>stub col row 2</p></th>
+<td><p>column</p></td>
+<td><p>column</p></td>
 </tr>
-<tr class="row-even"><th class="stub">stub col row 3</th>
-<td>column</td>
-<td>column</td>
+<tr class="row-even"><th class="stub"><p>stub col row 3</p></th>
+<td><p>column</p></td>
+<td><p>column</p></td>
 </tr>
 </tbody>
 </table>
@@ -389,43 +253,39 @@ more meaningful, because it is limited to the modified content.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">flat-table</span></code> (<code class="xref py py-class docutils literal notranslate"><span class="pre">FlatTable</span></code>) is a double-stage list similar
 to the <code class="docutils literal notranslate"><span class="pre">list-table</span></code> with some additional features:</p>
 <ul class="simple">
-<li><em>column-span</em>: with the role <code class="docutils literal notranslate"><span class="pre">cspan</span></code> a cell can be extended through
-additional columns</li>
-<li><em>row-span</em>: with the role <code class="docutils literal notranslate"><span class="pre">rspan</span></code> a cell can be extended through
-additional rows</li>
-<li><em>auto-span</em> rightmost cell of a table row over the missing cells on the right
+<li><p><em>column-span</em>: with the role <code class="docutils literal notranslate"><span class="pre">cspan</span></code> a cell can be extended through
+additional columns</p></li>
+<li><p><em>row-span</em>: with the role <code class="docutils literal notranslate"><span class="pre">rspan</span></code> a cell can be extended through
+additional rows</p></li>
+<li><p><em>auto-span</em> rightmost cell of a table row over the missing cells on the right
 side of that table-row.  With Option <code class="docutils literal notranslate"><span class="pre">:fill-cells:</span></code> this behavior can
 changed from <em>auto span</em> to <em>auto fill</em>, which automatically inserts (empty)
-cells instead of spanning the last cell.</li>
+cells instead of spanning the last cell.</p></li>
 </ul>
-<dl class="docutils">
-<dt>options:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">header-rows:</th><td class="field-body">[int] count of header rows</td>
-</tr>
-<tr class="field-even field"><th class="field-name">stub-columns:</th><td class="field-body">[int] count of stub columns</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">widths:</th><td class="field-body">[[int] [int] … ] widths of columns</td>
-</tr>
-<tr class="field-even field"><th class="field-name">fill-cells:</th><td class="field-body">instead of auto-span missing cells, insert missing cells</td>
-</tr>
-</tbody>
-</table>
+<dl class="simple">
+<dt>options:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">header-rows</dt>
+<dd class="field-odd"><p>[int] count of header rows</p>
 </dd>
-<dt>roles:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">cspan:</th><td class="field-body">[int] additional columns (<em>morecols</em>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">rspan:</th><td class="field-body">[int] additional rows (<em>morerows</em>)</td>
-</tr>
-</tbody>
-</table>
+<dt class="field-even">stub-columns</dt>
+<dd class="field-even"><p>[int] count of stub columns</p>
+</dd>
+<dt class="field-odd">widths</dt>
+<dd class="field-odd"><p>[[int] [int] … ] widths of columns</p>
+</dd>
+<dt class="field-even">fill-cells</dt>
+<dd class="field-even"><p>instead of auto-span missing cells, insert missing cells</p>
+</dd>
+</dl>
+</dd>
+<dt>roles:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cspan</dt>
+<dd class="field-odd"><p>[int] additional columns (<em>morecols</em>)</p>
+</dd>
+<dt class="field-even">rspan</dt>
+<dd class="field-even"><p>[int] additional rows (<em>morerows</em>)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p>The example below shows how to use this markup.  The first level of the staged
@@ -433,9 +293,9 @@ list is the <em>table-row</em>. In the <em>table-row</em> there is only one mark
 the list of the cells in this <em>table-row</em>. Exception are <em>comments</em> ( <code class="docutils literal notranslate"><span class="pre">..</span></code> )
 and <em>targets</em> (e.g. a ref to <a class="reference internal" href="#row-body-2"><span class="std std-ref">row 2 of table’s body</span></a>).</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">flat-table</span><span class="p">::</span> table title
-   <span class="nc">:header-rows:</span> <span class="nf">2</span>
-   <span class="nc">:stub-columns:</span> <span class="nf">1</span>
-   <span class="nc">:widths:</span> <span class="nf">1 1 1 1 2</span>
+   <span class="nc">:header-rows:</span> 2
+   <span class="nc">:stub-columns:</span> 1
+   <span class="nc">:widths:</span> 1 1 1 1 2
 
    <span class="m">*</span> - <span class="na">:rspan:</span><span class="nv">`1`</span> head / stub
      <span class="m">-</span> <span class="na">:cspan:</span><span class="nv">`3`</span> head 1.1-4
@@ -483,56 +343,58 @@ and <em>targets</em> (e.g. a ref to <a class="reference internal" href="#row-bod
 </div>
 <p>Rendered as:</p>
 <blockquote>
-<div><table border="1" class="docutils" id="id3">
+<div><table class="docutils align-default" id="id3">
 <caption><span class="caption-text">table title</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="17%" />
-<col width="33%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head stub" rowspan="2"> head / stub</th>
-<th class="head" colspan="4"> head 1.1-4</th>
+<thead>
+<tr class="row-odd"><th class="head stub" rowspan="2"><p> head / stub</p></th>
+<th class="head" colspan="4"><p> head 1.1-4</p></th>
 </tr>
-<tr class="row-even"><th class="head stub">head 2.1</th>
-<th class="head">head 2.2</th>
-<th class="head">head 2.3</th>
-<th class="head">head 2.4</th>
+<tr class="row-even"><th class="head stub"><p>head 2.1</p></th>
+<th class="head"><p>head 2.2</p></th>
+<th class="head"><p>head 2.3</p></th>
+<th class="head"><p>head 2.4</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">row 1</th>
-<td rowspan="3"> cell 1-3.1</td>
-<td>cell 1.2</td>
-<td>cell 1.3</td>
-<td>cell 1.4</td>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>row 1</p></th>
+<td rowspan="3"><p> cell 1-3.1</p></td>
+<td><p>cell 1.2</p></td>
+<td><p>cell 1.3</p></td>
+<td><p>cell 1.4</p></td>
 </tr>
-<tr class="row-even"><th class="stub">row 2</th>
-<td>cell 2.2</td>
-<td colspan="2" rowspan="2"><p class="first" id="row-body-2"> 
+<tr class="row-even"><th class="stub"><p>row 2</p>
+</th>
+<td><p>cell 2.2</p>
+</td>
+<td colspan="2" rowspan="2"><p id="row-body-2"> 
 cell 2.3 with a span over</p>
-<ul class="last simple">
-<li>col 3-4 &amp;</li>
-<li>row 2-3</li>
+<ul class="simple">
+<li><p>col 3-4 &amp;</p></li>
+<li><p>row 2-3</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><th class="stub">row 3</th>
-<td>cell 3.2</td>
+<tr class="row-odd"><th class="stub"><p>row 3</p></th>
+<td><p>cell 3.2</p></td>
 </tr>
-<tr class="row-even"><th class="stub">row 4</th>
-<td>cell 4.1</td>
-<td>cell 4.2</td>
-<td>cell 4.3</td>
-<td>cell 4.4</td>
+<tr class="row-even"><th class="stub"><p>row 4</p></th>
+<td><p>cell 4.1</p></td>
+<td><p>cell 4.2</p></td>
+<td><p>cell 4.3</p></td>
+<td><p>cell 4.4</p></td>
 </tr>
-<tr class="row-odd"><th class="stub">row 5</th>
-<td colspan="4">cell 5.1 with automatic span to rigth end</td>
+<tr class="row-odd"><th class="stub"><p>row 5</p></th>
+<td colspan="4"><p>cell 5.1 with automatic span to rigth end</p></td>
 </tr>
-<tr class="row-even"><th class="stub">row 6</th>
-<td>cell 6.1</td>
+<tr class="row-even"><th class="stub"><p>row 6</p></th>
+<td><p>cell 6.1</p></td>
 <td colspan="3"></td>
 </tr>
 </tbody>
@@ -545,50 +407,50 @@ cell 2.3 with a span over</p>
 <p>CSV table might be the choice if you want to include CSV-data from a outstanding
 (build) process into your documentation.</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">csv-table</span><span class="p">::</span> table title
-   <span class="nc">:header:</span> <span class="nf">, Header1, Header2</span>
-   <span class="nc">:widths:</span> <span class="nf">15, 10, 30</span>
-   <span class="nc">:stub-columns:</span> <span class="nf">1</span>
-   <span class="nc">:file:</span> <span class="nf">csv_table.txt</span>
+   <span class="nc">:header:</span> , Header1, Header2
+   <span class="nc">:widths:</span> 15, 10, 30
+   <span class="nc">:stub-columns:</span> 1
+   <span class="nc">:file:</span> csv_table.txt
 </pre></div>
 </div>
 <p>Content of file <code class="docutils literal notranslate"><span class="pre">csv_table.txt</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stub</span> <span class="n">col</span> <span class="n">row</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="s2">&quot;loremLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy</span>
-<span class="n">eirmod</span> <span class="n">tempor</span> <span class="n">invidunt</span> <span class="n">ut</span> <span class="n">labore</span> <span class="n">et</span> <span class="n">dolore</span> <span class="n">magna</span> <span class="n">aliquyam</span> <span class="n">erat</span><span class="p">,</span> <span class="n">sed</span> <span class="n">diam</span>
-<span class="n">voluptua</span><span class="o">.</span><span class="s2">&quot;</span>
-<span class="n">stub</span> <span class="n">col</span> <span class="n">row</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;At vero eos et accusam et justo duo dolores et ea rebum. Stet clita</span>
-<span class="n">kasd</span> <span class="n">gubergren</span><span class="p">,</span> <span class="n">no</span> <span class="n">sea</span> <span class="n">takimata</span> <span class="n">sanctus</span> <span class="n">est</span> <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="o">.</span><span class="s2">&quot;, column</span>
-<span class="n">stub</span> <span class="n">col</span> <span class="n">row</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">column</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stub col row 1, column, &quot;loremLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+voluptua.&quot;
+stub col row 1, &quot;At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&quot;, column
+stub col row 1, column, column
 </pre></div>
 </div>
 <p>Rendered as:</p>
-<table border="1" class="colwidths-given docutils" id="id4">
+<table class="colwidths-given docutils align-default" id="id4">
 <caption><span class="caption-text">table title</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="27%" />
-<col width="18%" />
-<col width="55%" />
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 55%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head stub">&#160;</th>
-<th class="head">Header1</th>
-<th class="head">Header2</th>
+<thead>
+<tr class="row-odd"><th class="head stub"></th>
+<th class="head"><p>Header1</p></th>
+<th class="head"><p>Header2</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><th class="stub">stub col row 1</th>
-<td>column</td>
-<td>loremLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+<tbody>
+<tr class="row-even"><th class="stub"><p>stub col row 1</p></th>
+<td><p>column</p></td>
+<td><p>loremLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
 eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-voluptua.</td>
+voluptua.</p></td>
 </tr>
-<tr class="row-odd"><th class="stub">stub col row 1</th>
-<td>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
-<td>column</td>
+<tr class="row-odd"><th class="stub"><p>stub col row 1</p></th>
+<td><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p></td>
+<td><p>column</p></td>
 </tr>
-<tr class="row-even"><th class="stub">stub col row 1</th>
-<td>column</td>
-<td>column</td>
+<tr class="row-even"><th class="stub"><p>stub col row 1</p></th>
+<td><p>column</p></td>
+<td><p>column</p></td>
 </tr>
 </tbody>
 </table>
@@ -735,62 +597,79 @@ content</em>. HTML-Tables are only rendered within a HTML output.</p>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="cdomain.html" class="btn btn-neutral float-right" title="Customized sphinx c-domain" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="kfigure.html" class="btn btn-neutral" title="Scalable figure and image handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../index.html">Overview</a>
+    <ul>
+      <li><a href="index.html">LinuxDoc HowTo</a>
+        <ul>
+          <li>Previous: <a href="kfigure.html" title="previous chapter">Scalable figure and image handling</a>
+          <li>Next: <a href="cdomain.html" title="next chapter">Customized sphinx c-domain</a></ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+  <h3>Contents</h3>
+  <ul>
+<li><a class="reference internal" href="#">About tables</a><ul>
+<li><a class="reference internal" href="#intro">Intro</a></li>
+<li><a class="reference internal" href="#ascii-art-tables">ASCII-art tables</a><ul>
+<li><a class="reference internal" href="#simple-tables">Simple tables</a></li>
+<li><a class="reference internal" href="#grid-tables">Grid tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#list-table-directives">List table directives</a><ul>
+<li><a class="reference internal" href="#list-table">list-table</a></li>
+<li><a class="reference internal" href="#flat-table">flat-table</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#csv-table">CSV table</a></li>
+<li><a class="reference internal" href="#nested-tables">Nested Tables</a></li>
+<li><a class="reference internal" href="#raw-html-tables">raw HTML tables</a></li>
+</ul>
+</li>
+</ul>
 
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

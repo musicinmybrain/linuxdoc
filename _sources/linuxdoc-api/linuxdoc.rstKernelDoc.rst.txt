@@ -2,6 +2,6 @@ linuxdoc.rstKernelDoc module
 ============================
 
 .. automodule:: linuxdoc.rstKernelDoc
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -2,6 +2,6 @@ linuxdoc.rstFlatTable module
 ============================
 
 .. automodule:: linuxdoc.rstFlatTable
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

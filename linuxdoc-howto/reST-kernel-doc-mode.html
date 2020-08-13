@@ -1,189 +1,57 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>reST kernel-doc mode &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>reST kernel-doc mode &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Vintage kernel-doc mode" href="vintage-kernel-doc-mode.html" />
-    <link rel="prev" title="parsing modes" href="kernel-doc-modes.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="prev" title="parsing modes" href="kernel-doc-modes.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="vintage-kernel-doc-mode.html" title="Vintage kernel-doc mode"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kernel-doc-modes.html" title="parsing modes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >LinuxDoc HowTo</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="kernel-doc-modes.html" accesskey="U">parsing modes</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">LinuxDoc HowTo</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#kernel-doc">kernel-doc</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="kernel-doc-syntax.html">kernel-doc syntax</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kernel-doc-directive.html">kernel-doc in reST documents</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kernel-doc-examples.html">Examples &amp; Tests</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="kernel-doc-modes.html">parsing modes</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">reST kernel-doc mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="vintage-kernel-doc-mode.html">Vintage kernel-doc mode</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#other-topics">other topics</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux.html">Patch Linux Kernel Documentation</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">LinuxDoc HowTo</a> &raquo;</li>
-        
-          <li><a href="kernel-doc-modes.html">parsing modes</a> &raquo;</li>
-        
-      <li>reST kernel-doc mode</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/linuxdoc-howto/reST-kernel-doc-mode.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="rest-kernel-doc-mode">
 <span id="id1"></span><h1>reST kernel-doc mode<a class="headerlink" href="#rest-kernel-doc-mode" title="Permalink to this headline">¶</a></h1>
 <p>To distinguish between the vintage markup and the new markup (with reST in), it
 is recommended to add the following comment at the top of your source code
 file.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">parse</span><span class="o">-</span><span class="n">markup</span><span class="p">:</span> <span class="n">reST</span> <span class="o">*/</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/* parse-markup: reST */
 </pre></div>
 </div>
 <p>This forces the kernel-doc parser to switch into the reST mode, no matter in
@@ -192,25 +60,25 @@ which context the parser runs (see <a class="reference internal" href="vintage-k
 <span id="id2"></span><h2>reST section structure<a class="headerlink" href="#rest-section-structure" title="Permalink to this headline">¶</a></h2>
 <p>Since a section title in reST mode needs a line break after the colon, the colon
 handling is less ugly (<a class="reference internal" href="vintage-kernel-doc-mode.html#vintage-mode-quirks"><span class="std std-ref">vintage mode quirks</span></a>).  E.g.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prints</span> <span class="n">out</span><span class="p">:</span> <span class="n">hello</span> <span class="n">world</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prints out: hello world
 </pre></div>
 </div>
 <p>is rendered as expected in one line. If non text follows the colon, a section is
 inserted.  To avoid sectioning in any case, place a space in front of the
 column.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lorem</span> <span class="nb">list</span> <span class="p">:</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>lorem list :
 
-<span class="o">*</span> <span class="n">lorem</span>
-<span class="o">*</span> <span class="n">ipsum</span>
+* lorem
+* ipsum
 </pre></div>
 </div>
 <p>On the opposite, super-short sections from <a class="reference internal" href="vintage-kernel-doc-mode.html#vintage-kernel-doc-mode"><span class="std std-ref">Vintage kernel-doc mode</span></a> like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Section</span> <span class="n">name</span><span class="p">:</span> <span class="n">lorem</span> <span class="n">ipsum</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Section name: lorem ipsum
 </pre></div>
 </div>
 <p>are no longer supported, you have to enter at least one line break:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Section</span> <span class="n">name</span><span class="p">:</span>
-<span class="n">lorem</span> <span class="n">ipsum</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Section name:
+lorem ipsum
 </pre></div>
 </div>
 <p>There is an exception for special section names like “Description:”, “Context:”
@@ -222,12 +90,12 @@ are no heading levels assigned to certain characters as the structure is
 determined from the succession of headings. However, there is a common
 convention, which is used by the kernel-doc parser also:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">#</span></code> with over-line, for parts</li>
-<li><code class="docutils literal notranslate"><span class="pre">*</span></code> with over-line, for chapters</li>
-<li><code class="docutils literal notranslate"><span class="pre">=</span></code> for sections</li>
-<li><code class="docutils literal notranslate"><span class="pre">-</span></code> for subsections</li>
-<li><code class="docutils literal notranslate"><span class="pre">^</span></code> for sub-subsections</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> for paragraphs</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#</span></code> with over-line, for parts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> with over-line, for chapters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">=</span></code> for sections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> for subsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> for sub-subsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> for paragraphs</p></li>
 </ul>
 <p>Within kernel-doc comments you should use this sectioning with care.  A
 kernel-doc section like the <code class="docutils literal notranslate"><span class="pre">Return:</span></code> section above is translated into a <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">reST</a>
@@ -241,16 +109,16 @@ sum of a and b
 <p>As you see, a kernel-doc section is a <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">reST</a> <em>subsection</em> level. This means, you
 can only use the following <em>sub-levels</em> within a kernel-doc section.</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">^</span></code> for sub-subsections</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> for paragraphs</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> for sub-subsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> for paragraphs</p></li>
 </ul>
 <p>In contrast to subsections like “Return:”, a “DOC:” section has no subsection,
 thats why reST <em>sub-levels</em> in “DOC:” sections start a the subsection level,
 tagged with a minus:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">-</span></code> for subsections</li>
-<li><code class="docutils literal notranslate"><span class="pre">^</span></code> for sub-subsections</li>
-<li><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> for paragraphs</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> for subsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> for sub-subsections</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;</span></code> for paragraphs</p></li>
 </ul>
 <p>Need an detailed example of kernel-doc comment using subsections and more?  Take
 a look here …</p>
@@ -386,26 +254,22 @@ a look here …</p>
 </pre></div>
 </div>
 <div class="rst-example admonition">
-<p class="first admonition-title">reST markup in kernel-doc comments</p>
-<div class="last section" id="rst-mode">
+<p class="admonition-title">reST markup in kernel-doc comments</p>
+<div class="section" id="rst-mode">
 <span id="id3"></span><h3>rst_mode<a class="headerlink" href="#rst-mode" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="c.rst_mode">
-int <code class="descname">rst_mode</code><span class="sig-paren">(</span>int<em>&nbsp;a</em>, char<em>&nbsp;*b</em><span class="sig-paren">)</span><a class="headerlink" href="#c.rst_mode" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">rst_mode</code><span class="sig-paren">(</span>int<em> a</em>, char<em> *b</em><span class="sig-paren">)</span><a class="headerlink" href="#c.rst_mode" title="Permalink to this definition">¶</a></dt>
 <dd><p>dummy to demonstrate reST &amp; kernel-doc markup in comments</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>a</strong> (<em>int</em>) – first argument</li>
-<li><strong>b</strong> (<em>char *</em>) – second argument
-Context: <code class="xref c c-func docutils literal notranslate"><span class="pre">in_gizmo_mode()</span></code>.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>int</em>) – first argument</p></li>
+<li><p><strong>b</strong> (<em>char *</em>) – second argument
+Context: <code class="xref c c-func docutils literal notranslate"><span class="pre">in_gizmo_mode()</span></code>.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="section" id="description">
@@ -436,29 +300,29 @@ locations, a hyperref to this target is generated a build time.</p>
 within kernel-doc comments, helping C developers to write short and compact
 documentation.</p>
 <ul class="simple">
-<li><a class="reference internal" href="kernel-doc-tests.html#c.user_function" title="user_function"><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code></a> : function</li>
-<li><code class="docutils literal notranslate"><span class="pre">a</span></code> : name of a parameter</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code></a> : name of a structure (including the word struct)</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_union" title="my_union"><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code></a> : name of a union</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code></a> or <a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code></a> -  member of a struct or union.</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_enum" title="my_enum"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code></a> : name of a enum</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_typedef" title="my_typedef"><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code></a> : name of a typedef</li>
-<li><code class="docutils literal notranslate"><span class="pre">CONST</span></code> : name of a constant.</li>
-<li><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</li>
+<li><p><a class="reference internal" href="kernel-doc-tests.html#c.user_function" title="user_function"><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code></a> : function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> : name of a parameter</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code></a> : name of a structure (including the word struct)</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_union" title="my_union"><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code></a> : name of a union</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code></a> or <a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code></a> -  member of a struct or union.</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_enum" title="my_enum"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code></a> : name of a enum</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_typedef" title="my_typedef"><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code></a> : name of a typedef</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONST</span></code> : name of a constant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</p></li>
 </ul>
 <p>The kernel-doc parser translates the pattern above to the corresponding reST
 markups. You don’t have to use the <em>highlight</em> pattern, if you prefer <em>pure</em>
 reST, use the reST markup.</p>
 <ul class="simple">
-<li><a class="reference internal" href="kernel-doc-tests.html#c.user_function" title="user_function"><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code></a> : function</li>
-<li><code class="docutils literal notranslate"><span class="pre">a</span></code> : name of a parameter</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code></a> : name of a structure (including the word struct)</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_union" title="my_union"><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code></a> : name of a union</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code></a> or <a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code></a> -  member of a struct or union.</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_enum" title="my_enum"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code></a> : name of a enum</li>
-<li><a class="reference internal" href="all-in-a-tumble.html#c.my_typedef" title="my_typedef"><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code></a> : name of a typedef</li>
-<li><code class="docutils literal notranslate"><span class="pre">CONST</span></code> : name of a constant.</li>
-<li><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</li>
+<li><p><a class="reference internal" href="kernel-doc-tests.html#c.user_function" title="user_function"><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code></a> : function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> : name of a parameter</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code></a> : name of a structure (including the word struct)</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_union" title="my_union"><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code></a> : name of a union</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code></a> or <a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code></a> -  member of a struct or union.</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_enum" title="my_enum"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code></a> : name of a enum</p></li>
+<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_typedef" title="my_typedef"><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code></a> : name of a typedef</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONST</span></code> : name of a constant.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</p></li>
 </ul>
 <p>Since the prefixes <code class="docutils literal notranslate"><span class="pre">$...</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;...</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;...</span></code> are used to markup the
 highlight pattern, you have to escape them in other uses: <code class="docutils literal notranslate"><span class="pre">$lorem</span></code>, &amp;lorem,
@@ -477,37 +341,35 @@ and <strong>emphasis strong</strong>. The following is a demo of a reST list mar
 </div>
 <div class="section" id="definition-list">
 <span id="rst-mode-definition-list"></span><h4>Definition list<a class="headerlink" href="#definition-list" title="Permalink to this headline">¶</a></h4>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">def1:</th><td class="field-body">lorem</td>
-</tr>
-<tr class="field-even field"><th class="field-name">def2:</th><td class="field-body">ipsum</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">def1</dt>
+<dd class="field-odd"><p>lorem</p>
+</dd>
+<dt class="field-even">def2</dt>
+<dd class="field-even"><p>ipsum</p>
+</dd>
+</dl>
 </div>
 <div class="section" id="ordered-list">
 <span id="rst-mode-ordered-list"></span><h4>Ordered List<a class="headerlink" href="#ordered-list" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li>item one</li>
-<li>item two</li>
-<li>item three with
-a linebreak</li>
+<li><p>item one</p></li>
+<li><p>item two</p></li>
+<li><p>item three with
+a linebreak</p></li>
 </ul>
 </div>
 <div class="section" id="literal-blocks">
 <span id="rst-mode-literal-blocks"></span><h4>Literal blocks<a class="headerlink" href="#literal-blocks" title="Permalink to this headline">¶</a></h4>
 <p>The next example shows a literal block:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+------+</span>          <span class="o">+------+</span>
-<span class="o">|</span>\     <span class="o">|</span>\        <span class="o">/|</span>     <span class="o">/|</span>
-<span class="o">|</span> <span class="o">+----+-+</span>      <span class="o">+-+----+</span> <span class="o">|</span>
-<span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>      <span class="o">|</span> <span class="o">|</span>    <span class="o">|</span> <span class="o">|</span>
-<span class="o">+-+----+</span> <span class="o">|</span>      <span class="o">|</span> <span class="o">+----+-+</span>
- \<span class="o">|</span>     \<span class="o">|</span>      <span class="o">|/</span>     <span class="o">|/</span>
-  <span class="o">+------+</span>      <span class="o">+------+</span>
-   <span class="n">foo</span><span class="p">()</span>         <span class="n">bar</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+------+          +------+
+|\     |\        /|     /|
+| +----+-+      +-+----+ |
+| |    | |      | |    | |
++-+----+ |      | +----+-+
+ \|     \|      |/     |/
+  +------+      +------+
+   foo()         bar()
 </pre></div>
 </div>
 </div>
@@ -545,62 +407,69 @@ kernel-doc section.</p>
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="vintage-kernel-doc-mode.html" class="btn btn-neutral float-right" title="Vintage kernel-doc mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="kernel-doc-modes.html" class="btn btn-neutral" title="parsing modes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../index.html">Overview</a>
+    <ul>
+      <li><a href="index.html">LinuxDoc HowTo</a>
+        <ul>
+      <li><a href="kernel-doc-modes.html">parsing modes</a>
+        <ul>
+          <li>Previous: <a href="kernel-doc-modes.html" title="previous chapter">parsing modes</a>
+          <li>Next: <a href="vintage-kernel-doc-mode.html" title="next chapter">Vintage kernel-doc mode</a></ul>
+      </li></ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+  <h3>Contents</h3>
+  <ul>
+<li><a class="reference internal" href="#">reST kernel-doc mode</a><ul>
+<li><a class="reference internal" href="#rest-section-structure">reST section structure</a></li>
+</ul>
+</li>
+</ul>
 
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

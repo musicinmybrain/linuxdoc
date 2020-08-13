@@ -2,6 +2,6 @@ linuxdoc.autodoc module
 =======================
 
 .. automodule:: linuxdoc.autodoc
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:

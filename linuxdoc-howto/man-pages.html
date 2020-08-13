@@ -1,180 +1,49 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>man pages from kernel-doc comments &mdash; LinuxDoc 20181010 documentation</title>
-  
 
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>man pages from kernel-doc comments &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Use kernel-include in reST documents" href="kernel-include-directive.html" />
-    <link rel="prev" title="Customized sphinx c-domain" href="cdomain.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="prev" title="Customized sphinx c-domain" href="cdomain.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
    
-  <div class="wy-grid-for-nav">
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="kernel-include-directive.html" title="Use kernel-include in reST documents"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="cdomain.html" title="Customized sphinx c-domain"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">LinuxDoc HowTo</a> &#187;</li> 
+      </ul>
+    </div>  
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> LinuxDoc
-          
-
-          
-            
-            <img src="../_static/darmarIT_logo_128.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                20181010
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../kernel-doc-intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Install LinuxDoc</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">LinuxDoc HowTo</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#kernel-doc">kernel-doc</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#other-topics">other topics</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="kfigure.html">Scalable figure and image handling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="table-markup.html">About tables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cdomain.html">Customized sphinx c-domain</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">man pages from kernel-doc comments</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#kernel-doc-man-builder"><code class="docutils literal notranslate"><span class="pre">kernel-doc-man</span></code> Builder</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="kernel-include-directive.html">Use kernel-include in reST documents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../cmd-line.html">Command line tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../kernel_dev_remarks.html">Remarks for Kernel developer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux.html">Patch Linux Kernel Documentation</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linuxdoc-api/linuxdoc.html">linuxdoc package</a></li>
-</ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">LinuxDoc</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="index.html">LinuxDoc HowTo</a> &raquo;</li>
-        
-      <li>man pages from kernel-doc comments</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/linuxdoc-howto/man-pages.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
             
   <div class="section" id="man-pages-from-kernel-doc-comments">
 <span id="man-pages"></span><h1>man pages from kernel-doc comments<a class="headerlink" href="#man-pages-from-kernel-doc-comments" title="Permalink to this headline">¶</a></h1>
@@ -186,7 +55,7 @@ to generate manual pages from kernel-doc comments by scanning Sphinx’s master
 </pre></div>
 </div>
 <p>directive and build manual pages from those marked <em>sections</em>.  Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sphinx-build -b kernel-doc-man ...
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sphinx-build -b kernel-doc-man ...
 </pre></div>
 </div>
 <p>Since the <code class="docutils literal notranslate"><span class="pre">kernel-doc-man</span></code> builder is an extension of the common
@@ -199,8 +68,8 @@ from kernel-doc comments.  This could be done, by setting the <a class="referenc
 number</a> with the <code class="docutils literal notranslate"><span class="pre">:man-sect:</span></code> <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-options"><span class="std std-ref">kernel-doc option</span></a>.
 See: <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-man-sect"><span class="std std-ref">man pages (:man-sect:)</span></a></p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">kernel-doc</span><span class="p">::</span>  ./all-in-a-tumble.c
-    <span class="nc">:functions:</span> <span class="nf">user_function</span>
-    <span class="nc">:man-sect:</span> <span class="nf">1</span>
+    <span class="nc">:functions:</span> user_function
+    <span class="nc">:man-sect:</span> 1
 </pre></div>
 </div>
 <p>With this <code class="docutils literal notranslate"><span class="pre">:man-sect:</span> <span class="pre">&lt;man-sect</span> <span class="pre">no&gt;</span></code> option, the kernel-doc parser will insert
@@ -217,7 +86,7 @@ the <a class="reference internal" href="kernel-doc-syntax.html#kernel-doc-syntax
 which are defined in the <a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html#confval-man_pages">conf.py man-pages</a> and from all sections marked with
 the <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">kernel-doc-man</span></code> directive.  To place and gzip the man-pages in
 <code class="docutils literal notranslate"><span class="pre">dist/docs/man</span></code> use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sphinx-build -b kernel-doc-man docs dist/docs/man
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ sphinx-build -b kernel-doc-man docs dist/docs/man
 building [kernel-doc-man]: all manpages ...
 scan master tree for kernel-doc man-pages ...
 writing man pages ... user_function.2 internal_function.2 ...
@@ -230,62 +99,66 @@ $ find dist/docs/man -name &#39;*.[0-9]&#39; -exec gzip -nf {} +
 </div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="kernel-include-directive.html" class="btn btn-neutral float-right" title="Use kernel-include in reST documents" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="cdomain.html" class="btn btn-neutral" title="Customized sphinx c-domain" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018 Markus Heiser
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
         </div>
       </div>
-
-    </section>
-
-  </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
   
 
-
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
   
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
   
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../index.html">Overview</a>
+    <ul>
+      <li><a href="index.html">LinuxDoc HowTo</a>
+        <ul>
+          <li>Previous: <a href="cdomain.html" title="previous chapter">Customized sphinx c-domain</a>
+          <li>Next: <a href="kernel-include-directive.html" title="next chapter">Use kernel-include in reST documents</a></ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+  <h3>Contents</h3>
+  <ul>
+<li><a class="reference internal" href="#">man pages from kernel-doc comments</a><ul>
+<li><a class="reference internal" href="#kernel-doc-man-builder"><code class="docutils literal notranslate"><span class="pre">kernel-doc-man</span></code> Builder</a></li>
+</ul>
+</li>
+</ul>
 
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../_static/version_warning_offset.js"></script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>
