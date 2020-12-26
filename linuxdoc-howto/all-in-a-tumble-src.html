@@ -8,6 +8,10 @@
     <title>source of all-in-a-tumble.[ch] &#8212; LinuxDoc 20200812 documentation</title>
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/tabs.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -589,7 +593,7 @@
 <span class="cm"> */</span>
 <span class="n">DEFINE_EVENT</span><span class="p">(</span><span class="n">block_buffer</span><span class="p">,</span> <span class="n">block_touch_buffer</span><span class="p">,</span>
 
-	<span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span> <span class="n">buffer_head</span> <span class="o">*</span><span class="n">bh</span><span class="p">),</span>
+	<span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span> <span class="nc">buffer_head</span> <span class="o">*</span><span class="n">bh</span><span class="p">),</span>
 
 	<span class="n">TP_ARGS</span><span class="p">(</span><span class="n">bh</span><span class="p">)</span>
 <span class="p">);</span>
@@ -602,7 +606,7 @@
 <span class="cm"> */</span>
 <span class="n">DEFINE_EVENT</span><span class="p">(</span><span class="n">block_buffer</span><span class="p">,</span> <span class="n">block_dirty_buffer</span><span class="p">,</span>
 
-	<span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span> <span class="n">buffer_head</span> <span class="o">*</span><span class="n">bh</span><span class="p">),</span>
+	<span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span> <span class="nc">buffer_head</span> <span class="o">*</span><span class="n">bh</span><span class="p">),</span>
 
 	<span class="n">TP_ARGS</span><span class="p">(</span><span class="n">bh</span><span class="p">)</span>
 <span class="p">);</span>
@@ -667,7 +671,7 @@
 <span class="cm">* @f1: nested function on anonimous union/struct</span>
 <span class="cm">* @bar.st2.f2: nested function on named union/struct</span>
 <span class="cm">*/</span>
-<span class="k">struct</span> <span class="n">my_struct</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">my_struct</span> <span class="p">{</span>
   <span class="cm">/* Anonymous union/struct*/</span>
   <span class="k">union</span> <span class="p">{</span>
 	<span class="k">struct</span> <span class="p">{</span>
@@ -716,7 +720,7 @@
 <span class="cm"> *</span>
 <span class="cm"> * Longer description</span>
 <span class="cm"> */</span>
-<span class="k">struct</span> <span class="n">my_long_struct</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">my_long_struct</span> <span class="p">{</span>
 	<span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
         <span class="cm">/**</span>
 <span class="cm">         * @bar: The Bar member.</span>
@@ -751,7 +755,7 @@
 <span class="cm"> *</span>
 <span class="cm"> * Longer description</span>
 <span class="cm"> */</span>
-<span class="k">union</span> <span class="n">my_union</span> <span class="p">{</span>
+<span class="k">union</span> <span class="nc">my_union</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">};</span>
@@ -982,11 +986,11 @@
 <span class="cm">* @mask_table:        Hash table used to store masks</span>
 <span class="cm">* @flow_table:        Hash table used to store flower rules</span>
 <span class="cm">*/</span>
-<span class="k">struct</span> <span class="n">nfp_flower_priv</span> <span class="p">{</span>
-      <span class="k">struct</span> <span class="n">nfp_net</span> <span class="o">*</span><span class="n">nn</span><span class="p">;</span>
+<span class="k">struct</span> <span class="nc">nfp_flower_priv</span> <span class="p">{</span>
+      <span class="k">struct</span> <span class="nc">nfp_net</span> <span class="o">*</span><span class="n">nn</span><span class="p">;</span>
       <span class="n">u32</span> <span class="n">mask_id_seed</span><span class="p">;</span>
       <span class="n">u64</span> <span class="n">flower_version</span><span class="p">;</span>
-      <span class="k">struct</span> <span class="n">nfp_fl_mask_id</span> <span class="n">mask_ids</span><span class="p">;</span>
+      <span class="k">struct</span> <span class="nc">nfp_fl_mask_id</span> <span class="n">mask_ids</span><span class="p">;</span>
       <span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">mask_table</span><span class="p">,</span> <span class="n">NFP_FLOWER_MASK_HASH_BITS</span><span class="p">);</span>
       <span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">flow_table</span><span class="p">,</span> <span class="n">NFP_FLOWER_HASH_BITS</span><span class="p">);</span>
 <span class="p">};</span>
@@ -1009,12 +1013,12 @@
 <span class="cm">* @barbar: ipsum</span>
 <span class="cm">*/</span>
 
-<span class="k">struct</span> <span class="n">something</span> <span class="p">{</span>
-	<span class="k">struct</span> <span class="n">foo</span>
+<span class="k">struct</span> <span class="nc">something</span> <span class="p">{</span>
+	<span class="k">struct</span> <span class="nc">foo</span>
 
 	<span class="n">foofoo</span><span class="p">;</span>
 
-	<span class="k">struct</span> <span class="n">bar</span>
+	<span class="k">struct</span> <span class="nc">bar</span>
 
 	<span class="n">barbar</span><span class="p">;</span>
 <span class="p">};</span>
@@ -1032,16 +1036,16 @@
 <span class="cm"> * @read_lock: mutex lock to protect reads from colliding with adding</span>
 <span class="cm"> * new events to the FIFO</span>
 <span class="cm"> */</span>
-<span class="k">struct</span> <span class="n">lineevent_state</span> <span class="p">{</span>
-	<span class="k">struct</span> <span class="n">gpio_device</span> <span class="o">*</span><span class="n">gdev</span><span class="p">;</span>
+<span class="k">struct</span> <span class="nc">lineevent_state</span> <span class="p">{</span>
+	<span class="k">struct</span> <span class="nc">gpio_device</span> <span class="o">*</span><span class="n">gdev</span><span class="p">;</span>
 	<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">label</span><span class="p">;</span>
-	<span class="k">struct</span> <span class="n">gpio_desc</span> <span class="o">*</span><span class="n">desc</span><span class="p">;</span>
+	<span class="k">struct</span> <span class="nc">gpio_desc</span> <span class="o">*</span><span class="n">desc</span><span class="p">;</span>
 	<span class="n">u32</span> <span class="n">eflags</span><span class="p">;</span>
 	<span class="kt">int</span> <span class="n">irq</span><span class="p">;</span>
 	<span class="n">wait_queue_head_t</span> <span class="n">wait</span><span class="p">;</span>
-	<span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="k">struct</span> <span class="n">gpioevent_data</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
-	<span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span> <span class="k">struct</span> <span class="n">lirc_scancode</span><span class="p">);</span>
-	<span class="k">struct</span> <span class="n">mutex</span> <span class="n">read_lock</span><span class="p">;</span>
+	<span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">gpioevent_data</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+	<span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">lirc_scancode</span><span class="p">);</span>
+	<span class="k">struct</span> <span class="nc">mutex</span> <span class="n">read_lock</span><span class="p">;</span>
 <span class="p">};</span>
 </pre></div>
 </td></tr></table></div>
@@ -1213,7 +1217,7 @@
 <span class="cm"> * Returns the sum of the @a and @b</span>
 <span class="cm"> */</span>
 <span class="n">API_EXPORTED</span>
-<span class="kt">int</span> <span class="nf">user_sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="kt">int</span> <span class="n">user_sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
 	<span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1228,7 +1232,7 @@
 <span class="cm"> * Return:</span>
 <span class="cm"> * The answer to the ultimate question of life, the universe and everything.</span>
 <span class="cm"> */</span>
-<span class="kt">int</span> <span class="nf">internal_function</span><span class="p">()</span>
+<span class="kt">int</span> <span class="n">internal_function</span><span class="p">()</span>
 <span class="p">{</span>
 	<span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1271,12 +1275,12 @@
 <span class="cm">* @barbar: ipsum</span>
 <span class="cm">*/</span>
 
-<span class="k">struct</span> <span class="n">rarely_struct</span> <span class="p">{</span>
-	<span class="k">struct</span> <span class="n">foo</span>
+<span class="k">struct</span> <span class="nc">rarely_struct</span> <span class="p">{</span>
+	<span class="k">struct</span> <span class="nc">foo</span>
 
 	<span class="n">foofoo</span><span class="p">;</span>
 
-	<span class="k">struct</span> <span class="n">bar</span>
+	<span class="k">struct</span> <span class="nc">bar</span>
 
 	<span class="n">barbar</span><span class="p">;</span>
 <span class="p">};</span>

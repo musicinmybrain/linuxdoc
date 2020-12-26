@@ -1,0 +1,7 @@
+linuxdoc.cdomainv3 module
+=========================
+
+.. automodule:: linuxdoc.cdomainv3
+   :members:
+   :undoc-members:
+   :show-inheritance:

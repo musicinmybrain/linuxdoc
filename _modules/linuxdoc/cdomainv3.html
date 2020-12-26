@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.cdomain &#8212; LinuxDoc 20200812 documentation</title>
+    <title>linuxdoc.cdomainv3 &#8212; LinuxDoc 20200812 documentation</title>
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
@@ -43,40 +43,36 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for linuxdoc.cdomain</h1><div class="highlight"><pre>
+  <h1>Source code for linuxdoc.cdomainv3</h1><div class="highlight"><pre>
 <span></span># -*- coding: utf-8; mode: python -*-
 u&quot;&quot;&quot;
-    cdomain
-    ~~~~~~~
+    cdomainv3 (Sphinx v&gt;=3.0)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
 
     Replacement for the sphinx c-domain.
 
-    :copyright:  Copyright (C) 2018 Markus Heiser
+    :copyright:  Copyright (C) 2020 Markus Heiser
     :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
 
     For user documentation see :ref:`customized-c-domain`.
 &quot;&quot;&quot;
 
-import sphinx
+from sphinx.domains.c import CObject as Base_CObject
+from sphinx.domains.c import CDomain as Base_CDomain
 
-# Get Sphinx version
-major, minor, patch = sphinx.version_info[:3]  # pylint: disable=invalid-name
+# fixes https://github.com/sphinx-doc/sphinx/commit/0f49e30c51b5cc5055cda5b4b294c2dd9d1df573#r38750737
 
-if major &gt;= 3:
-    from .cdomainv3 import CDomain
-    __version__ = 3
-else:
-    from .cdomainv2 import CDomain
-    __version__ = 2
+<div class="viewcode-block" id="CObject"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv3.html#linuxdoc.cdomainv3.CObject">[docs]</a>class CObject(Base_CObject):
 
-<div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomain.html#linuxdoc.cdomain.setup">[docs]</a>def setup(app):  # pylint: disable=missing-docstring
+    &quot;&quot;&quot;
+    Description of a C language object.
+    &quot;&quot;&quot;</div>
 
-    app.add_domain(CDomain, override=True)
-    return dict(
-        version = __version__,
-        parallel_read_safe = True,
-        parallel_write_safe = True
-    )</div>
+<div class="viewcode-block" id="CDomain"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv3.html#linuxdoc.cdomainv3.CDomain">[docs]</a>class CDomain(Base_CDomain):
+
+    &quot;&quot;&quot;C language domain.
+
+    &quot;&quot;&quot;</div>
 </pre></div>
 
           </div>

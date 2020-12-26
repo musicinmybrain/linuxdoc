@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.grep_doc module &#8212; LinuxDoc 20200812 documentation</title>
+    <title>linuxdoc.cdomainv3 module &#8212; LinuxDoc 20200812 documentation</title>
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
@@ -19,8 +19,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="linuxdoc.kernel_doc module" href="linuxdoc.kernel_doc.html" />
-    <link rel="prev" title="linuxdoc.compat module" href="linuxdoc.compat.html" />
+    <link rel="next" title="linuxdoc.compat module" href="linuxdoc.compat.html" />
+    <link rel="prev" title="linuxdoc.cdomainv2 module" href="linuxdoc.cdomainv2.html" />
   <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
    
   </head><body>
@@ -34,10 +34,10 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="linuxdoc.kernel_doc.html" title="linuxdoc.kernel_doc module"
+          <a href="linuxdoc.compat.html" title="linuxdoc.compat module"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="linuxdoc.compat.html" title="linuxdoc.compat module"
+          <a href="linuxdoc.cdomainv2.html" title="linuxdoc.cdomainv2 module"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li> 
@@ -49,38 +49,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-linuxdoc.grep_doc">
-<span id="linuxdoc-grep-doc-module"></span><h1>linuxdoc.grep_doc module<a class="headerlink" href="#module-linuxdoc.grep_doc" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="grep-doc">
-<h2>grep_doc<a class="headerlink" href="#grep-doc" title="Permalink to this headline">¶</a></h2>
-<p>Implementation of the <code class="docutils literal notranslate"><span class="pre">kernel-grepdoc</span></code> command.</p>
+  <div class="section" id="module-linuxdoc.cdomainv3">
+<span id="linuxdoc-cdomainv3-module"></span><h1>linuxdoc.cdomainv3 module<a class="headerlink" href="#module-linuxdoc.cdomainv3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cdomainv3-sphinx-v-3-0">
+<h2>cdomainv3 (Sphinx v&gt;=3.0)<a class="headerlink" href="#cdomainv3-sphinx-v-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Replacement for the sphinx c-domain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">copyright</dt>
-<dd class="field-odd"><p>Copyright (C) 2018 Markus Heiser</p>
+<dd class="field-odd"><p>Copyright (C) 2020 Markus Heiser</p>
 </dd>
 <dt class="field-even">license</dt>
 <dd class="field-even"><p>GPL Version 2, June 1991 see Linux/COPYING for details.</p>
 </dd>
 </dl>
-<p>The <code class="docutils literal notranslate"><span class="pre">kernel-grepdoc</span></code> command <em>greps</em> informations from Linux kernel’s
-(reST) documentation, see <code class="docutils literal notranslate"><span class="pre">--help</span></code>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ kernel-grepdoc --help
-</pre></div>
-</div>
-<dl class="function">
-<dt id="linuxdoc.grep_doc.ERR">
-<code class="sig-prename descclassname">linuxdoc.grep_doc.</code><code class="sig-name descname">ERR</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.grep_doc.ERR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<p>For user documentation see <a class="reference internal" href="../linuxdoc-howto/cdomain.html#customized-c-domain"><span class="std std-ref">Customized sphinx c-domain</span></a>.</p>
+<dl class="class">
+<dt id="linuxdoc.cdomainv3.CDomain">
+<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.cdomainv3.</code><code class="sig-name descname">CDomain</code><span class="sig-paren">(</span><em class="sig-param">env: BuildEnvironment</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomainv3.html#CDomain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomainv3.CDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.domains.c.CDomain</span></code></p>
+<p>C language domain.</p>
+</dd></dl>
 
-<dl class="function">
-<dt id="linuxdoc.grep_doc.PRINT">
-<code class="sig-prename descclassname">linuxdoc.grep_doc.</code><code class="sig-name descname">PRINT</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.grep_doc.PRINT" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="linuxdoc.grep_doc.main">
-<code class="sig-prename descclassname">linuxdoc.grep_doc.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/grep_doc.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.grep_doc.main" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="class">
+<dt id="linuxdoc.cdomainv3.CObject">
+<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.cdomainv3.</code><code class="sig-name descname">CObject</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">arguments</em>, <em class="sig-param">options</em>, <em class="sig-param">content</em>, <em class="sig-param">lineno</em>, <em class="sig-param">content_offset</em>, <em class="sig-param">block_text</em>, <em class="sig-param">state</em>, <em class="sig-param">state_machine</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomainv3.html#CObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomainv3.CObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.domains.c.CObject</span></code></p>
+<p>Description of a C language object.</p>
+</dd></dl>
 
 </div>
 </div>
@@ -112,16 +107,16 @@
     <ul>
       <li><a href="linuxdoc.html">linuxdoc package</a>
         <ul>
-          <li>Previous: <a href="linuxdoc.compat.html" title="previous chapter">linuxdoc.compat module</a>
-          <li>Next: <a href="linuxdoc.kernel_doc.html" title="next chapter">linuxdoc.kernel_doc module</a></ul>
+          <li>Previous: <a href="linuxdoc.cdomainv2.html" title="previous chapter">linuxdoc.cdomainv2 module</a>
+          <li>Next: <a href="linuxdoc.compat.html" title="next chapter">linuxdoc.compat module</a></ul>
       </li>
     </ul>
   </li>
 </ul>
   <h3>Contents</h3>
   <ul>
-<li><a class="reference internal" href="#">linuxdoc.grep_doc module</a><ul>
-<li><a class="reference internal" href="#grep-doc">grep_doc</a></li>
+<li><a class="reference internal" href="#">linuxdoc.cdomainv3 module</a><ul>
+<li><a class="reference internal" href="#cdomainv3-sphinx-v-3-0">cdomainv3 (Sphinx v&gt;=3.0)</a></li>
 </ul>
 </li>
 </ul>

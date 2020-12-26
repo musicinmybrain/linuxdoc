@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>linuxdoc.cdomainv2 &#8212; LinuxDoc 20200812 documentation</title>
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/tabs.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+    <script src="../../_static/sphinx_tabs/tabs.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../../';</script>
+   
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for linuxdoc.cdomainv2</h1><div class="highlight"><pre>
+<span></span># -*- coding: utf-8; mode: python -*-
+u&quot;&quot;&quot;
+    cdomainv2 (Sphinx v&lt;3.0)
+    ~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Replacement for the sphinx c-domain.
+
+    :copyright:  Copyright (C) 2020 Markus Heiser
+    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
+
+    For user documentation see :ref:`customized-c-domain`.
+&quot;&quot;&quot;
+
+from docutils import nodes
+from docutils.parsers.rst import directives
+import sphinx
+
+from sphinx import addnodes
+from sphinx.locale import _
+from sphinx.domains.c import c_funcptr_sig_re, c_sig_re
+from sphinx.domains.c import CObject as Base_CObject
+from sphinx.domains.c import CDomain as Base_CDomain
+
+# Get Sphinx version
+major, minor, patch = sphinx.version_info[:3]  # pylint: disable=invalid-name
+
+<div class="viewcode-block" id="CObject"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv2.html#linuxdoc.cdomainv2.CObject">[docs]</a>class CObject(Base_CObject):
+
+    &quot;&quot;&quot;
+    Description of a C language object.
+    &quot;&quot;&quot;
+    option_spec = {
+        &quot;name&quot; : directives.unchanged
+    }
+
+    is_function_like_macro = False
+
+<div class="viewcode-block" id="CObject.handle_func_like_macro"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv2.html#linuxdoc.cdomainv2.CObject.handle_func_like_macro">[docs]</a>    def handle_func_like_macro(self, sig, signode):
+        u&quot;&quot;&quot;Handles signatures of function-like macros.
+
+        If the objtype is &#39;function&#39; and the the signature ``sig`` is a
+        function-like macro, the name of the macro is returned. Otherwise
+        ``False`` is returned.  &quot;&quot;&quot;
+
+        if not self.objtype == &#39;function&#39;:
+            return False
+
+        m = c_funcptr_sig_re.match(sig)  # pylint: disable=invalid-name
+        if m is None:
+            m = c_sig_re.match(sig)      # pylint: disable=invalid-name
+            if m is None:
+                raise ValueError(&#39;no match&#39;)
+
+        rettype, fullname, arglist, _const = m.groups()
+        arglist = arglist.strip()
+        if rettype or not arglist:
+            return False
+
+        arglist = arglist.replace(&#39;`&#39;, &#39;&#39;).replace(&#39;\\ &#39;, &#39;&#39;) # remove markup
+        arglist = [a.strip() for a in arglist.split(&quot;,&quot;)]
+
+        # has the first argument a type?
+        if len(arglist[0].split(&quot; &quot;)) &gt; 1:
+            return False
+
+        # This is a function-like macro, it&#39;s arguments are typeless!
+        signode  += addnodes.desc_name(fullname, fullname)
+        paramlist = addnodes.desc_parameterlist()
+        signode  += paramlist
+
+        for argname in arglist:
+            param = addnodes.desc_parameter(&#39;&#39;, &#39;&#39;, noemph=True)
+            # separate by non-breaking space in the output
+            param += nodes.emphasis(argname, argname)
+            paramlist += param
+
+        self.is_function_like_macro = True
+        return fullname</div>
+
+<div class="viewcode-block" id="CObject.handle_signature"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv2.html#linuxdoc.cdomainv2.CObject.handle_signature">[docs]</a>    def handle_signature(self, sig, signode):
+        &quot;&quot;&quot;Transform a C signature into RST nodes.&quot;&quot;&quot;
+
+        fullname = self.handle_func_like_macro(sig, signode)
+        if not fullname:
+            fullname = super(CObject, self).handle_signature(sig, signode)
+
+        if &quot;name&quot; in self.options:
+            if self.objtype == &#39;function&#39;:
+                fullname = self.options[&quot;name&quot;]
+            else:
+                # FIXME: handle :name: value of other declaration types?
+                pass
+        return fullname</div>
+
+<div class="viewcode-block" id="CObject.add_target_and_index"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv2.html#linuxdoc.cdomainv2.CObject.add_target_and_index">[docs]</a>    def add_target_and_index(self, name, sig, signode):
+        # for C API items we add a prefix since names are usually not qualified
+        # by a module name and so easily clash with e.g. section titles
+        targetname = &#39;c.&#39; + name
+        if targetname not in self.state.document.ids:
+            signode[&#39;names&#39;].append(targetname)
+            signode[&#39;ids&#39;].append(targetname)
+            signode[&#39;first&#39;] = (not self.names)
+            self.state.document.note_explicit_target(signode)
+            inv = self.env.domaindata[&#39;c&#39;][&#39;objects&#39;]
+            if (name in inv and self.env.config.nitpicky):
+                if self.objtype == &#39;function&#39;:
+                    if (&#39;c:func&#39;, name) not in self.env.config.nitpick_ignore:
+                        self.state_machine.reporter.warning(
+                            &#39;duplicate C object description of %s, &#39; % name +
+                            &#39;other instance in &#39; + self.env.doc2path(inv[name][0]),
+                            line=self.lineno)
+            inv[name] = (self.env.docname, self.objtype)
+
+        indextext = self.get_index_text(name)
+        if indextext:
+            if major == 1 and minor &lt; 4:
+                # indexnode&#39;s tuple changed in 1.4
+                # https://github.com/sphinx-doc/sphinx/commit/e6a5a3a92e938fcd75866b4227db9e0524d58f7c
+                self.indexnode[&#39;entries&#39;].append(
+                    (&#39;single&#39;, indextext, targetname, &#39;&#39;))
+            else:
+                self.indexnode[&#39;entries&#39;].append(
+                    (&#39;single&#39;, indextext, targetname, &#39;&#39;, None))</div>
+
+<div class="viewcode-block" id="CObject.get_index_text"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv2.html#linuxdoc.cdomainv2.CObject.get_index_text">[docs]</a>    def get_index_text(self, name):
+        if self.is_function_like_macro:  # pylint: disable=no-else-return
+            return _(&#39;%s (C macro)&#39;) % name
+        else:
+            return super(CObject, self).get_index_text(name)</div></div>
+
+<div class="viewcode-block" id="CDomain"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.cdomainv2.html#linuxdoc.cdomainv2.CDomain">[docs]</a>class CDomain(Base_CDomain):
+
+    &quot;&quot;&quot;C language domain.
+
+    &quot;&quot;&quot;
+    name = &#39;c&#39;
+    label = &#39;C&#39;
+    directives = {
+        &#39;function&#39;: CObject,
+        &#39;member&#39;:   CObject,
+        &#39;macro&#39;:    CObject,
+        &#39;type&#39;:     CObject,
+        &#39;var&#39;:      CObject,
+    }
+    &quot;Use :py:class:`CObject &lt;linuxdoc.cdomain.CObject&gt;` directives.&quot;</div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/darmarIT_logo_128.png" alt="Logo"/>
+            </a></p>
+  
+
+  <h3>Project Links</h3>
+  <ul>
+    <li><a href="https://return42.github.io/linuxdoc">Home</a>
+  
+    <li><a href="https://github.com/return42/linuxdoc">Source</a>
+  
+    <li><a href="https://return42.github.io/linuxdoc/linuxdoc-api/linuxdoc.html">API</a>
+  </ul><h3>Navigation</h3>
+<ul>
+  <li><a href="../../index.html">Overview</a>
+    <ul>
+      <li><a href="../index.html">Module code</a>
+        
+          
+          </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020 Markus Heiser.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+    </div>
+  <script src="../../_static/version_warning_offset.js"></script>
+
+  </body>
+</html>

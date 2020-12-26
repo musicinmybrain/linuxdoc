@@ -8,6 +8,10 @@
     <title>kernel-doc Test &#8212; LinuxDoc 20200812 documentation</title>
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/tabs.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -298,7 +302,7 @@ attributes mark them as exported:</p>
 <span class="cm"> * Returns the sum of the @a and @b</span>
 <span class="cm"> */</span>
 <span class="n">API_EXPORTED</span>
-<span class="kt">int</span> <span class="nf">user_sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+<span class="kt">int</span> <span class="n">user_sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
         <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
@@ -492,9 +496,9 @@ struct <code class="sig-name descname">rarely_struct</code><a class="headerlink"
 
 <div class="section" id="tests-internal-rarely-struct-definition">
 <span id="id15"></span><h5>Definition<a class="headerlink" href="#tests-internal-rarely-struct-definition" title="Permalink to this headline">¶</a></h5>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">rarely_struct</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">foo</span> <span class="n">foofoo</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">bar</span> <span class="n">barbar</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">rarely_struct</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">foo</span> <span class="n">foofoo</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">bar</span> <span class="n">barbar</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>

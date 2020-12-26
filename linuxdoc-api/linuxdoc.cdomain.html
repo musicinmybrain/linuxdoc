@@ -8,6 +8,10 @@
     <title>linuxdoc.cdomain module &#8212; LinuxDoc 20200812 documentation</title>
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/tabs.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -15,7 +19,7 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="linuxdoc.compat module" href="linuxdoc.compat.html" />
+    <link rel="next" title="linuxdoc.cdomainv2 module" href="linuxdoc.cdomainv2.html" />
     <link rel="prev" title="linuxdoc.autodoc module" href="linuxdoc.autodoc.html" />
   <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
    
@@ -30,7 +34,7 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="linuxdoc.compat.html" title="linuxdoc.compat module"
+          <a href="linuxdoc.cdomainv2.html" title="linuxdoc.cdomainv2 module"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="linuxdoc.autodoc.html" title="linuxdoc.autodoc module"
@@ -59,73 +63,6 @@
 </dd>
 </dl>
 <p>For user documentation see <a class="reference internal" href="../linuxdoc-howto/cdomain.html#customized-c-domain"><span class="std std-ref">Customized sphinx c-domain</span></a>.</p>
-<dl class="class">
-<dt id="linuxdoc.cdomain.CDomain">
-<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.cdomain.</code><code class="sig-name descname">CDomain</code><span class="sig-paren">(</span><em class="sig-param">env: BuildEnvironment</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#CDomain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.CDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.domains.c.CDomain</span></code></p>
-<p>C language domain.</p>
-<dl class="attribute">
-<dt id="linuxdoc.cdomain.CDomain.directives">
-<code class="sig-name descname">directives</code><em class="property"> = {'function': &lt;class 'linuxdoc.cdomain.CObject'&gt;, 'macro': &lt;class 'linuxdoc.cdomain.CObject'&gt;, 'member': &lt;class 'linuxdoc.cdomain.CObject'&gt;, 'type': &lt;class 'linuxdoc.cdomain.CObject'&gt;, 'var': &lt;class 'linuxdoc.cdomain.CObject'&gt;}</em><a class="headerlink" href="#linuxdoc.cdomain.CDomain.directives" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use <a class="reference internal" href="#linuxdoc.cdomain.CObject" title="linuxdoc.cdomain.CObject"><code class="xref py py-class docutils literal notranslate"><span class="pre">CObject</span></code></a> directives.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="linuxdoc.cdomain.CDomain.label">
-<code class="sig-name descname">label</code><em class="property"> = 'C'</em><a class="headerlink" href="#linuxdoc.cdomain.CDomain.label" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="linuxdoc.cdomain.CDomain.name">
-<code class="sig-name descname">name</code><em class="property"> = 'c'</em><a class="headerlink" href="#linuxdoc.cdomain.CDomain.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="linuxdoc.cdomain.CObject">
-<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.cdomain.</code><code class="sig-name descname">CObject</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">arguments</em>, <em class="sig-param">options</em>, <em class="sig-param">content</em>, <em class="sig-param">lineno</em>, <em class="sig-param">content_offset</em>, <em class="sig-param">block_text</em>, <em class="sig-param">state</em>, <em class="sig-param">state_machine</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#CObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.CObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.domains.c.CObject</span></code></p>
-<p>Description of a C language object.</p>
-<dl class="method">
-<dt id="linuxdoc.cdomain.CObject.add_target_and_index">
-<code class="sig-name descname">add_target_and_index</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">sig</em>, <em class="sig-param">signode</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#CObject.add_target_and_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.CObject.add_target_and_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add cross-reference IDs and entries to self.indexnode, if applicable.</p>
-<p><em>name</em> is whatever <a class="reference internal" href="#linuxdoc.cdomain.CObject.handle_signature" title="linuxdoc.cdomain.CObject.handle_signature"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_signature()</span></code></a> returned.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="linuxdoc.cdomain.CObject.get_index_text">
-<code class="sig-name descname">get_index_text</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#CObject.get_index_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.CObject.get_index_text" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="linuxdoc.cdomain.CObject.handle_func_like_macro">
-<code class="sig-name descname">handle_func_like_macro</code><span class="sig-paren">(</span><em class="sig-param">sig</em>, <em class="sig-param">signode</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#CObject.handle_func_like_macro"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.CObject.handle_func_like_macro" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handles signatures of function-like macros.</p>
-<p>If the objtype is ‘function’ and the the signature <code class="docutils literal notranslate"><span class="pre">sig</span></code> is a
-function-like macro, the name of the macro is returned. Otherwise
-<code class="docutils literal notranslate"><span class="pre">False</span></code> is returned.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="linuxdoc.cdomain.CObject.handle_signature">
-<code class="sig-name descname">handle_signature</code><span class="sig-paren">(</span><em class="sig-param">sig</em>, <em class="sig-param">signode</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#CObject.handle_signature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.CObject.handle_signature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transform a C signature into RST nodes.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="linuxdoc.cdomain.CObject.is_function_like_macro">
-<code class="sig-name descname">is_function_like_macro</code><em class="property"> = False</em><a class="headerlink" href="#linuxdoc.cdomain.CObject.is_function_like_macro" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="linuxdoc.cdomain.CObject.option_spec">
-<code class="sig-name descname">option_spec</code><em class="property"> = {'name': &lt;function unchanged&gt;}</em><a class="headerlink" href="#linuxdoc.cdomain.CObject.option_spec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="function">
 <dt id="linuxdoc.cdomain.setup">
 <code class="sig-prename descclassname">linuxdoc.cdomain.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.setup" title="Permalink to this definition">¶</a></dt>
@@ -162,7 +99,7 @@ function-like macro, the name of the macro is returned. Otherwise
       <li><a href="linuxdoc.html">linuxdoc package</a>
         <ul>
           <li>Previous: <a href="linuxdoc.autodoc.html" title="previous chapter">linuxdoc.autodoc module</a>
-          <li>Next: <a href="linuxdoc.compat.html" title="next chapter">linuxdoc.compat module</a></ul>
+          <li>Next: <a href="linuxdoc.cdomainv2.html" title="next chapter">linuxdoc.cdomainv2 module</a></ul>
       </li>
     </ul>
   </li>

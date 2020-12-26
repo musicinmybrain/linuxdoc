@@ -8,6 +8,10 @@
     <title>kernel-doc syntax &#8212; LinuxDoc 20200812 documentation</title>
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/tabs.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -243,7 +247,7 @@ comments between the <code class="docutils literal notranslate"><span class="pre
 <span class="cm">* @f1: nested function on anonimous union/struct</span>
 <span class="cm">* @bar.st2.f2: nested function on named union/struct</span>
 <span class="cm">*/</span>
-<span class="k">struct</span> <span class="n">my_struct</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">my_struct</span> <span class="p">{</span>
   <span class="cm">/* Anonymous union/struct*/</span>
   <span class="k">union</span> <span class="p">{</span>
         <span class="k">struct</span> <span class="p">{</span>
@@ -326,7 +330,7 @@ they are each on a line of their own, like all other kernel-doc comments:</p>
 <span class="cm"> *</span>
 <span class="cm"> * Longer description</span>
 <span class="cm"> */</span>
-<span class="k">struct</span> <span class="n">my_long_struct</span> <span class="p">{</span>
+<span class="k">struct</span> <span class="nc">my_long_struct</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
         <span class="cm">/**</span>
 <span class="cm">         * @bar: The Bar member.</span>

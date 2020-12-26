@@ -8,6 +8,10 @@
     <title>rendered all-in-a-tumble.[ch] &#8212; LinuxDoc 20200812 documentation</title>
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/tabs.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -144,7 +148,7 @@ void <code class="sig-name descname">trace_block_dirty_buffer</code><span class=
 
 <div class="section" id="example-trace-block-dirty-buffer-description">
 <span id="id2"></span><h4>Description<a class="headerlink" href="#example-trace-block-dirty-buffer-description" title="Permalink to this headline">¶</a></h4>
-<p>Called from <code class="xref c c-func docutils literal notranslate"><span class="pre">mark_buffer_dirty()</span></code>.</p>
+<p>Called from <a class="reference external" href="https://www.kernel.org/doc/html/latest/filesystems/api-summary.html#c.mark_buffer_dirty" title="(in The Linux Kernel v5.10.0)"><code class="xref c c-func docutils literal notranslate"><span class="pre">mark_buffer_dirty()</span></code></a>.</p>
 </div>
 </div>
 <div class="section" id="theory-of-operation">
@@ -183,7 +187,7 @@ struct <code class="sig-name descname">my_struct</code><a class="headerlink" hre
 
 <div class="section" id="definition">
 <span id="example-my-struct-definition"></span><h4>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">my_struct</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">my_struct</span> <span class="p">{</span>
     <span class="k">union</span> <span class="p">{</span>
         <span class="k">struct</span> <span class="p">{</span>
             <span class="kt">char</span> <span class="nl">arg1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
@@ -279,7 +283,7 @@ struct <code class="sig-name descname">my_long_struct</code><a class="headerlink
 
 <div class="section" id="example-my-long-struct-definition">
 <span id="id3"></span><h4>Definition<a class="headerlink" href="#example-my-long-struct-definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">my_long_struct</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">my_long_struct</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">foo</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">bar</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">baz</span><span class="p">;</span>
@@ -328,7 +332,7 @@ struct <code class="sig-name descname">my_union</code><a class="headerlink" href
 
 <div class="section" id="example-my-union-definition">
 <span id="id6"></span><h4>Definition<a class="headerlink" href="#example-my-union-definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span> <span class="n">my_union</span> <span class="p">{</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">union</span> <span class="nc">my_union</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
@@ -413,7 +417,7 @@ Context: <code class="xref c c-func docutils literal notranslate"><span class="p
 <p>Long description. This function has two integer arguments. The first is
 <code class="docutils literal notranslate"><span class="pre">parameter_a</span></code> and the second is <code class="docutils literal notranslate"><span class="pre">parameter_b</span></code>.</p>
 <p>As long as the reST / sphinx-doc toolchain uses <a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/intersphinx.html">intersphinx</a> you can refer
-definitions <em>outside</em> like <code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">media_device</span></code>.  If
+definitions <em>outside</em> like <a class="reference external" href="https://www.kernel.org/doc/html/latest/driver-api/media/mc-core.html#c.media_device" title="(in The Linux Kernel v5.10.0)"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">media_device</span></code></a>.  If
 the description of <code class="docutils literal notranslate"><span class="pre">media_device</span></code> struct is found in any of the intersphinx
 locations, a hyperref to this target is generated a build time.</p>
 </div>
@@ -617,11 +621,11 @@ struct <code class="sig-name descname">nfp_flower_priv</code><a class="headerlin
 
 <div class="section" id="example-nfp-flower-priv-definition">
 <span id="id16"></span><h4>Definition<a class="headerlink" href="#example-nfp-flower-priv-definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">nfp_flower_priv</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">nfp_net</span> <span class="o">*</span><span class="n">nn</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">nfp_flower_priv</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">nfp_net</span> <span class="o">*</span><span class="n">nn</span><span class="p">;</span>
     <span class="n">u32</span> <span class="n">mask_id_seed</span><span class="p">;</span>
     <span class="n">u64</span> <span class="n">flower_version</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">nfp_fl_mask_id</span> <span class="n">mask_ids</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">nfp_fl_mask_id</span> <span class="n">mask_ids</span><span class="p">;</span>
     <span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">mask_table</span><span class="p">,</span> <span class="n">NFP_FLOWER_MASK_HASH_BITS</span><span class="p">);</span>
     <span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">flow_table</span><span class="p">,</span> <span class="n">NFP_FLOWER_HASH_BITS</span><span class="p">);</span>
 <span class="p">}</span>
@@ -683,9 +687,9 @@ struct <code class="sig-name descname">something</code><a class="headerlink" hre
 
 <div class="section" id="example-something-definition">
 <span id="id20"></span><h4>Definition<a class="headerlink" href="#example-something-definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">something</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">foo</span> <span class="n">foofoo</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">bar</span> <span class="n">barbar</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">something</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">foo</span> <span class="n">foofoo</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">bar</span> <span class="n">barbar</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -710,16 +714,16 @@ struct <code class="sig-name descname">lineevent_state</code><a class="headerlin
 
 <div class="section" id="example-lineevent-state-definition">
 <span id="id22"></span><h4>Definition<a class="headerlink" href="#example-lineevent-state-definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">lineevent_state</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">gpio_device</span> <span class="o">*</span><span class="n">gdev</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">lineevent_state</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">gpio_device</span> <span class="o">*</span><span class="n">gdev</span><span class="p">;</span>
     <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">label</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">gpio_desc</span> <span class="o">*</span><span class="n">desc</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">gpio_desc</span> <span class="o">*</span><span class="n">desc</span><span class="p">;</span>
     <span class="n">u32</span> <span class="n">eflags</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">irq</span><span class="p">;</span>
     <span class="n">wait_queue_head_t</span> <span class="n">wait</span><span class="p">;</span>
-    <span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="k">struct</span> <span class="n">gpioevent_data</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
-    <span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span> <span class="k">struct</span> <span class="n">lirc_scancode</span><span class="p">);</span>
-    <span class="k">struct</span> <span class="n">mutex</span> <span class="n">read_lock</span><span class="p">;</span>
+    <span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">gpioevent_data</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+    <span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">lirc_scancode</span><span class="p">);</span>
+    <span class="k">struct</span> <span class="nc">mutex</span> <span class="n">read_lock</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -902,9 +906,9 @@ struct <code class="sig-name descname">rarely_struct</code><a class="headerlink"
 
 <div class="section" id="example-rarely-struct-definition">
 <span id="id36"></span><h4>Definition<a class="headerlink" href="#example-rarely-struct-definition" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">rarely_struct</span> <span class="p">{</span>
-    <span class="k">struct</span> <span class="n">foo</span> <span class="n">foofoo</span><span class="p">;</span>
-    <span class="k">struct</span> <span class="n">bar</span> <span class="n">barbar</span><span class="p">;</span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">rarely_struct</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="nc">foo</span> <span class="n">foofoo</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="nc">bar</span> <span class="n">barbar</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
