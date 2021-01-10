@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.manKernelDoc module &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>linuxdoc.manKernelDoc module &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="linuxdoc.rstFlatTable module" href="linuxdoc.rstFlatTable.html" />
@@ -39,8 +39,9 @@
         <li class="right" >
           <a href="linuxdoc.lint.html" title="linuxdoc.lint module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.manKernelDoc module</a></li> 
       </ul>
     </div>  
 
@@ -54,102 +55,94 @@
 <div class="section" id="kernel-doc-man">
 <h2>kernel-doc-man<a class="headerlink" href="#kernel-doc-man" title="Permalink to this headline">¶</a></h2>
 <p>Implementation of the <code class="docutils literal notranslate"><span class="pre">kernel-doc-man</span></code> builder.</p>
-<dl class="field-list simple">
-<dt class="field-odd">copyright</dt>
-<dd class="field-odd"><p>Copyright (C) 2018 Markus Heiser</p>
-</dd>
-<dt class="field-even">license</dt>
-<dd class="field-even"><p>GPL Version 2, June 1991 see Linux/COPYING for details.</p>
-</dd>
-</dl>
 <p>User documentation see <a class="reference internal" href="../linuxdoc-howto/man-pages.html#man-pages"><span class="std std-ref">man pages from kernel-doc comments</span></a>.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="linuxdoc.manKernelDoc.KernelDocMan">
-<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">KernelDocMan</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">arguments</em>, <em class="sig-param">options</em>, <em class="sig-param">content</em>, <em class="sig-param">lineno</em>, <em class="sig-param">content_offset</em>, <em class="sig-param">block_text</em>, <em class="sig-param">state</em>, <em class="sig-param">state_machine</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocMan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocMan" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">KernelDocMan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocMan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocMan" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.parsers.rst.Directive</span></code></p>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="linuxdoc.manKernelDoc.KernelDocMan.optional_arguments">
 <code class="sig-name descname">optional_arguments</code><em class="property"> = 0</em><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocMan.optional_arguments" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="linuxdoc.manKernelDoc.KernelDocMan.required_arguments">
 <code class="sig-name descname">required_arguments</code><em class="property"> = 1</em><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocMan.required_arguments" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocMan.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocMan.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocMan.run" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder">
-<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">KernelDocManBuilder</code><span class="sig-paren">(</span><em class="sig-param">app: Sphinx</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">KernelDocManBuilder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span><span class="p">:</span> <span class="n">Sphinx</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.builders.manpage.ManualPageBuilder</span></code></p>
 <p>Builds groff output in manual page format.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.finish">
 <code class="sig-name descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.finish"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.finish" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finish the building process.</p>
 <p>The default implementation does nothing.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.format">
 <code class="sig-name descname">format</code><em class="property"> = 'man'</em><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.format" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.get_partial_document">
-<code class="sig-name descname">get_partial_document</code><span class="sig-paren">(</span><em class="sig-param">children</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.get_partial_document"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.get_partial_document" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_partial_document</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">children</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.get_partial_document"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.get_partial_document" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.init">
 <code class="sig-name descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.init" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load necessary templates and perform initialization.  The default
 implementation does nothing.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.is_manpage">
-<code class="sig-name descname">is_manpage</code><span class="sig-paren">(</span><em class="sig-param">node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.is_manpage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.is_manpage" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_manpage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.is_manpage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.is_manpage" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.name">
 <code class="sig-name descname">name</code><em class="property"> = 'kernel-doc-man'</em><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.prepare_writing">
-<code class="sig-name descname">prepare_writing</code><span class="sig-paren">(</span><em class="sig-param">docnames</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.prepare_writing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.prepare_writing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prepare_writing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">docnames</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.prepare_writing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.prepare_writing" title="Permalink to this definition">¶</a></dt>
 <dd><p>A place where you can add logic before <a class="reference internal" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.write_doc" title="linuxdoc.manKernelDoc.KernelDocManBuilder.write_doc"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write_doc()</span></code></a> is run</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.supported_image_types">
-<code class="sig-name descname">supported_image_types</code><em class="property"> = []</em><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.supported_image_types" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">supported_image_types</code><em class="property">: List<span class="p">[</span>str<span class="p">]</span></em><em class="property"> = []</em><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.supported_image_types" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.write">
-<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">*ignored</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.write" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">ignored</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.write" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.KernelDocManBuilder.write_doc">
-<code class="sig-name descname">write_doc</code><span class="sig-paren">(</span><em class="sig-param">docname</em>, <em class="sig-param">doctree</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.write_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.write_doc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write_doc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">docname</span></em>, <em class="sig-param"><span class="n">doctree</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#KernelDocManBuilder.write_doc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.KernelDocManBuilder.write_doc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Where you actually write something to the filesystem.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage">
-<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">Section2Manpage</code><span class="sig-paren">(</span><em class="sig-param">document</em>, <em class="sig-param">startnode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">Section2Manpage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">document</span></em>, <em class="sig-param"><span class="n">startnode</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.transforms.Transform</span></code></p>
 <p>Transforms a <em>section</em> tree into an <em>manpage</em> tree.</p>
 <p>The structural layout of a man-page differs from the one produced, by the
@@ -195,65 +188,66 @@ RETURN VALUE
         Returns first argument
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage.apply">
-<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.apply" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Override to apply the transform to the document tree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage.isolate_sections">
-<code class="sig-name descname">isolate_sections</code><span class="sig-paren">(</span><em class="sig-param">sec_by_title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.isolate_sections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.isolate_sections" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isolate_sections</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sec_by_title</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.isolate_sections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.isolate_sections" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage.isolate_synopsis">
-<code class="sig-name descname">isolate_synopsis</code><span class="sig-paren">(</span><em class="sig-param">sec_by_title</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.isolate_synopsis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.isolate_synopsis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isolate_synopsis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sec_by_title</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.isolate_synopsis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.isolate_synopsis" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage.manTitleOrder">
 <code class="sig-name descname">manTitleOrder</code><em class="property"> = ['SYNOPSIS', 'CONFIGURATION', 'DESCRIPTION', 'OPTIONS', 'EXIT STATUS', 'RETURN VALUE', 'ERRORS', 'ENVIRONMENT', 'FILES', 'VERSIONS', 'ATTRIBUTES', 'CONFORMING TO', 'NOTES', 'BUGS', 'EXAMPLE', 'SEE ALSO']</em><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.manTitleOrder" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage.manTitles">
 <code class="sig-name descname">manTitles</code><em class="property"> = [(re.compile('^SYNOPSIS|^DEFINITION', re.IGNORECASE), 'SYNOPSIS'), (re.compile('^CONFIG', re.IGNORECASE), 'CONFIGURATION'), (re.compile('^DESCR', re.IGNORECASE), 'DESCRIPTION'), (re.compile('^OPTION', re.IGNORECASE), 'OPTIONS'), (re.compile('^EXIT', re.IGNORECASE), 'EXIT STATUS'), (re.compile('^RETURN', re.IGNORECASE), 'RETURN VALUE'), (re.compile('^ERROR', re.IGNORECASE), 'ERRORS'), (re.compile('^ENVIRON', re.IGNORECASE), 'ENVIRONMENT'), (re.compile('^FILE', re.IGNORECASE), 'FILES'), (re.compile('^VER', re.IGNORECASE), 'VERSIONS'), (re.compile('^ATTR', re.IGNORECASE), 'ATTRIBUTES'), (re.compile('^CONFOR', re.IGNORECASE), 'CONFORMING TO'), (re.compile('^NOTE', re.IGNORECASE), 'NOTES'), (re.compile('^BUG', re.IGNORECASE), 'BUGS'), (re.compile('^EXAMPLE', re.IGNORECASE), 'EXAMPLE'), (re.compile('^SEE', re.IGNORECASE), 'SEE ALSO')]</em><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.manTitles" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage.sec2man_get_first_child">
-<em class="property">classmethod </em><code class="sig-name descname">sec2man_get_first_child</code><span class="sig-paren">(</span><em class="sig-param">subtree</em>, <em class="sig-param">*classes</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.sec2man_get_first_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.sec2man_get_first_child" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">sec2man_get_first_child</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subtree</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">classes</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.sec2man_get_first_child"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.sec2man_get_first_child" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.manKernelDoc.Section2Manpage.strip_man_info">
 <code class="sig-name descname">strip_man_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#Section2Manpage.strip_man_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.Section2Manpage.strip_man_info" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="linuxdoc.manKernelDoc.kernel_doc_man">
-<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">kernel_doc_man</code><span class="sig-paren">(</span><em class="sig-param">rawsource=''</em>, <em class="sig-param">*children</em>, <em class="sig-param">**attributes</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#kernel_doc_man"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.kernel_doc_man" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">kernel_doc_man</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rawsource</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">children</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#kernel_doc_man"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.kernel_doc_man" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.nodes.Invisible</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.nodes.Element</span></code></p>
 <p>Node to mark a section as <em>manpage</em></p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.manKernelDoc.setup">
-<code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.setup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.setup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.manKernelDoc.skip_kernel_doc_man">
-<code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">skip_kernel_doc_man</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">node</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#skip_kernel_doc_man"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.skip_kernel_doc_man" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.manKernelDoc.</code><code class="sig-name descname">skip_kernel_doc_man</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">node</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/manKernelDoc.html#skip_kernel_doc_man"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.manKernelDoc.skip_kernel_doc_man" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -316,8 +310,8 @@ RETURN VALUE
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

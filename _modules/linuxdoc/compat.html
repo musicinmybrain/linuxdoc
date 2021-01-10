@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.compat &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <title>linuxdoc.compat &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
     <script src="../../_static/sphinx_tabs/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -33,8 +33,9 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.compat</a></li> 
       </ul>
     </div>  
 
@@ -45,169 +46,55 @@
             
   <h1>Source code for linuxdoc.compat</h1><div class="highlight"><pre>
 <span></span># -*- coding: utf-8; mode: python -*-
+# SPDX-License-Identifier: GPL-2.0
 # pylint: disable=C, unused-import, invalid-name, missing-docstring
-u&quot;&quot;&quot;
+&quot;&quot;&quot;\
 compat
 ~~~~~~
 
 Implementation of a compatibility layer for sphinx and docutils related modules.
-
-:copyright:  Copyright (C) 2018 Markus Heiser
-:license:    GPL Version 2, June 1991 see Linux/COPYING for details.
 
 Downward compatibility is unfortunately no strength of sphinx-doc `[ref]
 &lt;https://github.com/sphinx-doc/sphinx/issues/3212#issuecomment-283756374&gt;`__ and
 patch levels are not really exists or if so they are not shipped within LTS
 distributions.  Therefor a minimal *compatibility layer* is needed.  Even if we
 do our best here, there are also a lot of incompatibilities in between sphinx
-docutils whose fixing is out of the scope of this linuxdoc project `[ref]
+and docutils whose fixing is out of the scope of this linuxdoc project `[ref]
 &lt;https://www.kernel.org/doc/html/latest/doc-guide/sphinx.html#sphinx-install&gt;`__.
 
 To get best results (and less warnings) its inevitable to use latest sphinx-doc
-version and the RTD in a python3 `virtualenv &lt;https://virtualenv.pypa.io&gt;`__::
+version.
 
-  $ virtualenv3 py3
-  $ . py3/bin/activate
-  $ pip install sphinx sphinx_rtd_theme
-
-The following incompatibilities will be handled by this layer.  More details see
-Sphinx-doc’s `CHANGELOG &lt;http://www.sphinx-doc.org/en/master/changes.html&gt;`__
-and docutils `RELEASE-NOTES
-&lt;http://docutils.sourceforge.net/RELEASE-NOTES.html&gt;`__
-
-Bugfixes:
-
-- Sphinx &lt;= 1.4 (bug in docutils &gt;= 0.13) : HTML Builders crashes with
-  docutils-0.13 `[ref] &lt;https://github.com/sphinx-doc/sphinx/pull/3217&gt;`__
-
-Downward compatibility:
-
-- Sphinx &gt;= 1.6: ``Sphinx.warn()``, ``Sphinx.info()`` and other logging methods are
-  now deprecated.  Please use ``sphinx.util.logging`` instead.  It will be
-  removed in Sphinx-2.0.
-
-- Sphinx &gt;= 1.7: ``sphinx.ext.autodoc.AutodocReporter`` is replaced by
-  ``sphinx.util.docutils.  switch_source_input()`` and now deprecated.  It will
-  be removed in Sphinx-2.0.
+More details see Sphinx-doc’s `CHANGELOG
+&lt;http://www.sphinx-doc.org/en/master/changes.html&gt;`__ and docutils
+`RELEASE-NOTES &lt;http://docutils.sourceforge.net/RELEASE-NOTES.html&gt;`__
 
 &quot;&quot;&quot;
 
 import docutils
 import sphinx
 
-# Get Sphinx version
-major, minor, patch = sphinx.version_info[:3]  # pylint: disable=invalid-name
-docutils_major, docutils_minor, docutils_patch = docutils.__version_info__[:3]
+from pkg_resources import parse_version
 
+sphinx_version = parse_version(sphinx.__version__)
+docutils_version = parse_version(docutils.__version__)
 
-if (major == 1 and minor &lt;= 4) and (docutils_major == 0 and docutils_minor&gt;=13):
-    # to fix the docutils bug, we need a ugly hack, extending the code
-    # object of sphinx&#39;s HTMLTranslator.depart_image method
-    from sphinx.writers import html
-    _origin_HTMLTranslator_depart_image = html.HTMLTranslator.depart_image
-    def _wrap_HTMLTranslator_depart_image(__self, node):
-        _origin_HTMLTranslator_depart_image(__self, node)
-        if node[&#39;uri&#39;].lower().endswith((&#39;svg&#39;, &#39;svgz&#39;)):
-            __self.context.pop()
-    html.HTMLTranslator.depart_image = _wrap_HTMLTranslator_depart_image
+<div class="viewcode-block" id="sphinx_has_c_namespace"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.sphinx_has_c_namespace">[docs]</a>def sphinx_has_c_namespace():
+    &quot;&quot;&quot;Checks wether Sphinx version supports `.. c:namespace::
+    &lt;https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#namespacing&gt;`__
 
+    &quot;&quot;&quot;
+    return sphinx_version &gt;= parse_version(&#39;3.1&#39;)</div>
 
-if major &gt;= 1 and minor &gt;= 6:
-    from sphinx.util import logging
-    getLogger = logging.getLogger
+<div class="viewcode-block" id="sphinx_has_c_types"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.sphinx_has_c_types">[docs]</a>def sphinx_has_c_types():
+    &quot;&quot;&quot;Checks wether Sphinx version supports `.. c:struct::, c:union and other C types
+    &lt;https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-c-domain&gt;`__
 
-else:
-    # workaround for Sphinx &lt; 1.6
-    import logging
-    from collections import defaultdict
-    VERBOSE=15
-    LEVEL_NAMES = defaultdict(lambda: logging.WARNING)
-    LEVEL_NAMES.update({
-        &#39;CRITICAL&#39;: logging.CRITICAL,
-        &#39;SEVERE&#39;: logging.CRITICAL,
-        &#39;ERROR&#39;: logging.ERROR,
-        &#39;WARNING&#39;: logging.WARNING,
-        &#39;INFO&#39;: logging.INFO,
-        &#39;VERBOSE&#39;: VERBOSE,
-        &#39;DEBUG&#39;: logging.DEBUG,
-    })
-
-    VERBOSITY_MAP = defaultdict(lambda: 0)  # type: Dict[int, int]
-    VERBOSITY_MAP.update({
-        0: logging.INFO,
-        1: VERBOSE,
-        2: logging.DEBUG,
-    })
-<div class="viewcode-block" id="SphinxLoggerAdapter"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.SphinxLoggerAdapter">[docs]</a>    class SphinxLoggerAdapter(logging.LoggerAdapter):
-        &quot;&quot;&quot;LoggerAdapter allowing ``type`` and ``subtype`` keywords.&quot;&quot;&quot;
-
-<div class="viewcode-block" id="SphinxLoggerAdapter.log"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.SphinxLoggerAdapter.log">[docs]</a>        def log(self, level, msg, *args, **kwargs):  # type: ignore
-            # type: (Union[int, str], unicode, Any, Any) -&gt; None
-            if isinstance(level, int):
-                super(SphinxLoggerAdapter, self).log(level, msg, *args, **kwargs)
-            else:
-                levelno = LEVEL_NAMES[level]
-                super(SphinxLoggerAdapter, self).log(levelno, msg, *args, **kwargs)</div>
-
-<div class="viewcode-block" id="SphinxLoggerAdapter.verbose"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.SphinxLoggerAdapter.verbose">[docs]</a>        def verbose(self, msg, *args, **kwargs):
-            # type: (unicode, Any, Any) -&gt; None
-            self.log(VERBOSE, msg, *args, **kwargs)</div>
-
-<div class="viewcode-block" id="SphinxLoggerAdapter.process"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.SphinxLoggerAdapter.process">[docs]</a>        def process(self, msg, kwargs):  # type: ignore
-            # type: (unicode, Dict) -&gt; Tuple[unicode, Dict]
-            extra = kwargs.setdefault(&#39;extra&#39;, {})
-            if &#39;type&#39; in kwargs:
-                extra[&#39;type&#39;] = kwargs.pop(&#39;type&#39;)
-            if &#39;subtype&#39; in kwargs:
-                extra[&#39;subtype&#39;] = kwargs.pop(&#39;subtype&#39;)
-            if &#39;location&#39; in kwargs:
-                extra[&#39;location&#39;] = kwargs.pop(&#39;location&#39;)
-            if &#39;nonl&#39; in kwargs:
-                extra[&#39;nonl&#39;] = kwargs.pop(&#39;nonl&#39;)
-            if &#39;color&#39; in kwargs:
-                extra[&#39;color&#39;] = kwargs.pop(&#39;color&#39;)
-            return msg, kwargs</div>
-
-<div class="viewcode-block" id="SphinxLoggerAdapter.handle"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.SphinxLoggerAdapter.handle">[docs]</a>        def handle(self, record):
-            # type: (logging.LogRecord) -&gt; None
-            self.logger.handle(record) # type: ignore</div></div>
-
-<div class="viewcode-block" id="getLogger"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.getLogger">[docs]</a>    def getLogger(name):
-        _logger = logging.getLogger(&#39;sphinx.&#39; + name)
-        _logger.disabled = False
-        # wrap logger by SphinxLoggerAdapter
-        return SphinxLoggerAdapter(_logger, {})</div>
-
-    logger = logging.getLogger(&#39;sphinx&#39;)
-    logger.setLevel(logging.DEBUG)
-
-if major &gt;= 1 and minor &gt;= 7:
-    from sphinx.util.docutils import switch_source_input
-
-else:
-    # workaround for Sphinx &lt; 1.7
-    from docutils.statemachine import StateMachine
-    from contextlib import contextmanager
-
-<div class="viewcode-block" id="switch_source_input"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.compat.html#linuxdoc.compat.switch_source_input">[docs]</a>    @contextmanager
-    def switch_source_input(state, content):
-        # type: (State, ViewList) -&gt; Generator[None, None, None]
-        &quot;&quot;&quot;Switch current source input of state temporarily.&quot;&quot;&quot;
-        try:
-            # remember the original ``get_source_and_line()`` method
-            get_source_and_line = state.memo.reporter.get_source_and_line
-
-            # replace it by new one
-            state_machine = StateMachine([], None)
-            state_machine.input_lines = content
-            state.memo.reporter.get_source_and_line = state_machine.get_source_and_line
-
-            yield
-        finally:
-            # restore the method
-            state.memo.reporter.get_source_and_line = get_source_and_line</div>
+    &quot;&quot;&quot;
+    return sphinx_version &gt;= parse_version(&#39;3.1&#39;)</div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -262,8 +149,8 @@ else:
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../../_static/version_warning_offset.js"></script>
 

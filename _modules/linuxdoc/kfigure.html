@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.kfigure &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <title>linuxdoc.kfigure &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
     <script src="../../_static/sphinx_tabs/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -33,8 +33,9 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.kfigure</a></li> 
       </ul>
     </div>  
 
@@ -47,24 +48,21 @@
 <span></span># -*- coding: utf-8; mode: python -*-
 # pylint: disable=invalid-name, missing-docstring, too-many-branches
 # pylint: disable=unnecessary-pass
+# SPDX-License-Identifier: GPL-2.0
+&quot;&quot;&quot;\
+scalable figure and image handling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-u&quot;&quot;&quot;
-    scalable figure and image handling
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    Sphinx extension which implements scalable image handling.
-
-    :copyright:  Copyright (C) 2018 Markus Heiser
-    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
-
-    User documentation see :ref:`kfigure`
-    &quot;&quot;&quot;
+Sphinx extension which implements scalable image handling.
+User documentation see :ref:`kfigure`
+&quot;&quot;&quot;
 
 import os
 from os import path
 import subprocess
 from hashlib import sha1
 import sys
+import logging
 
 from docutils import nodes
 from docutils.statemachine import ViewList
@@ -75,25 +73,9 @@ import sphinx
 from sphinx.util.nodes import clean_astext
 from six import iteritems
 
-from . import compat
-app_log = compat.getLogger(&#39;application&#39;)
+__version__  = &#39;3.0&#39;
 
-PY3 = sys.version_info[0] == 3
-
-if PY3:
-    _unicode = str       # pylint: disable=invalid-name
-else:
-    _unicode = unicode   # pylint: disable=undefined-variable, invalid-name
-
-# Get Sphinx version
-major, minor, patch = sphinx.version_info[:3]  # pylint: disable=invalid-name
-if major == 1 and minor &gt; 3:
-    # patches.Figure only landed in Sphinx 1.4
-    from sphinx.directives.patches import Figure  # pylint: disable=ungrouped-imports
-else:
-    Figure = images.Figure
-
-__version__  = &#39;1.0.0&#39;
+app_log = logging.getLogger(&#39;application&#39;)
 
 # simple helper
 # -------------
@@ -191,18 +173,18 @@ convert_cmd = None
     global dot_cmd, convert_cmd  # pylint: disable=global-statement
 
     # pylint: disable=deprecated-method
-    app_log.verbose(&quot;kfigure: check installed tools ...&quot;)
+    app_log.info(&quot;kfigure: check installed tools ...&quot;)
 
     dot_cmd = which(&#39;dot&#39;)
     convert_cmd = which(&#39;convert&#39;)
 
     if dot_cmd:
-        app_log.verbose(&quot;use dot(1) from: &quot; + dot_cmd)
+        app_log.info(&quot;use dot(1) from: &quot; + dot_cmd)
     else:
         app_log.warn(&quot;dot(1) not found, for better output quality install &quot;
                      &quot;graphviz from http://www.graphviz.org&quot;)
     if convert_cmd:
-        app_log.verbose(&quot;use convert(1) from: &quot; + convert_cmd)
+        app_log.info(&quot;use convert(1) from: &quot; + convert_cmd)
     else:
         app_log.warn(
             &quot;convert(1) not found, for SVG to PDF conversion install &quot;
@@ -240,12 +222,12 @@ RENDER_MARKUP_EXT = {
 
     # in kernel builds, use &#39;make SPHINXOPTS=-v&#39; to see verbose messages
 
-    app_log.verbose(&#39;assert best format for: &#39; + img_node[&#39;uri&#39;])
+    app_log.info(&#39;assert best format for: &#39; + img_node[&#39;uri&#39;])
 
     if in_ext == &#39;.dot&#39;:
 
         if not dot_cmd:
-            app_log.verbose(&quot;dot from graphviz not available / include DOT raw.&quot;)
+            app_log.info(&quot;dot from graphviz not available / include DOT raw.&quot;)
             img_node.replace_self(file2literal(src_fname))
 
         elif translator.builder.format == &#39;latex&#39;:
@@ -272,7 +254,7 @@ RENDER_MARKUP_EXT = {
 
         if translator.builder.format == &#39;latex&#39;:
             if convert_cmd is None:
-                app_log.verbose(&quot;no SVG to PDF conversion available / include SVG raw.&quot;)
+                app_log.info(&quot;no SVG to PDF conversion available / include SVG raw.&quot;)
                 img_node.replace_self(file2literal(src_fname))
             else:
                 dst_fname = path.join(translator.builder.outdir, fname + &#39;.pdf&#39;)
@@ -285,18 +267,18 @@ RENDER_MARKUP_EXT = {
         _name = dst_fname[len(translator.builder.outdir) + 1:]
 
         if isNewer(dst_fname, src_fname):
-            app_log.verbose(&quot;convert: {out}/%s already exists and is newer&quot; % _name)
+            app_log.info(&quot;convert: {out}/%s already exists and is newer&quot; % _name)
 
         else:
             ok = False
             mkdir(path.dirname(dst_fname))
 
             if in_ext == &#39;.dot&#39;:
-                app_log.verbose(&#39;convert DOT to: {out}/&#39; + _name)
+                app_log.info(&#39;convert DOT to: {out}/&#39; + _name)
                 ok = dot2format(app, src_fname, dst_fname)
 
             elif in_ext == &#39;.svg&#39;:
-                app_log.verbose(&#39;convert SVG to: {out}/&#39; + _name)
+                app_log.info(&#39;convert SVG to: {out}/&#39; + _name)
                 ok = svg2pdf(app, src_fname, dst_fname)
 
             if not ok:
@@ -399,7 +381,7 @@ RENDER_MARKUP_EXT = {
 <div class="viewcode-block" id="kernel_figure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.kernel_figure">[docs]</a>class kernel_figure(nodes.figure):
     &quot;&quot;&quot;Node for ``kernel-figure`` directive.&quot;&quot;&quot;</div>
 
-<div class="viewcode-block" id="KernelFigure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelFigure">[docs]</a>class KernelFigure(Figure):
+<div class="viewcode-block" id="KernelFigure"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelFigure">[docs]</a>class KernelFigure(images.Figure):
     u&quot;&quot;&quot;KernelImage directive
 
     Earns everything from ``.. figure::`` directive, except *remote URI* and
@@ -414,7 +396,7 @@ RENDER_MARKUP_EXT = {
                 &#39;Error in &quot;%s: %s&quot;:&#39;
                 &#39; glob pattern and remote images are not allowed&#39;
                 % (self.name, uri))
-        result = Figure.run(self)
+        result = images.Figure.run(self)
         if len(result) == 2 or isinstance(result[0], nodes.system_message):
             return result
         (figure_node,) = result
@@ -437,7 +419,7 @@ RENDER_MARKUP_EXT = {
     srclang = node.get(&#39;srclang&#39;)
 
     # pylint: disable=deprecated-method
-    app_log.verbose(&#39;visit kernel-render node lang: &quot;%s&quot;&#39; % (srclang))
+    app_log.info(&#39;visit kernel-render node lang: &quot;%s&quot;&#39; % (srclang))
 
     tmp_ext = RENDER_MARKUP_EXT.get(srclang, None)
     if tmp_ext is None:
@@ -445,7 +427,7 @@ RENDER_MARKUP_EXT = {
         return
 
     if not dot_cmd and tmp_ext == &#39;.dot&#39;:
-        app_log.verbose(&quot;dot from graphviz not available / include raw.&quot;)
+        app_log.info(&quot;dot from graphviz not available / include raw.&quot;)
         return
 
     literal_block = node[0]
@@ -475,7 +457,7 @@ RENDER_MARKUP_EXT = {
     &quot;&quot;&quot;Node for ``kernel-render`` directive.&quot;&quot;&quot;
     pass</div>
 
-<div class="viewcode-block" id="KernelRender"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender">[docs]</a>class KernelRender(Figure):
+<div class="viewcode-block" id="KernelRender"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender">[docs]</a>class KernelRender(images.Figure):
     u&quot;&quot;&quot;KernelRender directive
 
     Render content by external tool.  Has all the options known from the
@@ -493,7 +475,7 @@ RENDER_MARKUP_EXT = {
     final_argument_whitespace = False
 
     # earn options from &#39;figure&#39;
-    option_spec = Figure.option_spec.copy()
+    option_spec = images.Figure.option_spec.copy()
     option_spec[&#39;caption&#39;] = directives.unchanged
 
 <div class="viewcode-block" id="KernelRender.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.KernelRender.run">[docs]</a>    def run(self):
@@ -573,6 +555,7 @@ RENDER_MARKUP_EXT = {
                     break</div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -627,8 +610,8 @@ RENDER_MARKUP_EXT = {
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../../_static/version_warning_offset.js"></script>
 

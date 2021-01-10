@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.cdomain module &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>linuxdoc.cdomain module &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,10 +17,9 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="linuxdoc.cdomainv2 module" href="linuxdoc.cdomainv2.html" />
+    <link rel="next" title="linuxdoc.compat module" href="linuxdoc.compat.html" />
     <link rel="prev" title="linuxdoc.autodoc module" href="linuxdoc.autodoc.html" />
   <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
    
@@ -34,13 +34,14 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="linuxdoc.cdomainv2.html" title="linuxdoc.cdomainv2 module"
+          <a href="linuxdoc.compat.html" title="linuxdoc.compat module"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="linuxdoc.autodoc.html" title="linuxdoc.autodoc module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.cdomain module</a></li> 
       </ul>
     </div>  
 
@@ -53,25 +54,18 @@
 <span id="linuxdoc-cdomain-module"></span><h1>linuxdoc.cdomain module<a class="headerlink" href="#module-linuxdoc.cdomain" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="cdomain">
 <h2>cdomain<a class="headerlink" href="#cdomain" title="Permalink to this headline">¶</a></h2>
-<p>Replacement for the sphinx c-domain.</p>
-<dl class="field-list simple">
-<dt class="field-odd">copyright</dt>
-<dd class="field-odd"><p>Copyright (C) 2018 Markus Heiser</p>
-</dd>
-<dt class="field-even">license</dt>
-<dd class="field-even"><p>GPL Version 2, June 1991 see Linux/COPYING for details.</p>
-</dd>
-</dl>
-<p>For user documentation see <a class="reference internal" href="../linuxdoc-howto/cdomain.html#customized-c-domain"><span class="std std-ref">Customized sphinx c-domain</span></a>.</p>
-<dl class="function">
+<p>Replacement for the sphinx c-domain.  For user documentation see
+<a class="reference internal" href="../linuxdoc-howto/cdomain.html#customized-c-domain"><span class="std std-ref">Customized sphinx c-domain</span></a>.</p>
+<dl class="py function">
 <dt id="linuxdoc.cdomain.setup">
-<code class="sig-prename descclassname">linuxdoc.cdomain.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.setup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.cdomain.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/cdomain.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.cdomain.setup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -105,7 +99,7 @@
       <li><a href="linuxdoc.html">linuxdoc package</a>
         <ul>
           <li>Previous: <a href="linuxdoc.autodoc.html" title="previous chapter">linuxdoc.autodoc module</a>
-          <li>Next: <a href="linuxdoc.cdomainv2.html" title="next chapter">linuxdoc.cdomainv2 module</a></ul>
+          <li>Next: <a href="linuxdoc.compat.html" title="next chapter">linuxdoc.compat module</a></ul>
       </li>
     </ul>
   </li>
@@ -134,8 +128,8 @@
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

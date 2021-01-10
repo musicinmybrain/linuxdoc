@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>kernel-doc from all-in-a-tumble.[ch] &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>kernel-doc from all-in-a-tumble.[ch] &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="rendered all-in-a-tumble.[ch]" href="all-in-a-tumble.html" />
@@ -39,9 +39,10 @@
         <li class="right" >
           <a href="all-in-a-tumble-src.html" title="source of all-in-a-tumble.[ch]"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >LinuxDoc HowTo</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="kernel-doc-examples.html" accesskey="U">Examples &amp; Tests</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="kernel-doc-examples.html" accesskey="U">Examples &amp; Tests</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">kernel-doc from <code class="docutils literal notranslate"><span class="pre">all-in-a-tumble.[ch]</span></code></a></li> 
       </ul>
     </div>  
 
@@ -57,10 +58,10 @@ example files <a class="reference internal" href="all-in-a-tumble-src.html#all-i
 This markup will be produced by the kernel-doc parser and inserted in the
 document by using the following directives:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">kernel-doc</span><span class="p">::</span>  ./all-in-a-tumble.c
-   <span class="nc">:module:</span> example
+   <span class="nc">:module:</span> foo
 
 <span class="p">..</span> <span class="ow">kernel-doc</span><span class="p">::</span>  ./all-in-a-tumble.h
-   <span class="nc">:module:</span> example
+   <span class="nc">:module:</span> foo
 </pre></div>
 </div>
 <p>The option <code class="docutils literal notranslate"><span class="pre">:module:</span></code> is optional, to find out why we use this option <em>here</em>,
@@ -875,7 +876,74 @@ see <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-opt
 802
 803
 804
-805</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_`example.about-examples`:</span>
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">c:namespace-push</span><span class="p">::</span> foo
+
+<span class="p">..</span> <span class="nt">_`foo.about-examples`:</span>
 
 <span class="gh">About Examples</span>
 <span class="gh">==============</span>
@@ -887,7 +955,7 @@ content will be rendered and where the parser might fail.
 
 And ... The content itself is nonsense / don’t look to close ;-)
 
-<span class="p">..</span> <span class="nt">_`example.trace_block_touch_buffer`:</span>
+<span class="p">..</span> <span class="nt">_`foo.trace_block_touch_buffer`:</span>
 
 <span class="gh">trace_block_touch_buffer</span>
 <span class="gh">========================</span>
@@ -900,14 +968,14 @@ And ... The content itself is nonsense / don’t look to close ;-)
         buffer_head being touched
     <span class="nc">:type bh:</span> struct buffer_head \*
 
-<span class="p">..</span> <span class="nt">_`example.trace_block_touch_buffer.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.trace_block_touch_buffer.description`:</span>
 
 <span class="gh">Description</span>
 <span class="gh">-----------</span>
 
 Called from \ <span class="na">:c:func:</span><span class="nv">`touch_buffer`</span>\ .
 
-<span class="p">..</span> <span class="nt">_`example.trace_block_dirty_buffer`:</span>
+<span class="p">..</span> <span class="nt">_`foo.trace_block_dirty_buffer`:</span>
 
 <span class="gh">trace_block_dirty_buffer</span>
 <span class="gh">========================</span>
@@ -920,14 +988,14 @@ Called from \ <span class="na">:c:func:</span><span class="nv">`touch_buffer`</s
         buffer_head being dirtied
     <span class="nc">:type bh:</span> struct buffer_head \*
 
-<span class="p">..</span> <span class="nt">_`example.trace_block_dirty_buffer.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.trace_block_dirty_buffer.description`:</span>
 
 <span class="gh">Description</span>
 <span class="gh">-----------</span>
 
 Called from \ <span class="na">:c:func:</span><span class="nv">`mark_buffer_dirty`</span>\ .
 
-<span class="p">..</span> <span class="nt">_`example.theory-of-operation`:</span>
+<span class="p">..</span> <span class="nt">_`foo.theory-of-operation`:</span>
 
 <span class="gh">Theory of Operation</span>
 <span class="gh">===================</span>
@@ -941,7 +1009,7 @@ want it to do, at any time.  It reads your mind.  Here&#39;s how it works.
 The only drawback to this gizmo is that it can sometimes damage hardware,
 software, or its subject(s).
 
-<span class="p">..</span> <span class="nt">_`example.multiple-doc-sections`:</span>
+<span class="p">..</span> <span class="nt">_`foo.multiple-doc-sections`:</span>
 
 <span class="gh">multiple DOC sections</span>
 <span class="gh">=====================</span>
@@ -951,7 +1019,7 @@ comment block. To insert a new &quot;DOC:&quot; section, create a new comment bl
 to create a sub-section use the reST markup for headings, see documentation
 of function \ <span class="na">:c:func:</span><span class="nv">`rst_mode`</span>\ 
 
-<span class="p">..</span> <span class="nt">_`example.lorem-ipsum`:</span>
+<span class="p">..</span> <span class="nt">_`foo.lorem-ipsum`:</span>
 
 <span class="gh">lorem ipsum</span>
 <span class="gh">===========</span>
@@ -963,16 +1031,16 @@ consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore
 eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-<span class="p">..</span> <span class="nt">_`example.my_struct`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_struct`:</span>
 
 <span class="gh">struct my_struct</span>
 <span class="gh">================</span>
 
-<span class="p">..</span> <span class="ow">c:type</span><span class="p">::</span> struct my_struct
+<span class="p">..</span> <span class="ow">c:struct</span><span class="p">::</span> my_struct
 
     a struct with nested unions and structs
 
-<span class="p">..</span> <span class="nt">_`example.my_struct.definition`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_struct.definition`:</span>
 
 <span class="gh">Definition</span>
 <span class="gh">----------</span>
@@ -1013,7 +1081,7 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.
         <span class="p">}</span> <span class="n">undoc_public</span><span class="p">;</span>
     <span class="p">}</span>
 
-<span class="p">..</span> <span class="nt">_`example.my_struct.members`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_struct.members`:</span>
 
 <span class="gh">Members</span>
 <span class="gh">-------</span>
@@ -1084,16 +1152,16 @@ bar.st2.f2
 undoc_public
     <span class="ge">*undescribed*</span>
 
-<span class="p">..</span> <span class="nt">_`example.my_long_struct`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_long_struct`:</span>
 
 <span class="gh">struct my_long_struct</span>
 <span class="gh">=====================</span>
 
-<span class="p">..</span> <span class="ow">c:type</span><span class="p">::</span> struct my_long_struct
+<span class="p">..</span> <span class="ow">c:struct</span><span class="p">::</span> my_long_struct
 
     short description with \ <span class="na">:c:type:</span><span class="nv">`my_struct-&gt;a &lt;my_struct&gt;`</span>\  and \ <span class="na">:c:type:</span><span class="nv">`my_struct-&gt;b &lt;my_struct&gt;`</span>\ 
 
-<span class="p">..</span> <span class="nt">_`example.my_long_struct.definition`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_long_struct.definition`:</span>
 
 <span class="gh">Definition</span>
 <span class="gh">----------</span>
@@ -1112,7 +1180,7 @@ undoc_public
         <span class="p">}</span> <span class="n">bar2</span><span class="p">;</span>
     <span class="p">}</span>
 
-<span class="p">..</span> <span class="nt">_`example.my_long_struct.members`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_long_struct.members`:</span>
 
 <span class="gh">Members</span>
 <span class="gh">-------</span>
@@ -1139,23 +1207,23 @@ bar2
 bar2.barbar
     Description for \ <span class="s">``barbar``\  inside \ ``my_long_struct.bar2``\ </span>
 
-<span class="p">..</span> <span class="nt">_`example.my_long_struct.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_long_struct.description`:</span>
 
 <span class="gh">Description</span>
 <span class="gh">-----------</span>
 
 Longer description
 
-<span class="p">..</span> <span class="nt">_`example.my_union`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_union`:</span>
 
 <span class="gh">union my_union</span>
 <span class="gh">==============</span>
 
-<span class="p">..</span> <span class="ow">c:type</span><span class="p">::</span> struct my_union
+<span class="p">..</span> <span class="ow">c:union</span><span class="p">::</span> my_union
 
     short description
 
-<span class="p">..</span> <span class="nt">_`example.my_union.definition`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_union.definition`:</span>
 
 <span class="gh">Definition</span>
 <span class="gh">----------</span>
@@ -1167,7 +1235,7 @@ Longer description
         <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
     <span class="p">}</span>
 
-<span class="p">..</span> <span class="nt">_`example.my_union.members`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_union.members`:</span>
 
 <span class="gh">Members</span>
 <span class="gh">-------</span>
@@ -1178,23 +1246,23 @@ a
 b
     second member
 
-<span class="p">..</span> <span class="nt">_`example.my_union.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_union.description`:</span>
 
 <span class="gh">Description</span>
 <span class="gh">-----------</span>
 
 Longer description
 
-<span class="p">..</span> <span class="nt">_`example.my_enum`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_enum`:</span>
 
 <span class="gh">enum my_enum</span>
 <span class="gh">============</span>
 
-<span class="p">..</span> <span class="ow">c:type</span><span class="p">::</span> enum my_enum
+<span class="p">..</span> <span class="ow">c:enum</span><span class="p">::</span> my_enum
 
     log level
 
-<span class="p">..</span> <span class="nt">_`example.my_enum.definition`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_enum.definition`:</span>
 
 <span class="gh">Definition</span>
 <span class="gh">----------</span>
@@ -1208,7 +1276,7 @@ Longer description
         <span class="n">DEBUG</span>
     <span class="p">};</span>
 
-<span class="p">..</span> <span class="nt">_`example.my_enum.constants`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_enum.constants`:</span>
 
 <span class="gh">Constants</span>
 <span class="gh">---------</span>
@@ -1225,16 +1293,16 @@ WARN
 DEBUG
     logs debug, warn and info messages
 
-<span class="p">..</span> <span class="nt">_`example.my_typedef`:</span>
+<span class="p">..</span> <span class="nt">_`foo.my_typedef`:</span>
 
 <span class="gh">typedef my_typedef</span>
 <span class="gh">==================</span>
 
-<span class="p">..</span> <span class="ow">c:type</span><span class="p">::</span> typedef my_typedef
+<span class="p">..</span> <span class="ow">c:type</span><span class="p">::</span> my_typedef
 
     useless typdef of int
 
-<span class="p">..</span> <span class="nt">_`example.rst_mode`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode`:</span>
 
 <span class="gh">rst_mode</span>
 <span class="gh">========</span>
@@ -1252,7 +1320,7 @@ DEBUG
         Context: <span class="na">:c:func:</span><span class="nv">`in_gizmo_mode`</span>.
     <span class="nc">:type b:</span> char \*
 
-<span class="p">..</span> <span class="nt">_`example.rst_mode.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.description`:</span>
 
 <span class="gh">Description</span>
 <span class="gh">-----------</span>
@@ -1266,7 +1334,7 @@ definitions <span class="ge">*outside*</span> like <span class="na">:c:type:</sp
 the description of <span class="s">``media_device``</span> struct is found in any of the intersphinx
 locations, a hyperref to this target is generated a build time.
 
-<span class="p">..</span> <span class="nt">_`example.rst_mode.example`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.example`:</span>
 
 <span class="gh">Example</span>
 <span class="gh">-------</span>
@@ -1279,14 +1347,14 @@ locations, a hyperref to this target is generated a build time.
     <span class="p">}</span>
 
 
-<span class="p">..</span> <span class="nt">_`example.rst_mode.return`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.return`:</span>
 
 <span class="gh">Return</span>
 <span class="gh">------</span>
 
 Sum of <span class="s">``parameter_a``</span> and the second is <span class="s">``parameter_b``</span>.
 
-<span class="p">..</span> <span class="nt">_`example.rst_mode.highlighting`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.highlighting`:</span>
 
 <span class="gh">highlighting</span>
 <span class="gh">------------</span>
@@ -1320,51 +1388,51 @@ reST, use the reST markup.
 <span class="m">-</span> <span class="s">``$ENVVAR``</span> : environmental variable
 
 Since the prefixes <span class="s">``$...``</span>, <span class="s">``&amp;...``</span> and <span class="s">``@...``</span> are used to markup the
-highlight pattern, you have to escape them in other uses: \ <span class="s">``$lorem``\ , &amp;lorem,</span>
-<span class="s">%lorem and @lorem. To esacpe from function highlighting, use lorem().</span>
+highlight pattern, you have to escape them in other uses: $lorem, &amp;lorem,
+%lorem and @lorem. To esacpe from function highlighting, use lorem().
 
-<span class="s">.. _`example.rst_mode.parser-mode`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.parser-mode`:</span>
 
-<span class="s">Parser Mode</span>
-<span class="s">-----------</span>
+<span class="gh">Parser Mode</span>
+<span class="gh">-----------</span>
 
-<span class="s">This is an example with activated reST additions, in this section you will</span>
-<span class="s">find some common inline markups.</span>
+This is an example with activated reST additions, in this section you will
+find some common inline markups.
 
-<span class="s">Within the *reST mode* the kernel-doc parser pass through all markups to the</span>
-<span class="s">reST toolchain, except the *vintage highlighting* but including any</span>
-<span class="s">whitespace. With this, the full reST markup is available in the comments.</span>
+Within the <span class="ge">*reST mode*</span> the kernel-doc parser pass through all markups to the
+reST toolchain, except the <span class="ge">*vintage highlighting*</span> but including any
+whitespace. With this, the full reST markup is available in the comments.
 
-<span class="s">This is a link to the `Linux kernel source tree</span>
-<span class="s">&lt;https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/&gt;`_.</span>
+This is a link to the `Linux kernel source tree
+<span class="nt">&lt;https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/&gt;</span>`_.
 
-<span class="s">This description is only to show some reST inline markups like *emphasise*</span>
-<span class="s">and **emphasis strong**. The following is a demo of a reST list markup:</span>
+This description is only to show some reST inline markups like <span class="ge">*emphasise*</span>
+and <span class="gs">**emphasis strong**</span>. The following is a demo of a reST list markup:
 
-<span class="s">.. _`example.rst_mode.definition-list`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.definition-list`:</span>
 
-<span class="s">Definition list</span>
-<span class="s">---------------</span>
+<span class="gh">Definition list</span>
+<span class="gh">---------------</span>
 
-<span class="s">:def1: lorem</span>
-<span class="s">:def2: ipsum</span>
+<span class="nc">:def1:</span> lorem
+<span class="nc">:def2:</span> ipsum
 
-<span class="s">.. _`example.rst_mode.ordered-list`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.ordered-list`:</span>
 
-<span class="s">Ordered List</span>
-<span class="s">------------</span>
+<span class="gh">Ordered List</span>
+<span class="gh">------------</span>
 
-<span class="s">- item one</span>
-<span class="s">- item two</span>
-<span class="s">- item three with</span>
-<span class="s">  a linebreak</span>
+<span class="m">-</span> item one
+<span class="m">-</span> item two
+<span class="m">-</span> item three with
+  a linebreak
 
-<span class="s">.. _`example.rst_mode.literal-blocks`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.literal-blocks`:</span>
 
-<span class="s">Literal blocks</span>
-<span class="s">--------------</span>
+<span class="gh">Literal blocks</span>
+<span class="gh">--------------</span>
 
-<span class="s">The next example shows a literal block::</span>
+The next example shows a literal block<span class="se">::</span>
 
 <span class="s">    +------+          +------+</span>
 <span class="s">    |\     |\        /|     /|</span>
@@ -1375,81 +1443,81 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">      +------+      +------+</span>
 <span class="s">       foo()         bar()</span>
 
-<span class="s">.. _`example.rst_mode.highlighted-code-blocks`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.highlighted-code-blocks`:</span>
 
-<span class="s">Highlighted code blocks</span>
-<span class="s">-----------------------</span>
+<span class="gh">Highlighted code blocks</span>
+<span class="gh">-----------------------</span>
 
-<span class="s">The next example shows a code block, with highlighting C syntax in the</span>
-<span class="s">output.</span>
+The next example shows a code block, with highlighting C syntax in the
+output.
 
-<span class="s">.. code-block:: c</span>
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">c</span>
 
-<span class="s">    // Hello World program</span>
-<span class="s">    #include&lt;stdio.h&gt;</span>
-<span class="s">    int main()</span>
-<span class="s">    {</span>
-<span class="s">       printf(&quot;Hello World&quot;);</span>
-<span class="s">    }</span>
+    <span class="c1">// Hello World program</span>
+    <span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+    <span class="p">{</span>
+       <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
 
-<span class="s">.. _`example.rst_mode.rest-sectioning`:</span>
+<span class="p">..</span> <span class="nt">_`foo.rst_mode.rest-sectioning`:</span>
 
-<span class="s">reST sectioning</span>
-<span class="s">---------------</span>
+<span class="gh">reST sectioning</span>
+<span class="gh">---------------</span>
 
 
-<span class="s">colon markup: sectioning by colon markup in reST mode is less ugly. ;-)</span>
+colon markup: sectioning by colon markup in reST mode is less ugly. ;-)
 
-<span class="s">A kernel-doc section like *this* section is translated into a reST</span>
-<span class="s">*subsection*. This means, you can only use the following *sub-levels* within a</span>
-<span class="s">kernel-doc section.</span>
+A kernel-doc section like <span class="ge">*this*</span> section is translated into a reST
+<span class="ge">*subsection*</span>. This means, you can only use the following <span class="ge">*sub-levels*</span> within a
+kernel-doc section.
 
-<span class="s">a subsubsection</span>
-<span class="s">^^^^^^^^^^^^^^^</span>
+<span class="gh">a subsubsection</span>
+<span class="gh">^^^^^^^^^^^^^^^</span>
 
-<span class="s">lorem ipsum</span>
+lorem ipsum
 
-<span class="s">a paragraph</span>
-<span class="s">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="gh">a paragraph</span>
+<span class="gh">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
 
-<span class="s">lorem ipsum</span>
+lorem ipsum
 
-<span class="s">.. _`example.vintage`:</span>
+<span class="p">..</span> <span class="nt">_`foo.vintage`:</span>
 
-<span class="s">vintage</span>
-<span class="s">=======</span>
+<span class="gh">vintage</span>
+<span class="gh">=======</span>
 
-<span class="s">.. c:function:: int vintage(int parameter_a, char parameter_b)</span>
+<span class="p">..</span> <span class="ow">c:function</span><span class="p">::</span> int vintage(int parameter_a, char parameter_b)
 
-<span class="s">    short description of this function</span>
+    short description of this function
 
-<span class="s">    :param parameter_a:</span>
-<span class="s">        first argument</span>
-<span class="s">    :type parameter_a: int</span>
+    <span class="nc">:param parameter_a:</span>
+        first argument
+    <span class="nc">:type parameter_a:</span> int
 
-<span class="s">    :param parameter_b:</span>
-<span class="s">        second argument</span>
-<span class="s">    :type parameter_b: char</span>
+    <span class="nc">:param parameter_b:</span>
+        second argument
+    <span class="nc">:type parameter_b:</span> char
 
-<span class="s">.. _`example.vintage.context`:</span>
+<span class="p">..</span> <span class="nt">_`foo.vintage.context`:</span>
 
-<span class="s">Context</span>
-<span class="s">-------</span>
+<span class="gh">Context</span>
+<span class="gh">-------</span>
 
-<span class="s">\ :c:func:`in_gizmo_mode`\ .</span>
+\ <span class="na">:c:func:</span><span class="nv">`in_gizmo_mode`</span>\ .
 
-<span class="s">.. _`example.vintage.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.vintage.description`:</span>
 
-<span class="s">Description</span>
-<span class="s">-----------</span>
+<span class="gh">Description</span>
+<span class="gh">-----------</span>
 
-<span class="s">This is a test of a typical markup from \*vintage\* kernel-doc.  Don&#39;t look to</span>
-<span class="s">close here, it is only for testing some kernel-doc parser stuff.</span>
+This is a test of a typical markup from \*vintage\* kernel-doc.  Don&#39;t look to
+close here, it is only for testing some kernel-doc parser stuff.
 
-<span class="s">Long description. This function has two integer arguments. The first is</span>
-<span class="s">\ ``parameter_a``\  and the second is \ ``parameter_b``\ .</span>
+Long description. This function has two integer arguments. The first is
+\ <span class="s">``parameter_a``\  and the second is \ ``parameter_b``\ .</span>
 
-<span class="s">.. _`example.vintage.example`:</span>
+<span class="s">.. _`foo.vintage.example`:</span>
 
 <span class="s">Example</span>
 <span class="s">-------</span>
@@ -1459,14 +1527,14 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">    user_function(22);</span>
 
 
-<span class="s">.. _`example.vintage.return`:</span>
+<span class="s">.. _`foo.vintage.return`:</span>
 
 <span class="s">Return</span>
 <span class="s">------</span>
 
 <span class="s">Sum of \ ``parameter_a``\  and \ ``parameter_b``\ .</span>
 
-<span class="s">.. _`example.vintage.highlighting`:</span>
+<span class="s">.. _`foo.vintage.highlighting`:</span>
 
 <span class="s">highlighting</span>
 <span class="s">------------</span>
@@ -1478,7 +1546,7 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">- \ :c:type:`struct my_struct &lt;my_struct&gt;`\    : name of a structure (up to two words including \`\`struct\`\`)</span>
 <span class="s">- \ ``CONST``\        : name of a constant.</span>
 
-<span class="s">.. _`example.vintage.parser-mode`:</span>
+<span class="s">.. _`foo.vintage.parser-mode`:</span>
 
 <span class="s">Parser Mode</span>
 <span class="s">-----------</span>
@@ -1501,23 +1569,23 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">This is a link https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/</span>
 <span class="s">to the Linux kernel source tree</span>
 
-<span class="s">.. _`example.vintage.colon-markup`:</span>
+<span class="s">.. _`foo.vintage.colon-markup`:</span>
 
 <span class="s">colon markup</span>
 <span class="s">------------</span>
 
 <span class="s">sectioning by colon markup in vintage mode is partial ugly. ;-)</span>
 
-<span class="s">.. _`example.nfp_flower_priv`:</span>
+<span class="s">.. _`foo.nfp_flower_priv`:</span>
 
 <span class="s">struct nfp_flower_priv</span>
 <span class="s">======================</span>
 
-<span class="s">.. c:type:: struct nfp_flower_priv</span>
+<span class="s">.. c:struct:: nfp_flower_priv</span>
 
 <span class="s">    Flower APP per-vNIC priv data</span>
 
-<span class="s">.. _`example.nfp_flower_priv.definition`:</span>
+<span class="s">.. _`foo.nfp_flower_priv.definition`:</span>
 
 <span class="s">Definition</span>
 <span class="s">----------</span>
@@ -1533,7 +1601,7 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">        DECLARE_HASHTABLE(flow_table, NFP_FLOWER_HASH_BITS);</span>
 <span class="s">    }</span>
 
-<span class="s">.. _`example.nfp_flower_priv.members`:</span>
+<span class="s">.. _`foo.nfp_flower_priv.members`:</span>
 
 <span class="s">Members</span>
 <span class="s">-------</span>
@@ -1556,16 +1624,16 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">flow_table</span>
 <span class="s">    Hash table used to store flower rules</span>
 
-<span class="s">.. _`example.foo`:</span>
+<span class="s">.. _`foo.foo`:</span>
 
 <span class="s">enum foo</span>
 <span class="s">========</span>
 
-<span class="s">.. c:type:: enum foo</span>
+<span class="s">.. c:enum:: foo</span>
 
 <span class="s">    foo</span>
 
-<span class="s">.. _`example.foo.definition`:</span>
+<span class="s">.. _`foo.foo.definition`:</span>
 
 <span class="s">Definition</span>
 <span class="s">----------</span>
@@ -1577,7 +1645,7 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">        F2</span>
 <span class="s">    };</span>
 
-<span class="s">.. _`example.foo.constants`:</span>
+<span class="s">.. _`foo.foo.constants`:</span>
 
 <span class="s">Constants</span>
 <span class="s">---------</span>
@@ -1588,16 +1656,16 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">F2</span>
 <span class="s">    f2</span>
 
-<span class="s">.. _`example.something`:</span>
+<span class="s">.. _`foo.something`:</span>
 
 <span class="s">struct something</span>
 <span class="s">================</span>
 
-<span class="s">.. c:type:: struct something</span>
+<span class="s">.. c:struct:: something</span>
 
 <span class="s">    Lorem ipsum dolor sit amet.</span>
 
-<span class="s">.. _`example.something.definition`:</span>
+<span class="s">.. _`foo.something.definition`:</span>
 
 <span class="s">Definition</span>
 <span class="s">----------</span>
@@ -1609,7 +1677,7 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">        struct bar barbar;</span>
 <span class="s">    }</span>
 
-<span class="s">.. _`example.something.members`:</span>
+<span class="s">.. _`foo.something.members`:</span>
 
 <span class="s">Members</span>
 <span class="s">-------</span>
@@ -1620,16 +1688,16 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">barbar</span>
 <span class="s">    ipsum</span>
 
-<span class="s">.. _`example.lineevent_state`:</span>
+<span class="s">.. _`foo.lineevent_state`:</span>
 
 <span class="s">struct lineevent_state</span>
 <span class="s">======================</span>
 
-<span class="s">.. c:type:: struct lineevent_state</span>
+<span class="s">.. c:struct:: lineevent_state</span>
 
 <span class="s">    contains the state of a userspace event</span>
 
-<span class="s">.. _`example.lineevent_state.definition`:</span>
+<span class="s">.. _`foo.lineevent_state.definition`:</span>
 
 <span class="s">Definition</span>
 <span class="s">----------</span>
@@ -1648,7 +1716,7 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">        struct mutex read_lock;</span>
 <span class="s">    }</span>
 
-<span class="s">.. _`example.lineevent_state.members`:</span>
+<span class="s">.. _`foo.lineevent_state.members`:</span>
 
 <span class="s">Members</span>
 <span class="s">-------</span>
@@ -1680,6 +1748,69 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 <span class="s">read_lock</span>
 <span class="s">    mutex lock to protect reads from colliding with adding</span>
 <span class="s">    new events to the FIFO</span>
+
+<span class="s">.. _`foo.genpool_algo_t`:</span>
+
+<span class="s">genpool_algo_t</span>
+<span class="s">==============</span>
+
+<span class="s">.. c:function::  unsigned long genpool_algo_t(unsigned long *map, unsigned long size, unsigned long start, unsigned int nr, void *data, struct gen_pool *pool, unsigned long start_addr)</span>
+
+<span class="s">    Allocation callback function type definition</span>
+
+<span class="s">    :param map:</span>
+<span class="s">        Pointer to bitmap</span>
+<span class="s">    :type map: unsigned long \*</span>
+
+<span class="s">    :param size:</span>
+<span class="s">        The bitmap size in bits</span>
+<span class="s">    :type size: unsigned long</span>
+
+<span class="s">    :param start:</span>
+<span class="s">        The bitnumber to start searching at</span>
+<span class="s">    :type start: unsigned long</span>
+
+<span class="s">    :param nr:</span>
+<span class="s">        The number of zeroed bits we&#39;re looking for</span>
+<span class="s">    :type nr: unsigned int</span>
+
+<span class="s">    :param data:</span>
+<span class="s">        optional additional data used by the callback</span>
+<span class="s">    :type data: void \*</span>
+
+<span class="s">    :param pool:</span>
+<span class="s">        the pool being allocated from</span>
+<span class="s">    :type pool: struct gen_pool \*</span>
+
+<span class="s">    :param start_addr:</span>
+<span class="s">        *undescribed*</span>
+<span class="s">    :type start_addr: unsigned long</span>
+
+<span class="s">.. _`foo.v4l2_check_dv_timings_fnc`:</span>
+
+<span class="s">v4l2_check_dv_timings_fnc</span>
+<span class="s">=========================</span>
+
+<span class="s">.. c:function::  bool v4l2_check_dv_timings_fnc(const struct v4l2_dv_timings *t, void *handle)</span>
+
+<span class="s">    timings check callback</span>
+
+<span class="s">    :param t:</span>
+<span class="s">        the v4l2_dv_timings struct.</span>
+<span class="s">    :type t: const struct v4l2_dv_timings \*</span>
+
+<span class="s">    :param handle:</span>
+<span class="s">        a handle from the driver.</span>
+<span class="s">    :type handle: void \*</span>
+
+<span class="s">.. _`foo.v4l2_check_dv_timings_fnc.description`:</span>
+
+<span class="s">Description</span>
+<span class="s">-----------</span>
+
+<span class="s">Returns true if the given timings are valid.</span>
+
+<span class="s">.. c:namespace-pop::</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -1885,7 +2016,13 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
 198
 199
 200
-201</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_`example.user_function`:</span>
+201
+202
+203
+204
+205</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">c:namespace-push</span><span class="p">::</span> foo
+
+<span class="p">..</span> <span class="nt">_`foo.user_function`:</span>
 
 <span class="gh">user_function</span>
 <span class="gh">=============</span>
@@ -1901,14 +2038,14 @@ highlight pattern, you have to escape them in other uses: \ <span class="s">``$l
     <span class="nc">:param ellipsis ellipsis:</span>
         ellipsis operator
 
-<span class="p">..</span> <span class="nt">_`example.user_function.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.user_function.description`:</span>
 
 <span class="gh">Description</span>
 <span class="gh">-----------</span>
 
 This function makes no sense, it&#39;s only a kernel-doc demonstration.
 
-<span class="p">..</span> <span class="nt">_`example.user_function.example`:</span>
+<span class="p">..</span> <span class="nt">_`foo.user_function.example`:</span>
 
 <span class="gh">Example</span>
 <span class="gh">-------</span>
@@ -1918,14 +2055,14 @@ This function makes no sense, it&#39;s only a kernel-doc demonstration.
     <span class="n">x</span> <span class="o">=</span> <span class="n">user_function</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
 
 
-<span class="p">..</span> <span class="nt">_`example.user_function.return`:</span>
+<span class="p">..</span> <span class="nt">_`foo.user_function.return`:</span>
 
 <span class="gh">Return</span>
 <span class="gh">------</span>
 
 Returns first argument
 
-<span class="p">..</span> <span class="nt">_`example.user_sum`:</span>
+<span class="p">..</span> <span class="nt">_`foo.user_sum`:</span>
 
 <span class="gh">user_sum</span>
 <span class="gh">========</span>
@@ -1942,14 +2079,14 @@ Returns first argument
         second argument
     <span class="nc">:type b:</span> int
 
-<span class="p">..</span> <span class="nt">_`example.user_sum.description`:</span>
+<span class="p">..</span> <span class="nt">_`foo.user_sum.description`:</span>
 
 <span class="gh">Description</span>
 <span class="gh">-----------</span>
 
 This function makes no sense, it&#39;s only a kernel-doc demonstration.
 
-<span class="p">..</span> <span class="nt">_`example.user_sum.example`:</span>
+<span class="p">..</span> <span class="nt">_`foo.user_sum.example`:</span>
 
 <span class="gh">Example</span>
 <span class="gh">-------</span>
@@ -1959,14 +2096,14 @@ This function makes no sense, it&#39;s only a kernel-doc demonstration.
     <span class="n">x</span> <span class="o">=</span> <span class="n">user_sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 
 
-<span class="p">..</span> <span class="nt">_`example.user_sum.return`:</span>
+<span class="p">..</span> <span class="nt">_`foo.user_sum.return`:</span>
 
 <span class="gh">Return</span>
 <span class="gh">------</span>
 
 Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 
-<span class="s">.. _`example.internal_function`:</span>
+<span class="s">.. _`foo.internal_function`:</span>
 
 <span class="s">internal_function</span>
 <span class="s">=================</span>
@@ -1979,21 +2116,21 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 <span class="s">        no arguments</span>
 <span class="s">    :type void: </span>
 
-<span class="s">.. _`example.internal_function.context`:</span>
+<span class="s">.. _`foo.internal_function.context`:</span>
 
 <span class="s">Context</span>
 <span class="s">-------</span>
 
 <span class="s">!sanity()</span>
 
-<span class="s">.. _`example.internal_function.return`:</span>
+<span class="s">.. _`foo.internal_function.return`:</span>
 
 <span class="s">Return</span>
 <span class="s">------</span>
 
 <span class="s">The answer to the ultimate question of life, the universe and everything.</span>
 
-<span class="s">.. _`example.sys_tgkill`:</span>
+<span class="s">.. _`foo.sys_tgkill`:</span>
 
 <span class="s">sys_tgkill</span>
 <span class="s">==========</span>
@@ -2014,7 +2151,7 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 <span class="s">        signal to be sent</span>
 <span class="s">    :type sig: int</span>
 
-<span class="s">.. _`example.sys_tgkill.description`:</span>
+<span class="s">.. _`foo.sys_tgkill.description`:</span>
 
 <span class="s">Description</span>
 <span class="s">-----------</span>
@@ -2023,16 +2160,16 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 <span class="s"> exists but it&#39;s not belonging to the target process anymore. This</span>
 <span class="s"> method solves the problem of threads exiting and PIDs getting reused.</span>
 
-<span class="s">.. _`example.rarely_enum`:</span>
+<span class="s">.. _`foo.rarely_enum`:</span>
 
 <span class="s">enum rarely_enum</span>
 <span class="s">================</span>
 
-<span class="s">.. c:type:: enum rarely_enum</span>
+<span class="s">.. c:enum:: rarely_enum</span>
 
 <span class="s">    enum to test parsing rarely code styles</span>
 
-<span class="s">.. _`example.rarely_enum.definition`:</span>
+<span class="s">.. _`foo.rarely_enum.definition`:</span>
 
 <span class="s">Definition</span>
 <span class="s">----------</span>
@@ -2044,7 +2181,7 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 <span class="s">        F2</span>
 <span class="s">    };</span>
 
-<span class="s">.. _`example.rarely_enum.constants`:</span>
+<span class="s">.. _`foo.rarely_enum.constants`:</span>
 
 <span class="s">Constants</span>
 <span class="s">---------</span>
@@ -2055,16 +2192,16 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 <span class="s">F2</span>
 <span class="s">    f2</span>
 
-<span class="s">.. _`example.rarely_struct`:</span>
+<span class="s">.. _`foo.rarely_struct`:</span>
 
 <span class="s">struct rarely_struct</span>
 <span class="s">====================</span>
 
-<span class="s">.. c:type:: struct rarely_struct</span>
+<span class="s">.. c:struct:: rarely_struct</span>
 
 <span class="s">    struct to test parsing rarely code styles</span>
 
-<span class="s">.. _`example.rarely_struct.definition`:</span>
+<span class="s">.. _`foo.rarely_struct.definition`:</span>
 
 <span class="s">Definition</span>
 <span class="s">----------</span>
@@ -2076,7 +2213,7 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 <span class="s">        struct bar barbar;</span>
 <span class="s">    }</span>
 
-<span class="s">.. _`example.rarely_struct.members`:</span>
+<span class="s">.. _`foo.rarely_struct.members`:</span>
 
 <span class="s">Members</span>
 <span class="s">-------</span>
@@ -2086,12 +2223,15 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 
 <span class="s">barbar</span>
 <span class="s">    ipsum</span>
+
+<span class="s">.. c:namespace-pop::</span>
 </pre></div>
 </td></tr></table></div>
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -2158,8 +2298,8 @@ Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

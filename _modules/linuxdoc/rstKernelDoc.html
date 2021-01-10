@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.rstKernelDoc &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <title>linuxdoc.rstKernelDoc &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
     <script src="../../_static/sphinx_tabs/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -33,8 +33,9 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.rstKernelDoc</a></li> 
       </ul>
     </div>  
 
@@ -46,17 +47,15 @@
   <h1>Source code for linuxdoc.rstKernelDoc</h1><div class="highlight"><pre>
 <span></span># -*- coding: utf-8; mode: python -*-
 # pylint: disable=missing-docstring, invalid-name
-u&quot;&quot;&quot;
-    rstKernelDoc
-    ~~~~~~~~~~~~
+# SPDX-License-Identifier: GPL-2.0
+&quot;&quot;&quot;\
+rstKernelDoc
+~~~~~~~~~~~~
 
-    Implementation of the ``kernel-doc`` reST-directive.
+Implementation of the ``kernel-doc`` reST-directive.
 
-    :copyright:  Copyright (C) 2018 Markus Heiser
-    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
-
-    The ``kernel-doc`` (:py:class:`KernelDoc`) directive includes contend from
-    linux kernel source code comments.
+The ``kernel-doc`` (:py:class:`KernelDoc`) directive includes contend from
+linux kernel source code comments.
 
 &quot;&quot;&quot;
 
@@ -65,6 +64,7 @@ u&quot;&quot;&quot;
 # ==============================================================================
 
 import glob
+import logging
 from os import path
 from io import StringIO
 
@@ -74,21 +74,19 @@ from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 from docutils.utils import SystemMessage
 from docutils.statemachine import ViewList
+from sphinx.util.docutils import switch_source_input
 
-from . import compat
 from . import kernel_doc as kerneldoc
 
 # ==============================================================================
 # common globals
 # ==============================================================================
 
-# The version numbering follows numbering of the specification
-# (Documentation/books/kernel-doc-HOWTO).
-__version__  = &#39;1.0&#39;
+__version__  = &#39;3.0&#39;
 
 PARSER_CACHE = dict()
 
-app_log = compat.getLogger(&#39;application&#39;)
+app_log = logging.getLogger(&#39;application&#39;)
 
 # ==============================================================================
 <div class="viewcode-block" id="setup"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.setup">[docs]</a>def setup(app):
@@ -143,7 +141,7 @@ app_log = compat.getLogger(&#39;application&#39;)
         replace[&quot;fname&quot;]   = self.options.fname
         replace[&quot;line_no&quot;] = replace.get(&quot;line_no&quot;, self.ctx.line_no)
         message = (&quot;%(fname)s:%(line_no)s: [kernel-doc INFO] : &quot; + message) % replace
-        app_log.verbose(message)</div>
+        app_log.info(message)</div>
 
 <div class="viewcode-block" id="KernelDocParser.debug"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDocParser.debug">[docs]</a>    def debug(self, message, **replace):
         if self.app.verbosity &lt; 2:
@@ -170,7 +168,6 @@ app_log = compat.getLogger(&#39;application&#39;)
     option_spec = {
 
         # see https://github.com/PyCQA/pylint/issues/289
-        # pylint: disable=bad-continuation
 
         &quot;doc&quot;          : directives.unchanged_required # aka lines containing !P
         , &quot;no-header&quot;  : directives.flag
@@ -178,6 +175,7 @@ app_log = compat.getLogger(&#39;application&#39;)
         , &quot;export&quot;     : directives.unchanged          # aka lines containing !E
         , &quot;internal&quot;   : directives.unchanged          # aka lines containing !I
         , &quot;functions&quot;  : directives.unchanged_required # aka lines containing !F
+        , &quot;symbols&quot;    : directives.unchanged_required
         , &quot;exp-method&quot; : directives.unchanged_required
         , &quot;exp-ids&quot;    : directives.unchanged_required
         , &quot;known-attrs&quot;: directives.unchanged_required
@@ -364,6 +362,18 @@ app_log = compat.getLogger(&#39;application&#39;)
         self.env    = self.doc.settings.env    # pylint: disable=attribute-defined-outside-init
         self.nodes  = []                       # pylint: disable=attribute-defined-outside-init
 
+        if &quot;symbols&quot; in self.options and &quot;functions&quot; in self.options:
+            error = self.state_machine.reporter.error(
+                (&#39;Error in &quot;%s&quot; directive: used option :symbols:&#39;
+                 &#39; and its alias :functions:&#39;  % self.name),
+                nodes.literal_block(self.block_text, self.block_text),
+                line = self.lineno
+            )
+            raise SystemMessage(error, 4)
+
+        if &quot;symbols&quot; in self.options:
+            self.options[&#39;functions&#39;] = self.options[&#39;symbols&#39;]
+
         try:
             if not self.doc.settings.file_insertion_enabled:
                 raise FaultyOption(&#39;docutils: file insertion disabled&#39;)
@@ -450,7 +460,7 @@ app_log = compat.getLogger(&#39;application&#39;)
         node = nodes.section()
         # necessary so that the child nodes get the right source/line set
         node.document = self.state.document
-        with compat.switch_source_input(self.state, content):
+        with switch_source_input(self.state, content):
             # hack around title style bookkeeping
             buf = self.state.memo.title_styles, self.state.memo.section_level
             self.state.memo.title_styles, self.state.memo.section_level = [], 0
@@ -487,6 +497,7 @@ app_log = compat.getLogger(&#39;application&#39;)
         self.line_buffer = &quot;&quot;</div></div>
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -541,8 +552,8 @@ app_log = compat.getLogger(&#39;application&#39;)
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../../_static/version_warning_offset.js"></script>
 

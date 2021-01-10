@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.kernel_doc &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <title>linuxdoc.kernel_doc &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
     <script src="../../_static/sphinx_tabs/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -33,8 +33,9 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.kernel_doc</a></li> 
       </ul>
     </div>  
 
@@ -46,20 +47,18 @@
   <h1>Source code for linuxdoc.kernel_doc</h1><div class="highlight"><pre>
 <span></span>#!/usr/bin/env python3
 # -*- coding: utf-8; mode: python -*-
+# SPDX-License-Identifier: GPL-2.0
 #
 # pylint: disable=missing-docstring, arguments-differ, invalid-name
 # pylint: disable=too-many-arguments, too-many-locals, too-many-branches
 # pylint: disable=too-many-nested-blocks, too-many-lines
 # pylint: disable=too-many-statements, useless-object-inheritance
 
-u&quot;&quot;&quot;
+&quot;&quot;&quot;
     kernel_doc
     ~~~~~~~~~~
 
     Implementation of the ``kernel-doc`` parser.
-
-    :copyright:  Copyright (C) 2018 Markus Heiser
-    :license:    GPL Version 2, June 1991 see Linux/COPYING for details.
 
     The kernel-doc parser extracts documentation from Linux kernel&#39;s source code
     comments. This implements the :ref:`kernel-doc markup &lt;kernel-doc-intro&gt;`.
@@ -118,6 +117,7 @@ import textwrap
 import six
 
 from fspath import OS_ENV
+from . import compat
 
 # ==============================================================================
 # common globals
@@ -239,8 +239,11 @@ C_ENUM           = RE(r&quot;enum\s+(\w+)\s*{(.*)}&quot;)
 C_TYPEDEF        = RE(r&quot;typedef.*\s+(\w+)\s*;&quot;)
 
 # typedef of a function pointer
-C_FUNC_TYPEDEF   = RE(r&quot;typedef\s+(\w+)\s*\(\*\s*(\w\S+)\s*\)\s*\((.*)\);&quot;)
-C_FUNC_TYPEDEF_2 = RE(r&quot;typedef\s+(\w+)\s+(\w\S+)\s*\((.*)\);&quot;)
+_typedef_type    = r&quot;((?:\s+[\w\*]+\b){1,8})\s*&quot;
+_typedef_ident   = r&quot;\*?\s*(\w\S+)\s*&quot;
+_typedef_args    = r&quot;\s*\((.*)\);&quot;
+C_FUNC_TYPEDEF   = RE(r&quot;typedef&quot; + _typedef_type + r&quot;\(&quot; + _typedef_ident + r&quot;\)&quot; + _typedef_args)
+C_FUNC_TYPEDEF_2 = RE(r&quot;typedef&quot; + _typedef_type + _typedef_ident + _typedef_args)
 
 MACRO            = RE(r&quot;^#&quot;)
 MACRO_define     = RE(r&quot;^#\s*define\s+&quot;)
@@ -362,10 +365,8 @@ RST_INDENT = RE(r&quot;^(\s*)[^\s]&quot;)
 # helper
 # ==============================================================================
 
-<div class="viewcode-block" id="openTextFile"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.openTextFile">[docs]</a>def openTextFile(fname, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;, errors=&quot;strict&quot;, buffering=1):
-    return codecs.open(
-        fname, mode=mode, encoding=encoding
-        , errors=errors, buffering=buffering)</div>
+<div class="viewcode-block" id="openTextFile"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.openTextFile">[docs]</a>def openTextFile(fname, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;, errors=&quot;strict&quot;):
+    return codecs.open(fname, mode=mode, encoding=encoding, errors=errors)</div>
 
 <div class="viewcode-block" id="readFile"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.readFile">[docs]</a>def readFile(fname, encoding=&quot;utf-8&quot;, errors=&quot;strict&quot;):
     with openTextFile(fname, encoding=encoding, errors=errors) as f:
@@ -464,11 +465,9 @@ LOG = SimpleLog()
         &quot;--id-prefix&quot;
         , default = &quot;&quot;
         , help    = (
-            &quot;A prefix for generated IDs. IDs are used as anchors by cross&quot;
-            &quot; references. They are automaticly gernerated based on the declaration&quot;
-            &quot; and / or section names. Declartions like &#39;open&#39; or section names&quot;
-            &quot; like &#39;Intro&#39; are very common, to make them unique, a prefix is needed.&quot;
-            &quot; Mostly you will choose the *module* or *include filename* as prefix.&quot; ))
+            &quot;A prefix for automatic generated IDs. The IDs are automaticly&quot;
+            &quot; gernerated based on the declaration and / or section names. The&quot;
+            &quot; prefix is also used as namespace in Sphinx&#39;s C-domain&quot;))
 
     CLI.add_argument(
         &quot;--verbose&quot;, &quot;-v&quot;
@@ -726,6 +725,12 @@ LOG = SimpleLog()
 <div class="viewcode-block" id="TranslatorAPI.output_epilog"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.TranslatorAPI.output_epilog">[docs]</a>    def output_epilog(self):
         raise NotImplementedError</div>
 
+<div class="viewcode-block" id="TranslatorAPI.output_prefix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.TranslatorAPI.output_prefix">[docs]</a>    def output_prefix(self):
+        raise NotImplementedError</div>
+
+<div class="viewcode-block" id="TranslatorAPI.output_suffix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.TranslatorAPI.output_suffix">[docs]</a>    def output_suffix(self):
+        raise NotImplementedError</div>
+
 <div class="viewcode-block" id="TranslatorAPI.output_DOC"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.TranslatorAPI.output_DOC">[docs]</a>    def output_DOC(
             self
             , sections         = None # ctx.sections
@@ -792,6 +797,10 @@ LOG = SimpleLog()
         pass</div>
 <div class="viewcode-block" id="NullTranslator.output_epilog"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.NullTranslator.output_epilog">[docs]</a>    def output_epilog(self, *args, **kwargs):
         pass</div>
+<div class="viewcode-block" id="NullTranslator.output_prefix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.NullTranslator.output_prefix">[docs]</a>    def output_prefix(self):
+        pass</div>
+<div class="viewcode-block" id="NullTranslator.output_suffix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.NullTranslator.output_suffix">[docs]</a>    def output_suffix(self):
+        pass</div>
 <div class="viewcode-block" id="NullTranslator.output_DOC"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.NullTranslator.output_DOC">[docs]</a>    def output_DOC(self, *args, **kwargs):
         pass</div>
 <div class="viewcode-block" id="NullTranslator.output_function_decl"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.NullTranslator.output_function_decl">[docs]</a>    def output_function_decl(self, *args, **kwargs):
@@ -836,6 +845,12 @@ LOG = SimpleLog()
         pass</div>
 
 <div class="viewcode-block" id="ListTranslator.output_epilog"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ListTranslator.output_epilog">[docs]</a>    def output_epilog(self):
+        pass</div>
+
+<div class="viewcode-block" id="ListTranslator.output_prefix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ListTranslator.output_prefix">[docs]</a>    def output_prefix(self):
+        pass</div>
+
+<div class="viewcode-block" id="ListTranslator.output_suffix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ListTranslator.output_suffix">[docs]</a>    def output_suffix(self):
         pass</div>
 
 <div class="viewcode-block" id="ListTranslator.output_DOC"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ListTranslator.output_DOC">[docs]</a>    def output_DOC(self, sections = None):
@@ -1035,6 +1050,14 @@ LOG = SimpleLog()
         if epilog:
             self.write(epilog, &quot;\n&quot;)</div>
 
+<div class="viewcode-block" id="ReSTTranslator.output_prefix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ReSTTranslator.output_prefix">[docs]</a>    def output_prefix(self):
+        if compat.sphinx_has_c_namespace() and self.options.id_prefix:
+            self.write(&quot;.. c:namespace-push:: %s&quot; % self.options.id_prefix, &quot;\n&quot;)</div>
+
+<div class="viewcode-block" id="ReSTTranslator.output_suffix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ReSTTranslator.output_suffix">[docs]</a>    def output_suffix(self):
+        if compat.sphinx_has_c_namespace() and self.options.id_prefix:
+            self.write(&quot;\n&quot;, &quot;.. c:namespace-pop::&quot;, &quot;\n&quot;)</div>
+
 <div class="viewcode-block" id="ReSTTranslator.output_DOC"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ReSTTranslator.output_DOC">[docs]</a>    def output_DOC(self, sections = None):
         self.parser.ctx.offset = self.parser.ctx.decl_offset
         for header, content in sections.items():
@@ -1162,8 +1185,10 @@ LOG = SimpleLog()
 
         # write struct definition
         # see https://github.com/sphinx-doc/sphinx/issues/2713
-        self.write(&quot;\n.. c:type:: struct %s\n\n&quot; % decl_name)
-
+        if compat.sphinx_has_c_types():
+            self.write(&quot;\n.. c:%s:: %s\n\n&quot; % (decl_type, decl_name))
+        else:
+            self.write(&quot;\n.. c:type:: %s %s\n\n&quot; % (decl_type, decl_name))
         # purpose
 
         if purpose:
@@ -1261,7 +1286,10 @@ LOG = SimpleLog()
 
         # write union definition
         # see https://github.com/sphinx-doc/sphinx/issues/2713
-        self.write(&quot;\n.. c:type:: enum %s\n\n&quot; % enum)
+        if compat.sphinx_has_c_types():
+            self.write(&quot;\n.. c:enum:: %s\n\n&quot; % enum)
+        else:
+            self.write(&quot;\n.. c:type:: enum %s\n\n&quot; % enum)
 
         # purpose
 
@@ -1324,7 +1352,10 @@ LOG = SimpleLog()
 
         # write typdef definition
         # see https://github.com/sphinx-doc/sphinx/issues/2713
-        self.write(&quot;\n.. c:type:: typedef %s\n\n&quot; % typedef)
+        if compat.sphinx_has_c_types():
+            self.write(&quot;\n.. c:type:: %s\n\n&quot; % typedef)
+        else:
+            self.write(&quot;\n.. c:type:: typedef %s\n\n&quot; % typedef)
         if purpose:
             self.write(self.INDENT, self.highlight(purpose), &quot;\n&quot;)
 
@@ -1799,6 +1830,7 @@ LOG = SimpleLog()
 
 <div class="viewcode-block" id="Parser.parse"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.parse">[docs]</a>    def parse(self, src=None): # start parsing
         self.dump_preamble()
+        self.dump_prefix()
         if src is not None:
             for line in src:
                 self.feed(line)
@@ -1806,6 +1838,7 @@ LOG = SimpleLog()
             with openTextFile(self.options.fname, encoding=self.options.encoding) as srcFile:
                 for line in srcFile:
                     self.feed(line)
+        self.dump_suffix()
         self.dump_epilog()
         self.translator.eof()</div>
 
@@ -1815,10 +1848,12 @@ LOG = SimpleLog()
         if translator is not None:
             self.setTranslator(translator)
         self.dump_preamble()
+        self.dump_prefix()
         for name, out_type, opts, ctx, kwargs in self.ctx.dump_storage:
             self.options.update(opts)
             self.ctx.update(ctx)
             self.output_decl(name, out_type, **kwargs)
+        self.dump_suffix()
         self.dump_epilog()
         self.translator.eof()</div>
 
@@ -2408,6 +2443,12 @@ LOG = SimpleLog()
 <div class="viewcode-block" id="Parser.dump_epilog"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.dump_epilog">[docs]</a>    def dump_epilog(self):
         if not self.options.skip_epilog:
             self.translator.output_epilog()</div>
+
+<div class="viewcode-block" id="Parser.dump_prefix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.dump_prefix">[docs]</a>    def dump_prefix(self):
+        self.translator.output_prefix()</div>
+
+<div class="viewcode-block" id="Parser.dump_suffix"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.dump_suffix">[docs]</a>    def dump_suffix(self):
+        self.translator.output_suffix()</div>
 
 <div class="viewcode-block" id="Parser.dump_section"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.dump_section">[docs]</a>    def dump_section(self, name, cont):
         u&quot;&quot;&quot;Store section&#39;s *content* under it&#39;s name.
@@ -3146,6 +3187,7 @@ else:
     __builtins__[&quot;CONSOLE&quot;] = CONSOLE
 </pre></div>
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -3200,8 +3242,8 @@ else:
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../../_static/version_warning_offset.js"></script>
 

@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>kernel-doc Test &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>kernel-doc Test &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="source of all-in-a-tumble.[ch]" href="all-in-a-tumble-src.html" />
@@ -39,9 +39,10 @@
         <li class="right" >
           <a href="kernel-doc-examples.html" title="Examples &amp; Tests"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >LinuxDoc HowTo</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="kernel-doc-examples.html" accesskey="U">Examples &amp; Tests</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="kernel-doc-examples.html" accesskey="U">Examples &amp; Tests</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">kernel-doc Test</a></li> 
       </ul>
     </div>  
 
@@ -253,9 +254,9 @@ To gather exports from <a class="reference internal" href="all-in-a-tumble-src.h
 <p class="admonition-title">exported symbols</p>
 <div class="section" id="user-function">
 <span id="test-user-function"></span><h4>user_function<a class="headerlink" href="#user-function" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="c.user_function">
-int <code class="sig-name descname">user_function</code><span class="sig-paren">(</span>int<em> a</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.user_function" title="Permalink to this definition">¶</a></dt>
+<dl class="c function">
+<dt id="c.test.user_function">
+int <code class="sig-name descname">user_function</code><span class="sig-paren">(</span>int <em>a</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.test.user_function" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>function that can only be called in user context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -327,9 +328,9 @@ configuration.</p>
 <p class="admonition-title">exported symbols</p>
 <div class="section" id="user-sum">
 <span id="test-fnattrs-user-sum"></span><h4>user_sum<a class="headerlink" href="#user-sum" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="c.user_sum">
-API_EXPORTED int <code class="sig-name descname">user_sum</code><span class="sig-paren">(</span>int<em> a</em>, int<em> b</em><span class="sig-paren">)</span><a class="headerlink" href="#c.user_sum" title="Permalink to this definition">¶</a></dt>
+<dl class="c function">
+<dt>
+<code class="sig-name descname">API_EXPORTED int user_sum(int a, int b)</code></dt>
 <dd><p>another function that can only be called in user context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -380,9 +381,9 @@ used in the reST output:</p>
 <p class="admonition-title">internal symbols</p>
 <div class="section" id="tests-internal-user-sum">
 <span id="id9"></span><h4>user_sum<a class="headerlink" href="#tests-internal-user-sum" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
+<dl class="c function">
 <dt>
-API_EXPORTED int <code class="sig-name descname">user_sum</code><span class="sig-paren">(</span>int<em> a</em>, int<em> b</em><span class="sig-paren">)</span></dt>
+<code class="sig-name descname">API_EXPORTED int user_sum(int a, int b)</code></dt>
 <dd><p>another function that can only be called in user context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -411,9 +412,9 @@ API_EXPORTED int <code class="sig-name descname">user_sum</code><span class="sig
 </div>
 <div class="section" id="internal-function">
 <span id="tests-internal-internal-function"></span><h4>internal_function<a class="headerlink" href="#internal-function" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="c.internal_function">
-int <code class="sig-name descname">internal_function</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.internal_function" title="Permalink to this definition">¶</a></dt>
+<dl class="c function">
+<dt id="c.PhonyNameDueToError.internal_function">
+int <code class="sig-name descname">internal_function</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.PhonyNameDueToError.internal_function" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>the answer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -435,9 +436,9 @@ int <code class="sig-name descname">internal_function</code><span class="sig-par
 </div>
 <div class="section" id="sys-tgkill">
 <span id="tests-internal-sys-tgkill"></span><h4>sys_tgkill<a class="headerlink" href="#sys-tgkill" title="Permalink to this headline">¶</a></h4>
-<dl class="function">
-<dt id="c.sys_tgkill">
-long <code class="sig-name descname">sys_tgkill</code><span class="sig-paren">(</span>pid_t<em> tgid</em>, pid_t<em> pid</em>, int<em> sig</em><span class="sig-paren">)</span><a class="headerlink" href="#c.sys_tgkill" title="Permalink to this definition">¶</a></dt>
+<dl class="c function">
+<dt id="c.PhonyNameDueToError.sys_tgkill">
+long <code class="sig-name descname">sys_tgkill</code><span class="sig-paren">(</span>pid_t <em>tgid</em>, pid_t <em>pid</em>, int <em>sig</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PhonyNameDueToError.sys_tgkill" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>send signal to one specific thread</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -461,9 +462,9 @@ method solves the problem of threads exiting and PIDs getting reused.</p>
 </div>
 <div class="section" id="enum-rarely-enum">
 <span id="tests-internal-rarely-enum"></span><h4>enum rarely_enum<a class="headerlink" href="#enum-rarely-enum" title="Permalink to this headline">¶</a></h4>
-<dl class="type">
-<dt id="c.rarely_enum">
-enum <code class="sig-name descname">rarely_enum</code><a class="headerlink" href="#c.rarely_enum" title="Permalink to this definition">¶</a></dt>
+<dl class="c enum">
+<dt id="c.PhonyNameDueToError.rarely_enum">
+<em class="property">enum </em><code class="sig-name descname">rarely_enum</code><a class="headerlink" href="#c.PhonyNameDueToError.rarely_enum" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>enum to test parsing rarely code styles</p>
 </dd></dl>
 
@@ -488,9 +489,9 @@ enum <code class="sig-name descname">rarely_enum</code><a class="headerlink" hre
 </div>
 <div class="section" id="struct-rarely-struct">
 <span id="tests-internal-rarely-struct"></span><h4>struct rarely_struct<a class="headerlink" href="#struct-rarely-struct" title="Permalink to this headline">¶</a></h4>
-<dl class="type">
-<dt id="c.rarely_struct">
-struct <code class="sig-name descname">rarely_struct</code><a class="headerlink" href="#c.rarely_struct" title="Permalink to this definition">¶</a></dt>
+<dl class="c struct">
+<dt id="c.PhonyNameDueToError.rarely_struct">
+<em class="property">struct </em><code class="sig-name descname">rarely_struct</code><a class="headerlink" href="#c.PhonyNameDueToError.rarely_struct" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>struct to test parsing rarely code styles</p>
 </dd></dl>
 
@@ -530,7 +531,7 @@ empty list of exported symbols is treated as an error:</p>
 <p class="admonition-title">Todo</p>
 <p>Oops: Document generation inconsistency.</p>
 <p>The template for this document tried to insert structured comment at this point, but an error occoured. This dummy section is inserted to allow generation to continue.:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/share/linuxdoc/docs/linuxdoc-howto/kernel-doc-tests.rst:291: (ERROR/3) using option :export: but there are no exported symbols
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/800GBPCIex4/share/linuxdoc/docs/linuxdoc-howto/kernel-doc-tests.rst:291: (ERROR/3) using option :export: but there are no exported symbols
 
 .. kernel-doc::  ./all-in-a-tumble.c
    :export:  ./match_files_without_exports*
@@ -561,16 +562,16 @@ By example:</p>
 </pre></div>
 </div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">kernel-doc</span><span class="p">::</span>  ./all-in-a-tumble.c
-   <span class="nc">:functions:</span>  sys_tgkill
+   <span class="nc">:symbols:</span>  sys_tgkill
 </pre></div>
 </div>
 <div class="rst-example admonition">
 <p class="admonition-title">missing exports</p>
 <div class="section" id="id17">
 <span id="id18"></span><h3>sys_tgkill<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
-<dl class="function">
-<dt>
-long <code class="sig-name descname">sys_tgkill</code><span class="sig-paren">(</span>pid_t<em> tgid</em>, pid_t<em> pid</em>, int<em> sig</em><span class="sig-paren">)</span></dt>
+<dl class="c function">
+<dt id="c.sys_tgkill">
+long <code class="sig-name descname">sys_tgkill</code><span class="sig-paren">(</span>pid_t <em>tgid</em>, pid_t <em>pid</em>, int <em>sig</em><span class="sig-paren">)</span><a class="headerlink" href="#c.sys_tgkill" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>send signal to one specific thread</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -597,6 +598,7 @@ method solves the problem of threads exiting and PIDs getting reused.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -675,8 +677,8 @@ method solves the problem of threads exiting and PIDs getting reused.</p>
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

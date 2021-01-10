@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>source of all-in-a-tumble.[ch] &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>source of all-in-a-tumble.[ch] &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kernel-doc from all-in-a-tumble.[ch]" href="all-in-a-tumble-debug.html" />
@@ -39,9 +39,10 @@
         <li class="right" >
           <a href="kernel-doc-tests.html" title="kernel-doc Test"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >LinuxDoc HowTo</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="kernel-doc-examples.html" accesskey="U">Examples &amp; Tests</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="kernel-doc-examples.html" accesskey="U">Examples &amp; Tests</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">source of <code class="docutils literal notranslate"><span class="pre">all-in-a-tumble.[ch]</span></code></a></li> 
       </ul>
     </div>  
 
@@ -556,7 +557,34 @@
 488
 489
 490
-491</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cm">/* parse-markup: reST */</span>
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cm">/* parse-markup: reST */</span>
 
 <span class="cm">/**</span>
 <span class="cm"> * DOC: About Examples</span>
@@ -843,7 +871,7 @@
 <span class="cm"> * - ``\$ENVVAR`` : environmental variable</span>
 <span class="cm"> *</span>
 <span class="cm"> * Since the prefixes ``$...``, ``&amp;...`` and ``@...`` are used to markup the</span>
-<span class="cm"> * highlight pattern, you have to escape them in other uses: $lorem, \&amp;lorem,</span>
+<span class="cm"> * highlight pattern, you have to escape them in other uses: \$lorem, \&amp;lorem,</span>
 <span class="cm"> * \%lorem and \@lorem. To esacpe from function highlighting, use lorem\().</span>
 <span class="cm"> *</span>
 <span class="cm"> * Parser Mode:</span>
@@ -1047,6 +1075,33 @@
 	<span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">lirc_scancode</span><span class="p">);</span>
 	<span class="k">struct</span> <span class="nc">mutex</span> <span class="n">read_lock</span><span class="p">;</span>
 <span class="p">};</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * typedef genpool_algo_t: Allocation callback function type definition</span>
+<span class="cm"> * @map: Pointer to bitmap</span>
+<span class="cm"> * @size: The bitmap size in bits</span>
+<span class="cm"> * @start: The bitnumber to start searching at</span>
+<span class="cm"> * @nr: The number of zeroed bits we&#39;re looking for</span>
+<span class="cm"> * @data: optional additional data used by the callback</span>
+<span class="cm"> * @pool: the pool being allocated from</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="p">(</span><span class="o">*</span><span class="n">genpool_algo_t</span><span class="p">)(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="o">*</span><span class="n">map</span><span class="p">,</span>
+			<span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">size</span><span class="p">,</span>
+			<span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">start</span><span class="p">,</span>
+			<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">nr</span><span class="p">,</span>
+			<span class="kt">void</span> <span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">gen_pool</span> <span class="o">*</span><span class="n">pool</span><span class="p">,</span>
+			<span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">start_addr</span><span class="p">);</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * typedef v4l2_check_dv_timings_fnc - timings check callback</span>
+<span class="cm"> *</span>
+<span class="cm"> * @t: the v4l2_dv_timings struct.</span>
+<span class="cm"> * @handle: a handle from the driver.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Returns true if the given timings are valid.</span>
+<span class="cm"> */</span>
+<span class="k">typedef</span> <span class="kt">bool</span> <span class="n">v4l2_check_dv_timings_fnc</span><span class="p">(</span><span class="k">const</span> <span class="k">struct</span> <span class="nc">v4l2_dv_timings</span> <span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">handle</span><span class="p">);</span>
 </pre></div>
 </td></tr></table></div>
 <hr class="docutils" />
@@ -1294,6 +1349,7 @@
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -1360,8 +1416,8 @@
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

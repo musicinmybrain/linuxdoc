@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>reST kernel-doc mode &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>reST kernel-doc mode &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Vintage kernel-doc mode" href="vintage-kernel-doc-mode.html" />
@@ -39,9 +39,10 @@
         <li class="right" >
           <a href="kernel-doc-modes.html" title="parsing modes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >LinuxDoc HowTo</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="kernel-doc-modes.html" accesskey="U">parsing modes</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="kernel-doc-modes.html" accesskey="U">parsing modes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">reST kernel-doc mode</a></li> 
       </ul>
     </div>  
 
@@ -179,7 +180,7 @@ a look here …</p>
 <span class="cm"> * - ``\$ENVVAR`` : environmental variable</span>
 <span class="cm"> *</span>
 <span class="cm"> * Since the prefixes ``$...``, ``&amp;...`` and ``@...`` are used to markup the</span>
-<span class="cm"> * highlight pattern, you have to escape them in other uses: $lorem, \&amp;lorem,</span>
+<span class="cm"> * highlight pattern, you have to escape them in other uses: \$lorem, \&amp;lorem,</span>
 <span class="cm"> * \%lorem and \@lorem. To esacpe from function highlighting, use lorem\().</span>
 <span class="cm"> *</span>
 <span class="cm"> * Parser Mode:</span>
@@ -261,9 +262,9 @@ a look here …</p>
 <p class="admonition-title">reST markup in kernel-doc comments</p>
 <div class="section" id="rst-mode">
 <span id="id3"></span><h3>rst_mode<a class="headerlink" href="#rst-mode" title="Permalink to this headline">¶</a></h3>
-<dl class="function">
+<dl class="c function">
 <dt id="c.rst_mode">
-int <code class="sig-name descname">rst_mode</code><span class="sig-paren">(</span>int<em> a</em>, char<em> *b</em><span class="sig-paren">)</span><a class="headerlink" href="#c.rst_mode" title="Permalink to this definition">¶</a></dt>
+int <code class="sig-name descname">rst_mode</code><span class="sig-paren">(</span>int <em>a</em>, char *<em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#c.rst_mode" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>dummy to demonstrate reST &amp; kernel-doc markup in comments</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -281,7 +282,7 @@ Context: <code class="xref c c-func docutils literal notranslate"><span class="p
 <p>Long description. This function has two integer arguments. The first is
 <code class="docutils literal notranslate"><span class="pre">parameter_a</span></code> and the second is <code class="docutils literal notranslate"><span class="pre">parameter_b</span></code>.</p>
 <p>As long as the reST / sphinx-doc toolchain uses <a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/intersphinx.html">intersphinx</a> you can refer
-definitions <em>outside</em> like <a class="reference external" href="https://www.kernel.org/doc/html/latest/driver-api/media/mc-core.html#c.media_device" title="(in The Linux Kernel v5.10.0)"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">media_device</span></code></a>.  If
+definitions <em>outside</em> like <a class="reference external" href="https://www.kernel.org/doc/html/latest/driver-api/media/mc-core.html#c.media_device" title="(in The Linux Kernel v5.11.0-rc2)"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">media_device</span></code></a>.  If
 the description of <code class="docutils literal notranslate"><span class="pre">media_device</span></code> struct is found in any of the intersphinx
 locations, a hyperref to this target is generated a build time.</p>
 </div>
@@ -304,13 +305,13 @@ locations, a hyperref to this target is generated a build time.</p>
 within kernel-doc comments, helping C developers to write short and compact
 documentation.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="kernel-doc-tests.html#c.user_function" title="user_function"><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code></a> : function</p></li>
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code> : function</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> : name of a parameter</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code></a> : name of a structure (including the word struct)</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_union" title="my_union"><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code></a> : name of a union</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code></a> or <a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code></a> -  member of a struct or union.</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_enum" title="my_enum"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code></a> : name of a enum</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_typedef" title="my_typedef"><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code></a> : name of a typedef</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code> : name of a structure (including the word struct)</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code> : name of a union</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code> or <code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code> -  member of a struct or union.</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code> : name of a enum</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code> : name of a typedef</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONST</span></code> : name of a constant.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</p></li>
 </ul>
@@ -318,18 +319,18 @@ documentation.</p>
 markups. You don’t have to use the <em>highlight</em> pattern, if you prefer <em>pure</em>
 reST, use the reST markup.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="kernel-doc-tests.html#c.user_function" title="user_function"><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code></a> : function</p></li>
+<li><p><code class="xref c c-func docutils literal notranslate"><span class="pre">user_function()</span></code> : function</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> : name of a parameter</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code></a> : name of a structure (including the word struct)</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_union" title="my_union"><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code></a> : name of a union</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code></a> or <a class="reference internal" href="all-in-a-tumble.html#c.my_struct" title="my_struct"><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code></a> -  member of a struct or union.</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_enum" title="my_enum"><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code></a> : name of a enum</p></li>
-<li><p><a class="reference internal" href="all-in-a-tumble.html#c.my_typedef" title="my_typedef"><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code></a> : name of a typedef</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">my_struct</span></code> : name of a structure (including the word struct)</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">union</span> <span class="pre">my_union</span></code> : name of a union</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct-&gt;a</span></code> or <code class="xref c c-type docutils literal notranslate"><span class="pre">my_struct.b</span></code> -  member of a struct or union.</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">enum</span> <span class="pre">my_enum</span></code> : name of a enum</p></li>
+<li><p><code class="xref c c-type docutils literal notranslate"><span class="pre">typedef</span> <span class="pre">my_typedef</span></code> : name of a typedef</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONST</span></code> : name of a constant.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">$ENVVAR</span></code> : environmental variable</p></li>
 </ul>
 <p>Since the prefixes <code class="docutils literal notranslate"><span class="pre">$...</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;...</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;...</span></code> are used to markup the
-highlight pattern, you have to escape them in other uses: <code class="docutils literal notranslate"><span class="pre">$lorem</span></code>, &amp;lorem,
+highlight pattern, you have to escape them in other uses: $lorem, &amp;lorem,
 %lorem and &#64;lorem. To esacpe from function highlighting, use lorem().</p>
 </div>
 <div class="section" id="parser-mode">
@@ -411,6 +412,7 @@ kernel-doc section.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -476,8 +478,8 @@ kernel-doc section.</p>
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

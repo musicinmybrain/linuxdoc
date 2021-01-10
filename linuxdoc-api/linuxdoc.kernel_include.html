@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.kernel_include module &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>linuxdoc.kernel_include module &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="linuxdoc.kfigure module" href="linuxdoc.kfigure.html" />
@@ -39,8 +39,9 @@
         <li class="right" >
           <a href="linuxdoc.kernel_doc.html" title="linuxdoc.kernel_doc module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.kernel_include module</a></li> 
       </ul>
     </div>  
 
@@ -63,12 +64,12 @@
 </dd>
 </dl>
 <p>For user documentation see <a class="reference internal" href="../linuxdoc-howto/kernel-include-directive.html#kernel-include-directive"><span class="std std-ref">Use kernel-include in reST documents</span></a>.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="linuxdoc.kernel_include.KernelInclude">
-<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.kernel_include.</code><code class="sig-name descname">KernelInclude</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">arguments</em>, <em class="sig-param">options</em>, <em class="sig-param">content</em>, <em class="sig-param">lineno</em>, <em class="sig-param">content_offset</em>, <em class="sig-param">block_text</em>, <em class="sig-param">state</em>, <em class="sig-param">state_machine</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/kernel_include.html#KernelInclude"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.kernel_include.KernelInclude" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">linuxdoc.kernel_include.</code><code class="sig-name descname">KernelInclude</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">arguments</span></em>, <em class="sig-param"><span class="n">options</span></em>, <em class="sig-param"><span class="n">content</span></em>, <em class="sig-param"><span class="n">lineno</span></em>, <em class="sig-param"><span class="n">content_offset</span></em>, <em class="sig-param"><span class="n">block_text</span></em>, <em class="sig-param"><span class="n">state</span></em>, <em class="sig-param"><span class="n">state_machine</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/kernel_include.html#KernelInclude"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.kernel_include.KernelInclude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">docutils.parsers.rst.directives.misc.Include</span></code></p>
 <p>KernelInclude (<code class="docutils literal notranslate"><span class="pre">kernel-include</span></code>) directive</p>
-<dl class="method">
+<dl class="py method">
 <dt id="linuxdoc.kernel_include.KernelInclude.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/kernel_include.html#KernelInclude.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.kernel_include.KernelInclude.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Include a file as part of the content of this reST file.</p>
@@ -76,15 +77,16 @@
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.kernel_include.setup">
-<code class="sig-prename descclassname">linuxdoc.kernel_include.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param">app</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/kernel_include.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.kernel_include.setup" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.kernel_include.</code><code class="sig-name descname">setup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">app</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/kernel_include.html#setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.kernel_include.setup" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -147,8 +149,8 @@
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

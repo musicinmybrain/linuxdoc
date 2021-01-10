@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LinuxDoc &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <title>LinuxDoc &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="kernel-doc introduction" href="kernel-doc-intro.html" />
@@ -35,7 +35,8 @@
         <li class="right" >
           <a href="kernel-doc-intro.html" title="kernel-doc introduction"
              accesskey="N">next</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">LinuxDoc 20200812 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">LinuxDoc 20210110 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">LinuxDoc</a></li> 
       </ul>
     </div>  
 
@@ -47,11 +48,11 @@
   <div class="section" id="linuxdoc">
 <span id="id1"></span><h1>LinuxDoc<a class="headerlink" href="#linuxdoc" title="Permalink to this headline">¶</a></h1>
 <div class="sidebar">
-<p class="sidebar-title">update 2020-08</p>
-<p>ATM LinuxDoc does not support Sphinx v3.0 or above (<a class="reference external" href="https://github.com/return42/linuxdoc/commit/a5290d5">#a5290d5</a>).  The
-v3.0 includes a <a class="reference external" href="https://github.com/sphinx-doc/sphinx/commit/0f49e30c51b5cc5055cda5b4b294c2dd9d1df573#r38750737">C, initial rewrite</a> which is not downward compatible.  The
-<a class="reference internal" href="linuxdoc-api/linuxdoc.cdomain.html#module-linuxdoc.cdomain" title="linuxdoc.cdomain"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxdoc.cdomain</span></code></a> needs a complete revision within the model used by
-Sphinx v3.</p>
+<p class="sidebar-title">WIP <a class="reference internal" href="linuxdoc-api/linuxdoc.cdomain.html#module-linuxdoc.cdomain" title="linuxdoc.cdomain"><code class="xref py py-mod docutils literal notranslate"><span class="pre">linuxdoc.cdomain</span></code></a></p>
+<p>Sphinx v3.0 and above includes a <a class="reference external" href="https://github.com/sphinx-doc/sphinx/commit/0f49e30c51b5cc5055cda5b4b294c2dd9d1df573#r38750737">C, initial rewrite</a> which is not downward
+compatible and the Sphinx C-Domain is still <em>WIP</em> (<a class="reference external" href="https://github.com/sphinx-doc/sphinx/pull/8313">Sphinx-doc PR-8313</a>).
+Therefore not all the features of <a class="reference internal" href="linuxdoc-howto/cdomain.html#customized-c-domain"><span class="std std-ref">Customized sphinx c-domain</span></a> has been
+migrated right now (some are obsolete since V3.1).</p>
 </div>
 <p>The LinuxDoc library contains <a class="reference external" href="http://www.sphinx-doc.org/">sphinx-doc</a> extensions and command line tools to
 extract documentation from C/C++ source file comments. Even if this project
@@ -129,6 +130,7 @@ some alternative concepts for the Linux-Kernel documentation.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -190,8 +192,8 @@ some alternative concepts for the Linux-Kernel documentation.</p>
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="_static/version_warning_offset.js"></script>
 

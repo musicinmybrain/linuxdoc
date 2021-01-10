@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>kernel-doc introduction &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <title>kernel-doc introduction &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Install LinuxDoc" href="install.html" />
@@ -39,7 +39,8 @@
         <li class="right" >
           <a href="index.html" title="LinuxDoc"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">LinuxDoc 20200812 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">kernel-doc introduction</a></li> 
       </ul>
     </div>  
 
@@ -61,11 +62,11 @@ highlights and cross-references in your source code.</p>
 <p>The kernel-doc format is deceptively similar to Doxygen, javadoc or <a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/autodoc.html">Sphinx’s
 autodoc</a> which grabs for comments in <a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#the-python-domain">Sphinx’s Python domain</a>.  The kernel-doc
 format has a long tradition, e.g. its also well highlighted in your emacs ;) If
-you are familiar with <a class="reference external" href="http://www.sphinx-doc.org/">Sphinx</a>, you might know about <a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-c-constructs">Sphinx’s C domain</a> markup.</p>
+you are familiar with <a class="reference external" href="http://www.sphinx-doc.org/">Sphinx</a>, you might know about <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-c-domain">Sphinx’s C domain</a> markup.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>Compared <a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-c-constructs">Sphinx’s C domain</a>, the <a class="reference internal" href="linuxdoc-howto/kernel-doc-syntax.html#kernel-doc-syntax"><span class="std std-ref">kernel-doc syntax</span></a> is less verbose
+<li><p>Compared <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-c-domain">Sphinx’s C domain</a>, the <a class="reference internal" href="linuxdoc-howto/kernel-doc-syntax.html#kernel-doc-syntax"><span class="std std-ref">kernel-doc syntax</span></a> is less verbose
 and much more coder friendly (<a class="reference internal" href="#kernel-doc-intro-example"><span class="std std-ref">kernel-doc comment</span></a> and <a class="reference internal" href="#kernel-doc-intro-example-out"><span class="std std-ref">reST</span></a>).</p></li>
 <li><p>The opening comment mark <code class="docutils literal notranslate"><span class="pre">/**</span></code> is reserved for kernel-doc comments.</p></li>
 </ul>
@@ -73,7 +74,7 @@ and much more coder friendly (<a class="reference internal" href="#kernel-doc-in
 <p>The <strong>kernel-doc parser</strong> of the LinuxDoc package grabs the documentation from
 your C sources and translates the <strong>kernel-doc markup</strong> into proper <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">reST</a>.  From
 coder’s POV, the C-friendly kernel-doc markup is translated into the more
-verbosely <a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-c-constructs">Sphinx’s C domain</a> which can be included at any place in the
+verbosely <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-c-domain">Sphinx’s C domain</a> which can be included at any place in the
 documentation.</p>
 <p>Only comments so marked will be considered by the kernel-doc tools, and any
 comment so marked must be in kernel-doc format.  The closing comment marker for
@@ -126,7 +127,7 @@ detailed API documentation.  This is where the <a class="reference internal" hre
 which might be located in file <code class="docutils literal notranslate"><span class="pre">include/foobar.h</span></code>, the author can use the
 kernel-doc directive like this:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">kernel-doc</span><span class="p">::</span> include/foobar.h
-    <span class="nc">:functions:</span> foobar
+    <span class="nc">:symbols:</span> foobar
 </pre></div>
 </div>
 <p>Now, if the documentation build process takes places, the kernel-doc directive
@@ -222,7 +223,7 @@ builder also integrated in the kernel-doc Sphinx-doc extension <a class="referen
 <dt>flat-table</dt><dd><p>A diff and author friendly list-table replacement with <em>column-span</em>,
 <em>row-span</em> and <em>auto-span</em> <a class="reference internal" href="linuxdoc-howto/table-markup.html#rest-flat-table"><span class="std std-ref">[ref]</span></a>.</p>
 </dd>
-<dt>cdomain</dt><dd><p>A customized <a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-c-constructs">Sphinx’s C Domain</a> extension. Suitable for demanding projects
+<dt>cdomain</dt><dd><p>A customized <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#the-c-domain">Sphinx’s C Domain</a> extension. Suitable for demanding projects
 <a class="reference internal" href="linuxdoc-howto/cdomain.html#customized-c-domain"><span class="std std-ref">[ref]</span></a>.</p>
 </dd>
 <dt>kfigure</dt><dd><p>Sphinx extension which implements scalable image handling. Simplifies image
@@ -239,6 +240,7 @@ arbitrary locations ref:<cite>[ref] &lt;kernel-include-directive&gt;</cite>.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -299,8 +301,8 @@ arbitrary locations ref:<cite>[ref] &lt;kernel-include-directive&gt;</cite>.</p>
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="_static/version_warning_offset.js"></script>
 

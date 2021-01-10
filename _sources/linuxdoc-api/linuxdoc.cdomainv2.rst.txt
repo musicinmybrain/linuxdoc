@@ -1,7 +1,0 @@
-linuxdoc.cdomainv2 module
-=========================
-
-.. automodule:: linuxdoc.cdomainv2
-   :members:
-   :undoc-members:
-   :show-inheritance:

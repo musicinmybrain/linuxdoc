@@ -1,13 +1,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.lint module &#8212; LinuxDoc 20200812 documentation</title>
-    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <title>linuxdoc.lint module &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
@@ -16,7 +17,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="linuxdoc.manKernelDoc module" href="linuxdoc.manKernelDoc.html" />
@@ -39,8 +39,9 @@
         <li class="right" >
           <a href="linuxdoc.kfigure.html" title="linuxdoc.kfigure module"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20200812 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">LinuxDoc 20210110 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="linuxdoc.html" accesskey="U">linuxdoc package</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">linuxdoc.lint module</a></li> 
       </ul>
     </div>  
 
@@ -62,28 +63,28 @@
 <dd class="field-even"><p>GPL Version 2, June 1991 see Linux/COPYING for details.</p>
 </dd>
 </dl>
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.lint.ERR">
-<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">ERR</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.lint.ERR" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">ERR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.lint.ERR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.lint.FATAL">
-<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">FATAL</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.lint.FATAL" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">FATAL</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.lint.FATAL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.lint.MSG">
-<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">MSG</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.lint.MSG" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">MSG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#linuxdoc.lint.MSG" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.lint.lintdoc_file">
-<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">lintdoc_file</code><span class="sig-paren">(</span><em class="sig-param">fname</em>, <em class="sig-param">CMD</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/lint.html#lintdoc_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.lint.lintdoc_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">lintdoc_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span></em>, <em class="sig-param"><span class="n">CMD</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/lint.html#lintdoc_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.lint.lintdoc_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>lint documentation from fname</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="linuxdoc.lint.main">
 <code class="sig-prename descclassname">linuxdoc.lint.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/lint.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#linuxdoc.lint.main" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lint <em>kernel-doc</em> comments from source code (main)</p>
@@ -93,6 +94,7 @@
 </div>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -155,8 +157,8 @@
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2020 Markus Heiser.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
+        &#169; Copyright 2021 Markus Heiser.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 
