@@ -9,10 +9,7 @@
     <title>kernel-doc Test &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx_tabs/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -216,7 +213,7 @@ man_pages = [ ]
 </div>
 <div class="rst-example admonition">
 <p class="admonition-title">download directive</p>
-<p><a class="reference download internal" download="" href="../_downloads/61ad577f89a50f5896fcf7a8ee0500e3/user_function.2.gz"><code class="xref download docutils literal notranslate"><span class="pre">user_function.2.gz</span></code></a></p>
+<p><a class="reference download internal" download="" href="../_downloads/1502687ec5d4af8874395081adf01fb0/user_function.2.gz"><code class="xref download docutils literal notranslate"><span class="pre">user_function.2.gz</span></code></a></p>
 </div>
 <p>Or just set a link to the man page file (relative HTML URL is needed)</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>hyperlink to: <span class="s">`user_function.2.gz </span><span class="si">&lt;../man/user_function.2.gz&gt;</span><span class="s">`_</span>
@@ -256,7 +253,7 @@ To gather exports from <a class="reference internal" href="all-in-a-tumble-src.h
 <span id="test-user-function"></span><h4>user_function<a class="headerlink" href="#user-function" title="Permalink to this headline">¶</a></h4>
 <dl class="c function">
 <dt id="c.test.user_function">
-int <code class="sig-name descname">user_function</code><span class="sig-paren">(</span>int <em>a</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.test.user_function" title="Permalink to this definition">¶</a><br /></dt>
+<span class="pre">int</span> <code class="sig-name descname"><span class="pre">user_function</span></code><span class="sig-paren">(</span><span class="pre">int</span> <em><span class="pre">a</span></em>, <span class="pre">...</span><span class="sig-paren">)</span><a class="headerlink" href="#c.test.user_function" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>function that can only be called in user context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -330,7 +327,7 @@ configuration.</p>
 <span id="test-fnattrs-user-sum"></span><h4>user_sum<a class="headerlink" href="#user-sum" title="Permalink to this headline">¶</a></h4>
 <dl class="c function">
 <dt>
-<code class="sig-name descname">API_EXPORTED int user_sum(int a, int b)</code></dt>
+<code class="sig-name descname"><span class="pre">API_EXPORTED</span> <span class="pre">int</span> <span class="pre">user_sum(int</span> <span class="pre">a,</span> <span class="pre">int</span> <span class="pre">b)</span></code></dt>
 <dd><p>another function that can only be called in user context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -383,7 +380,7 @@ used in the reST output:</p>
 <span id="id9"></span><h4>user_sum<a class="headerlink" href="#tests-internal-user-sum" title="Permalink to this headline">¶</a></h4>
 <dl class="c function">
 <dt>
-<code class="sig-name descname">API_EXPORTED int user_sum(int a, int b)</code></dt>
+<code class="sig-name descname"><span class="pre">API_EXPORTED</span> <span class="pre">int</span> <span class="pre">user_sum(int</span> <span class="pre">a,</span> <span class="pre">int</span> <span class="pre">b)</span></code></dt>
 <dd><p>another function that can only be called in user context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -414,7 +411,7 @@ used in the reST output:</p>
 <span id="tests-internal-internal-function"></span><h4>internal_function<a class="headerlink" href="#internal-function" title="Permalink to this headline">¶</a></h4>
 <dl class="c function">
 <dt id="c.PhonyNameDueToError.internal_function">
-int <code class="sig-name descname">internal_function</code><span class="sig-paren">(</span>void<span class="sig-paren">)</span><a class="headerlink" href="#c.PhonyNameDueToError.internal_function" title="Permalink to this definition">¶</a><br /></dt>
+<span class="pre">int</span> <code class="sig-name descname"><span class="pre">internal_function</span></code><span class="sig-paren">(</span><span class="pre">void</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PhonyNameDueToError.internal_function" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>the answer</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -438,7 +435,7 @@ int <code class="sig-name descname">internal_function</code><span class="sig-par
 <span id="tests-internal-sys-tgkill"></span><h4>sys_tgkill<a class="headerlink" href="#sys-tgkill" title="Permalink to this headline">¶</a></h4>
 <dl class="c function">
 <dt id="c.PhonyNameDueToError.sys_tgkill">
-long <code class="sig-name descname">sys_tgkill</code><span class="sig-paren">(</span>pid_t <em>tgid</em>, pid_t <em>pid</em>, int <em>sig</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PhonyNameDueToError.sys_tgkill" title="Permalink to this definition">¶</a><br /></dt>
+<span class="pre">long</span> <code class="sig-name descname"><span class="pre">sys_tgkill</span></code><span class="sig-paren">(</span><span class="pre">pid_t</span> <em><span class="pre">tgid</span></em>, <span class="pre">pid_t</span> <em><span class="pre">pid</span></em>, <span class="pre">int</span> <em><span class="pre">sig</span></em><span class="sig-paren">)</span><a class="headerlink" href="#c.PhonyNameDueToError.sys_tgkill" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>send signal to one specific thread</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -464,7 +461,7 @@ method solves the problem of threads exiting and PIDs getting reused.</p>
 <span id="tests-internal-rarely-enum"></span><h4>enum rarely_enum<a class="headerlink" href="#enum-rarely-enum" title="Permalink to this headline">¶</a></h4>
 <dl class="c enum">
 <dt id="c.PhonyNameDueToError.rarely_enum">
-<em class="property">enum </em><code class="sig-name descname">rarely_enum</code><a class="headerlink" href="#c.PhonyNameDueToError.rarely_enum" title="Permalink to this definition">¶</a><br /></dt>
+<em class="property"><span class="pre">enum</span> </em><code class="sig-name descname"><span class="pre">rarely_enum</span></code><a class="headerlink" href="#c.PhonyNameDueToError.rarely_enum" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>enum to test parsing rarely code styles</p>
 </dd></dl>
 
@@ -491,7 +488,7 @@ method solves the problem of threads exiting and PIDs getting reused.</p>
 <span id="tests-internal-rarely-struct"></span><h4>struct rarely_struct<a class="headerlink" href="#struct-rarely-struct" title="Permalink to this headline">¶</a></h4>
 <dl class="c struct">
 <dt id="c.PhonyNameDueToError.rarely_struct">
-<em class="property">struct </em><code class="sig-name descname">rarely_struct</code><a class="headerlink" href="#c.PhonyNameDueToError.rarely_struct" title="Permalink to this definition">¶</a><br /></dt>
+<em class="property"><span class="pre">struct</span> </em><code class="sig-name descname"><span class="pre">rarely_struct</span></code><a class="headerlink" href="#c.PhonyNameDueToError.rarely_struct" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>struct to test parsing rarely code styles</p>
 </dd></dl>
 
@@ -571,7 +568,7 @@ By example:</p>
 <span id="id18"></span><h3>sys_tgkill<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <dl class="c function">
 <dt id="c.sys_tgkill">
-long <code class="sig-name descname">sys_tgkill</code><span class="sig-paren">(</span>pid_t <em>tgid</em>, pid_t <em>pid</em>, int <em>sig</em><span class="sig-paren">)</span><a class="headerlink" href="#c.sys_tgkill" title="Permalink to this definition">¶</a><br /></dt>
+<span class="pre">long</span> <code class="sig-name descname"><span class="pre">sys_tgkill</span></code><span class="sig-paren">(</span><span class="pre">pid_t</span> <em><span class="pre">tgid</span></em>, <span class="pre">pid_t</span> <em><span class="pre">pid</span></em>, <span class="pre">int</span> <em><span class="pre">sig</span></em><span class="sig-paren">)</span><a class="headerlink" href="#c.sys_tgkill" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>send signal to one specific thread</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -678,7 +675,7 @@ method solves the problem of threads exiting and PIDs getting reused.</p>
   
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021 Markus Heiser.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

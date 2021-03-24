@@ -9,16 +9,12 @@
     <title>linuxdoc.kernel_doc &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
-    <script src="../../_static/sphinx_tabs/tabs.js"></script>
+    <script src="../../_static/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../../';</script>
@@ -387,7 +383,7 @@ class DevNull(object): # pylint: disable=too-few-public-methods
         pass
 DevNull = DevNull()
 
-SRCTREE        = OS_ENV.get(&quot;srctree&quot;, &quot;&quot;)
+SRCTREE        = OS_ENV.get(&quot;srctree&quot;, os.getcwd())
 GIT_REF        = (&quot;Linux kernel source tree:&quot;
                   &quot; `%(rel_fname)s &lt;https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/&quot;
                   &quot;%(rel_fname)s&gt;`__&quot;)
@@ -1395,7 +1391,7 @@ LOG = SimpleLog()
         self.out            = None  # File descriptor for output.
         self.eof_newline    = True  # write newline on end of file
 
-        self.src_tree       = SRCTREE # root of the kernel sources
+        self.src_tree       = SRCTREE # root folder of sources (defaults to CWD)
         self.rel_fname      = &quot;&quot;      # pathname relative to src_tree
         self.fname          = &quot;&quot;      # absolute pathname
 
@@ -1448,29 +1444,21 @@ LOG = SimpleLog()
         # SNIP / SNAP
         self.SNIP = None
 
+        # init options with arguments from caller
         super(ParseOptions, self).__init__(self, *args, **kwargs)
 
         # absolute and relativ filename
 
-        if self.src_tree and self.fname and os.path.isabs(self.fname):
-            # if SCRTREE and abspath fname is given, determine relativ pathname
-            self.rel_fname = os.path.relpath(self.fname, self.src_tree)
-
-        if self.src_tree and self.fname and not os.path.isabs(self.fname):
-            # if SCRTREE and relative fname is given, drop fname and set rel_fname
-            self.rel_fname = self.fname
-            self.fname = &quot;&quot;
-
-        if self.src_tree and self.rel_fname:
-            self.fname = os.path.join(self.src_tree, self.rel_fname)
-        else:
-            LOG.warn(&quot;no relative pathname given / no SRCTREE: &quot;
-                     &quot; features based on these settings might not work&quot;
-                     &quot; as expected!&quot;)
         if not self.fname:
             LOG.error(&quot;no source file given!&quot;)
-        else:
-            self.fname = os.path.abspath(self.fname)
+
+        self.rel_fname = self.fname
+        if self.fname[0] == &#39;/&#39;:
+            if not self.src_tree:
+                LOG.error(&quot;missing SRCTREE&quot;)
+            self.rel_fname = self.fname[1:]
+
+        self.fname = os.path.abspath(self.src_tree + &quot;/&quot; + self.rel_fname)
 
 <div class="viewcode-block" id="ParseOptions.set_defaults"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ParseOptions.set_defaults">[docs]</a>    def set_defaults(self):
 
@@ -3243,7 +3231,7 @@ else:
   
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021 Markus Heiser.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
     </div>
   <script src="../../_static/version_warning_offset.js"></script>
 

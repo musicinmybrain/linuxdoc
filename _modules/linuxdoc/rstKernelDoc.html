@@ -9,16 +9,12 @@
     <title>linuxdoc.rstKernelDoc &#8212; LinuxDoc 20210110 documentation</title>
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_tabs/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
-    <script src="../../_static/sphinx_tabs/tabs.js"></script>
+    <script src="../../_static/tabs.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../../';</script>
@@ -65,7 +61,7 @@ linux kernel source code comments.
 
 import glob
 import logging
-from os import path
+from os import path, sep
 from io import StringIO
 
 import six
@@ -200,16 +196,16 @@ app_log = logging.getLogger(&#39;application&#39;)
 <div class="viewcode-block" id="KernelDoc.getParserOptions"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc.getParserOptions">[docs]</a>    def getParserOptions(self):  # pylint: disable=too-many-branches, too-many-statements
 
         fname     = self.arguments[0]
-        src_tree  = kerneldoc.SRCTREE
+        src_tree  = path.dirname(path.normpath(self.doc.current_source))
         exp_files = []  # file pattern to search for EXPORT_SYMBOL
         exp_method  = self.options.get(&quot;exp-method&quot;, self.env.config.kernel_doc_exp_method)
         exp_ids     = self.options.get(&quot;exp-ids&quot;, self.env.config.kernel_doc_exp_ids)
         known_attrs = self.options.get(&quot;known-attrs&quot;, self.env.config.kernel_doc_known_attrs)
 
-        if self.arguments[0].startswith(&quot;./&quot;):
-            # the prefix &quot;./&quot; indicates a relative pathname
-            fname = self.arguments[0][2:]
-            src_tree = path.dirname(path.normpath(self.doc.current_source))
+        if self.arguments[0].startswith(&quot;/&quot;):
+            # Absolute path names are relative to kerneldoc.SRCTREE
+            fname = self.arguments[0][1:]
+            src_tree = kerneldoc.SRCTREE
 
         if &quot;internal&quot; in self.options and &quot;export&quot; in self.options:
             raise FaultyOption(
@@ -231,7 +227,7 @@ app_log = logging.getLogger(&#39;application&#39;)
 
         ctx  = kerneldoc.ParserContext()
         opts = kerneldoc.ParseOptions(
-            rel_fname       = fname
+            fname           = fname
             , src_tree      = src_tree
             , id_prefix     = self.options.get(&quot;module&quot;, &quot;&quot;).strip()
             , encoding      = self.options.get(&quot;encoding&quot;, self.env.config.source_encoding)
@@ -270,8 +266,7 @@ app_log = logging.getLogger(&#39;application&#39;)
             opts.no_header = bool(&quot;no-header&quot; in self.options)
             opts.use_names.append(self.options.get(&quot;doc&quot;))
 
-        if &quot;export&quot; in self.options:
-            # gather exported symbols and add them to the list of names
+        if &quot;export&quot; in self.options and self.options.get(&#39;export&#39;):
             kerneldoc.Parser.gather_context(kerneldoc.readFile(opts.fname), ctx, opts)
             exp_files.extend((self.options.get(&#39;export&#39;) or &quot;&quot;).replace(&quot;,&quot;,&quot; &quot;).split())
             opts.error_missing = True
@@ -287,18 +282,16 @@ app_log = logging.getLogger(&#39;application&#39;)
                 self.options[&quot;functions&quot;].replace(&quot;,&quot;,&quot; &quot;).split())
 
         for pattern in exp_files:
-            if pattern.startswith(&quot;./&quot;): # &quot;./&quot; indicates a relative pathname
-                pattern = path.join(
-                    path.dirname(path.normpath(self.doc.current_source))
-                    , pattern[2:])
-            else:
-                pattern = path.join(kerneldoc.SRCTREE, pattern)
+
+            if pattern[0] == &#39;/&#39;:
+                pattern = pattern[1:]
+            pattern = path.join(opts.src_tree, pattern)
 
             if ( not glob.has_magic(pattern)
                  and not path.lexists(pattern) ):
                 # if pattern is a filename (is not a glob pattern) and this file
                 # does not exists, an error is raised.
-                raise FaultyOption(&quot;file not found: %s&quot; % pattern)
+                raise FaultyOption(&quot;file (pattern) not found: %s&quot; % pattern)
 
             for fname in glob.glob(pattern):
                 self.env.note_dependency(path.abspath(fname))
@@ -553,7 +546,7 @@ app_log = logging.getLogger(&#39;application&#39;)
   
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021 Markus Heiser.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.4.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.3.
     </div>
   <script src="../../_static/version_warning_offset.js"></script>
 
