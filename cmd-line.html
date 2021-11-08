@@ -46,11 +46,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="command-line-tools">
+  <section id="command-line-tools">
 <span id="linuxdoc-cmdline"></span><h1>Command line tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h1>
 <p>Beside the library, the installation of the LinuxDoc <a class="reference internal" href="install.html#install-linuxdoc"><span class="std std-ref">[ref]</span></a> also installs some command-line tools described here (or use
 the <code class="docutils literal notranslate"><span class="pre">--help</span></code> option).</p>
-<div class="section" id="kernel-autodoc">
+<section id="kernel-autodoc">
 <span id="id1"></span><h2><code class="docutils literal notranslate"><span class="pre">kernel-autodoc</span></code><a class="headerlink" href="#kernel-autodoc" title="Permalink to this headline">¶</a></h2>
 <p>Suitable for automatic API documentation.  Parses your source tree, grabs
 kernel-doc comments and generates analogous tree of reST files with the content
@@ -67,8 +67,8 @@ of the source tree, e.g. the include folder:</p>
 <p>The option <code class="docutils literal notranslate"><span class="pre">--markup</span> <span class="pre">kernel-doc</span></code> is a tribute to the historical fact, that
 most of the kernel-doc comments are old and not reST compliant. This
 circumstance is also described see <a class="reference internal" href="linuxdoc-howto/vintage-kernel-doc-mode.html#vintage-kernel-doc-mode"><span class="std std-ref">[ref]</span></a></p>
-</div>
-<div class="section" id="kernel-lintdoc">
+</section>
+<section id="kernel-lintdoc">
 <span id="id2"></span><h2><code class="docutils literal notranslate"><span class="pre">kernel-lintdoc</span></code><a class="headerlink" href="#kernel-lintdoc" title="Permalink to this headline">¶</a></h2>
 <p>Lint <em>kernel-doc</em> comments from source code. E.g. to lint the kernel-doc
 comments of a source-file.:</p>
@@ -80,8 +80,8 @@ include folder:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ kernel-lintdoc /share/linux/include/
 </pre></div>
 </div>
-</div>
-<div class="section" id="kernel-doc">
+</section>
+<section id="kernel-doc">
 <span id="kernel-doc-cmd"></span><h2><code class="docutils literal notranslate"><span class="pre">kernel-doc</span></code><a class="headerlink" href="#kernel-doc" title="Permalink to this headline">¶</a></h2>
 <p>Parse kernel-doc comments from source code and print the reST to stdout.  This
 command exits, to see the generated reST, normally you use the <a class="reference internal" href="linuxdoc-howto/kernel-doc-directive.html#kernel-doc-directive"><span class="std std-ref">kernel-doc
@@ -91,8 +91,8 @@ directive</span></a> in your reST documentation.:</p>
 </div>
 <p>To see the difference between <a class="reference internal" href="linuxdoc-howto/vintage-kernel-doc-mode.html#vintage-kernel-doc-mode"><span class="std std-ref">Vintage kernel-doc mode</span></a> and
 <a class="reference internal" href="linuxdoc-howto/reST-kernel-doc-mode.html#rest-kernel-doc-mode"><span class="std std-ref">reST kernel-doc mode</span></a> use the option <code class="docutils literal notranslate"><span class="pre">--markup</span> <span class="pre">kernel-doc</span></code>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>

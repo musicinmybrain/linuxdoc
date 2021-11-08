@@ -61,8 +61,6 @@ Implementation of the ``flat-table`` reST-directive.  User documentation see
 # imports
 # ==============================================================================
 
-import sys
-
 from docutils import nodes
 from docutils.parsers.rst import directives, roles
 from docutils.parsers.rst.directives.tables import Table
@@ -128,9 +126,6 @@ __version__  = &#39;3.0&#39;
 
     option_spec = {
 
-        # see https://github.com/PyCQA/pylint/issues/289
-        # pylint: disable=bad-continuation
-
         &#39;name&#39;: directives.unchanged
         , &#39;class&#39;: directives.class_option
         , &#39;header-rows&#39;: directives.nonnegative_int
@@ -154,6 +149,9 @@ __version__  = &#39;3.0&#39;
         tableBuilder = ListTableBuilder(self)
         tableBuilder.parseFlatTableNode(node)
         tableNode = tableBuilder.buildTableNode()
+        self.add_name(tableNode)
+        tableNode[&#39;classes&#39;] += self.options.get(&#39;class&#39;, [])
+
         # debug --&gt; tableNode.asdom().toprettyxml()
         if title:
             tableNode.insert(0, title)
@@ -199,7 +197,6 @@ __version__  = &#39;3.0&#39;
                 colspec.attributes[&#39;stub&#39;] = 1
                 stub_columns -= 1
             tgroup += colspec
-        stub_columns = self.directive.options.get(&#39;stub-columns&#39;, 0)
 
         if header_rows:
             thead = nodes.thead()

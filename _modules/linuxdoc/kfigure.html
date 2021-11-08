@@ -57,14 +57,12 @@ import os
 from os import path
 import subprocess
 from hashlib import sha1
-import sys
 import logging
 
 from docutils import nodes
 from docutils.statemachine import ViewList
 from docutils.parsers.rst import directives
 from docutils.parsers.rst.directives import images
-import sphinx
 
 from sphinx.util.nodes import clean_astext
 from six import iteritems
@@ -175,12 +173,12 @@ convert_cmd = None
     convert_cmd = which(&#39;convert&#39;)
 
     if dot_cmd:
-        app_log.info(&quot;use dot(1) from: &quot; + dot_cmd)
+        app_log.info(&quot;use dot(1) from: %s&quot;,  dot_cmd)
     else:
         app_log.warn(&quot;dot(1) not found, for better output quality install &quot;
                      &quot;graphviz from http://www.graphviz.org&quot;)
     if convert_cmd:
-        app_log.info(&quot;use convert(1) from: &quot; + convert_cmd)
+        app_log.info(&quot;use convert(1) from: %s&quot;, convert_cmd)
     else:
         app_log.warn(
             &quot;convert(1) not found, for SVG to PDF conversion install &quot;
@@ -218,7 +216,7 @@ RENDER_MARKUP_EXT = {
 
     # in kernel builds, use &#39;make SPHINXOPTS=-v&#39; to see verbose messages
 
-    app_log.info(&#39;assert best format for: &#39; + img_node[&#39;uri&#39;])
+    app_log.info(&#39;assert best format for: %s&#39;, img_node[&#39;uri&#39;])
 
     if in_ext == &#39;.dot&#39;:
 
@@ -263,18 +261,18 @@ RENDER_MARKUP_EXT = {
         _name = dst_fname[len(translator.builder.outdir) + 1:]
 
         if isNewer(dst_fname, src_fname):
-            app_log.info(&quot;convert: {out}/%s already exists and is newer&quot; % _name)
+            app_log.info(&quot;convert: {out}/%s already exists and is newer&quot;, _name)
 
         else:
             ok = False
             mkdir(path.dirname(dst_fname))
 
             if in_ext == &#39;.dot&#39;:
-                app_log.info(&#39;convert DOT to: {out}/&#39; + _name)
+                app_log.info(&#39;convert DOT to: {out}/%s&#39;, _name)
                 ok = dot2format(app, src_fname, dst_fname)
 
             elif in_ext == &#39;.svg&#39;:
-                app_log.info(&#39;convert SVG to: {out}/&#39; + _name)
+                app_log.info(&#39;convert SVG to: {out}/%s&#39;, _name)
                 ok = svg2pdf(app, src_fname, dst_fname)
 
             if not ok:
@@ -304,7 +302,7 @@ RENDER_MARKUP_EXT = {
         exit_code = subprocess.call(cmd, stdout = out)
         if exit_code != 0:
             # pylint: disable=deprecated-method
-            app_log.warn(&quot;Error #%d when calling: %s&quot; % (exit_code, &quot; &quot;.join(cmd)))
+            app_log.warn(&quot;Error #%d when calling: %s&quot;, exit_code, &quot; &quot;.join(cmd))
     return bool(exit_code == 0)</div>
 
 <div class="viewcode-block" id="svg2pdf"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kfigure.html#linuxdoc.kfigure.svg2pdf">[docs]</a>def svg2pdf(app, svg_fname, pdf_fname): # pylint: disable=unused-argument
@@ -322,7 +320,7 @@ RENDER_MARKUP_EXT = {
     exit_code = subprocess.call(cmd)
     if exit_code != 0:
         # pylint: disable=deprecated-method
-        app_log.warn(&quot;Error #%d when calling: %s&quot; % (exit_code, &quot; &quot;.join(cmd)))
+        app_log.warn(&quot;Error #%d when calling: %s&quot;, exit_code, &quot; &quot;.join(cmd))
     return bool(exit_code == 0)</div>
 
 
@@ -414,12 +412,11 @@ RENDER_MARKUP_EXT = {
     &quot;&quot;&quot;
     srclang = node.get(&#39;srclang&#39;)
 
-    # pylint: disable=deprecated-method
-    app_log.info(&#39;visit kernel-render node lang: &quot;%s&quot;&#39; % (srclang))
+    app_log.info(&#39;visit kernel-render node lang: &quot;%s&quot;&#39;, srclang)
 
     tmp_ext = RENDER_MARKUP_EXT.get(srclang, None)
     if tmp_ext is None:
-        app_log.warn(&#39;kernel-render: &quot;%s&quot; unknown / include raw.&#39; % (srclang))
+        app_log.warning(&#39;kernel-render: &quot;%s&quot; unknown / include raw&#39;, srclang)
         return
 
     if not dot_cmd and tmp_ext == &#39;.dot&#39;:

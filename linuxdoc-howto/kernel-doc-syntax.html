@@ -47,7 +47,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="kernel-doc-syntax">
+  <section id="kernel-doc-syntax">
 <span id="id1"></span><h1>kernel-doc syntax<a class="headerlink" href="#kernel-doc-syntax" title="Permalink to this headline">¶</a></h1>
 <p>The format of a block comment is like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/**
@@ -67,7 +67,7 @@
 </ul>
 <p>The name of the function, data-type respectively DOC is used as the section
 header. The names of section headers must be unique per source file.</p>
-<div class="section" id="functions">
+<section id="functions">
 <span id="kernel-doc-syntax-functions"></span><h2>functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/**
  * function_name(:)? (- short description)?
@@ -153,8 +153,8 @@ they are marked appropriately in the output format.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-user-function"><span class="std std-ref">user_function</span></a></p>
-</div>
-<div class="section" id="structs-unions">
+</section>
+<section id="structs-unions">
 <span id="kernel-doc-syntax-structs-unions"></span><h2>structs, unions<a class="headerlink" href="#structs-unions" title="Permalink to this headline">¶</a></h2>
 <p>Beside functions you can also write documentation for <code class="docutils literal notranslate"><span class="pre">structs</span></code>,
 <code class="docutils literal notranslate"><span class="pre">unions</span></code>. Instead of the function name you must write the name of the
@@ -355,8 +355,8 @@ they are each on a line of their own, like all other kernel-doc comments:</p>
 </pre></div>
 </td></tr></table></div>
 <p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-my-long-struct"><span class="std std-ref">struct my_long_struct</span></a></p>
-</div>
-<div class="section" id="enums-typedefs">
+</section>
+<section id="enums-typedefs">
 <span id="kernel-doc-syntax-enums-typedefs"></span><h2>enums, typedefs<a class="headerlink" href="#enums-typedefs" title="Permalink to this headline">¶</a></h2>
 <p>To write documentation for enums and typedefs, you must write the name of the
 declaration; the <code class="docutils literal notranslate"><span class="pre">enum</span></code> or <code class="docutils literal notranslate"><span class="pre">typedef</span></code> must always precede the name.</p>
@@ -402,8 +402,8 @@ declaration; the <code class="docutils literal notranslate"><span class="pre">en
 </pre></div>
 </td></tr></table></div>
 <p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-my-typedef"><span class="std std-ref">typedef my_typedef</span></a></p>
-</div>
-<div class="section" id="documentation-blocks">
+</section>
+<section id="documentation-blocks">
 <span id="kernel-doc-syntax-doc"></span><h2>documentation blocks<a class="headerlink" href="#documentation-blocks" title="Permalink to this headline">¶</a></h2>
 <p>To facilitate having source code and comments close together, you can include
 kernel-doc documentation blocks that are <em>free-form</em> comments instead of being
@@ -452,8 +452,8 @@ example:</p>
 </pre></div>
 </td></tr></table></div>
 <p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-theory-of-operation"><span class="std std-ref">Theory of Operation</span></a></p>
-</div>
-<div class="section" id="highlight-pattern">
+</section>
+<section id="highlight-pattern">
 <span id="kernel-doc-highlights"></span><h2>highlight pattern<a class="headerlink" href="#highlight-pattern" title="Permalink to this headline">¶</a></h2>
 <p>All kernel-doc markup is processed as described above, all descriptive text is
 further processed, scanning for the following special patterns, which are
@@ -498,8 +498,8 @@ documentation in source code comments. You can’t use them in plain reST files
 (“.rst”). If you are editing “.rst” files (e.g. files under <code class="docutils literal notranslate"><span class="pre">Documentation</span></code>)
 please use the corresponding <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">reST</a> markups (<a class="reference external" href="http://www.sphinx-doc.org/en/stable/domains.html">sphinx domains</a>).</p>
 </div>
-</div>
-<div class="section" id="snippets">
+</section>
+<section id="snippets">
 <span id="kernel-doc-syntax-snippets"></span><h2>Snippets<a class="headerlink" href="#snippets" title="Permalink to this headline">¶</a></h2>
 <p>The kernel-doc Parser supports a comment-markup for snippets out of the source
 code. To start a region to snip insert:</p>
@@ -511,8 +511,8 @@ code. To start a region to snip insert:</p>
 </pre></div>
 </div>
 <p>Jump to <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-snippets"><span class="std std-ref">Snippets</span></a> to see an example.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>

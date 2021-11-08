@@ -61,7 +61,7 @@ linux kernel source code comments.
 
 import glob
 import logging
-from os import path, sep
+from os import path
 from io import StringIO
 
 import six
@@ -72,6 +72,7 @@ from docutils.utils import SystemMessage
 from docutils.statemachine import ViewList
 from sphinx.util.docutils import switch_source_input
 
+from fspath import OS_ENV
 from . import kernel_doc as kerneldoc
 
 # ==============================================================================
@@ -95,6 +96,7 @@ app_log = logging.getLogger(&#39;application&#39;)
     app.add_config_value(&#39;kernel_doc_exp_method&#39;, None, &#39;env&#39;)
     app.add_config_value(&#39;kernel_doc_exp_ids&#39;, None, &#39;env&#39;)
     app.add_config_value(&#39;kernel_doc_known_attrs&#39;, None, &#39;env&#39;)
+    app.add_config_value(&#39;kernel_doc_srctree&#39;, kerneldoc.SRCTREE, &#39;env&#39;)
     app.add_directive(&quot;kernel-doc&quot;, KernelDoc)
 
     return dict(
@@ -110,7 +112,7 @@ app_log = logging.getLogger(&#39;application&#39;)
     # pylint: disable=deprecated-method
 
     def __init__(self, app, *args, **kwargs):
-        super(KernelDocParser, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.app = app
 
     # -------------------------------------------------
@@ -203,9 +205,10 @@ app_log = logging.getLogger(&#39;application&#39;)
         known_attrs = self.options.get(&quot;known-attrs&quot;, self.env.config.kernel_doc_known_attrs)
 
         if self.arguments[0].startswith(&quot;/&quot;):
-            # Absolute path names are relative to kerneldoc.SRCTREE
+            # Absolute path names are relative to srctree, which is taken from
+            # environment, configuration or current directory (in this order).
             fname = self.arguments[0][1:]
-            src_tree = kerneldoc.SRCTREE
+            src_tree = OS_ENV.get(&quot;srctree&quot;, self.env.config.kernel_doc_srctree)
 
         if &quot;internal&quot; in self.options and &quot;export&quot; in self.options:
             raise FaultyOption(

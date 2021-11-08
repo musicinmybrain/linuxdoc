@@ -48,7 +48,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rest-kernel-doc-mode">
+  <section id="rest-kernel-doc-mode">
 <span id="id1"></span><h1>reST kernel-doc mode<a class="headerlink" href="#rest-kernel-doc-mode" title="Permalink to this headline">¶</a></h1>
 <p>To distinguish between the vintage markup and the new markup (with reST in), it
 is recommended to add the following comment at the top of your source code
@@ -58,7 +58,7 @@ file.:</p>
 </div>
 <p>This forces the kernel-doc parser to switch into the reST mode, no matter in
 which context the parser runs (see <a class="reference internal" href="vintage-kernel-doc-mode.html#vintage-kernel-doc-mode"><span class="std std-ref">Vintage kernel-doc mode</span></a>).</p>
-<div class="section" id="rest-section-structure">
+<section id="rest-section-structure">
 <span id="id2"></span><h2>reST section structure<a class="headerlink" href="#rest-section-structure" title="Permalink to this headline">¶</a></h2>
 <p>Since a section title in reST mode needs a line break after the colon, the colon
 handling is less ugly (<a class="reference internal" href="vintage-kernel-doc-mode.html#vintage-mode-quirks"><span class="std std-ref">vintage mode quirks</span></a>).  E.g.:</p>
@@ -257,7 +257,7 @@ a look here …</p>
 </div>
 <div class="rst-example admonition">
 <p class="admonition-title">reST markup in kernel-doc comments</p>
-<div class="section" id="rst-mode">
+<section id="rst-mode">
 <span id="id3"></span><h3>rst_mode<a class="headerlink" href="#rst-mode" title="Permalink to this headline">¶</a></h3>
 <dl class="c function">
 <dt id="c.rst_mode">
@@ -274,16 +274,16 @@ Context: <code class="xref c c-func docutils literal notranslate"><span class="p
 </dl>
 </dd></dl>
 
-<div class="section" id="description">
+<section id="description">
 <span id="rst-mode-description"></span><h4>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h4>
 <p>Long description. This function has two integer arguments. The first is
 <code class="docutils literal notranslate"><span class="pre">parameter_a</span></code> and the second is <code class="docutils literal notranslate"><span class="pre">parameter_b</span></code>.</p>
 <p>As long as the reST / sphinx-doc toolchain uses <a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/intersphinx.html">intersphinx</a> you can refer
-definitions <em>outside</em> like <a class="reference external" href="https://www.kernel.org/doc/html/latest/driver-api/media/mc-core.html#c.media_device" title="(in The Linux Kernel v5.12.0-rc4)"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">media_device</span></code></a>.  If
+definitions <em>outside</em> like <a class="reference external" href="https://www.kernel.org/doc/html/latest/driver-api/media/mc-core.html#c.media_device" title="(in The Linux Kernel v5.15.0)"><code class="xref c c-type docutils literal notranslate"><span class="pre">struct</span> <span class="pre">media_device</span></code></a>.  If
 the description of <code class="docutils literal notranslate"><span class="pre">media_device</span></code> struct is found in any of the intersphinx
 locations, a hyperref to this target is generated a build time.</p>
-</div>
-<div class="section" id="example">
+</section>
+<section id="example">
 <span id="rst-mode-example"></span><h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
@@ -291,12 +291,12 @@ locations, a hyperref to this target is generated a build time.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="return">
+</section>
+<section id="return">
 <span id="rst-mode-return"></span><h4>Return<a class="headerlink" href="#return" title="Permalink to this headline">¶</a></h4>
 <p>Sum of <code class="docutils literal notranslate"><span class="pre">parameter_a</span></code> and the second is <code class="docutils literal notranslate"><span class="pre">parameter_b</span></code>.</p>
-</div>
-<div class="section" id="highlighting">
+</section>
+<section id="highlighting">
 <span id="rst-mode-highlighting"></span><h4>highlighting<a class="headerlink" href="#highlighting" title="Permalink to this headline">¶</a></h4>
 <p>The highlight pattern, are non regular reST markups. They are only available
 within kernel-doc comments, helping C developers to write short and compact
@@ -329,8 +329,8 @@ reST, use the reST markup.</p>
 <p>Since the prefixes <code class="docutils literal notranslate"><span class="pre">$...</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;...</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;...</span></code> are used to markup the
 highlight pattern, you have to escape them in other uses: $lorem, &amp;lorem,
 %lorem and &#64;lorem. To esacpe from function highlighting, use lorem().</p>
-</div>
-<div class="section" id="parser-mode">
+</section>
+<section id="parser-mode">
 <span id="rst-mode-parser-mode"></span><h4>Parser Mode<a class="headerlink" href="#parser-mode" title="Permalink to this headline">¶</a></h4>
 <p>This is an example with activated reST additions, in this section you will
 find some common inline markups.</p>
@@ -340,8 +340,8 @@ whitespace. With this, the full reST markup is available in the comments.</p>
 <p>This is a link to the <a class="reference external" href="https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/">Linux kernel source tree</a>.</p>
 <p>This description is only to show some reST inline markups like <em>emphasise</em>
 and <strong>emphasis strong</strong>. The following is a demo of a reST list markup:</p>
-</div>
-<div class="section" id="definition-list">
+</section>
+<section id="definition-list">
 <span id="rst-mode-definition-list"></span><h4>Definition list<a class="headerlink" href="#definition-list" title="Permalink to this headline">¶</a></h4>
 <dl class="field-list simple">
 <dt class="field-odd">def1</dt>
@@ -351,8 +351,8 @@ and <strong>emphasis strong</strong>. The following is a demo of a reST list mar
 <dd class="field-even"><p>ipsum</p>
 </dd>
 </dl>
-</div>
-<div class="section" id="ordered-list">
+</section>
+<section id="ordered-list">
 <span id="rst-mode-ordered-list"></span><h4>Ordered List<a class="headerlink" href="#ordered-list" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>item one</p></li>
@@ -360,8 +360,8 @@ and <strong>emphasis strong</strong>. The following is a demo of a reST list mar
 <li><p>item three with
 a linebreak</p></li>
 </ul>
-</div>
-<div class="section" id="literal-blocks">
+</section>
+<section id="literal-blocks">
 <span id="rst-mode-literal-blocks"></span><h4>Literal blocks<a class="headerlink" href="#literal-blocks" title="Permalink to this headline">¶</a></h4>
 <p>The next example shows a literal block:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+------+          +------+
@@ -374,8 +374,8 @@ a linebreak</p></li>
    foo()         bar()
 </pre></div>
 </div>
-</div>
-<div class="section" id="highlighted-code-blocks">
+</section>
+<section id="highlighted-code-blocks">
 <span id="rst-mode-highlighted-code-blocks"></span><h4>Highlighted code blocks<a class="headerlink" href="#highlighted-code-blocks" title="Permalink to this headline">¶</a></h4>
 <p>The next example shows a code block, with highlighting C syntax in the
 output.</p>
@@ -387,26 +387,26 @@ output.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rest-sectioning">
+</section>
+<section id="rest-sectioning">
 <span id="rst-mode-rest-sectioning"></span><h4>reST sectioning<a class="headerlink" href="#rest-sectioning" title="Permalink to this headline">¶</a></h4>
 <p>colon markup: sectioning by colon markup in reST mode is less ugly. ;-)</p>
 <p>A kernel-doc section like <em>this</em> section is translated into a reST
 <em>subsection</em>. This means, you can only use the following <em>sub-levels</em> within a
 kernel-doc section.</p>
-<div class="section" id="a-subsubsection">
+<section id="a-subsubsection">
 <h5>a subsubsection<a class="headerlink" href="#a-subsubsection" title="Permalink to this headline">¶</a></h5>
 <p>lorem ipsum</p>
-<div class="section" id="a-paragraph">
+<section id="a-paragraph">
 <h6>a paragraph<a class="headerlink" href="#a-paragraph" title="Permalink to this headline">¶</a></h6>
 <p>lorem ipsum</p>
+</section>
+</section>
+</section>
+</section>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>

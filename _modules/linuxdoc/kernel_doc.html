@@ -822,7 +822,7 @@ LOG = SimpleLog()
 
     def __init__(self, list_exported, list_internal_types
                  , *args, **kwargs):
-        super(ListTranslator, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         self.list_exported       = list_exported
         self.list_internal_types = list_internal_types
@@ -1445,7 +1445,7 @@ LOG = SimpleLog()
         self.SNIP = None
 
         # init options with arguments from caller
-        super(ParseOptions, self).__init__(self, *args, **kwargs)
+        super().__init__(self, *args, **kwargs)
 
         # absolute and relativ filename
 
@@ -1605,7 +1605,7 @@ LOG = SimpleLog()
         self.sections.offsets = dict()
         self.parameterdescs.offsets = dict()
 
-        super(ParserContext, self).__init__(self, *args, **kwargs)
+        super().__init__(self, *args, **kwargs)
 
 <div class="viewcode-block" id="ParserContext.new"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ParserContext.new">[docs]</a>    def new(self):
         return self.__class__(
@@ -1634,7 +1634,7 @@ LOG = SimpleLog()
         message = (&quot;last parse position %s:%s\n&quot;
                    % (parserObj.ctx.line_no, parserObj.options.fname)
                    + message)
-        super(ParserBuggy, self).__init__(message)
+        super().__init__(message)
         self.parserObj = parserObj</div>
 
 # ------------------------------------------------------------------------------
@@ -1689,7 +1689,7 @@ LOG = SimpleLog()
                           , section_return ]
 
     def __init__(self, options, translator):
-        super(Parser, self).__init__()
+        super().__init__()
 
         # raw data akku
         self.rawdata    = &quot;&quot;
@@ -1737,23 +1737,23 @@ LOG = SimpleLog()
         replace[&quot;fname&quot;]   = self.options.fname
         replace[&quot;line_no&quot;] = replace.get(&quot;line_no&quot;, self.ctx.line_no)
         self.errors += 1
-        super(Parser, self).error(message, **replace)</div>
+        super().error(message, **replace)</div>
 
 <div class="viewcode-block" id="Parser.warn"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.warn">[docs]</a>    def warn(self, message, _line_no=None, **replace):
         replace[&quot;fname&quot;]   = self.options.fname
         replace[&quot;line_no&quot;] = replace.get(&quot;line_no&quot;, self.ctx.line_no)
         self.warnings += 1
-        super(Parser, self).warn(message, **replace)</div>
+        super().warn(message, **replace)</div>
 
 <div class="viewcode-block" id="Parser.info"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.info">[docs]</a>    def info(self, message, _line_no=None, **replace):
         replace[&quot;fname&quot;]   = self.options.fname
         replace[&quot;line_no&quot;] = replace.get(&quot;line_no&quot;, self.ctx.line_no)
-        super(Parser, self).info(message, **replace)</div>
+        super().info(message, **replace)</div>
 
 <div class="viewcode-block" id="Parser.debug"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.debug">[docs]</a>    def debug(self, message, _line_no=None, **replace):
         replace[&quot;fname&quot;]   = self.options.fname
         replace[&quot;line_no&quot;] = replace.get(&quot;line_no&quot;, self.ctx.line_no)
-        super(Parser, self).debug(message, **replace)</div>
+        super().debug(message, **replace)</div>
 
     # ------------------------------------------------------------
     # state parser
@@ -3113,66 +3113,11 @@ LOG = SimpleLog()
                        , func = decl_name)</div></div>
 
 # ==============================================================================
-# 2cent debugging &amp; introspection
-# ==============================================================================
-
-<div class="viewcode-block" id="CONSOLE"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.CONSOLE">[docs]</a>def CONSOLE(arround=5, frame=None):
-    # pylint: disable=import-outside-toplevel
-
-    import inspect
-    import code
-    import linecache
-
-    sys.stderr.flush()
-    sys.stdout.flush()
-
-    frame  = frame or inspect.currentframe().f_back
-    fName  = frame.f_code.co_filename
-    lineNo = frame.f_lineno
-
-    ns = dict(**frame.f_globals)
-    ns.update(**frame.f_locals)
-
-    histfile = os.path.join(os.path.expanduser(&quot;~&quot;), &quot;.kernel-doc-history&quot;)
-    try:
-        import readline
-        import rlcompleter
-        readline.set_completer(rlcompleter.Completer(namespace=ns).complete)
-        readline.parse_and_bind(&quot;tab: complete&quot;)
-        readline.set_history_length(1000)
-        if os.path.exists(histfile):
-            readline.read_history_file(histfile)
-    except ImportError:
-        readline = None
-    lines  = []
-    for c in range(lineNo - arround, lineNo + arround):
-        if c &gt; 0:
-            prefix = &quot;%-04s|&quot; % c
-            if c == lineNo:
-                prefix = &quot;----&gt;&quot;
-            line = linecache.getline(fName, c, frame.f_globals)
-            if line != &#39;&#39;:
-                lines.append(prefix + line)
-            else:
-                if lines:
-                    lines[-1] = lines[-1] + &quot;&lt;EOF&gt;\n&quot;
-                break
-    banner =  &quot;&quot;.join(lines) + &quot;file: %s:%s\n&quot; % (fName, lineNo)
-    try:
-        code.interact(banner=banner, local=ns)
-    finally:
-        if readline is not None:
-            readline.write_history_file(histfile)</div>
-
-# ==============================================================================
 # run ...
 # ==============================================================================
 
 if __name__ == &quot;__main__&quot;:
     sys.exit(main())
-else:
-    # FIXME: just for testing
-    __builtins__[&quot;CONSOLE&quot;] = CONSOLE
 </pre></div>
 
             <div class="clearer"></div>

@@ -187,9 +187,8 @@ __version__  = &#39;1.0&#39;
             if &#39;number-lines&#39; in self.options:
                 try:
                     startline = int(self.options[&#39;number-lines&#39;] or 1)
-                except ValueError:
-                    raise self.error(&#39;:number-lines: with non-integer &#39;
-                                     &#39;start value&#39;)
+                except ValueError as exc:
+                    raise self.error(&#39;:number-lines: with non-integer start value&#39;) from exc
                 endline = startline + len(include_lines)
                 if text.endswith(&#39;\n&#39;):
                     text = text[:-1]
