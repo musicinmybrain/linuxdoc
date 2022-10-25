@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>linuxdoc.rstFlatTable &#8212; LinuxDoc 20211220 documentation</title>
+    <title>linuxdoc.rstFlatTable &#8212; LinuxDoc 20221025 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/tabs.css" />
@@ -29,7 +29,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20211220 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">LinuxDoc 20221025 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">linuxdoc.rstFlatTable</a></li> 
       </ul>
@@ -63,7 +63,7 @@ Implementation of the ``flat-table`` reST-directive.  User documentation see
 
 from docutils import nodes
 from docutils.parsers.rst import directives, roles
-from docutils.parsers.rst.directives.tables import Table
+from docutils.parsers.rst.directives.tables import Table, align
 from docutils.utils import SystemMessagePropagation
 
 # ==============================================================================
@@ -130,8 +130,11 @@ __version__  = &#39;3.0&#39;
         , &#39;class&#39;: directives.class_option
         , &#39;header-rows&#39;: directives.nonnegative_int
         , &#39;stub-columns&#39;: directives.nonnegative_int
-        , &#39;widths&#39;: directives.positive_int_list
-        , &#39;fill-cells&#39; : directives.flag }
+        , &#39;width&#39;: directives.length_or_percentage_or_unitless
+        , &#39;widths&#39;: directives.value_or((&#39;auto&#39;, &#39;grid&#39;), directives.positive_int_list)
+        , &#39;fill-cells&#39;: directives.flag
+        , &#39;align&#39;: align
+    }
 
 <div class="viewcode-block" id="FlatTable.run"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstFlatTable.html#linuxdoc.rstFlatTable.FlatTable.run">[docs]</a>    def run(self):
 
@@ -151,6 +154,9 @@ __version__  = &#39;3.0&#39;
         tableNode = tableBuilder.buildTableNode()
         self.add_name(tableNode)
         tableNode[&#39;classes&#39;] += self.options.get(&#39;class&#39;, [])
+        self.set_table_width(tableNode)
+        if &#39;align&#39; in self.options:
+            tableNode[&#39;align&#39;] = self.options.get(&#39;align&#39;)
 
         # debug --&gt; tableNode.asdom().toprettyxml()
         if title:
@@ -172,18 +178,16 @@ __version__  = &#39;3.0&#39;
 <div class="viewcode-block" id="ListTableBuilder.buildTableNode"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstFlatTable.html#linuxdoc.rstFlatTable.ListTableBuilder.buildTableNode">[docs]</a>    def buildTableNode(self):
 
         colwidths    = self.directive.get_column_widths(self.max_cols)
-        if isinstance(colwidths, tuple):
-            # Since docutils 0.13, get_column_widths returns a (widths,
-            # colwidths) tuple, where widths is a string (i.e. &#39;auto&#39;).
-            # See https://sourceforge.net/p/docutils/patches/120/.
-            colwidths = colwidths[1]
         stub_columns = self.directive.options.get(&#39;stub-columns&#39;, 0)
         header_rows  = self.directive.options.get(&#39;header-rows&#39;, 0)
 
         table = nodes.table()
+        if self.directive.widths == &#39;auto&#39;:
+            table[&#39;classes&#39;] += [&#39;colwidths-auto&#39;]
+        elif self.directive.widths:  # explicitly set column widths
+            table[&#39;classes&#39;] += [&#39;colwidths-given&#39;]
         tgroup = nodes.tgroup(cols=len(colwidths))
         table += tgroup
-
 
         for colwidth in colwidths:
             colspec = nodes.colspec(colwidth=colwidth)
