@@ -139,6 +139,41 @@ linux kernel source code comments.</p>
 
 </dd></dl>
 
+<dl class="py data">
+<dt class="sig sig-object py" id="linuxdoc.rstKernelDoc.PARSER_CACHE">
+<span class="sig-prename descclassname"><span class="pre">linuxdoc.rstKernelDoc.</span></span><span class="sig-name descname"><span class="pre">PARSER_CACHE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;linuxdoc.rstKernelDoc.ParserCache</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#linuxdoc.rstKernelDoc.PARSER_CACHE" title="Permalink to this definition">¶</a></dt>
+<dd><p>ToDo: this type of cache (in process) does not (fully) support sphinx’s
+paralell build (job option -j N) where builds are spanned over processes.
+Sphinx-build creates a new job (process) not for each kernel-doc directive but
+for each rest-file (that contains at least one kernel-doc directive).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="linuxdoc.rstKernelDoc.ParserCache">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linuxdoc.rstKernelDoc.</span></span><span class="sig-name descname"><span class="pre">ParserCache</span></span><a class="reference internal" href="../_modules/linuxdoc/rstKernelDoc.html#ParserCache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linuxdoc.rstKernelDoc.ParserCache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A simple (in process) cache for <a class="reference internal" href="#linuxdoc.rstKernelDoc.KernelDocParser" title="linuxdoc.rstKernelDoc.KernelDocParser"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KernelDocParser</span></code></a> objects (read
+<a class="reference internal" href="#linuxdoc.rstKernelDoc.PARSER_CACHE" title="linuxdoc.rstKernelDoc.PARSER_CACHE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PARSER_CACHE</span></code></a>)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="linuxdoc.rstKernelDoc.ParserCache.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/rstKernelDoc.html#ParserCache.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linuxdoc.rstKernelDoc.ParserCache.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="linuxdoc.rstKernelDoc.ParserCache.get_id">
+<span class="sig-name descname"><span class="pre">get_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/rstKernelDoc.html#ParserCache.get_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linuxdoc.rstKernelDoc.ParserCache.get_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a cache ID from the options of the kernel-doc directive.  Some of
+the options control the parsing rules and thus in the end the parsing
+result.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="linuxdoc.rstKernelDoc.ParserCache.set">
+<span class="sig-name descname"><span class="pre">set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">opts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parser</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/rstKernelDoc.html#ParserCache.set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linuxdoc.rstKernelDoc.ParserCache.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="linuxdoc.rstKernelDoc.WriterList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">linuxdoc.rstKernelDoc.</span></span><span class="sig-name descname"><span class="pre">WriterList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/linuxdoc/rstKernelDoc.html#WriterList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#linuxdoc.rstKernelDoc.WriterList" title="Permalink to this definition">¶</a></dt>
@@ -225,6 +260,13 @@ linux kernel source code comments.</p>
 <li><a class="reference internal" href="#linuxdoc.rstKernelDoc.KernelDocParser.error"><code class="docutils literal notranslate"><span class="pre">KernelDocParser.error()</span></code></a></li>
 <li><a class="reference internal" href="#linuxdoc.rstKernelDoc.KernelDocParser.info"><code class="docutils literal notranslate"><span class="pre">KernelDocParser.info()</span></code></a></li>
 <li><a class="reference internal" href="#linuxdoc.rstKernelDoc.KernelDocParser.warn"><code class="docutils literal notranslate"><span class="pre">KernelDocParser.warn()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linuxdoc.rstKernelDoc.PARSER_CACHE"><code class="docutils literal notranslate"><span class="pre">PARSER_CACHE</span></code></a></li>
+<li><a class="reference internal" href="#linuxdoc.rstKernelDoc.ParserCache"><code class="docutils literal notranslate"><span class="pre">ParserCache</span></code></a><ul>
+<li><a class="reference internal" href="#linuxdoc.rstKernelDoc.ParserCache.get"><code class="docutils literal notranslate"><span class="pre">ParserCache.get()</span></code></a></li>
+<li><a class="reference internal" href="#linuxdoc.rstKernelDoc.ParserCache.get_id"><code class="docutils literal notranslate"><span class="pre">ParserCache.get_id()</span></code></a></li>
+<li><a class="reference internal" href="#linuxdoc.rstKernelDoc.ParserCache.set"><code class="docutils literal notranslate"><span class="pre">ParserCache.set()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#linuxdoc.rstKernelDoc.WriterList"><code class="docutils literal notranslate"><span class="pre">WriterList</span></code></a><ul>

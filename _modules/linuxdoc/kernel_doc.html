@@ -161,7 +161,7 @@ doc_com_section  = RE(r&quot;\s*\*\s{1,8}&quot;) # more than 8 spaces (one tab) 
 doc_com_body     = RE(r&quot;\s*\* ?&quot;)
 doc_decl         = RE(doc_com.pattern + r&quot;(\w+)&quot;)
 #doc_decl_ident   = RE(r&quot;\s*([\w\s]+?)\s*[\(\)]\s*[-:]&quot;)
-doc_decl_ident   = RE(doc_com.pattern + r&quot;(struct|union|enum|typedef|function)\b\s*(\w+)(\(\))?&quot;)
+doc_decl_ident   = RE(doc_com.pattern + r&quot;(struct|union|enum|typedef|function|macro)\b\s*(\w+)(\(\))?&quot;)
 doc_decl_purpose = RE(r&quot;[-:](.*)$&quot;)
 
 # except pattern like &quot;http://&quot;, a whitespace is required after the colon
@@ -388,7 +388,10 @@ GIT_REF        = (&quot;Linux kernel source tree:&quot;
                   &quot; `%(rel_fname)s &lt;https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/&quot;
                   &quot;%(rel_fname)s&gt;`__&quot;)
 DEFAULT_EXP_METHOD = &quot;macro&quot;
+&quot;&quot;&quot;Default value of ``:exp-method:``&quot;&quot;&quot;
+
 DEFAULT_EXP_IDS    = [&#39;EXPORT_SYMBOL&#39;, &#39;EXPORT_SYMBOL_GPL&#39;, &#39;EXPORT_SYMBOL_GPL_FUTURE&#39;]
+&quot;&quot;&quot;Default value of ``:exp-ids:``&quot;&quot;&quot;
 
 # ==============================================================================
 # Logging stuff
@@ -545,7 +548,7 @@ LOG = SimpleLog()
 
     CLI.add_argument(
         &quot;--known-attrs&quot;
-        , default = &quot;&quot;
+        , default = []
         , nargs   = &quot;+&quot;
         , help    = (&quot;provides a list of known attributes that has to be&quot;
                      &quot; hidden when displaying function prototypes&quot;))
@@ -742,6 +745,7 @@ LOG = SimpleLog()
             , parametertypes   = None # ctx.parametertypes
             , sections         = None # ctx.sections
             , purpose          = None # ctx.decl_purpose
+            , decl_type        = None # ctx.decl_type
             , ):
         raise NotImplementedError</div>
 
@@ -854,7 +858,12 @@ LOG = SimpleLog()
             self.names[&quot;DOC&quot;].append(header)</div>
 
 <div class="viewcode-block" id="ListTranslator.output_function_decl"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ListTranslator.output_function_decl">[docs]</a>    def output_function_decl(self, **kwargs):
-        self.names[&quot;function&quot;].append(kwargs[&quot;function&quot;])</div>
+        if kwargs[&#39;decl_type&#39;] == &#39;macro&#39;:
+            self.names[&quot;macro&quot;].append(kwargs[&quot;function&quot;])
+        elif kwargs[&#39;decl_type&#39;] == &#39;typedef&#39;:
+            self.names[&quot;typedef&quot;].append(kwargs[&quot;function&quot;])
+        else:
+            self.names[&quot;function&quot;].append(kwargs[&quot;function&quot;])</div>
 
 <div class="viewcode-block" id="ListTranslator.output_struct_decl"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.ListTranslator.output_struct_decl">[docs]</a>    def output_struct_decl(self, **kwargs):
         self.names[&quot;struct&quot;].append(kwargs[&quot;decl_name&quot;])</div>
@@ -1068,17 +1077,26 @@ LOG = SimpleLog()
             , parametertypes   = None # ctx.parametertypes
             , sections         = None # ctx.sections
             , purpose          = None # ctx.decl_purpose
-            , ):
+            , decl_type        = None # ctx.decl_type
+        ):
         self.parser.ctx.offset = self.parser.ctx.decl_offset
+
+        _c_type = decl_type
+        if _c_type == &#39;typedef&#39;:
+            # a function typedef is rendered as function
+            _c_type = &#39;function&#39;
+
         self.write_anchor(function)
-        self.write_header(function, sec_level=2)
+
+        _header_prefix = &#39;&#39;
+        if decl_type in (&#39;macro&#39;, &#39;typedef&#39;):
+            _header_prefix = &#39;%s &#39; % decl_type
+        self.write_header(_header_prefix + function, sec_level=2)
 
         if self.options.man_sect:
             self.write(&quot;\n.. kernel-doc-man:: %s.%s\n&quot; % (function, self.options.man_sect) )
 
-        # write function definition
-
-        self.write(&quot;\n.. c:function:: &quot;)
+        self.write(&quot;\n.. c:%s:: &quot; % _c_type)
         if return_type and re.search(r&quot;\s\*+$&quot;, return_type):
             self.write(return_type, function, &quot;(&quot;)
         else:
@@ -1132,8 +1150,9 @@ LOG = SimpleLog()
             elif p_name == &quot;...&quot;:
                 param = &quot;:param ellipsis ellipsis:&quot;
             else:
-                param = &quot;:param %s:&quot; % (p_name)
-                param_type = &quot;:type %s: %s&quot; % (p_name, p_type)
+                param = &quot;:param %s:&quot; % (p_name.replace(&#39;_&#39;, r&#39;\_&#39;))
+                if p_type:
+                    param_type = &quot;:type %s: %s&quot; % (p_name.replace(&#39;_&#39;, r&#39;\_&#39;), p_type.replace(&#39;_&#39;, r&#39;\_&#39;))
 
             self.parser.ctx.offset = parameterdescs.offsets.get(
                 p_name, self.parser.ctx.offset)
@@ -1575,7 +1594,7 @@ LOG = SimpleLog()
         self.constants         = dict()
 
         self.decl_name         = &quot;&quot;
-        self.decl_type         = &quot;&quot;  # [struct|union|enum|typedef|function]
+        self.decl_type         = &quot;&quot;  # [struct|union|enum|typedef|function|macro]
         self.decl_purpose      = &quot;&quot;
         self.definition        = &quot;&quot;  # defintion of the struct|union|enum
         self.return_type       = &quot;&quot;  # function&#39;s return type definition)
@@ -1668,7 +1687,7 @@ LOG = SimpleLog()
     LOG_FORMAT = &quot;%(fname)s:%(line_no)s: :%(logclass)s: %(message)s\n&quot;
 
     # DOC_TYPES: types of documentation gathered by the parser
-    DOC_TYPES      = [&quot;DOC&quot;, &quot;function&quot;, &quot;struct&quot;, &quot;union&quot;, &quot;enum&quot;, &quot;typedef&quot;]
+    DOC_TYPES      = [&quot;DOC&quot;, &quot;function&quot;, &quot;struct&quot;, &quot;union&quot;, &quot;enum&quot;, &quot;typedef&quot;, &quot;macro&quot;]
 
     undescribed      = &quot;*undescribed*&quot;
 
@@ -2192,11 +2211,11 @@ LOG = SimpleLog()
             self.debug(&quot;FLAG: split_doc_state=1 / switch state 3 --&gt; 5&quot;)
             self.state = 5
             self.split_doc_state = 1
-            if self.ctx.decl_type == &#39;function&#39;:
+            if self.ctx.decl_type in (&#39;function&#39;, &#39;macro&#39;):
                 self.error(&quot;odd construct, gathering documentation of a function&quot;
                            &quot; outside of the main block?!?&quot;)
 
-        elif self.ctx.decl_type == &#39;function&#39;:
+        elif self.ctx.decl_type in (&#39;function&#39;, &#39;macro&#39;):
             self.process_state3_function(line)
         else:
             self.process_state3_type(line)</div>
@@ -2280,14 +2299,14 @@ LOG = SimpleLog()
         line = C99_comments.sub(&quot;&quot;, line) # strip C99-style comments to end of line
         line = line.strip()
 
+        if MACRO_define.search(line) and self.ctx.decl_type != &#39;macro&#39;:
+            # fix declaration type to &#39;macro&#39; whenever decalartion type &#39;macro&#39;
+            # is missed in the DOC string.
+            self.ctx.decl_type = &#39;macro&#39;
+
         stripProto = RE(r&quot;([^\{]*)&quot;)
 
-        # ?!?!? MACDOC does not exists (any more)?
-        # if ($x =~ m#\s*/\*\s+MACDOC\s*#io || ($x =~ /^#/ &amp;&amp; $x !~ /^#\s*define/)) {
-        #   do nothing
-        # }
-
-        if line.startswith(&quot;#&quot;) and not MACRO_define.search(line):
+        if line.startswith(&quot;#&quot;) and self.ctx.decl_type != &quot;macro&quot;:
             # do nothing
             pass
         elif stripProto.match(line):
@@ -2517,7 +2536,7 @@ LOG = SimpleLog()
         proto = re.sub( r&quot;__weak +&quot;          , &quot;&quot;, proto )
 
         # Remove known attributes from function prototype
-        known_attrs = self.options.known_attrs
+        known_attrs = self.options.known_attrs.copy()
         if self.options.exp_method == &#39;attribute&#39;:
             known_attrs.extend(self.options.exp_ids)
         for attr in known_attrs:
@@ -2608,7 +2627,9 @@ LOG = SimpleLog()
             , parameterdescs   = self.ctx.parameterdescs
             , parametertypes   = self.ctx.parametertypes
             , sections         = self.ctx.sections
-            , purpose          = self.ctx.decl_purpose )</div>
+            , purpose          = self.ctx.decl_purpose
+            , decl_type        = self.ctx.decl_type
+        )</div>
 
 <div class="viewcode-block" id="Parser.dump_DOC"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.Parser.dump_DOC">[docs]</a>    def dump_DOC(self, name, cont):
         self.dump_section(name, cont)
@@ -2856,7 +2877,9 @@ LOG = SimpleLog()
                 , parameterdescs   = self.ctx.parameterdescs
                 , parametertypes   = self.ctx.parametertypes
                 , sections         = self.ctx.sections
-                , purpose          = self.ctx.decl_purpose )
+                , purpose          = self.ctx.decl_purpose
+                , decl_type        = self.ctx.decl_type
+            )
 
         else:
             self.debug(&quot;dump_typedef(): &#39;%(proto)s&#39;&quot;, proto=proto)
@@ -3080,7 +3103,7 @@ LOG = SimpleLog()
                     err = False
                     break
             if err:
-                if decl_type == &quot;function&quot;:
+                if decl_type in (&#39;function&#39;, &#39;macro&#39;):
                     self.warn(
                         &quot;excess function parameter &#39;%(sect)s&#39; description in &#39;%(decl_name)s&#39;&quot;
                         , sect = sect, decl_name = decl_name

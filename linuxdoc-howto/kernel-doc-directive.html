@@ -114,22 +114,22 @@ reST heading markup in the comment.</p>
 </dd>
 </dl>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">:export:</span> <span class="pre">[&lt;src-fname-pattern&gt;</span> <span class="pre">[,</span> <span class="pre">...]]</span></code> (<a class="reference internal" href="kernel-doc-tests.html#exported-symbols"><span class="std std-ref">exported symbols</span></a>)</dt><dd><p>Include documentation for all function, struct or whatever definition in
-<code class="docutils literal notranslate"><span class="pre">&lt;src-filename&gt;</span></code>, exported using EXPORT_SYMBOL macro (<code class="docutils literal notranslate"><span class="pre">EXPORT_SYMBOL</span></code>,
-<code class="docutils literal notranslate"><span class="pre">EXPORT_SYMBOL_GPL</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">EXPORT_SYMBOL_GPL_FUTURE</span></code>) either in
-<code class="docutils literal notranslate"><span class="pre">&lt;src-filename&gt;</span></code> or in any of the files specified by
-<code class="docutils literal notranslate"><span class="pre">&lt;src-fname-pattern&gt;</span></code>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">:export:</span> <span class="pre">[&lt;src-fname-pattern&gt;</span> <span class="pre">[,</span> <span class="pre">...]]</span></code> (<a class="reference internal" href="kernel-doc-tests.html#opt-export"><span class="std std-ref">option :export:</span></a>)</dt><dd><p>Include documentation of all function, struct or whatever definitions in
+<code class="docutils literal notranslate"><span class="pre">&lt;src-filename&gt;</span></code> and exported using one of the <a class="reference internal" href="#exp-ids-option"><span class="std std-ref">export symbols</span></a> (<a class="reference internal" href="#exp-method-option"><span class="std std-ref">macro</span></a>) either in <code class="docutils literal notranslate"><span class="pre">&lt;src-filename&gt;</span></code> or in
+any of the files specified by <code class="docutils literal notranslate"><span class="pre">&lt;src-fname-pattern&gt;</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;src-fname-pattern&gt;</span></code> (glob) is useful when the kernel-doc comments
-have been placed in header files, while EXPORT_SYMBOL are next to the
+have been placed in header files, while <em>EXPORT_SYMBOL</em> are next to the
 function definitions.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">:internal:</span> <span class="pre">[&lt;src-fname-pattern&gt;</span> <span class="pre">[,</span> <span class="pre">...]]</span></code> (<a class="reference internal" href="kernel-doc-tests.html#opt-internal"><span class="std std-ref">option :internal:</span></a>)</dt><dd><p>Include documentation for all documented definitions, <strong>not</strong> exported using
-EXPORT_SYMBOL macro either in <code class="docutils literal notranslate"><span class="pre">&lt;src-filename&gt;</span></code> or in any of the files
-specified by <code class="docutils literal notranslate"><span class="pre">&lt;src-fname-pattern&gt;</span></code>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">:internal:</span> <span class="pre">[&lt;src-fname-pattern&gt;</span> <span class="pre">[,</span> <span class="pre">...]]</span></code> (<a class="reference internal" href="kernel-doc-tests.html#opt-internal"><span class="std std-ref">option :internal:</span></a>)</dt><dd><p>Include documentation of all documented definitions, <strong>not</strong> exported by one
+of the <a class="reference internal" href="#exp-ids-option"><span class="std std-ref">export symbols</span></a> (<a class="reference internal" href="#exp-method-option"><span class="std std-ref">macro</span></a>) either in <code class="docutils literal notranslate"><span class="pre">&lt;src-filename&gt;</span></code> or in any of the files specified by
+<code class="docutils literal notranslate"><span class="pre">&lt;src-fname-pattern&gt;</span></code>.</p>
 </dd>
+</dl>
+<dl id="exp-method-option">
 <dt><code class="docutils literal notranslate"><span class="pre">:exp-method:</span> <span class="pre">&lt;method&gt;</span></code></dt><dd><p>Change the way exported symbols are specified in source code.  Default value
 <code class="docutils literal notranslate"><span class="pre">macro</span></code> if not provided, can be set globally by
-<a class="reference internal" href="#kernel-doc-config"><span class="std std-ref">kernel_doc_exp_method</span></a> in the sphinx <a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">conf.py</a>.</p>
+<a class="reference internal" href="#kernel-doc-exp-method"><span class="std std-ref">kernel_doc_exp_method</span></a> in the sphinx <a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">conf.py</a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&lt;method&gt;</span></code> must one of
 the following value:</p>
 <dl class="simple">
@@ -144,9 +144,11 @@ definition: <code class="docutils literal notranslate"><span class="pre">THIS_IS
 </dd>
 </dl>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">:exp-ids:</span> <span class="pre">&lt;identifier</span> <span class="pre">[,</span> <span class="pre">identifiers</span> <span class="pre">[,</span> <span class="pre">...]]&gt;</span></code></dt><dd><p>Use the specified list of identifiers instead of default value:
-EXPORT_SYMBOL, EXPORT_SYMBOL_GPL, EXPORT_SYMBOL_GPL_FUTURE.  Default value
-can be overriden globally by sphinx <a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">conf.py</a> option <a class="reference internal" href="#kernel-doc-config"><span class="std std-ref">kernel_doc_exp_ids</span></a>.</p>
+</dl>
+<dl id="exp-ids-option">
+<dt><code class="docutils literal notranslate"><span class="pre">:exp-ids:</span> <span class="pre">&lt;identifier</span> <span class="pre">[,</span> <span class="pre">identifiers</span> <span class="pre">[,</span> <span class="pre">...]]&gt;</span></code></dt><dd><p>Use the specified list of identifiers instead of default value: <code class="docutils literal notranslate"><span class="pre">EXPORT_SYMBOL</span></code>,
+<code class="docutils literal notranslate"><span class="pre">EXPORT_SYMBOL_GPL</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">EXPORT_SYMBOL_GPL_FUTURE</span></code>.  Default value
+can be overriden globally by sphinx <a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">conf.py</a> option <a class="reference internal" href="#kernel-doc-exp-ids"><span class="std std-ref">kernel_doc_exp_ids</span></a>.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">:known-attrs:</span> <span class="pre">&lt;attr</span> <span class="pre">[,</span> <span class="pre">attrs</span> <span class="pre">[,</span> <span class="pre">...]]&gt;</span></code></dt><dd><p>Specified a list of function attributes that are known and must be hidden
 when displaying function prototype.</p>
@@ -446,12 +448,14 @@ instead. This is mostly for legacy comments.</p>
 <span id="id2"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink">kernel-doc config</a><a class="headerlink" href="#kernel-doc-config" title="Permalink to this heading">¶</a></h2>
 <p>Within the <a class="reference external" href="http://www.sphinx-doc.org/en/stable/config.html">sphinx config</a> file (<code class="docutils literal notranslate"><span class="pre">conf.py</span></code> or <code class="docutils literal notranslate"><span class="pre">my_project.conf</span></code>) you can
 set the following option.</p>
-<dl>
-<dt>kernel_doc_exp_method: <code class="docutils literal notranslate"><span class="pre">macro</span></code></dt><dd><p>Set parser’s default value for kernel-doc directive option  <code class="docutils literal notranslate"><span class="pre">:exp-method:</span></code>
-(details see: <a class="reference internal" href="#kernel-doc-options"><span class="std std-ref">kernel-doc options</span></a>)</p>
+<dl class="simple" id="kernel-doc-exp-method">
+<dt>kernel_doc_exp_method: <a class="reference internal" href="../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.DEFAULT_EXP_METHOD" title="linuxdoc.kernel_doc.DEFAULT_EXP_METHOD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linuxdoc.kernel_doc.DEFAULT_EXP_METHOD</span></code></a></dt><dd><p>Set parser’s default value for kernel-doc directive option  <code class="docutils literal notranslate"><span class="pre">:exp-method:</span></code>
+(details see: <a class="reference internal" href="#exp-method-option"><span class="std std-ref">exp-method</span></a>)</p>
 </dd>
-<dt>kernel_doc_exp_ids: <code class="docutils literal notranslate"><span class="pre">['EXPORT_SYMBOL',</span> <span class="pre">'EXPORT_SYMBOL_GPL',</span> <span class="pre">'EXPORT_SYMBOL_GPL_FUTURE']</span></code></dt><dd><p>Set parser’s default value for kernel-doc directive option <code class="docutils literal notranslate"><span class="pre">:exp-ids:</span></code>.
-(details see: <a class="reference internal" href="#kernel-doc-options"><span class="std std-ref">kernel-doc options</span></a>)</p>
+</dl>
+<dl id="kernel-doc-exp-ids">
+<dt>kernel_doc_exp_ids: <a class="reference internal" href="../linuxdoc-api/linuxdoc.kernel_doc.html#linuxdoc.kernel_doc.DEFAULT_EXP_IDS" title="linuxdoc.kernel_doc.DEFAULT_EXP_IDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">linuxdoc.kernel_doc.DEFAULT_EXP_IDS</span></code></a></dt><dd><p>Set parser’s default value for kernel-doc directive option <code class="docutils literal notranslate"><span class="pre">:exp-ids:</span></code>.
+(details see: <a class="reference internal" href="#exp-ids-option"><span class="std std-ref">exp-ids</span></a>)</p>
 </dd>
 <dt>kernel_doc_known_attrs: <code class="docutils literal notranslate"><span class="pre">[...]</span></code></dt><dd><p>Set parser’s default value for kernel-doc directive option  <code class="docutils literal notranslate"><span class="pre">:known-attrs:</span></code>
 (details see: <a class="reference internal" href="#kernel-doc-options"><span class="std std-ref">kernel-doc options</span></a>)</p>
@@ -488,7 +492,7 @@ is inserted (again; only when <code class="docutils literal notranslate"><span c
 <p class="admonition-title">Todo</p>
 <p>Oops: Document generation inconsistency.</p>
 <p>The template for this document tried to insert structured comment at this point, but an error occoured. This dummy section is inserted to allow generation to continue.:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/800GBPCIex4/share/linuxdoc/docs/linuxdoc-howto/kernel-doc-directive.rst:433: (ERROR/3) selected section(s) not found:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/share/linuxdoc/docs/linuxdoc-howto/kernel-doc-directive.rst:441: (ERROR/3) selected section(s) not found:
     no_longer_exist
 
 .. kernel-doc::  ./all-in-a-tumble.h

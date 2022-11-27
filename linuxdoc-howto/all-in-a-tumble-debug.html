@@ -619,13 +619,13 @@ see <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-opt
 <span class="linenos">548</span>
 <span class="linenos">549</span>    short description of this function
 <span class="linenos">550</span>
-<span class="linenos">551</span>    <span class="nc">:param parameter_a:</span>
+<span class="linenos">551</span>    <span class="nc">:param parameter\_a:</span>
 <span class="linenos">552</span>        first argument
-<span class="linenos">553</span>    <span class="nc">:type parameter_a:</span> int
+<span class="linenos">553</span>    <span class="nc">:type parameter\_a:</span> int
 <span class="linenos">554</span>
-<span class="linenos">555</span>    <span class="nc">:param parameter_b:</span>
+<span class="linenos">555</span>    <span class="nc">:param parameter\_b:</span>
 <span class="linenos">556</span>        second argument
-<span class="linenos">557</span>    <span class="nc">:type parameter_b:</span> char
+<span class="linenos">557</span>    <span class="nc">:type parameter\_b:</span> char
 <span class="linenos">558</span>
 <span class="linenos">559</span><span class="p">..</span> <span class="nt">_`foo.vintage.context`:</span>
 <span class="linenos">560</span>
@@ -879,8 +879,8 @@ see <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-opt
 <span class="linenos">808</span>
 <span class="linenos">809</span><span class="s">.. _`foo.genpool_algo_t`:</span>
 <span class="linenos">810</span>
-<span class="linenos">811</span><span class="s">genpool_algo_t</span>
-<span class="linenos">812</span><span class="s">==============</span>
+<span class="linenos">811</span><span class="s">typedef genpool_algo_t</span>
+<span class="linenos">812</span><span class="s">======================</span>
 <span class="linenos">813</span>
 <span class="linenos">814</span><span class="s">.. c:function:: unsigned long genpool_algo_t(unsigned long *map, unsigned long size, unsigned long start, unsigned int nr, void *data, struct gen_pool *pool, unsigned long start_addr)</span>
 <span class="linenos">815</span>
@@ -910,14 +910,14 @@ see <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-opt
 <span class="linenos">839</span><span class="s">        the pool being allocated from</span>
 <span class="linenos">840</span><span class="s">    :type pool: struct gen_pool \*</span>
 <span class="linenos">841</span>
-<span class="linenos">842</span><span class="s">    :param start_addr:</span>
+<span class="linenos">842</span><span class="s">    :param start\_addr:</span>
 <span class="linenos">843</span><span class="s">        *undescribed*</span>
-<span class="linenos">844</span><span class="s">    :type start_addr: unsigned long</span>
+<span class="linenos">844</span><span class="s">    :type start\_addr: unsigned long</span>
 <span class="linenos">845</span>
 <span class="linenos">846</span><span class="s">.. _`foo.v4l2_check_dv_timings_fnc`:</span>
 <span class="linenos">847</span>
-<span class="linenos">848</span><span class="s">v4l2_check_dv_timings_fnc</span>
-<span class="linenos">849</span><span class="s">=========================</span>
+<span class="linenos">848</span><span class="s">typedef v4l2_check_dv_timings_fnc</span>
+<span class="linenos">849</span><span class="s">=================================</span>
 <span class="linenos">850</span>
 <span class="linenos">851</span><span class="s">.. c:function:: bool v4l2_check_dv_timings_fnc(const struct v4l2_dv_timings *t, void *handle)</span>
 <span class="linenos">852</span>
@@ -938,7 +938,66 @@ see <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-opt
 <span class="linenos">867</span>
 <span class="linenos">868</span><span class="s">Returns true if the given timings are valid.</span>
 <span class="linenos">869</span>
-<span class="linenos">870</span><span class="s">.. c:namespace-pop::</span>
+<span class="linenos">870</span><span class="s">.. _`foo.add`:</span>
+<span class="linenos">871</span>
+<span class="linenos">872</span><span class="s">macro ADD</span>
+<span class="linenos">873</span><span class="s">=========</span>
+<span class="linenos">874</span>
+<span class="linenos">875</span><span class="s">.. c:macro::  ADD( first,  second)</span>
+<span class="linenos">876</span>
+<span class="linenos">877</span><span class="s">    Function like macro to add two values</span>
+<span class="linenos">878</span>
+<span class="linenos">879</span><span class="s">    :param first:</span>
+<span class="linenos">880</span><span class="s">        first value</span>
+<span class="linenos">881</span>
+<span class="linenos">882</span><span class="s">    :param second:</span>
+<span class="linenos">883</span><span class="s">        second value</span>
+<span class="linenos">884</span>
+<span class="linenos">885</span><span class="s">.. _`foo.add.description`:</span>
+<span class="linenos">886</span>
+<span class="linenos">887</span><span class="s">Description</span>
+<span class="linenos">888</span><span class="s">-----------</span>
+<span class="linenos">889</span>
+<span class="linenos">890</span><span class="s">Is replaced by a addition of \ ``first``\  and \ ``second``\ .</span>
+<span class="linenos">891</span>
+<span class="linenos">892</span><span class="s">.. _`foo.iosys_map_wr_field`:</span>
+<span class="linenos">893</span>
+<span class="linenos">894</span><span class="s">macro iosys_map_wr_field</span>
+<span class="linenos">895</span><span class="s">========================</span>
+<span class="linenos">896</span>
+<span class="linenos">897</span><span class="s">.. c:macro::  iosys_map_wr_field( map__,  struct_offset__,  struct_type__,  field__,  val__)</span>
+<span class="linenos">898</span>
+<span class="linenos">899</span><span class="s">    Write to a member of a struct in the iosys_map</span>
+<span class="linenos">900</span>
+<span class="linenos">901</span><span class="s">    :param map\_\_:</span>
+<span class="linenos">902</span><span class="s">        The iosys_map structure</span>
+<span class="linenos">903</span>
+<span class="linenos">904</span><span class="s">    :param struct\_offset\_\_:</span>
+<span class="linenos">905</span><span class="s">        Offset from the beggining of the map, where the struct</span>
+<span class="linenos">906</span><span class="s">        is located</span>
+<span class="linenos">907</span>
+<span class="linenos">908</span><span class="s">    :param struct\_type\_\_:</span>
+<span class="linenos">909</span><span class="s">        The struct describing the layout of the mapping</span>
+<span class="linenos">910</span>
+<span class="linenos">911</span><span class="s">    :param field\_\_:</span>
+<span class="linenos">912</span><span class="s">        Member of the struct to read</span>
+<span class="linenos">913</span>
+<span class="linenos">914</span><span class="s">    :param val\_\_:</span>
+<span class="linenos">915</span><span class="s">        Value to write</span>
+<span class="linenos">916</span>
+<span class="linenos">917</span><span class="s">.. _`foo.iosys_map_wr_field.description`:</span>
+<span class="linenos">918</span>
+<span class="linenos">919</span><span class="s">Description</span>
+<span class="linenos">920</span><span class="s">-----------</span>
+<span class="linenos">921</span>
+<span class="linenos">922</span><span class="s">Write a value to the iosys_map considering its layout is described by a C</span>
+<span class="linenos">923</span><span class="s">struct starting at \ ``struct_offset__``\ . The field offset and size is calculated</span>
+<span class="linenos">924</span><span class="s">and the \ ``val_``\ \_ is written. If the field access would incur in un-aligned</span>
+<span class="linenos">925</span><span class="s">access, then either \ :c:func:`iosys_map_memcpy_to`\  needs to be used or the</span>
+<span class="linenos">926</span><span class="s">architecture must support it. Refer to \ :c:func:`iosys_map_rd_field`\  for expected</span>
+<span class="linenos">927</span><span class="s">usage and memory layout.</span>
+<span class="linenos">928</span>
+<span class="linenos">929</span><span class="s">.. c:namespace-pop::</span>
 </pre></div>
 </div>
 </section>
@@ -1027,128 +1086,101 @@ see <a class="reference internal" href="kernel-doc-directive.html#kernel-doc-opt
 <span class="linenos"> 81</span>
 <span class="linenos"> 82</span>Returns the sum of the \ <span class="s">``a``\  and \ ``b``\ </span>
 <span class="linenos"> 83</span>
-<span class="linenos"> 84</span><span class="s">.. _`foo.internal_function`:</span>
+<span class="linenos"> 84</span><span class="s">.. _`foo.sys_tgkill`:</span>
 <span class="linenos"> 85</span>
-<span class="linenos"> 86</span><span class="s">internal_function</span>
-<span class="linenos"> 87</span><span class="s">=================</span>
+<span class="linenos"> 86</span><span class="s">sys_tgkill</span>
+<span class="linenos"> 87</span><span class="s">==========</span>
 <span class="linenos"> 88</span>
-<span class="linenos"> 89</span><span class="s">.. c:function:: int internal_function( void)</span>
+<span class="linenos"> 89</span><span class="s">.. c:function:: long sys_tgkill(pid_t tgid, pid_t pid, int sig)</span>
 <span class="linenos"> 90</span>
-<span class="linenos"> 91</span><span class="s">    the answer</span>
+<span class="linenos"> 91</span><span class="s">    send signal to one specific thread</span>
 <span class="linenos"> 92</span>
-<span class="linenos"> 93</span><span class="s">    :param void:</span>
-<span class="linenos"> 94</span><span class="s">        no arguments</span>
-<span class="linenos"> 95</span><span class="s">    :type void: </span>
+<span class="linenos"> 93</span><span class="s">    :param tgid:</span>
+<span class="linenos"> 94</span><span class="s">        the thread group ID of the thread</span>
+<span class="linenos"> 95</span><span class="s">    :type tgid: pid\_t</span>
 <span class="linenos"> 96</span>
-<span class="linenos"> 97</span><span class="s">.. _`foo.internal_function.context`:</span>
-<span class="linenos"> 98</span>
-<span class="linenos"> 99</span><span class="s">Context</span>
-<span class="linenos">100</span><span class="s">-------</span>
-<span class="linenos">101</span>
-<span class="linenos">102</span><span class="s">!sanity()</span>
-<span class="linenos">103</span>
-<span class="linenos">104</span><span class="s">.. _`foo.internal_function.return`:</span>
-<span class="linenos">105</span>
-<span class="linenos">106</span><span class="s">Return</span>
-<span class="linenos">107</span><span class="s">------</span>
-<span class="linenos">108</span>
-<span class="linenos">109</span><span class="s">The answer to the ultimate question of life, the universe and everything.</span>
-<span class="linenos">110</span>
-<span class="linenos">111</span><span class="s">.. _`foo.sys_tgkill`:</span>
-<span class="linenos">112</span>
-<span class="linenos">113</span><span class="s">sys_tgkill</span>
-<span class="linenos">114</span><span class="s">==========</span>
+<span class="linenos"> 97</span><span class="s">    :param pid:</span>
+<span class="linenos"> 98</span><span class="s">        the PID of the thread</span>
+<span class="linenos"> 99</span><span class="s">    :type pid: pid\_t</span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="s">    :param sig:</span>
+<span class="linenos">102</span><span class="s">        signal to be sent</span>
+<span class="linenos">103</span><span class="s">    :type sig: int</span>
+<span class="linenos">104</span>
+<span class="linenos">105</span><span class="s">.. _`foo.sys_tgkill.description`:</span>
+<span class="linenos">106</span>
+<span class="linenos">107</span><span class="s">Description</span>
+<span class="linenos">108</span><span class="s">-----------</span>
+<span class="linenos">109</span>
+<span class="linenos">110</span><span class="s"> This syscall also checks the \ ``tgid``\  and returns -ESRCH even if the PID</span>
+<span class="linenos">111</span><span class="s"> exists but it&#39;s not belonging to the target process anymore. This</span>
+<span class="linenos">112</span><span class="s"> method solves the problem of threads exiting and PIDs getting reused.</span>
+<span class="linenos">113</span>
+<span class="linenos">114</span><span class="s">.. _`foo.rarely_enum`:</span>
 <span class="linenos">115</span>
-<span class="linenos">116</span><span class="s">.. c:function:: long sys_tgkill(pid_t tgid, pid_t pid, int sig)</span>
-<span class="linenos">117</span>
-<span class="linenos">118</span><span class="s">    send signal to one specific thread</span>
-<span class="linenos">119</span>
-<span class="linenos">120</span><span class="s">    :param tgid:</span>
-<span class="linenos">121</span><span class="s">        the thread group ID of the thread</span>
-<span class="linenos">122</span><span class="s">    :type tgid: pid_t</span>
-<span class="linenos">123</span>
-<span class="linenos">124</span><span class="s">    :param pid:</span>
-<span class="linenos">125</span><span class="s">        the PID of the thread</span>
-<span class="linenos">126</span><span class="s">    :type pid: pid_t</span>
+<span class="linenos">116</span><span class="s">enum rarely_enum</span>
+<span class="linenos">117</span><span class="s">================</span>
+<span class="linenos">118</span>
+<span class="linenos">119</span><span class="s">.. c:enum:: rarely_enum</span>
+<span class="linenos">120</span>
+<span class="linenos">121</span><span class="s">    enum to test parsing rarely code styles</span>
+<span class="linenos">122</span>
+<span class="linenos">123</span><span class="s">.. _`foo.rarely_enum.definition`:</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span><span class="s">Definition</span>
+<span class="linenos">126</span><span class="s">----------</span>
 <span class="linenos">127</span>
-<span class="linenos">128</span><span class="s">    :param sig:</span>
-<span class="linenos">129</span><span class="s">        signal to be sent</span>
-<span class="linenos">130</span><span class="s">    :type sig: int</span>
-<span class="linenos">131</span>
-<span class="linenos">132</span><span class="s">.. _`foo.sys_tgkill.description`:</span>
-<span class="linenos">133</span>
-<span class="linenos">134</span><span class="s">Description</span>
-<span class="linenos">135</span><span class="s">-----------</span>
+<span class="linenos">128</span><span class="s">.. code-block:: c</span>
+<span class="linenos">129</span>
+<span class="linenos">130</span><span class="s">    enum rarely_enum {</span>
+<span class="linenos">131</span><span class="s">        F1,</span>
+<span class="linenos">132</span><span class="s">        F2</span>
+<span class="linenos">133</span><span class="s">    };</span>
+<span class="linenos">134</span>
+<span class="linenos">135</span><span class="s">.. _`foo.rarely_enum.constants`:</span>
 <span class="linenos">136</span>
-<span class="linenos">137</span><span class="s"> This syscall also checks the \ ``tgid``\  and returns -ESRCH even if the PID</span>
-<span class="linenos">138</span><span class="s"> exists but it&#39;s not belonging to the target process anymore. This</span>
-<span class="linenos">139</span><span class="s"> method solves the problem of threads exiting and PIDs getting reused.</span>
-<span class="linenos">140</span>
-<span class="linenos">141</span><span class="s">.. _`foo.rarely_enum`:</span>
+<span class="linenos">137</span><span class="s">Constants</span>
+<span class="linenos">138</span><span class="s">---------</span>
+<span class="linenos">139</span>
+<span class="linenos">140</span><span class="s">F1</span>
+<span class="linenos">141</span><span class="s">    f1</span>
 <span class="linenos">142</span>
-<span class="linenos">143</span><span class="s">enum rarely_enum</span>
-<span class="linenos">144</span><span class="s">================</span>
+<span class="linenos">143</span><span class="s">F2</span>
+<span class="linenos">144</span><span class="s">    f2</span>
 <span class="linenos">145</span>
-<span class="linenos">146</span><span class="s">.. c:enum:: rarely_enum</span>
+<span class="linenos">146</span><span class="s">.. _`foo.rarely_struct`:</span>
 <span class="linenos">147</span>
-<span class="linenos">148</span><span class="s">    enum to test parsing rarely code styles</span>
-<span class="linenos">149</span>
-<span class="linenos">150</span><span class="s">.. _`foo.rarely_enum.definition`:</span>
-<span class="linenos">151</span>
-<span class="linenos">152</span><span class="s">Definition</span>
-<span class="linenos">153</span><span class="s">----------</span>
+<span class="linenos">148</span><span class="s">struct rarely_struct</span>
+<span class="linenos">149</span><span class="s">====================</span>
+<span class="linenos">150</span>
+<span class="linenos">151</span><span class="s">.. c:struct:: rarely_struct</span>
+<span class="linenos">152</span>
+<span class="linenos">153</span><span class="s">    struct to test parsing rarely code styles</span>
 <span class="linenos">154</span>
-<span class="linenos">155</span><span class="s">.. code-block:: c</span>
+<span class="linenos">155</span><span class="s">.. _`foo.rarely_struct.definition`:</span>
 <span class="linenos">156</span>
-<span class="linenos">157</span><span class="s">    enum rarely_enum {</span>
-<span class="linenos">158</span><span class="s">        F1,</span>
-<span class="linenos">159</span><span class="s">        F2</span>
-<span class="linenos">160</span><span class="s">    };</span>
+<span class="linenos">157</span><span class="s">Definition</span>
+<span class="linenos">158</span><span class="s">----------</span>
+<span class="linenos">159</span>
+<span class="linenos">160</span><span class="s">.. code-block:: c</span>
 <span class="linenos">161</span>
-<span class="linenos">162</span><span class="s">.. _`foo.rarely_enum.constants`:</span>
-<span class="linenos">163</span>
-<span class="linenos">164</span><span class="s">Constants</span>
-<span class="linenos">165</span><span class="s">---------</span>
+<span class="linenos">162</span><span class="s">    struct rarely_struct {</span>
+<span class="linenos">163</span><span class="s">        struct foo foofoo;</span>
+<span class="linenos">164</span><span class="s">        struct bar barbar;</span>
+<span class="linenos">165</span><span class="s">    }</span>
 <span class="linenos">166</span>
-<span class="linenos">167</span><span class="s">F1</span>
-<span class="linenos">168</span><span class="s">    f1</span>
-<span class="linenos">169</span>
-<span class="linenos">170</span><span class="s">F2</span>
-<span class="linenos">171</span><span class="s">    f2</span>
-<span class="linenos">172</span>
-<span class="linenos">173</span><span class="s">.. _`foo.rarely_struct`:</span>
+<span class="linenos">167</span><span class="s">.. _`foo.rarely_struct.members`:</span>
+<span class="linenos">168</span>
+<span class="linenos">169</span><span class="s">Members</span>
+<span class="linenos">170</span><span class="s">-------</span>
+<span class="linenos">171</span>
+<span class="linenos">172</span><span class="s">foofoo</span>
+<span class="linenos">173</span><span class="s">    lorem</span>
 <span class="linenos">174</span>
-<span class="linenos">175</span><span class="s">struct rarely_struct</span>
-<span class="linenos">176</span><span class="s">====================</span>
+<span class="linenos">175</span><span class="s">barbar</span>
+<span class="linenos">176</span><span class="s">    ipsum</span>
 <span class="linenos">177</span>
-<span class="linenos">178</span><span class="s">.. c:struct:: rarely_struct</span>
-<span class="linenos">179</span>
-<span class="linenos">180</span><span class="s">    struct to test parsing rarely code styles</span>
-<span class="linenos">181</span>
-<span class="linenos">182</span><span class="s">.. _`foo.rarely_struct.definition`:</span>
-<span class="linenos">183</span>
-<span class="linenos">184</span><span class="s">Definition</span>
-<span class="linenos">185</span><span class="s">----------</span>
-<span class="linenos">186</span>
-<span class="linenos">187</span><span class="s">.. code-block:: c</span>
-<span class="linenos">188</span>
-<span class="linenos">189</span><span class="s">    struct rarely_struct {</span>
-<span class="linenos">190</span><span class="s">        struct foo foofoo;</span>
-<span class="linenos">191</span><span class="s">        struct bar barbar;</span>
-<span class="linenos">192</span><span class="s">    }</span>
-<span class="linenos">193</span>
-<span class="linenos">194</span><span class="s">.. _`foo.rarely_struct.members`:</span>
-<span class="linenos">195</span>
-<span class="linenos">196</span><span class="s">Members</span>
-<span class="linenos">197</span><span class="s">-------</span>
-<span class="linenos">198</span>
-<span class="linenos">199</span><span class="s">foofoo</span>
-<span class="linenos">200</span><span class="s">    lorem</span>
-<span class="linenos">201</span>
-<span class="linenos">202</span><span class="s">barbar</span>
-<span class="linenos">203</span><span class="s">    ipsum</span>
-<span class="linenos">204</span>
-<span class="linenos">205</span><span class="s">.. c:namespace-pop::</span>
+<span class="linenos">178</span><span class="s">.. c:namespace-pop::</span>
 </pre></div>
 </div>
 </section>

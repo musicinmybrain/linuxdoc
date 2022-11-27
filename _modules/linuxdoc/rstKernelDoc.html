@@ -81,7 +81,38 @@ from . import kernel_doc as kerneldoc
 
 __version__  = &#39;3.0&#39;
 
-PARSER_CACHE = dict()
+<div class="viewcode-block" id="ParserCache"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.ParserCache">[docs]</a>class ParserCache:
+    &quot;&quot;&quot;A simple (in process) cache for :py:obj:`KernelDocParser` objects (read
+    :py:obj:`PARSER_CACHE`)
+
+    &quot;&quot;&quot;
+
+    def __init__(self):
+        self._cache = {}
+
+<div class="viewcode-block" id="ParserCache.get_id"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.ParserCache.get_id">[docs]</a>    def get_id(self, opts):
+        &quot;&quot;&quot;Generate a cache ID from the options of the kernel-doc directive.  Some of
+        the options control the parsing rules and thus in the end the parsing
+        result.
+
+        &quot;&quot;&quot;
+        return (opts.fname, opts.exp_method, tuple(opts.exp_ids), tuple(opts.known_attrs))</div>
+
+<div class="viewcode-block" id="ParserCache.get"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.ParserCache.get">[docs]</a>    def get(self, opts):
+        x = self.get_id(opts)
+        return self._cache.get(x)</div>
+
+<div class="viewcode-block" id="ParserCache.set"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.ParserCache.set">[docs]</a>    def set(self, opts, parser):
+        self._cache[self.get_id(opts)] = parser</div></div>
+
+
+PARSER_CACHE = ParserCache()
+&quot;&quot;&quot;ToDo: this type of cache (in process) does not (fully) support sphinx&#39;s
+paralell build (job option -j N) where builds are spanned over processes.
+Sphinx-build creates a new job (process) not for each kernel-doc directive but
+for each rest-file (that contains at least one kernel-doc directive).
+
+&quot;&quot;&quot;
 
 app_log = logging.getLogger(&#39;application&#39;)
 
@@ -337,14 +368,14 @@ app_log = logging.getLogger(&#39;application&#39;)
         self.state_machine.insert_input(todo.split(&quot;\n&quot;), self.arguments[0] )</div>
 
 <div class="viewcode-block" id="KernelDoc.parseSource"><a class="viewcode-back" href="../../linuxdoc-api/linuxdoc.rstKernelDoc.html#linuxdoc.rstKernelDoc.KernelDoc.parseSource">[docs]</a>    def parseSource(self, opts):
-        parser = PARSER_CACHE.get(opts.fname, None)
+        parser = PARSER_CACHE.get(opts)
 
         if parser is None:
-            self.env.note_dependency(opts.fname)
+            self.env.note_dependency(opts.fname) # ??
             #app_log.info(&quot;parse kernel-doc comments from: %s&quot; % opts.fname)
             parser = KernelDocParser(self.env.app, opts, kerneldoc.NullTranslator())
             parser.parse()
-            PARSER_CACHE[opts.fname] = parser
+            PARSER_CACHE.set(opts, parser)
         else:
             parser.setOptions(opts)
 

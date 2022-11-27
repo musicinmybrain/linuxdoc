@@ -137,6 +137,22 @@ they are marked appropriately in the output format.</p>
 </div>
 <p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-user-function"><span class="std std-ref">user_function</span></a></p>
 </section>
+<section id="macro">
+<span id="kernel-doc-syntax-macro"></span><h2>macro<a class="headerlink" href="#macro" title="Permalink to this heading">¶</a></h2>
+<p>Documenting macros is similar to documenting <a class="reference internal" href="#kernel-doc-syntax-functions"><span class="std std-ref">functions</span></a>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="cm">/**</span>
+<span class="linenos">2</span><span class="cm"> * macro ADD - Function like macro to add two values</span>
+<span class="linenos">3</span><span class="cm"> *</span>
+<span class="linenos">4</span><span class="cm"> * @first:  first value</span>
+<span class="linenos">5</span><span class="cm"> * @second:  second value</span>
+<span class="linenos">6</span><span class="cm"> *</span>
+<span class="linenos">7</span><span class="cm"> * Is replaced by a addition of @first and @second.</span>
+<span class="linenos">8</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">9</span><span class="cp">#define ADD(first, second) (first) + (second)</span>
+</pre></div>
+</div>
+<p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-add"><span class="std std-ref">macro ADD</span></a></p>
+</section>
 <section id="structs-unions">
 <span id="kernel-doc-syntax-structs-unions"></span><h2>structs, unions<a class="headerlink" href="#structs-unions" title="Permalink to this heading">¶</a></h2>
 <p>Beside functions you can also write documentation for <code class="docutils literal notranslate"><span class="pre">structs</span></code>,
@@ -418,6 +434,7 @@ code. To start a region to snip insert:</p>
   <ul>
 <li><a class="reference internal" href="#">kernel-doc syntax</a><ul>
 <li><a class="reference internal" href="#functions">functions</a></li>
+<li><a class="reference internal" href="#macro">macro</a></li>
 <li><a class="reference internal" href="#structs-unions">structs, unions</a></li>
 <li><a class="reference internal" href="#enums-typedefs">enums, typedefs</a></li>
 <li><a class="reference internal" href="#documentation-blocks">documentation blocks</a></li>
