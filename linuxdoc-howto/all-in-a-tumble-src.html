@@ -109,9 +109,9 @@
 <span class="linenos"> 43</span><span class="cm"> */</span><span class="w"></span>
 <span class="linenos"> 44</span><span class="n">DEFINE_EVENT</span><span class="p">(</span><span class="n">block_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">block_touch_buffer</span><span class="p">,</span><span class="w"></span>
 <span class="linenos"> 45</span>
-<span class="linenos"> 46</span><span class="w">	</span><span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">buffer_head</span><span class="w"> </span><span class="o">*</span><span class="n">bh</span><span class="p">),</span><span class="w"></span>
+<span class="linenos"> 46</span><span class="w">        </span><span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">buffer_head</span><span class="w"> </span><span class="o">*</span><span class="n">bh</span><span class="p">),</span><span class="w"></span>
 <span class="linenos"> 47</span>
-<span class="linenos"> 48</span><span class="w">	</span><span class="n">TP_ARGS</span><span class="p">(</span><span class="n">bh</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 48</span><span class="w">        </span><span class="n">TP_ARGS</span><span class="p">(</span><span class="n">bh</span><span class="p">)</span><span class="w"></span>
 <span class="linenos"> 49</span><span class="p">);</span><span class="w"></span>
 <span class="linenos"> 50</span>
 <span class="linenos"> 51</span><span class="cm">/**</span>
@@ -122,9 +122,9 @@
 <span class="linenos"> 56</span><span class="cm"> */</span><span class="w"></span>
 <span class="linenos"> 57</span><span class="n">DEFINE_EVENT</span><span class="p">(</span><span class="n">block_buffer</span><span class="p">,</span><span class="w"> </span><span class="n">block_dirty_buffer</span><span class="p">,</span><span class="w"></span>
 <span class="linenos"> 58</span>
-<span class="linenos"> 59</span><span class="w">	</span><span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">buffer_head</span><span class="w"> </span><span class="o">*</span><span class="n">bh</span><span class="p">),</span><span class="w"></span>
+<span class="linenos"> 59</span><span class="w">        </span><span class="n">TP_PROTO</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">buffer_head</span><span class="w"> </span><span class="o">*</span><span class="n">bh</span><span class="p">),</span><span class="w"></span>
 <span class="linenos"> 60</span>
-<span class="linenos"> 61</span><span class="w">	</span><span class="n">TP_ARGS</span><span class="p">(</span><span class="n">bh</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 61</span><span class="w">        </span><span class="n">TP_ARGS</span><span class="p">(</span><span class="n">bh</span><span class="p">)</span><span class="w"></span>
 <span class="linenos"> 62</span><span class="p">);</span><span class="w"></span>
 <span class="linenos"> 63</span>
 <span class="linenos"> 64</span><span class="c1">// The parse-SNIP/SNAP comments are used to include the C sorce code as snippets</span>
@@ -191,10 +191,10 @@
 <span class="linenos">125</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos">126</span><span class="w">  </span><span class="cm">/* Anonymous union/struct*/</span><span class="w"></span>
 <span class="linenos">127</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">128</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">129</span><span class="w">	    </span><span class="kt">char</span><span class="w"> </span><span class="n">arg1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">130</span><span class="w">	    </span><span class="kt">char</span><span class="w"> </span><span class="n">arg2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">131</span><span class="w">	</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">128</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">129</span><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">arg1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">130</span><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">arg2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">131</span><span class="w">        </span><span class="p">};</span><span class="w"></span>
 <span class="linenos">132</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos">133</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1b</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">134</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2b</span><span class="p">;</span><span class="w"></span>
@@ -212,7 +212,7 @@
 <span class="linenos">146</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st1</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">147</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos">148</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg1</span><span class="p">;</span><span class="w">  </span><span class="cm">/* bar.st3.arg1 is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">149</span><span class="w">	    </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">149</span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">150</span><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* bar.st3.fn2 is undocumented, cause a warning */</span><span class="w"></span>
 <span class="linenos">151</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st2</span><span class="p">,</span><span class="w"> </span><span class="n">st3</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">152</span><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f3</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* f3 is undocumented, cause a warning */</span><span class="w"></span>
@@ -238,30 +238,30 @@
 <span class="linenos">172</span><span class="cm"> * Longer description</span>
 <span class="linenos">173</span><span class="cm"> */</span><span class="w"></span>
 <span class="linenos">174</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_long_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">175</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">175</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">176</span><span class="w">        </span><span class="cm">/**</span>
 <span class="linenos">177</span><span class="cm">         * @bar: The Bar member,</span>
-<span class="linenos">178</span><span class="cm">	 * lorem ipsum ..</span>
+<span class="linenos">178</span><span class="cm">         * lorem ipsum ..</span>
 <span class="linenos">179</span><span class="cm">         */</span><span class="w"></span>
 <span class="linenos">180</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">181</span><span class="w">        </span><span class="cm">/**</span>
 <span class="linenos">182</span><span class="cm">         * @baz: The Baz member,</span>
-<span class="linenos">183</span><span class="cm">	 * lorem ipsum ..</span>
+<span class="linenos">183</span><span class="cm">         * lorem ipsum ..</span>
 <span class="linenos">184</span><span class="cm">         *</span>
 <span class="linenos">185</span><span class="cm">         * Here, the member description may contain several paragraphs.</span>
 <span class="linenos">186</span><span class="cm">         */</span><span class="w"></span>
 <span class="linenos">187</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">baz</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">188</span><span class="w">	</span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">189</span><span class="w">		</span><span class="cm">/** @foobar: Single line description. */</span><span class="w"></span>
-<span class="linenos">190</span><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">foobar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">191</span><span class="w">	</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">192</span><span class="w">	</span><span class="cm">/** @bar2: Description for struct @bar2 inside @my_long_struct */</span><span class="w"></span>
-<span class="linenos">193</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">194</span><span class="w">		</span><span class="cm">/**</span>
-<span class="linenos">195</span><span class="cm">		 * @bar2.barbar: Description for @barbar inside @my_long_struct.bar2</span>
-<span class="linenos">196</span><span class="cm">		 */</span><span class="w"></span>
-<span class="linenos">197</span><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">198</span><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="n">bar2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">188</span><span class="w">        </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">189</span><span class="w">                </span><span class="cm">/** @foobar: Single line description. */</span><span class="w"></span>
+<span class="linenos">190</span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">foobar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">191</span><span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">192</span><span class="w">        </span><span class="cm">/** @bar2: Description for struct @bar2 inside @my_long_struct */</span><span class="w"></span>
+<span class="linenos">193</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">194</span><span class="w">                </span><span class="cm">/**</span>
+<span class="linenos">195</span><span class="cm">                 * @bar2.barbar: Description for @barbar inside @my_long_struct.bar2</span>
+<span class="linenos">196</span><span class="cm">                 */</span><span class="w"></span>
+<span class="linenos">197</span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">198</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="n">bar2</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">199</span><span class="p">};</span><span class="w"></span>
 <span class="linenos">200</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
 <span class="linenos">201</span>
@@ -520,9 +520,9 @@
 <span class="linenos">454</span><span class="cm"> * @F2: f2</span>
 <span class="linenos">455</span><span class="cm"> */</span><span class="w"></span>
 <span class="linenos">456</span><span class="k">enum</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">457</span><span class="w">	</span><span class="n">F1</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">457</span><span class="w">        </span><span class="n">F1</span><span class="p">,</span><span class="w"></span>
 <span class="linenos">458</span>
-<span class="linenos">459</span><span class="w">	</span><span class="n">F2</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">459</span><span class="w">        </span><span class="n">F2</span><span class="p">,</span><span class="w"></span>
 <span class="linenos">460</span><span class="p">};</span><span class="w"></span>
 <span class="linenos">461</span>
 <span class="linenos">462</span>
@@ -533,13 +533,13 @@
 <span class="linenos">467</span><span class="cm">*/</span><span class="w"></span>
 <span class="linenos">468</span>
 <span class="linenos">469</span><span class="k">struct</span><span class="w"> </span><span class="nc">something</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">470</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"></span>
+<span class="linenos">470</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"></span>
 <span class="linenos">471</span>
-<span class="linenos">472</span><span class="w">	</span><span class="n">foofoo</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">472</span><span class="w">        </span><span class="n">foofoo</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">473</span>
-<span class="linenos">474</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">bar</span><span class="w"></span>
+<span class="linenos">474</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">bar</span><span class="w"></span>
 <span class="linenos">475</span>
-<span class="linenos">476</span><span class="w">	</span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">476</span><span class="w">        </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">477</span><span class="p">};</span><span class="w"></span>
 <span class="linenos">478</span>
 <span class="linenos">479</span><span class="cm">/**</span>
@@ -556,15 +556,15 @@
 <span class="linenos">490</span><span class="cm"> * new events to the FIFO</span>
 <span class="linenos">491</span><span class="cm"> */</span><span class="w"></span>
 <span class="linenos">492</span><span class="k">struct</span><span class="w"> </span><span class="nc">lineevent_state</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">493</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_device</span><span class="w"> </span><span class="o">*</span><span class="n">gdev</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">494</span><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">label</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">495</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_desc</span><span class="w"> </span><span class="o">*</span><span class="n">desc</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">496</span><span class="w">	</span><span class="n">u32</span><span class="w"> </span><span class="n">eflags</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">497</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">irq</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">498</span><span class="w">	</span><span class="n">wait_queue_head_t</span><span class="w"> </span><span class="n">wait</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">499</span><span class="w">	</span><span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpioevent_data</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">500</span><span class="w">	</span><span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">lirc_scancode</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">501</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">mutex</span><span class="w"> </span><span class="n">read_lock</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">493</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_device</span><span class="w"> </span><span class="o">*</span><span class="n">gdev</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">494</span><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">label</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">495</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_desc</span><span class="w"> </span><span class="o">*</span><span class="n">desc</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">496</span><span class="w">        </span><span class="n">u32</span><span class="w"> </span><span class="n">eflags</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">497</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">irq</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">498</span><span class="w">        </span><span class="n">wait_queue_head_t</span><span class="w"> </span><span class="n">wait</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">499</span><span class="w">        </span><span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpioevent_data</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">500</span><span class="w">        </span><span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">lirc_scancode</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">501</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">mutex</span><span class="w"> </span><span class="n">read_lock</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">502</span><span class="p">};</span><span class="w"></span>
 <span class="linenos">503</span>
 <span class="linenos">504</span>
@@ -578,11 +578,11 @@
 <span class="linenos">512</span><span class="cm"> * @pool: the pool being allocated from</span>
 <span class="linenos">513</span><span class="cm"> */</span><span class="w"></span>
 <span class="linenos">514</span><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="nf">long</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">genpool_algo_t</span><span class="p">)(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="n">map</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">515</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">516</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">517</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">518</span><span class="w">			</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gen_pool</span><span class="w"> </span><span class="o">*</span><span class="n">pool</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">519</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start_addr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">515</span><span class="w">                        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">516</span><span class="w">                        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">517</span><span class="w">                        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">518</span><span class="w">                        </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gen_pool</span><span class="w"> </span><span class="o">*</span><span class="n">pool</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">519</span><span class="w">                        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start_addr</span><span class="p">);</span><span class="w"></span>
 <span class="linenos">520</span>
 <span class="linenos">521</span><span class="cm">/**</span>
 <span class="linenos">522</span><span class="cm"> * typedef v4l2_check_dv_timings_fnc - timings check callback</span>
@@ -610,12 +610,12 @@
 <span class="linenos">544</span><span class="cm">/**</span>
 <span class="linenos">545</span><span class="cm"> * iosys_map_wr_field - Write to a member of a struct in the iosys_map</span>
 <span class="linenos">546</span><span class="cm"> *</span>
-<span class="linenos">547</span><span class="cm"> * @map__:		The iosys_map structure</span>
-<span class="linenos">548</span><span class="cm"> * @struct_offset__:	Offset from the beggining of the map, where the struct</span>
-<span class="linenos">549</span><span class="cm"> *			is located</span>
-<span class="linenos">550</span><span class="cm"> * @struct_type__:	The struct describing the layout of the mapping</span>
-<span class="linenos">551</span><span class="cm"> * @field__:		Member of the struct to read</span>
-<span class="linenos">552</span><span class="cm"> * @val__:		Value to write</span>
+<span class="linenos">547</span><span class="cm"> * @map__:              The iosys_map structure</span>
+<span class="linenos">548</span><span class="cm"> * @struct_offset__:    Offset from the beggining of the map, where the struct</span>
+<span class="linenos">549</span><span class="cm"> *                      is located</span>
+<span class="linenos">550</span><span class="cm"> * @struct_type__:      The struct describing the layout of the mapping</span>
+<span class="linenos">551</span><span class="cm"> * @field__:            Member of the struct to read</span>
+<span class="linenos">552</span><span class="cm"> * @val__:              Value to write</span>
 <span class="linenos">553</span><span class="cm"> *</span>
 <span class="linenos">554</span><span class="cm"> * Write a value to the iosys_map considering its layout is described by a C</span>
 <span class="linenos">555</span><span class="cm"> * struct starting at @struct_offset__. The field offset and size is calculated</span>
@@ -624,10 +624,10 @@
 <span class="linenos">558</span><span class="cm"> * architecture must support it. Refer to iosys_map_rd_field() for expected</span>
 <span class="linenos">559</span><span class="cm"> * usage and memory layout.</span>
 <span class="linenos">560</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">561</span><span class="cp">#define iosys_map_wr_field(map__, struct_offset__, struct_type__, field__, val__) ({	\</span>
-<span class="linenos">562</span><span class="cp">	struct_type__ *s;								\</span>
-<span class="linenos">563</span><span class="cp">	iosys_map_wr(map__, struct_offset__ + offsetof(struct_type__, field__),		\</span>
-<span class="linenos">564</span><span class="cp">		     typeof(s-&gt;field__), val__);					\</span>
+<span class="linenos">561</span><span class="cp">#define iosys_map_wr_field(map__, struct_offset__, struct_type__, field__, val__) ({    \</span>
+<span class="linenos">562</span><span class="cp">        struct_type__ *s;                                                               \</span>
+<span class="linenos">563</span><span class="cp">        iosys_map_wr(map__, struct_offset__ + offsetof(struct_type__, field__),         \</span>
+<span class="linenos">564</span><span class="cp">                     typeof(s-&gt;field__), val__);                                        \</span>
 <span class="linenos">565</span><span class="cp">})</span>
 </pre></div>
 </div>
@@ -662,7 +662,7 @@
 <span class="linenos"> 25</span><span class="kt">int</span><span class="w"></span>
 <span class="linenos"> 26</span><span class="nf">user_function</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"></span>
 <span class="linenos"> 27</span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 28</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 28</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
 <span class="linenos"> 29</span><span class="p">}</span><span class="w"></span>
 <span class="linenos"> 30</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
 <span class="linenos"> 31</span>
@@ -684,7 +684,7 @@
 <span class="linenos"> 47</span><span class="n">API_EXPORTED</span><span class="w"></span>
 <span class="linenos"> 48</span><span class="kt">int</span><span class="w"> </span><span class="n">user_sum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"></span>
 <span class="linenos"> 49</span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 50</span><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 50</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 <span class="linenos"> 51</span><span class="p">}</span><span class="w"></span>
 <span class="linenos"> 52</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
 <span class="linenos"> 53</span>
@@ -702,7 +702,7 @@
 <span class="linenos"> 65</span><span class="cm"> */</span><span class="w"></span>
 <span class="linenos"> 66</span><span class="n">SYSCALL_DEFINE3</span><span class="p">(</span><span class="n">tgkill</span><span class="p">,</span><span class="w"> </span><span class="kt">pid_t</span><span class="p">,</span><span class="w"> </span><span class="n">tgid</span><span class="p">,</span><span class="w"> </span><span class="kt">pid_t</span><span class="p">,</span><span class="w"> </span><span class="n">pid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="n">sig</span><span class="p">)</span><span class="w"></span>
 <span class="linenos"> 67</span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 68</span><span class="w">	</span><span class="p">...</span><span class="w"></span>
+<span class="linenos"> 68</span><span class="w">        </span><span class="p">...</span><span class="w"></span>
 <span class="linenos"> 69</span><span class="p">}</span><span class="w"></span>
 <span class="linenos"> 70</span>
 <span class="linenos"> 71</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
@@ -714,9 +714,9 @@
 <span class="linenos"> 77</span><span class="cm">* @F2: f2</span>
 <span class="linenos"> 78</span><span class="cm">*/</span><span class="w"></span>
 <span class="linenos"> 79</span><span class="k">enum</span><span class="w"> </span><span class="n">rarely_enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 80</span><span class="w">	</span><span class="n">F1</span><span class="p">,</span><span class="w"></span>
+<span class="linenos"> 80</span><span class="w">        </span><span class="n">F1</span><span class="p">,</span><span class="w"></span>
 <span class="linenos"> 81</span>
-<span class="linenos"> 82</span><span class="w">	</span><span class="n">F2</span><span class="p">,</span><span class="w"></span>
+<span class="linenos"> 82</span><span class="w">        </span><span class="n">F2</span><span class="p">,</span><span class="w"></span>
 <span class="linenos"> 83</span><span class="p">};</span><span class="w"></span>
 <span class="linenos"> 84</span>
 <span class="linenos"> 85</span>
@@ -727,13 +727,13 @@
 <span class="linenos"> 90</span><span class="cm">*/</span><span class="w"></span>
 <span class="linenos"> 91</span>
 <span class="linenos"> 92</span><span class="k">struct</span><span class="w"> </span><span class="nc">rarely_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos"> 93</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"></span>
 <span class="linenos"> 94</span>
-<span class="linenos"> 95</span><span class="w">	</span><span class="n">foofoo</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">        </span><span class="n">foofoo</span><span class="p">;</span><span class="w"></span>
 <span class="linenos"> 96</span>
-<span class="linenos"> 97</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">bar</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">bar</span><span class="w"></span>
 <span class="linenos"> 98</span>
-<span class="linenos"> 99</span><span class="w">	</span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 99</span><span class="w">        </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
 <span class="linenos">100</span><span class="p">};</span><span class="w"></span>
 <span class="linenos">101</span>
 <span class="linenos">102</span><span class="cm">/* parse-SNIP: xxxx */</span><span class="w"></span>
