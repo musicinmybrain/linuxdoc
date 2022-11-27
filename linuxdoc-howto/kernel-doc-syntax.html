@@ -168,63 +168,64 @@ comments between the <code class="docutils literal notranslate"><span class="pre
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cm">/**</span>
 <span class="linenos"> 2</span><span class="cm">* struct my_struct - a struct with nested unions and structs</span>
 <span class="linenos"> 3</span><span class="cm">* @arg1: first argument of anonymous union/anonymous struct</span>
-<span class="linenos"> 4</span><span class="cm">* @arg2: second argument of anonymous union/anonymous struct</span>
-<span class="linenos"> 5</span><span class="cm">* @arg1b: first argument of anonymous union/anonymous struct</span>
-<span class="linenos"> 6</span><span class="cm">* @arg2b: second argument of anonymous union/anonymous struct</span>
-<span class="linenos"> 7</span><span class="cm">* @arg3: third argument of anonymous union/anonymous struct</span>
-<span class="linenos"> 8</span><span class="cm">* @arg4: fourth argument of anonymous union/anonymous struct</span>
-<span class="linenos"> 9</span><span class="cm">* @bar: non-anonymous union</span>
-<span class="linenos">10</span><span class="cm">* @bar.st1: struct st1 inside @bar</span>
-<span class="linenos">11</span><span class="cm">* @bar.st1.arg1: first argument of struct st1 on union bar</span>
-<span class="linenos">12</span><span class="cm">* @bar.st1.arg2: second argument of struct st1 on union bar</span>
-<span class="linenos">13</span><span class="cm">* @bar.st2: struct st2 inside @bar</span>
-<span class="linenos">14</span><span class="cm">* @bar.st2.arg1: first argument of struct st2 on union bar</span>
-<span class="linenos">15</span><span class="cm">* @bar.st2.arg2: second argument of struct st2 on union bar</span>
-<span class="linenos">16</span><span class="cm">* @bar.st3: struct st3 inside @bar</span>
-<span class="linenos">17</span><span class="cm">* @bar.st3.arg2: second argument of struct st3 on union bar</span>
-<span class="linenos">18</span><span class="cm">* @f1: nested function on anonimous union/struct</span>
-<span class="linenos">19</span><span class="cm">* @bar.st2.f2: nested function on named union/struct</span>
-<span class="linenos">20</span><span class="cm">*/</span><span class="w"></span>
-<span class="linenos">21</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">22</span><span class="w">  </span><span class="cm">/* Anonymous union/struct*/</span><span class="w"></span>
-<span class="linenos">23</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">24</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">25</span><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">arg1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">26</span><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">arg2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">27</span><span class="w">        </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">28</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">29</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1b</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">30</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2b</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">31</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">32</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">33</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg3</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">34</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg4</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">35</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">36</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">37</span><span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">38</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">39</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">40</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">41</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">42</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">43</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">44</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg1</span><span class="p">;</span><span class="w">  </span><span class="cm">/* bar.st3.arg1 is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">45</span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">46</span><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* bar.st3.fn2 is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">47</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st2</span><span class="p">,</span><span class="w"> </span><span class="n">st3</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">48</span><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f3</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* f3 is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">49</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w">               </span><span class="cm">/* bar is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">50</span>
-<span class="linenos">51</span><span class="w">  </span><span class="cm">/* private: */</span><span class="w"></span>
-<span class="linenos">52</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">undoc_privat</span><span class="p">;</span><span class="w">    </span><span class="cm">/* is undocumented but private, no warning */</span><span class="w"></span>
-<span class="linenos">53</span>
-<span class="linenos">54</span><span class="w">  </span><span class="cm">/* public: */</span><span class="w"></span>
-<span class="linenos">55</span><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">56</span><span class="w">      </span><span class="n">FOO</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">57</span><span class="w">      </span><span class="n">BAR</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">58</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">undoc_public</span><span class="p">;</span><span class="w">      </span><span class="cm">/* is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">59</span>
-<span class="linenos">60</span><span class="p">};</span><span class="w"></span>
+<span class="linenos"> 4</span><span class="cm">* lorem ipsum ...</span>
+<span class="linenos"> 5</span><span class="cm">* @arg2: second argument of anonymous union/anonymous struct</span>
+<span class="linenos"> 6</span><span class="cm">* @arg1b: first argument of anonymous union/anonymous struct</span>
+<span class="linenos"> 7</span><span class="cm">* @arg2b: second argument of anonymous union/anonymous struct</span>
+<span class="linenos"> 8</span><span class="cm">* @arg3: third argument of anonymous union/anonymous struct</span>
+<span class="linenos"> 9</span><span class="cm">* @arg4: fourth argument of anonymous union/anonymous struct</span>
+<span class="linenos">10</span><span class="cm">* @bar: non-anonymous union</span>
+<span class="linenos">11</span><span class="cm">* @bar.st1: struct st1 inside @bar</span>
+<span class="linenos">12</span><span class="cm">* @bar.st1.arg1: first argument of struct st1 on union bar</span>
+<span class="linenos">13</span><span class="cm">* @bar.st1.arg2: second argument of struct st1 on union bar</span>
+<span class="linenos">14</span><span class="cm">* @bar.st2: struct st2 inside @bar</span>
+<span class="linenos">15</span><span class="cm">* @bar.st2.arg1: first argument of struct st2 on union bar</span>
+<span class="linenos">16</span><span class="cm">* @bar.st2.arg2: second argument of struct st2 on union bar</span>
+<span class="linenos">17</span><span class="cm">* @bar.st3: struct st3 inside @bar</span>
+<span class="linenos">18</span><span class="cm">* @bar.st3.arg2: second argument of struct st3 on union bar</span>
+<span class="linenos">19</span><span class="cm">* @f1: nested function on anonimous union/struct</span>
+<span class="linenos">20</span><span class="cm">* @bar.st2.f2: nested function on named union/struct</span>
+<span class="linenos">21</span><span class="cm">*/</span><span class="w"></span>
+<span class="linenos">22</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">  </span><span class="cm">/* Anonymous union/struct*/</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">arg1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="n">arg2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">31</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">32</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">34</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">35</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg4</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">38</span><span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">39</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">42</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">44</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">45</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg1</span><span class="p">;</span><span class="w">  </span><span class="cm">/* bar.st3.arg1 is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">46</span><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* bar.st3.fn2 is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">48</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st2</span><span class="p">,</span><span class="w"> </span><span class="n">st3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">49</span><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f3</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* f3 is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">50</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w">               </span><span class="cm">/* bar is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">51</span>
+<span class="linenos">52</span><span class="w">  </span><span class="cm">/* private: */</span><span class="w"></span>
+<span class="linenos">53</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">undoc_privat</span><span class="p">;</span><span class="w">    </span><span class="cm">/* is undocumented but private, no warning */</span><span class="w"></span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="w">  </span><span class="cm">/* public: */</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">57</span><span class="w">      </span><span class="n">FOO</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">58</span><span class="w">      </span><span class="n">BAR</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">59</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">undoc_public</span><span class="p">;</span><span class="w">      </span><span class="cm">/* is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">60</span>
+<span class="linenos">61</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-my-struct"><span class="std std-ref">struct my_struct</span></a></p>
@@ -242,27 +243,29 @@ they are each on a line of their own, like all other kernel-doc comments:</p>
 <span class="linenos"> 7</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_long_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="linenos"> 8</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w"></span>
 <span class="linenos"> 9</span><span class="w">        </span><span class="cm">/**</span>
-<span class="linenos">10</span><span class="cm">         * @bar: The Bar member.</span>
-<span class="linenos">11</span><span class="cm">         */</span><span class="w"></span>
-<span class="linenos">12</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">13</span><span class="w">        </span><span class="cm">/**</span>
-<span class="linenos">14</span><span class="cm">         * @baz: The Baz member.</span>
-<span class="linenos">15</span><span class="cm">         *</span>
-<span class="linenos">16</span><span class="cm">         * Here, the member description may contain several paragraphs.</span>
-<span class="linenos">17</span><span class="cm">         */</span><span class="w"></span>
-<span class="linenos">18</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">baz</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">19</span><span class="w">        </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">20</span><span class="w">                </span><span class="cm">/** @foobar: Single line description. */</span><span class="w"></span>
-<span class="linenos">21</span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">foobar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">22</span><span class="w">        </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">23</span><span class="w">        </span><span class="cm">/** @bar2: Description for struct @bar2 inside @my_long_struct */</span><span class="w"></span>
-<span class="linenos">24</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">25</span><span class="w">                </span><span class="cm">/**</span>
-<span class="linenos">26</span><span class="cm">                 * @bar2.barbar: Description for @barbar inside @my_long_struct.bar2</span>
-<span class="linenos">27</span><span class="cm">                 */</span><span class="w"></span>
-<span class="linenos">28</span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">29</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="n">bar2</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">30</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">10</span><span class="cm">         * @bar: The Bar member,</span>
+<span class="linenos">11</span><span class="cm">         * lorem ipsum ..</span>
+<span class="linenos">12</span><span class="cm">         */</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">        </span><span class="cm">/**</span>
+<span class="linenos">15</span><span class="cm">         * @baz: The Baz member,</span>
+<span class="linenos">16</span><span class="cm">         * lorem ipsum ..</span>
+<span class="linenos">17</span><span class="cm">         *</span>
+<span class="linenos">18</span><span class="cm">         * Here, the member description may contain several paragraphs.</span>
+<span class="linenos">19</span><span class="cm">         */</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">baz</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">        </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">22</span><span class="w">                </span><span class="cm">/** @foobar: Single line description. */</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">foobar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">        </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">        </span><span class="cm">/** @bar2: Description for struct @bar2 inside @my_long_struct */</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">                </span><span class="cm">/**</span>
+<span class="linenos">28</span><span class="cm">                 * @bar2.barbar: Description for @barbar inside @my_long_struct.bar2</span>
+<span class="linenos">29</span><span class="cm">                 */</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">31</span><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="n">bar2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">32</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Rendered example: <a class="reference internal" href="all-in-a-tumble.html#example-my-long-struct"><span class="std std-ref">struct my_long_struct</span></a></p>

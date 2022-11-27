@@ -170,462 +170,465 @@
 <span class="linenos">104</span><span class="cm">/**</span>
 <span class="linenos">105</span><span class="cm">* struct my_struct - a struct with nested unions and structs</span>
 <span class="linenos">106</span><span class="cm">* @arg1: first argument of anonymous union/anonymous struct</span>
-<span class="linenos">107</span><span class="cm">* @arg2: second argument of anonymous union/anonymous struct</span>
-<span class="linenos">108</span><span class="cm">* @arg1b: first argument of anonymous union/anonymous struct</span>
-<span class="linenos">109</span><span class="cm">* @arg2b: second argument of anonymous union/anonymous struct</span>
-<span class="linenos">110</span><span class="cm">* @arg3: third argument of anonymous union/anonymous struct</span>
-<span class="linenos">111</span><span class="cm">* @arg4: fourth argument of anonymous union/anonymous struct</span>
-<span class="linenos">112</span><span class="cm">* @bar: non-anonymous union</span>
-<span class="linenos">113</span><span class="cm">* @bar.st1: struct st1 inside @bar</span>
-<span class="linenos">114</span><span class="cm">* @bar.st1.arg1: first argument of struct st1 on union bar</span>
-<span class="linenos">115</span><span class="cm">* @bar.st1.arg2: second argument of struct st1 on union bar</span>
-<span class="linenos">116</span><span class="cm">* @bar.st2: struct st2 inside @bar</span>
-<span class="linenos">117</span><span class="cm">* @bar.st2.arg1: first argument of struct st2 on union bar</span>
-<span class="linenos">118</span><span class="cm">* @bar.st2.arg2: second argument of struct st2 on union bar</span>
-<span class="linenos">119</span><span class="cm">* @bar.st3: struct st3 inside @bar</span>
-<span class="linenos">120</span><span class="cm">* @bar.st3.arg2: second argument of struct st3 on union bar</span>
-<span class="linenos">121</span><span class="cm">* @f1: nested function on anonimous union/struct</span>
-<span class="linenos">122</span><span class="cm">* @bar.st2.f2: nested function on named union/struct</span>
-<span class="linenos">123</span><span class="cm">*/</span><span class="w"></span>
-<span class="linenos">124</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">125</span><span class="w">  </span><span class="cm">/* Anonymous union/struct*/</span><span class="w"></span>
-<span class="linenos">126</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">127</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">128</span><span class="w">	    </span><span class="kt">char</span><span class="w"> </span><span class="n">arg1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">129</span><span class="w">	    </span><span class="kt">char</span><span class="w"> </span><span class="n">arg2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">130</span><span class="w">	</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">131</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">132</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1b</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">133</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2b</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">134</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">135</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">136</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg3</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">137</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg4</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">138</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">139</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">140</span><span class="w">  </span><span class="p">};</span><span class="w"></span>
-<span class="linenos">141</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">142</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">143</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">144</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">145</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st1</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">146</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">147</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg1</span><span class="p">;</span><span class="w">  </span><span class="cm">/* bar.st3.arg1 is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">148</span><span class="w">	    </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">149</span><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* bar.st3.fn2 is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">150</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st2</span><span class="p">,</span><span class="w"> </span><span class="n">st3</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">151</span><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f3</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* f3 is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">152</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w">               </span><span class="cm">/* bar is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">153</span>
-<span class="linenos">154</span><span class="w">  </span><span class="cm">/* private: */</span><span class="w"></span>
-<span class="linenos">155</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">undoc_privat</span><span class="p">;</span><span class="w">    </span><span class="cm">/* is undocumented but private, no warning */</span><span class="w"></span>
-<span class="linenos">156</span>
-<span class="linenos">157</span><span class="w">  </span><span class="cm">/* public: */</span><span class="w"></span>
-<span class="linenos">158</span><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">159</span><span class="w">      </span><span class="n">FOO</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">160</span><span class="w">      </span><span class="n">BAR</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">161</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">undoc_public</span><span class="p">;</span><span class="w">      </span><span class="cm">/* is undocumented, cause a warning */</span><span class="w"></span>
-<span class="linenos">162</span>
-<span class="linenos">163</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">164</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
-<span class="linenos">165</span>
-<span class="linenos">166</span><span class="cm">/* parse-SNIP: my_long_struct */</span><span class="w"></span>
-<span class="linenos">167</span><span class="cm">/**</span>
-<span class="linenos">168</span><span class="cm"> * struct my_long_struct - short description with &amp;my_struct-&gt;a and &amp;my_struct-&gt;b</span>
-<span class="linenos">169</span><span class="cm"> * @foo: The Foo member.</span>
-<span class="linenos">170</span><span class="cm"> *</span>
-<span class="linenos">171</span><span class="cm"> * Longer description</span>
-<span class="linenos">172</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">173</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_long_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">174</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">175</span><span class="w">        </span><span class="cm">/**</span>
-<span class="linenos">176</span><span class="cm">         * @bar: The Bar member.</span>
-<span class="linenos">177</span><span class="cm">         */</span><span class="w"></span>
-<span class="linenos">178</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">179</span><span class="w">        </span><span class="cm">/**</span>
-<span class="linenos">180</span><span class="cm">         * @baz: The Baz member.</span>
-<span class="linenos">181</span><span class="cm">         *</span>
-<span class="linenos">182</span><span class="cm">         * Here, the member description may contain several paragraphs.</span>
-<span class="linenos">183</span><span class="cm">         */</span><span class="w"></span>
-<span class="linenos">184</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">baz</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">185</span><span class="w">	</span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">186</span><span class="w">		</span><span class="cm">/** @foobar: Single line description. */</span><span class="w"></span>
-<span class="linenos">187</span><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">foobar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">188</span><span class="w">	</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">189</span><span class="w">	</span><span class="cm">/** @bar2: Description for struct @bar2 inside @my_long_struct */</span><span class="w"></span>
-<span class="linenos">190</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">191</span><span class="w">		</span><span class="cm">/**</span>
-<span class="linenos">192</span><span class="cm">		 * @bar2.barbar: Description for @barbar inside @my_long_struct.bar2</span>
-<span class="linenos">193</span><span class="cm">		 */</span><span class="w"></span>
-<span class="linenos">194</span><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">195</span><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="n">bar2</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">196</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">197</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
-<span class="linenos">198</span>
-<span class="linenos">199</span>
-<span class="linenos">200</span><span class="cm">/* parse-SNIP: my_union */</span><span class="w"></span>
-<span class="linenos">201</span><span class="cm">/**</span>
-<span class="linenos">202</span><span class="cm"> * union my_union - short description</span>
-<span class="linenos">203</span><span class="cm"> * @a: first member</span>
-<span class="linenos">204</span><span class="cm"> * @b: second member</span>
-<span class="linenos">205</span><span class="cm"> *</span>
-<span class="linenos">206</span><span class="cm"> * Longer description</span>
-<span class="linenos">207</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">208</span><span class="k">union</span><span class="w"> </span><span class="nc">my_union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">209</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">210</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">211</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">212</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
-<span class="linenos">213</span>
-<span class="linenos">214</span>
-<span class="linenos">215</span><span class="cm">/* parse-SNIP: my_enum */</span><span class="w"></span>
-<span class="linenos">216</span><span class="cm">/**</span>
-<span class="linenos">217</span><span class="cm"> * enum my_enum - log level</span>
-<span class="linenos">218</span><span class="cm"> * @QUIET: logs nothing</span>
-<span class="linenos">219</span><span class="cm"> * @INFO: logs info messages</span>
-<span class="linenos">220</span><span class="cm"> * @WARN: logs warn and info messages</span>
-<span class="linenos">221</span><span class="cm"> * @DEBUG: logs debug, warn and info messages</span>
-<span class="linenos">222</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">223</span>
-<span class="linenos">224</span><span class="k">enum</span><span class="w"> </span><span class="n">my_enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">225</span><span class="w">  </span><span class="n">QUIET</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">226</span><span class="w">  </span><span class="n">INFO</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">227</span><span class="w">  </span><span class="n">WARN</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">228</span><span class="w">  </span><span class="n">DEBUG</span><span class="w"></span>
-<span class="linenos">229</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">230</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
-<span class="linenos">231</span>
-<span class="linenos">232</span>
-<span class="linenos">233</span><span class="cm">/* parse-SNIP: my_typedef */</span><span class="w"></span>
-<span class="linenos">234</span><span class="cm">/**</span>
-<span class="linenos">235</span><span class="cm"> * typedef my_typedef - useless typdef of int</span>
-<span class="linenos">236</span><span class="cm"> *</span>
-<span class="linenos">237</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">238</span><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">my_typedef</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">239</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
-<span class="linenos">240</span>
-<span class="linenos">241</span>
-<span class="linenos">242</span><span class="cm">/* parse-SNIP: rst_mode */</span><span class="w"></span>
-<span class="linenos">243</span><span class="cm">/**</span>
-<span class="linenos">244</span><span class="cm"> * rst_mode - dummy to demonstrate reST &amp; kernel-doc markup in comments</span>
-<span class="linenos">245</span><span class="cm"> * @a: first argument</span>
-<span class="linenos">246</span><span class="cm"> * @b: second argument</span>
-<span class="linenos">247</span><span class="cm"> * Context: :c:func:`in_gizmo_mode`.</span>
-<span class="linenos">248</span><span class="cm"> *</span>
-<span class="linenos">249</span><span class="cm"> * Long description. This function has two integer arguments. The first is</span>
-<span class="linenos">250</span><span class="cm"> * ``parameter_a`` and the second is ``parameter_b``.</span>
+<span class="linenos">107</span><span class="cm">* lorem ipsum ...</span>
+<span class="linenos">108</span><span class="cm">* @arg2: second argument of anonymous union/anonymous struct</span>
+<span class="linenos">109</span><span class="cm">* @arg1b: first argument of anonymous union/anonymous struct</span>
+<span class="linenos">110</span><span class="cm">* @arg2b: second argument of anonymous union/anonymous struct</span>
+<span class="linenos">111</span><span class="cm">* @arg3: third argument of anonymous union/anonymous struct</span>
+<span class="linenos">112</span><span class="cm">* @arg4: fourth argument of anonymous union/anonymous struct</span>
+<span class="linenos">113</span><span class="cm">* @bar: non-anonymous union</span>
+<span class="linenos">114</span><span class="cm">* @bar.st1: struct st1 inside @bar</span>
+<span class="linenos">115</span><span class="cm">* @bar.st1.arg1: first argument of struct st1 on union bar</span>
+<span class="linenos">116</span><span class="cm">* @bar.st1.arg2: second argument of struct st1 on union bar</span>
+<span class="linenos">117</span><span class="cm">* @bar.st2: struct st2 inside @bar</span>
+<span class="linenos">118</span><span class="cm">* @bar.st2.arg1: first argument of struct st2 on union bar</span>
+<span class="linenos">119</span><span class="cm">* @bar.st2.arg2: second argument of struct st2 on union bar</span>
+<span class="linenos">120</span><span class="cm">* @bar.st3: struct st3 inside @bar</span>
+<span class="linenos">121</span><span class="cm">* @bar.st3.arg2: second argument of struct st3 on union bar</span>
+<span class="linenos">122</span><span class="cm">* @f1: nested function on anonimous union/struct</span>
+<span class="linenos">123</span><span class="cm">* @bar.st2.f2: nested function on named union/struct</span>
+<span class="linenos">124</span><span class="cm">*/</span><span class="w"></span>
+<span class="linenos">125</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">126</span><span class="w">  </span><span class="cm">/* Anonymous union/struct*/</span><span class="w"></span>
+<span class="linenos">127</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">128</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">129</span><span class="w">	    </span><span class="kt">char</span><span class="w"> </span><span class="n">arg1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">130</span><span class="w">	    </span><span class="kt">char</span><span class="w"> </span><span class="n">arg2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">131</span><span class="w">	</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">132</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">133</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">134</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">135</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">136</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">137</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">138</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg4</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">139</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">140</span><span class="w">      </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">141</span><span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">142</span><span class="w">  </span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">143</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">144</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">145</span><span class="w">          </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">146</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">147</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">148</span><span class="w">          </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg1</span><span class="p">;</span><span class="w">  </span><span class="cm">/* bar.st3.arg1 is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">149</span><span class="w">	    </span><span class="kt">int</span><span class="w"> </span><span class="n">arg2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">150</span><span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* bar.st3.fn2 is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">151</span><span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">st2</span><span class="p">,</span><span class="w"> </span><span class="n">st3</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">152</span><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">f3</span><span class="p">)(</span><span class="kt">char</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">);</span><span class="w"> </span><span class="cm">/* f3 is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">153</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w">               </span><span class="cm">/* bar is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">154</span>
+<span class="linenos">155</span><span class="w">  </span><span class="cm">/* private: */</span><span class="w"></span>
+<span class="linenos">156</span><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">undoc_privat</span><span class="p">;</span><span class="w">    </span><span class="cm">/* is undocumented but private, no warning */</span><span class="w"></span>
+<span class="linenos">157</span>
+<span class="linenos">158</span><span class="w">  </span><span class="cm">/* public: */</span><span class="w"></span>
+<span class="linenos">159</span><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">160</span><span class="w">      </span><span class="n">FOO</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">161</span><span class="w">      </span><span class="n">BAR</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">162</span><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">undoc_public</span><span class="p">;</span><span class="w">      </span><span class="cm">/* is undocumented, cause a warning */</span><span class="w"></span>
+<span class="linenos">163</span>
+<span class="linenos">164</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">165</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
+<span class="linenos">166</span>
+<span class="linenos">167</span><span class="cm">/* parse-SNIP: my_long_struct */</span><span class="w"></span>
+<span class="linenos">168</span><span class="cm">/**</span>
+<span class="linenos">169</span><span class="cm"> * struct my_long_struct - short description with &amp;my_struct-&gt;a and &amp;my_struct-&gt;b</span>
+<span class="linenos">170</span><span class="cm"> * @foo: The Foo member.</span>
+<span class="linenos">171</span><span class="cm"> *</span>
+<span class="linenos">172</span><span class="cm"> * Longer description</span>
+<span class="linenos">173</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">174</span><span class="k">struct</span><span class="w"> </span><span class="nc">my_long_struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">175</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">176</span><span class="w">        </span><span class="cm">/**</span>
+<span class="linenos">177</span><span class="cm">         * @bar: The Bar member,</span>
+<span class="linenos">178</span><span class="cm">	 * lorem ipsum ..</span>
+<span class="linenos">179</span><span class="cm">         */</span><span class="w"></span>
+<span class="linenos">180</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">bar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">181</span><span class="w">        </span><span class="cm">/**</span>
+<span class="linenos">182</span><span class="cm">         * @baz: The Baz member,</span>
+<span class="linenos">183</span><span class="cm">	 * lorem ipsum ..</span>
+<span class="linenos">184</span><span class="cm">         *</span>
+<span class="linenos">185</span><span class="cm">         * Here, the member description may contain several paragraphs.</span>
+<span class="linenos">186</span><span class="cm">         */</span><span class="w"></span>
+<span class="linenos">187</span><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">baz</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">188</span><span class="w">	</span><span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">189</span><span class="w">		</span><span class="cm">/** @foobar: Single line description. */</span><span class="w"></span>
+<span class="linenos">190</span><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">foobar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">191</span><span class="w">	</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">192</span><span class="w">	</span><span class="cm">/** @bar2: Description for struct @bar2 inside @my_long_struct */</span><span class="w"></span>
+<span class="linenos">193</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">194</span><span class="w">		</span><span class="cm">/**</span>
+<span class="linenos">195</span><span class="cm">		 * @bar2.barbar: Description for @barbar inside @my_long_struct.bar2</span>
+<span class="linenos">196</span><span class="cm">		 */</span><span class="w"></span>
+<span class="linenos">197</span><span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">198</span><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="n">bar2</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">199</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">200</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
+<span class="linenos">201</span>
+<span class="linenos">202</span>
+<span class="linenos">203</span><span class="cm">/* parse-SNIP: my_union */</span><span class="w"></span>
+<span class="linenos">204</span><span class="cm">/**</span>
+<span class="linenos">205</span><span class="cm"> * union my_union - short description</span>
+<span class="linenos">206</span><span class="cm"> * @a: first member</span>
+<span class="linenos">207</span><span class="cm"> * @b: second member</span>
+<span class="linenos">208</span><span class="cm"> *</span>
+<span class="linenos">209</span><span class="cm"> * Longer description</span>
+<span class="linenos">210</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">211</span><span class="k">union</span><span class="w"> </span><span class="nc">my_union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">212</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">213</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">214</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">215</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
+<span class="linenos">216</span>
+<span class="linenos">217</span>
+<span class="linenos">218</span><span class="cm">/* parse-SNIP: my_enum */</span><span class="w"></span>
+<span class="linenos">219</span><span class="cm">/**</span>
+<span class="linenos">220</span><span class="cm"> * enum my_enum - log level</span>
+<span class="linenos">221</span><span class="cm"> * @QUIET: logs nothing</span>
+<span class="linenos">222</span><span class="cm"> * @INFO: logs info messages</span>
+<span class="linenos">223</span><span class="cm"> * @WARN: logs warn and info messages</span>
+<span class="linenos">224</span><span class="cm"> * @DEBUG: logs debug, warn and info messages</span>
+<span class="linenos">225</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">226</span>
+<span class="linenos">227</span><span class="k">enum</span><span class="w"> </span><span class="n">my_enum</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">228</span><span class="w">  </span><span class="n">QUIET</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">229</span><span class="w">  </span><span class="n">INFO</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">230</span><span class="w">  </span><span class="n">WARN</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">231</span><span class="w">  </span><span class="n">DEBUG</span><span class="w"></span>
+<span class="linenos">232</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">233</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
+<span class="linenos">234</span>
+<span class="linenos">235</span>
+<span class="linenos">236</span><span class="cm">/* parse-SNIP: my_typedef */</span><span class="w"></span>
+<span class="linenos">237</span><span class="cm">/**</span>
+<span class="linenos">238</span><span class="cm"> * typedef my_typedef - useless typdef of int</span>
+<span class="linenos">239</span><span class="cm"> *</span>
+<span class="linenos">240</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">241</span><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">my_typedef</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">242</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
+<span class="linenos">243</span>
+<span class="linenos">244</span>
+<span class="linenos">245</span><span class="cm">/* parse-SNIP: rst_mode */</span><span class="w"></span>
+<span class="linenos">246</span><span class="cm">/**</span>
+<span class="linenos">247</span><span class="cm"> * rst_mode - dummy to demonstrate reST &amp; kernel-doc markup in comments</span>
+<span class="linenos">248</span><span class="cm"> * @a: first argument</span>
+<span class="linenos">249</span><span class="cm"> * @b: second argument</span>
+<span class="linenos">250</span><span class="cm"> * Context: :c:func:`in_gizmo_mode`.</span>
 <span class="linenos">251</span><span class="cm"> *</span>
-<span class="linenos">252</span><span class="cm"> * As long as the reST / sphinx-doc toolchain uses `intersphinx</span>
-<span class="linenos">253</span><span class="cm"> * &lt;http://www.sphinx-doc.org/en/stable/ext/intersphinx.html&gt;`__ you can refer</span>
-<span class="linenos">254</span><span class="cm"> * definitions *outside* like :c:type:`struct media_device &lt;media_device&gt;`.  If</span>
-<span class="linenos">255</span><span class="cm"> * the description of ``media_device`` struct is found in any of the intersphinx</span>
-<span class="linenos">256</span><span class="cm"> * locations, a hyperref to this target is generated a build time.</span>
-<span class="linenos">257</span><span class="cm"> *</span>
-<span class="linenos">258</span><span class="cm"> * Example:</span>
-<span class="linenos">259</span><span class="cm"> *   int main() {</span>
-<span class="linenos">260</span><span class="cm"> *     printf(&quot;Hello World\n&quot;);</span>
-<span class="linenos">261</span><span class="cm"> *     return 0;</span>
-<span class="linenos">262</span><span class="cm"> *   }</span>
-<span class="linenos">263</span><span class="cm"> *</span>
-<span class="linenos">264</span><span class="cm"> * Return: Sum of ``parameter_a`` and the second is ``parameter_b``.</span>
-<span class="linenos">265</span><span class="cm"> *</span>
-<span class="linenos">266</span><span class="cm"> * highlighting:</span>
-<span class="linenos">267</span><span class="cm"> * The highlight pattern, are non regular reST markups. They are only available</span>
-<span class="linenos">268</span><span class="cm"> * within kernel-doc comments, helping C developers to write short and compact</span>
-<span class="linenos">269</span><span class="cm"> * documentation.</span>
-<span class="linenos">270</span><span class="cm"> *</span>
-<span class="linenos">271</span><span class="cm"> * - user_function() : function</span>
-<span class="linenos">272</span><span class="cm"> * - @a : name of a parameter</span>
-<span class="linenos">273</span><span class="cm"> * - &amp;struct my_struct : name of a structure (including the word struct)</span>
-<span class="linenos">274</span><span class="cm"> * - &amp;union my_union : name of a union</span>
-<span class="linenos">275</span><span class="cm"> * - &amp;my_struct-&gt;a or &amp;my_struct.b -  member of a struct or union.</span>
-<span class="linenos">276</span><span class="cm"> * - &amp;enum my_enum : name of a enum</span>
-<span class="linenos">277</span><span class="cm"> * - &amp;typedef my_typedef : name of a typedef</span>
-<span class="linenos">278</span><span class="cm"> * - %CONST : name of a constant.</span>
-<span class="linenos">279</span><span class="cm"> * - $ENVVAR : environmental variable</span>
-<span class="linenos">280</span><span class="cm"> *</span>
-<span class="linenos">281</span><span class="cm"> * The kernel-doc parser translates the pattern above to the corresponding reST</span>
-<span class="linenos">282</span><span class="cm"> * markups. You don&#39;t have to use the *highlight* pattern, if you prefer *pure*</span>
-<span class="linenos">283</span><span class="cm"> * reST, use the reST markup.</span>
-<span class="linenos">284</span><span class="cm"> *</span>
-<span class="linenos">285</span><span class="cm"> * - :c:func:`user_function` : function</span>
-<span class="linenos">286</span><span class="cm"> * - ``a`` : name of a parameter</span>
-<span class="linenos">287</span><span class="cm"> * - :c:type:`struct my_struct &lt;my_struct&gt;` : name of a structure (including the word struct)</span>
-<span class="linenos">288</span><span class="cm"> * - :c:type:`union my_union &lt;my_union&gt;` : name of a union</span>
-<span class="linenos">289</span><span class="cm"> * - :c:type:`my_struct-&gt;a &lt;my_struct&gt;` or :c:type:`my_struct.b &lt;my_struct&gt;` -  member of a struct or union.</span>
-<span class="linenos">290</span><span class="cm"> * - :c:type:`enum my_enum &lt;my_enum&gt;` : name of a enum</span>
-<span class="linenos">291</span><span class="cm"> * - :c:type:`typedef my_typedef &lt;my_typedef&gt;` : name of a typedef</span>
-<span class="linenos">292</span><span class="cm"> * - ``CONST`` : name of a constant.</span>
-<span class="linenos">293</span><span class="cm"> * - ``\$ENVVAR`` : environmental variable</span>
-<span class="linenos">294</span><span class="cm"> *</span>
-<span class="linenos">295</span><span class="cm"> * Since the prefixes ``$...``, ``&amp;...`` and ``@...`` are used to markup the</span>
-<span class="linenos">296</span><span class="cm"> * highlight pattern, you have to escape them in other uses: \$lorem, \&amp;lorem,</span>
-<span class="linenos">297</span><span class="cm"> * \%lorem and \@lorem. To esacpe from function highlighting, use lorem\().</span>
-<span class="linenos">298</span><span class="cm"> *</span>
-<span class="linenos">299</span><span class="cm"> * Parser Mode:</span>
-<span class="linenos">300</span><span class="cm"> * This is an example with activated reST additions, in this section you will</span>
-<span class="linenos">301</span><span class="cm"> * find some common inline markups.</span>
-<span class="linenos">302</span><span class="cm"> *</span>
-<span class="linenos">303</span><span class="cm"> * Within the *reST mode* the kernel-doc parser pass through all markups to the</span>
-<span class="linenos">304</span><span class="cm"> * reST toolchain, except the *vintage highlighting* but including any</span>
-<span class="linenos">305</span><span class="cm"> * whitespace. With this, the full reST markup is available in the comments.</span>
-<span class="linenos">306</span><span class="cm"> *</span>
-<span class="linenos">307</span><span class="cm"> * This is a link to the `Linux kernel source tree</span>
-<span class="linenos">308</span><span class="cm"> * &lt;https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/&gt;`_.</span>
+<span class="linenos">252</span><span class="cm"> * Long description. This function has two integer arguments. The first is</span>
+<span class="linenos">253</span><span class="cm"> * ``parameter_a`` and the second is ``parameter_b``.</span>
+<span class="linenos">254</span><span class="cm"> *</span>
+<span class="linenos">255</span><span class="cm"> * As long as the reST / sphinx-doc toolchain uses `intersphinx</span>
+<span class="linenos">256</span><span class="cm"> * &lt;http://www.sphinx-doc.org/en/stable/ext/intersphinx.html&gt;`__ you can refer</span>
+<span class="linenos">257</span><span class="cm"> * definitions *outside* like :c:type:`struct media_device &lt;media_device&gt;`.  If</span>
+<span class="linenos">258</span><span class="cm"> * the description of ``media_device`` struct is found in any of the intersphinx</span>
+<span class="linenos">259</span><span class="cm"> * locations, a hyperref to this target is generated a build time.</span>
+<span class="linenos">260</span><span class="cm"> *</span>
+<span class="linenos">261</span><span class="cm"> * Example:</span>
+<span class="linenos">262</span><span class="cm"> *   int main() {</span>
+<span class="linenos">263</span><span class="cm"> *     printf(&quot;Hello World\n&quot;);</span>
+<span class="linenos">264</span><span class="cm"> *     return 0;</span>
+<span class="linenos">265</span><span class="cm"> *   }</span>
+<span class="linenos">266</span><span class="cm"> *</span>
+<span class="linenos">267</span><span class="cm"> * Return: Sum of ``parameter_a`` and the second is ``parameter_b``.</span>
+<span class="linenos">268</span><span class="cm"> *</span>
+<span class="linenos">269</span><span class="cm"> * highlighting:</span>
+<span class="linenos">270</span><span class="cm"> * The highlight pattern, are non regular reST markups. They are only available</span>
+<span class="linenos">271</span><span class="cm"> * within kernel-doc comments, helping C developers to write short and compact</span>
+<span class="linenos">272</span><span class="cm"> * documentation.</span>
+<span class="linenos">273</span><span class="cm"> *</span>
+<span class="linenos">274</span><span class="cm"> * - user_function() : function</span>
+<span class="linenos">275</span><span class="cm"> * - @a : name of a parameter</span>
+<span class="linenos">276</span><span class="cm"> * - &amp;struct my_struct : name of a structure (including the word struct)</span>
+<span class="linenos">277</span><span class="cm"> * - &amp;union my_union : name of a union</span>
+<span class="linenos">278</span><span class="cm"> * - &amp;my_struct-&gt;a or &amp;my_struct.b -  member of a struct or union.</span>
+<span class="linenos">279</span><span class="cm"> * - &amp;enum my_enum : name of a enum</span>
+<span class="linenos">280</span><span class="cm"> * - &amp;typedef my_typedef : name of a typedef</span>
+<span class="linenos">281</span><span class="cm"> * - %CONST : name of a constant.</span>
+<span class="linenos">282</span><span class="cm"> * - $ENVVAR : environmental variable</span>
+<span class="linenos">283</span><span class="cm"> *</span>
+<span class="linenos">284</span><span class="cm"> * The kernel-doc parser translates the pattern above to the corresponding reST</span>
+<span class="linenos">285</span><span class="cm"> * markups. You don&#39;t have to use the *highlight* pattern, if you prefer *pure*</span>
+<span class="linenos">286</span><span class="cm"> * reST, use the reST markup.</span>
+<span class="linenos">287</span><span class="cm"> *</span>
+<span class="linenos">288</span><span class="cm"> * - :c:func:`user_function` : function</span>
+<span class="linenos">289</span><span class="cm"> * - ``a`` : name of a parameter</span>
+<span class="linenos">290</span><span class="cm"> * - :c:type:`struct my_struct &lt;my_struct&gt;` : name of a structure (including the word struct)</span>
+<span class="linenos">291</span><span class="cm"> * - :c:type:`union my_union &lt;my_union&gt;` : name of a union</span>
+<span class="linenos">292</span><span class="cm"> * - :c:type:`my_struct-&gt;a &lt;my_struct&gt;` or :c:type:`my_struct.b &lt;my_struct&gt;` -  member of a struct or union.</span>
+<span class="linenos">293</span><span class="cm"> * - :c:type:`enum my_enum &lt;my_enum&gt;` : name of a enum</span>
+<span class="linenos">294</span><span class="cm"> * - :c:type:`typedef my_typedef &lt;my_typedef&gt;` : name of a typedef</span>
+<span class="linenos">295</span><span class="cm"> * - ``CONST`` : name of a constant.</span>
+<span class="linenos">296</span><span class="cm"> * - ``\$ENVVAR`` : environmental variable</span>
+<span class="linenos">297</span><span class="cm"> *</span>
+<span class="linenos">298</span><span class="cm"> * Since the prefixes ``$...``, ``&amp;...`` and ``@...`` are used to markup the</span>
+<span class="linenos">299</span><span class="cm"> * highlight pattern, you have to escape them in other uses: \$lorem, \&amp;lorem,</span>
+<span class="linenos">300</span><span class="cm"> * \%lorem and \@lorem. To esacpe from function highlighting, use lorem\().</span>
+<span class="linenos">301</span><span class="cm"> *</span>
+<span class="linenos">302</span><span class="cm"> * Parser Mode:</span>
+<span class="linenos">303</span><span class="cm"> * This is an example with activated reST additions, in this section you will</span>
+<span class="linenos">304</span><span class="cm"> * find some common inline markups.</span>
+<span class="linenos">305</span><span class="cm"> *</span>
+<span class="linenos">306</span><span class="cm"> * Within the *reST mode* the kernel-doc parser pass through all markups to the</span>
+<span class="linenos">307</span><span class="cm"> * reST toolchain, except the *vintage highlighting* but including any</span>
+<span class="linenos">308</span><span class="cm"> * whitespace. With this, the full reST markup is available in the comments.</span>
 <span class="linenos">309</span><span class="cm"> *</span>
-<span class="linenos">310</span><span class="cm"> * This description is only to show some reST inline markups like *emphasise*</span>
-<span class="linenos">311</span><span class="cm"> * and **emphasis strong**. The following is a demo of a reST list markup:</span>
+<span class="linenos">310</span><span class="cm"> * This is a link to the `Linux kernel source tree</span>
+<span class="linenos">311</span><span class="cm"> * &lt;https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/&gt;`_.</span>
 <span class="linenos">312</span><span class="cm"> *</span>
-<span class="linenos">313</span><span class="cm"> * Definition list:</span>
-<span class="linenos">314</span><span class="cm"> * :def1: lorem</span>
-<span class="linenos">315</span><span class="cm"> * :def2: ipsum</span>
-<span class="linenos">316</span><span class="cm"> *</span>
-<span class="linenos">317</span><span class="cm"> * Ordered List:</span>
-<span class="linenos">318</span><span class="cm"> * - item one</span>
-<span class="linenos">319</span><span class="cm"> * - item two</span>
-<span class="linenos">320</span><span class="cm"> * - item three with</span>
-<span class="linenos">321</span><span class="cm"> *   a linebreak</span>
-<span class="linenos">322</span><span class="cm"> *</span>
-<span class="linenos">323</span><span class="cm"> * Literal blocks:</span>
-<span class="linenos">324</span><span class="cm"> * The next example shows a literal block::</span>
+<span class="linenos">313</span><span class="cm"> * This description is only to show some reST inline markups like *emphasise*</span>
+<span class="linenos">314</span><span class="cm"> * and **emphasis strong**. The following is a demo of a reST list markup:</span>
+<span class="linenos">315</span><span class="cm"> *</span>
+<span class="linenos">316</span><span class="cm"> * Definition list:</span>
+<span class="linenos">317</span><span class="cm"> * :def1: lorem</span>
+<span class="linenos">318</span><span class="cm"> * :def2: ipsum</span>
+<span class="linenos">319</span><span class="cm"> *</span>
+<span class="linenos">320</span><span class="cm"> * Ordered List:</span>
+<span class="linenos">321</span><span class="cm"> * - item one</span>
+<span class="linenos">322</span><span class="cm"> * - item two</span>
+<span class="linenos">323</span><span class="cm"> * - item three with</span>
+<span class="linenos">324</span><span class="cm"> *   a linebreak</span>
 <span class="linenos">325</span><span class="cm"> *</span>
-<span class="linenos">326</span><span class="cm"> *     +------+          +------+</span>
-<span class="linenos">327</span><span class="cm"> *     |\     |\        /|     /|</span>
-<span class="linenos">328</span><span class="cm"> *     | +----+-+      +-+----+ |</span>
-<span class="linenos">329</span><span class="cm"> *     | |    | |      | |    | |</span>
-<span class="linenos">330</span><span class="cm"> *     +-+----+ |      | +----+-+</span>
-<span class="linenos">331</span><span class="cm"> *      \|     \|      |/     |/</span>
-<span class="linenos">332</span><span class="cm"> *       +------+      +------+</span>
-<span class="linenos">333</span><span class="cm"> *        foo()         bar()</span>
-<span class="linenos">334</span><span class="cm"> *</span>
-<span class="linenos">335</span><span class="cm"> * Highlighted code blocks:</span>
-<span class="linenos">336</span><span class="cm"> * The next example shows a code block, with highlighting C syntax in the</span>
-<span class="linenos">337</span><span class="cm"> * output.</span>
-<span class="linenos">338</span><span class="cm"> *</span>
-<span class="linenos">339</span><span class="cm"> * .. code-block:: c</span>
-<span class="linenos">340</span><span class="cm"> *</span>
-<span class="linenos">341</span><span class="cm"> *     // Hello World program</span>
-<span class="linenos">342</span><span class="cm"> *     #include&lt;stdio.h&gt;</span>
-<span class="linenos">343</span><span class="cm"> *     int main()</span>
-<span class="linenos">344</span><span class="cm"> *     {</span>
-<span class="linenos">345</span><span class="cm"> *        printf(&quot;Hello World&quot;);</span>
-<span class="linenos">346</span><span class="cm"> *     }</span>
-<span class="linenos">347</span><span class="cm"> *</span>
-<span class="linenos">348</span><span class="cm"> *</span>
-<span class="linenos">349</span><span class="cm"> * reST sectioning:</span>
+<span class="linenos">326</span><span class="cm"> * Literal blocks:</span>
+<span class="linenos">327</span><span class="cm"> * The next example shows a literal block::</span>
+<span class="linenos">328</span><span class="cm"> *</span>
+<span class="linenos">329</span><span class="cm"> *     +------+          +------+</span>
+<span class="linenos">330</span><span class="cm"> *     |\     |\        /|     /|</span>
+<span class="linenos">331</span><span class="cm"> *     | +----+-+      +-+----+ |</span>
+<span class="linenos">332</span><span class="cm"> *     | |    | |      | |    | |</span>
+<span class="linenos">333</span><span class="cm"> *     +-+----+ |      | +----+-+</span>
+<span class="linenos">334</span><span class="cm"> *      \|     \|      |/     |/</span>
+<span class="linenos">335</span><span class="cm"> *       +------+      +------+</span>
+<span class="linenos">336</span><span class="cm"> *        foo()         bar()</span>
+<span class="linenos">337</span><span class="cm"> *</span>
+<span class="linenos">338</span><span class="cm"> * Highlighted code blocks:</span>
+<span class="linenos">339</span><span class="cm"> * The next example shows a code block, with highlighting C syntax in the</span>
+<span class="linenos">340</span><span class="cm"> * output.</span>
+<span class="linenos">341</span><span class="cm"> *</span>
+<span class="linenos">342</span><span class="cm"> * .. code-block:: c</span>
+<span class="linenos">343</span><span class="cm"> *</span>
+<span class="linenos">344</span><span class="cm"> *     // Hello World program</span>
+<span class="linenos">345</span><span class="cm"> *     #include&lt;stdio.h&gt;</span>
+<span class="linenos">346</span><span class="cm"> *     int main()</span>
+<span class="linenos">347</span><span class="cm"> *     {</span>
+<span class="linenos">348</span><span class="cm"> *        printf(&quot;Hello World&quot;);</span>
+<span class="linenos">349</span><span class="cm"> *     }</span>
 <span class="linenos">350</span><span class="cm"> *</span>
-<span class="linenos">351</span><span class="cm"> * colon markup: sectioning by colon markup in reST mode is less ugly. ;-)</span>
-<span class="linenos">352</span><span class="cm"> *</span>
-<span class="linenos">353</span><span class="cm"> * A kernel-doc section like *this* section is translated into a reST</span>
-<span class="linenos">354</span><span class="cm"> * *subsection*. This means, you can only use the following *sub-levels* within a</span>
-<span class="linenos">355</span><span class="cm"> * kernel-doc section.</span>
-<span class="linenos">356</span><span class="cm"> *</span>
-<span class="linenos">357</span><span class="cm"> * a subsubsection</span>
-<span class="linenos">358</span><span class="cm"> * ^^^^^^^^^^^^^^^</span>
+<span class="linenos">351</span><span class="cm"> *</span>
+<span class="linenos">352</span><span class="cm"> * reST sectioning:</span>
+<span class="linenos">353</span><span class="cm"> *</span>
+<span class="linenos">354</span><span class="cm"> * colon markup: sectioning by colon markup in reST mode is less ugly. ;-)</span>
+<span class="linenos">355</span><span class="cm"> *</span>
+<span class="linenos">356</span><span class="cm"> * A kernel-doc section like *this* section is translated into a reST</span>
+<span class="linenos">357</span><span class="cm"> * *subsection*. This means, you can only use the following *sub-levels* within a</span>
+<span class="linenos">358</span><span class="cm"> * kernel-doc section.</span>
 <span class="linenos">359</span><span class="cm"> *</span>
-<span class="linenos">360</span><span class="cm"> * lorem ipsum</span>
-<span class="linenos">361</span><span class="cm"> *</span>
-<span class="linenos">362</span><span class="cm"> * a paragraph</span>
-<span class="linenos">363</span><span class="cm"> * &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="linenos">360</span><span class="cm"> * a subsubsection</span>
+<span class="linenos">361</span><span class="cm"> * ^^^^^^^^^^^^^^^</span>
+<span class="linenos">362</span><span class="cm"> *</span>
+<span class="linenos">363</span><span class="cm"> * lorem ipsum</span>
 <span class="linenos">364</span><span class="cm"> *</span>
-<span class="linenos">365</span><span class="cm"> * lorem ipsum</span>
-<span class="linenos">366</span><span class="cm"> *</span>
-<span class="linenos">367</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">368</span><span class="kt">int</span><span class="w"> </span><span class="nf">rst_mode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">369</span><span class="p">{</span><span class="w"></span>
-<span class="linenos">370</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">371</span><span class="p">}</span><span class="w"></span>
-<span class="linenos">372</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
-<span class="linenos">373</span>
-<span class="linenos">374</span>
-<span class="linenos">375</span><span class="cm">/* parse-markup: kernel-doc */</span><span class="w"></span>
+<span class="linenos">365</span><span class="cm"> * a paragraph</span>
+<span class="linenos">366</span><span class="cm"> * &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="linenos">367</span><span class="cm"> *</span>
+<span class="linenos">368</span><span class="cm"> * lorem ipsum</span>
+<span class="linenos">369</span><span class="cm"> *</span>
+<span class="linenos">370</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">371</span><span class="kt">int</span><span class="w"> </span><span class="nf">rst_mode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">372</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">373</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">374</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">375</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
 <span class="linenos">376</span>
-<span class="linenos">377</span><span class="cm">/**</span>
-<span class="linenos">378</span><span class="cm"> * vintage - short description of this function</span>
-<span class="linenos">379</span><span class="cm"> * @parameter_a: first argument</span>
-<span class="linenos">380</span><span class="cm"> * @parameter_b: second argument</span>
-<span class="linenos">381</span><span class="cm"> * Context: in_gizmo_mode().</span>
-<span class="linenos">382</span><span class="cm"> *</span>
-<span class="linenos">383</span><span class="cm"> * This is a test of a typical markup from *vintage* kernel-doc.  Don&#39;t look to</span>
-<span class="linenos">384</span><span class="cm"> * close here, it is only for testing some kernel-doc parser stuff.</span>
+<span class="linenos">377</span>
+<span class="linenos">378</span><span class="cm">/* parse-markup: kernel-doc */</span><span class="w"></span>
+<span class="linenos">379</span>
+<span class="linenos">380</span><span class="cm">/**</span>
+<span class="linenos">381</span><span class="cm"> * vintage - short description of this function</span>
+<span class="linenos">382</span><span class="cm"> * @parameter_a: first argument</span>
+<span class="linenos">383</span><span class="cm"> * @parameter_b: second argument</span>
+<span class="linenos">384</span><span class="cm"> * Context: in_gizmo_mode().</span>
 <span class="linenos">385</span><span class="cm"> *</span>
-<span class="linenos">386</span><span class="cm"> * Long description. This function has two integer arguments. The first is</span>
-<span class="linenos">387</span><span class="cm"> * @parameter_a and the second is @parameter_b.</span>
+<span class="linenos">386</span><span class="cm"> * This is a test of a typical markup from *vintage* kernel-doc.  Don&#39;t look to</span>
+<span class="linenos">387</span><span class="cm"> * close here, it is only for testing some kernel-doc parser stuff.</span>
 <span class="linenos">388</span><span class="cm"> *</span>
-<span class="linenos">389</span><span class="cm"> * Example: user_function(22);</span>
-<span class="linenos">390</span><span class="cm"> *</span>
-<span class="linenos">391</span><span class="cm"> * Return: Sum of @parameter_a and @parameter_b.</span>
-<span class="linenos">392</span><span class="cm"> *</span>
-<span class="linenos">393</span><span class="cm"> * highlighting:</span>
-<span class="linenos">394</span><span class="cm"> *</span>
-<span class="linenos">395</span><span class="cm"> * - vintage()    : function</span>
-<span class="linenos">396</span><span class="cm"> * - @parameter_a : name of a parameter</span>
-<span class="linenos">397</span><span class="cm"> * - $ENVVAR      : environmental variable</span>
-<span class="linenos">398</span><span class="cm"> * - &amp;my_struct   : name of a structure (up to two words including ``struct``)</span>
-<span class="linenos">399</span><span class="cm"> * - %CONST       : name of a constant.</span>
-<span class="linenos">400</span><span class="cm"> *</span>
-<span class="linenos">401</span><span class="cm"> * Parser Mode: *vintage* kernel-doc mode</span>
-<span class="linenos">402</span><span class="cm"> *</span>
-<span class="linenos">403</span><span class="cm"> * Within the *vintage kernel-doc mode* ignores any whitespace or inline</span>
-<span class="linenos">404</span><span class="cm"> * markup.</span>
+<span class="linenos">389</span><span class="cm"> * Long description. This function has two integer arguments. The first is</span>
+<span class="linenos">390</span><span class="cm"> * @parameter_a and the second is @parameter_b.</span>
+<span class="linenos">391</span><span class="cm"> *</span>
+<span class="linenos">392</span><span class="cm"> * Example: user_function(22);</span>
+<span class="linenos">393</span><span class="cm"> *</span>
+<span class="linenos">394</span><span class="cm"> * Return: Sum of @parameter_a and @parameter_b.</span>
+<span class="linenos">395</span><span class="cm"> *</span>
+<span class="linenos">396</span><span class="cm"> * highlighting:</span>
+<span class="linenos">397</span><span class="cm"> *</span>
+<span class="linenos">398</span><span class="cm"> * - vintage()    : function</span>
+<span class="linenos">399</span><span class="cm"> * - @parameter_a : name of a parameter</span>
+<span class="linenos">400</span><span class="cm"> * - $ENVVAR      : environmental variable</span>
+<span class="linenos">401</span><span class="cm"> * - &amp;my_struct   : name of a structure (up to two words including ``struct``)</span>
+<span class="linenos">402</span><span class="cm"> * - %CONST       : name of a constant.</span>
+<span class="linenos">403</span><span class="cm"> *</span>
+<span class="linenos">404</span><span class="cm"> * Parser Mode: *vintage* kernel-doc mode</span>
 <span class="linenos">405</span><span class="cm"> *</span>
-<span class="linenos">406</span><span class="cm"> * - Inline markup like *emphasis* or **emphasis strong**</span>
-<span class="linenos">407</span><span class="cm"> * - Literals and/or block indent:</span>
+<span class="linenos">406</span><span class="cm"> * Within the *vintage kernel-doc mode* ignores any whitespace or inline</span>
+<span class="linenos">407</span><span class="cm"> * markup.</span>
 <span class="linenos">408</span><span class="cm"> *</span>
-<span class="linenos">409</span><span class="cm"> *      a + b</span>
-<span class="linenos">410</span><span class="cm"> *</span>
-<span class="linenos">411</span><span class="cm"> * In kernel-doc *vintage* mode, there are no special block or inline markups</span>
-<span class="linenos">412</span><span class="cm"> * available. Markups like the one above result in ambiguous reST markup which</span>
-<span class="linenos">413</span><span class="cm"> * could produce error messages in the subsequently sphinx-build</span>
-<span class="linenos">414</span><span class="cm"> * process. Unexpected outputs are mostly the result.</span>
-<span class="linenos">415</span><span class="cm"> *</span>
-<span class="linenos">416</span><span class="cm"> * This is a link https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/</span>
-<span class="linenos">417</span><span class="cm"> * to the Linux kernel source tree</span>
+<span class="linenos">409</span><span class="cm"> * - Inline markup like *emphasis* or **emphasis strong**</span>
+<span class="linenos">410</span><span class="cm"> * - Literals and/or block indent:</span>
+<span class="linenos">411</span><span class="cm"> *</span>
+<span class="linenos">412</span><span class="cm"> *      a + b</span>
+<span class="linenos">413</span><span class="cm"> *</span>
+<span class="linenos">414</span><span class="cm"> * In kernel-doc *vintage* mode, there are no special block or inline markups</span>
+<span class="linenos">415</span><span class="cm"> * available. Markups like the one above result in ambiguous reST markup which</span>
+<span class="linenos">416</span><span class="cm"> * could produce error messages in the subsequently sphinx-build</span>
+<span class="linenos">417</span><span class="cm"> * process. Unexpected outputs are mostly the result.</span>
 <span class="linenos">418</span><span class="cm"> *</span>
-<span class="linenos">419</span><span class="cm"> * colon markup: sectioning by colon markup in vintage mode is partial ugly. ;-)</span>
-<span class="linenos">420</span><span class="cm"> *</span>
-<span class="linenos">421</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">422</span><span class="kt">int</span><span class="w"> </span><span class="nf">vintage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">parameter_a</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">parameter_b</span><span class="p">)</span><span class="w"></span>
-<span class="linenos">423</span><span class="p">{</span><span class="w"></span>
-<span class="linenos">424</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">425</span><span class="p">}</span><span class="w"></span>
-<span class="linenos">426</span>
-<span class="linenos">427</span><span class="cm">/* some C&amp;P for extended tests</span>
-<span class="linenos">428</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">419</span><span class="cm"> * This is a link https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/</span>
+<span class="linenos">420</span><span class="cm"> * to the Linux kernel source tree</span>
+<span class="linenos">421</span><span class="cm"> *</span>
+<span class="linenos">422</span><span class="cm"> * colon markup: sectioning by colon markup in vintage mode is partial ugly. ;-)</span>
+<span class="linenos">423</span><span class="cm"> *</span>
+<span class="linenos">424</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">425</span><span class="kt">int</span><span class="w"> </span><span class="nf">vintage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">parameter_a</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">parameter_b</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">426</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">427</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">428</span><span class="p">}</span><span class="w"></span>
 <span class="linenos">429</span>
-<span class="linenos">430</span><span class="cm">/**</span>
-<span class="linenos">431</span><span class="cm">* struct nfp_flower_priv - Flower APP per-vNIC priv data</span>
-<span class="linenos">432</span><span class="cm">* @nn:                Pointer to vNIC</span>
-<span class="linenos">433</span><span class="cm">* @mask_id_seed:      Seed used for mask hash table</span>
-<span class="linenos">434</span><span class="cm">* @flower_version:    HW version of flower</span>
-<span class="linenos">435</span><span class="cm">* @mask_ids:          List of free mask ids</span>
-<span class="linenos">436</span><span class="cm">* @mask_table:        Hash table used to store masks</span>
-<span class="linenos">437</span><span class="cm">* @flow_table:        Hash table used to store flower rules</span>
-<span class="linenos">438</span><span class="cm">*/</span><span class="w"></span>
-<span class="linenos">439</span><span class="k">struct</span><span class="w"> </span><span class="nc">nfp_flower_priv</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">440</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="nc">nfp_net</span><span class="w"> </span><span class="o">*</span><span class="n">nn</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">441</span><span class="w">      </span><span class="n">u32</span><span class="w"> </span><span class="n">mask_id_seed</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">442</span><span class="w">      </span><span class="n">u64</span><span class="w"> </span><span class="n">flower_version</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">443</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="nc">nfp_fl_mask_id</span><span class="w"> </span><span class="n">mask_ids</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">444</span><span class="w">      </span><span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">mask_table</span><span class="p">,</span><span class="w"> </span><span class="n">NFP_FLOWER_MASK_HASH_BITS</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">445</span><span class="w">      </span><span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">flow_table</span><span class="p">,</span><span class="w"> </span><span class="n">NFP_FLOWER_HASH_BITS</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">446</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">447</span>
-<span class="linenos">448</span><span class="cm">/**</span>
-<span class="linenos">449</span><span class="cm"> * enum foo - foo</span>
-<span class="linenos">450</span><span class="cm"> * @F1: f1</span>
-<span class="linenos">451</span><span class="cm"> * @F2: f2</span>
-<span class="linenos">452</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">453</span><span class="k">enum</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">454</span><span class="w">	</span><span class="n">F1</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">455</span>
-<span class="linenos">456</span><span class="w">	</span><span class="n">F2</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">457</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">430</span><span class="cm">/* some C&amp;P for extended tests</span>
+<span class="linenos">431</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">432</span>
+<span class="linenos">433</span><span class="cm">/**</span>
+<span class="linenos">434</span><span class="cm">* struct nfp_flower_priv - Flower APP per-vNIC priv data</span>
+<span class="linenos">435</span><span class="cm">* @nn:                Pointer to vNIC</span>
+<span class="linenos">436</span><span class="cm">* @mask_id_seed:      Seed used for mask hash table</span>
+<span class="linenos">437</span><span class="cm">* @flower_version:    HW version of flower</span>
+<span class="linenos">438</span><span class="cm">* @mask_ids:          List of free mask ids</span>
+<span class="linenos">439</span><span class="cm">* @mask_table:        Hash table used to store masks</span>
+<span class="linenos">440</span><span class="cm">* @flow_table:        Hash table used to store flower rules</span>
+<span class="linenos">441</span><span class="cm">*/</span><span class="w"></span>
+<span class="linenos">442</span><span class="k">struct</span><span class="w"> </span><span class="nc">nfp_flower_priv</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">443</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="nc">nfp_net</span><span class="w"> </span><span class="o">*</span><span class="n">nn</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">444</span><span class="w">      </span><span class="n">u32</span><span class="w"> </span><span class="n">mask_id_seed</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">445</span><span class="w">      </span><span class="n">u64</span><span class="w"> </span><span class="n">flower_version</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">446</span><span class="w">      </span><span class="k">struct</span><span class="w"> </span><span class="nc">nfp_fl_mask_id</span><span class="w"> </span><span class="n">mask_ids</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">447</span><span class="w">      </span><span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">mask_table</span><span class="p">,</span><span class="w"> </span><span class="n">NFP_FLOWER_MASK_HASH_BITS</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">448</span><span class="w">      </span><span class="n">DECLARE_HASHTABLE</span><span class="p">(</span><span class="n">flow_table</span><span class="p">,</span><span class="w"> </span><span class="n">NFP_FLOWER_HASH_BITS</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">449</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">450</span>
+<span class="linenos">451</span><span class="cm">/**</span>
+<span class="linenos">452</span><span class="cm"> * enum foo - foo</span>
+<span class="linenos">453</span><span class="cm"> * @F1: f1</span>
+<span class="linenos">454</span><span class="cm"> * @F2: f2</span>
+<span class="linenos">455</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">456</span><span class="k">enum</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">457</span><span class="w">	</span><span class="n">F1</span><span class="p">,</span><span class="w"></span>
 <span class="linenos">458</span>
-<span class="linenos">459</span>
-<span class="linenos">460</span><span class="cm">/**</span>
-<span class="linenos">461</span><span class="cm">* struct something - Lorem ipsum dolor sit amet.</span>
-<span class="linenos">462</span><span class="cm">* @foofoo: lorem</span>
-<span class="linenos">463</span><span class="cm">* @barbar: ipsum</span>
-<span class="linenos">464</span><span class="cm">*/</span><span class="w"></span>
-<span class="linenos">465</span>
-<span class="linenos">466</span><span class="k">struct</span><span class="w"> </span><span class="nc">something</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">467</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"></span>
+<span class="linenos">459</span><span class="w">	</span><span class="n">F2</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">460</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">461</span>
+<span class="linenos">462</span>
+<span class="linenos">463</span><span class="cm">/**</span>
+<span class="linenos">464</span><span class="cm">* struct something - Lorem ipsum dolor sit amet.</span>
+<span class="linenos">465</span><span class="cm">* @foofoo: lorem</span>
+<span class="linenos">466</span><span class="cm">* @barbar: ipsum</span>
+<span class="linenos">467</span><span class="cm">*/</span><span class="w"></span>
 <span class="linenos">468</span>
-<span class="linenos">469</span><span class="w">	</span><span class="n">foofoo</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">470</span>
-<span class="linenos">471</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">bar</span><span class="w"></span>
-<span class="linenos">472</span>
-<span class="linenos">473</span><span class="w">	</span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">474</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">469</span><span class="k">struct</span><span class="w"> </span><span class="nc">something</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">470</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">foo</span><span class="w"></span>
+<span class="linenos">471</span>
+<span class="linenos">472</span><span class="w">	</span><span class="n">foofoo</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">473</span>
+<span class="linenos">474</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">bar</span><span class="w"></span>
 <span class="linenos">475</span>
-<span class="linenos">476</span><span class="cm">/**</span>
-<span class="linenos">477</span><span class="cm"> * struct lineevent_state - contains the state of a userspace event</span>
-<span class="linenos">478</span><span class="cm"> * @gdev: the GPIO device the event pertains to</span>
-<span class="linenos">479</span><span class="cm"> * @label: consumer label used to tag descriptors</span>
-<span class="linenos">480</span><span class="cm"> * @desc: the GPIO descriptor held by this event</span>
-<span class="linenos">481</span><span class="cm"> * @eflags: the event flags this line was requested with</span>
-<span class="linenos">482</span><span class="cm"> * @irq: the interrupt that trigger in response to events on this GPIO</span>
-<span class="linenos">483</span><span class="cm"> * @wait: wait queue that handles blocking reads of events</span>
-<span class="linenos">484</span><span class="cm"> * @events: KFIFO for the GPIO events (testing DECLARE_KFIFO)</span>
-<span class="linenos">485</span><span class="cm"> * @foobar: testing DECLARE_KFIFO_PTR</span>
-<span class="linenos">486</span><span class="cm"> * @read_lock: mutex lock to protect reads from colliding with adding</span>
-<span class="linenos">487</span><span class="cm"> * new events to the FIFO</span>
-<span class="linenos">488</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">489</span><span class="k">struct</span><span class="w"> </span><span class="nc">lineevent_state</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="linenos">490</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_device</span><span class="w"> </span><span class="o">*</span><span class="n">gdev</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">491</span><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">label</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">492</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_desc</span><span class="w"> </span><span class="o">*</span><span class="n">desc</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">493</span><span class="w">	</span><span class="n">u32</span><span class="w"> </span><span class="n">eflags</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">494</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">irq</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">495</span><span class="w">	</span><span class="n">wait_queue_head_t</span><span class="w"> </span><span class="n">wait</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">496</span><span class="w">	</span><span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpioevent_data</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">497</span><span class="w">	</span><span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">lirc_scancode</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">498</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">mutex</span><span class="w"> </span><span class="n">read_lock</span><span class="p">;</span><span class="w"></span>
-<span class="linenos">499</span><span class="p">};</span><span class="w"></span>
-<span class="linenos">500</span>
-<span class="linenos">501</span>
-<span class="linenos">502</span><span class="cm">/**</span>
-<span class="linenos">503</span><span class="cm"> * typedef genpool_algo_t: Allocation callback function type definition</span>
-<span class="linenos">504</span><span class="cm"> * @map: Pointer to bitmap</span>
-<span class="linenos">505</span><span class="cm"> * @size: The bitmap size in bits</span>
-<span class="linenos">506</span><span class="cm"> * @start: The bitnumber to start searching at</span>
-<span class="linenos">507</span><span class="cm"> * @nr: The number of zeroed bits we&#39;re looking for</span>
-<span class="linenos">508</span><span class="cm"> * @data: optional additional data used by the callback</span>
-<span class="linenos">509</span><span class="cm"> * @pool: the pool being allocated from</span>
-<span class="linenos">510</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">511</span><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="nf">long</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">genpool_algo_t</span><span class="p">)(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="n">map</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">512</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">513</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">514</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">515</span><span class="w">			</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gen_pool</span><span class="w"> </span><span class="o">*</span><span class="n">pool</span><span class="p">,</span><span class="w"></span>
-<span class="linenos">516</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start_addr</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">517</span>
-<span class="linenos">518</span><span class="cm">/**</span>
-<span class="linenos">519</span><span class="cm"> * typedef v4l2_check_dv_timings_fnc - timings check callback</span>
-<span class="linenos">520</span><span class="cm"> *</span>
-<span class="linenos">521</span><span class="cm"> * @t: the v4l2_dv_timings struct.</span>
-<span class="linenos">522</span><span class="cm"> * @handle: a handle from the driver.</span>
+<span class="linenos">476</span><span class="w">	</span><span class="n">barbar</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">477</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">478</span>
+<span class="linenos">479</span><span class="cm">/**</span>
+<span class="linenos">480</span><span class="cm"> * struct lineevent_state - contains the state of a userspace event</span>
+<span class="linenos">481</span><span class="cm"> * @gdev: the GPIO device the event pertains to</span>
+<span class="linenos">482</span><span class="cm"> * @label: consumer label used to tag descriptors</span>
+<span class="linenos">483</span><span class="cm"> * @desc: the GPIO descriptor held by this event</span>
+<span class="linenos">484</span><span class="cm"> * @eflags: the event flags this line was requested with</span>
+<span class="linenos">485</span><span class="cm"> * @irq: the interrupt that trigger in response to events on this GPIO</span>
+<span class="linenos">486</span><span class="cm"> * @wait: wait queue that handles blocking reads of events</span>
+<span class="linenos">487</span><span class="cm"> * @events: KFIFO for the GPIO events (testing DECLARE_KFIFO)</span>
+<span class="linenos">488</span><span class="cm"> * @foobar: testing DECLARE_KFIFO_PTR</span>
+<span class="linenos">489</span><span class="cm"> * @read_lock: mutex lock to protect reads from colliding with adding</span>
+<span class="linenos">490</span><span class="cm"> * new events to the FIFO</span>
+<span class="linenos">491</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">492</span><span class="k">struct</span><span class="w"> </span><span class="nc">lineevent_state</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">493</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_device</span><span class="w"> </span><span class="o">*</span><span class="n">gdev</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">494</span><span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">label</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">495</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_desc</span><span class="w"> </span><span class="o">*</span><span class="n">desc</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">496</span><span class="w">	</span><span class="n">u32</span><span class="w"> </span><span class="n">eflags</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">497</span><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">irq</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">498</span><span class="w">	</span><span class="n">wait_queue_head_t</span><span class="w"> </span><span class="n">wait</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">499</span><span class="w">	</span><span class="n">DECLARE_KFIFO</span><span class="p">(</span><span class="n">events</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpioevent_data</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">500</span><span class="w">	</span><span class="n">DECLARE_KFIFO_PTR</span><span class="p">(</span><span class="n">foobar</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">lirc_scancode</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">501</span><span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">mutex</span><span class="w"> </span><span class="n">read_lock</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">502</span><span class="p">};</span><span class="w"></span>
+<span class="linenos">503</span>
+<span class="linenos">504</span>
+<span class="linenos">505</span><span class="cm">/**</span>
+<span class="linenos">506</span><span class="cm"> * typedef genpool_algo_t: Allocation callback function type definition</span>
+<span class="linenos">507</span><span class="cm"> * @map: Pointer to bitmap</span>
+<span class="linenos">508</span><span class="cm"> * @size: The bitmap size in bits</span>
+<span class="linenos">509</span><span class="cm"> * @start: The bitnumber to start searching at</span>
+<span class="linenos">510</span><span class="cm"> * @nr: The number of zeroed bits we&#39;re looking for</span>
+<span class="linenos">511</span><span class="cm"> * @data: optional additional data used by the callback</span>
+<span class="linenos">512</span><span class="cm"> * @pool: the pool being allocated from</span>
+<span class="linenos">513</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">514</span><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="nf">long</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">genpool_algo_t</span><span class="p">)(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="n">map</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">515</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">516</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">517</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nr</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">518</span><span class="w">			</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gen_pool</span><span class="w"> </span><span class="o">*</span><span class="n">pool</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">519</span><span class="w">			</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">start_addr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">520</span>
+<span class="linenos">521</span><span class="cm">/**</span>
+<span class="linenos">522</span><span class="cm"> * typedef v4l2_check_dv_timings_fnc - timings check callback</span>
 <span class="linenos">523</span><span class="cm"> *</span>
-<span class="linenos">524</span><span class="cm"> * Returns true if the given timings are valid.</span>
-<span class="linenos">525</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">526</span><span class="k">typedef</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">v4l2_check_dv_timings_fnc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">v4l2_dv_timings</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">handle</span><span class="p">);</span><span class="w"></span>
-<span class="linenos">527</span>
-<span class="linenos">528</span>
-<span class="linenos">529</span><span class="cm">/* parse-SNIP: ADD_macro */</span><span class="w"></span>
-<span class="linenos">530</span><span class="cm">/**</span>
-<span class="linenos">531</span><span class="cm"> * macro ADD - Function like macro to add two values</span>
-<span class="linenos">532</span><span class="cm"> *</span>
-<span class="linenos">533</span><span class="cm"> * @first:  first value</span>
-<span class="linenos">534</span><span class="cm"> * @second:  second value</span>
+<span class="linenos">524</span><span class="cm"> * @t: the v4l2_dv_timings struct.</span>
+<span class="linenos">525</span><span class="cm"> * @handle: a handle from the driver.</span>
+<span class="linenos">526</span><span class="cm"> *</span>
+<span class="linenos">527</span><span class="cm"> * Returns true if the given timings are valid.</span>
+<span class="linenos">528</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">529</span><span class="k">typedef</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">v4l2_check_dv_timings_fnc</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">v4l2_dv_timings</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">handle</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">530</span>
+<span class="linenos">531</span>
+<span class="linenos">532</span><span class="cm">/* parse-SNIP: ADD_macro */</span><span class="w"></span>
+<span class="linenos">533</span><span class="cm">/**</span>
+<span class="linenos">534</span><span class="cm"> * macro ADD - Function like macro to add two values</span>
 <span class="linenos">535</span><span class="cm"> *</span>
-<span class="linenos">536</span><span class="cm"> * Is replaced by a addition of @first and @second.</span>
-<span class="linenos">537</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">538</span><span class="cp">#define ADD(first, second) (first) + (second)</span>
-<span class="linenos">539</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
-<span class="linenos">540</span>
-<span class="linenos">541</span><span class="cm">/**</span>
-<span class="linenos">542</span><span class="cm"> * iosys_map_wr_field - Write to a member of a struct in the iosys_map</span>
-<span class="linenos">543</span><span class="cm"> *</span>
-<span class="linenos">544</span><span class="cm"> * @map__:		The iosys_map structure</span>
-<span class="linenos">545</span><span class="cm"> * @struct_offset__:	Offset from the beggining of the map, where the struct</span>
-<span class="linenos">546</span><span class="cm"> *			is located</span>
-<span class="linenos">547</span><span class="cm"> * @struct_type__:	The struct describing the layout of the mapping</span>
-<span class="linenos">548</span><span class="cm"> * @field__:		Member of the struct to read</span>
-<span class="linenos">549</span><span class="cm"> * @val__:		Value to write</span>
-<span class="linenos">550</span><span class="cm"> *</span>
-<span class="linenos">551</span><span class="cm"> * Write a value to the iosys_map considering its layout is described by a C</span>
-<span class="linenos">552</span><span class="cm"> * struct starting at @struct_offset__. The field offset and size is calculated</span>
-<span class="linenos">553</span><span class="cm"> * and the @val__ is written. If the field access would incur in un-aligned</span>
-<span class="linenos">554</span><span class="cm"> * access, then either iosys_map_memcpy_to() needs to be used or the</span>
-<span class="linenos">555</span><span class="cm"> * architecture must support it. Refer to iosys_map_rd_field() for expected</span>
-<span class="linenos">556</span><span class="cm"> * usage and memory layout.</span>
-<span class="linenos">557</span><span class="cm"> */</span><span class="w"></span>
-<span class="linenos">558</span><span class="cp">#define iosys_map_wr_field(map__, struct_offset__, struct_type__, field__, val__) ({	\</span>
-<span class="linenos">559</span><span class="cp">	struct_type__ *s;								\</span>
-<span class="linenos">560</span><span class="cp">	iosys_map_wr(map__, struct_offset__ + offsetof(struct_type__, field__),		\</span>
-<span class="linenos">561</span><span class="cp">		     typeof(s-&gt;field__), val__);					\</span>
-<span class="linenos">562</span><span class="cp">})</span>
+<span class="linenos">536</span><span class="cm"> * @first:  first value</span>
+<span class="linenos">537</span><span class="cm"> * @second:  second value</span>
+<span class="linenos">538</span><span class="cm"> *</span>
+<span class="linenos">539</span><span class="cm"> * Is replaced by a addition of @first and @second.</span>
+<span class="linenos">540</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">541</span><span class="cp">#define ADD(first, second) (first) + (second)</span>
+<span class="linenos">542</span><span class="cm">/* parse-SNAP: */</span><span class="w"></span>
+<span class="linenos">543</span>
+<span class="linenos">544</span><span class="cm">/**</span>
+<span class="linenos">545</span><span class="cm"> * iosys_map_wr_field - Write to a member of a struct in the iosys_map</span>
+<span class="linenos">546</span><span class="cm"> *</span>
+<span class="linenos">547</span><span class="cm"> * @map__:		The iosys_map structure</span>
+<span class="linenos">548</span><span class="cm"> * @struct_offset__:	Offset from the beggining of the map, where the struct</span>
+<span class="linenos">549</span><span class="cm"> *			is located</span>
+<span class="linenos">550</span><span class="cm"> * @struct_type__:	The struct describing the layout of the mapping</span>
+<span class="linenos">551</span><span class="cm"> * @field__:		Member of the struct to read</span>
+<span class="linenos">552</span><span class="cm"> * @val__:		Value to write</span>
+<span class="linenos">553</span><span class="cm"> *</span>
+<span class="linenos">554</span><span class="cm"> * Write a value to the iosys_map considering its layout is described by a C</span>
+<span class="linenos">555</span><span class="cm"> * struct starting at @struct_offset__. The field offset and size is calculated</span>
+<span class="linenos">556</span><span class="cm"> * and the @val__ is written. If the field access would incur in un-aligned</span>
+<span class="linenos">557</span><span class="cm"> * access, then either iosys_map_memcpy_to() needs to be used or the</span>
+<span class="linenos">558</span><span class="cm"> * architecture must support it. Refer to iosys_map_rd_field() for expected</span>
+<span class="linenos">559</span><span class="cm"> * usage and memory layout.</span>
+<span class="linenos">560</span><span class="cm"> */</span><span class="w"></span>
+<span class="linenos">561</span><span class="cp">#define iosys_map_wr_field(map__, struct_offset__, struct_type__, field__, val__) ({	\</span>
+<span class="linenos">562</span><span class="cp">	struct_type__ *s;								\</span>
+<span class="linenos">563</span><span class="cp">	iosys_map_wr(map__, struct_offset__ + offsetof(struct_type__, field__),		\</span>
+<span class="linenos">564</span><span class="cp">		     typeof(s-&gt;field__), val__);					\</span>
+<span class="linenos">565</span><span class="cp">})</span>
 </pre></div>
 </div>
 <hr class="docutils" />

@@ -2248,7 +2248,7 @@ LOG = SimpleLog()
 
             # First line (split_doc_state 1) needs to be a @parameter
             self.ctx.section  = self.sect_title(doc_state5_sect[0].strip())
-            self.ctx.contents = doc_state5_sect[1].strip()
+            self.ctx.contents = doc_state5_sect[1].strip() + &quot;\n&quot;
             self.split_doc_state = 2
             self.debug(&quot;SPLIT-DOC-START: &#39;%(param)s&#39; / split-state 1 --&gt; 2&quot;
                        , param = self.ctx.section)
