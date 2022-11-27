@@ -428,6 +428,15 @@ option to identfy a symbol to be exported.</p>
    <span class="nc">:module:</span> test_internals_A
    <span class="nc">:exp-method:</span> macro
    <span class="nc">:exp-ids:</span> EXP_SYMB
+   <span class="nc">:known-attrs:</span> API_EXP
+
+Its not good to mix <span class="s">``exp-method``</span>, the <span class="s">``know-attrs``</span> here is needed to
+avoid the Sphinx warning<span class="se">::</span>
+
+<span class="s">    test_internals.c:24: WARNING: Error in declarator or parameters</span>
+<span class="s">    Invalid C declaration: Expected identifier in nested name, got keyword: int [error at 11]</span>
+<span class="s">    API_EXP int bar(int a,  ...)</span>
+<span class="s">    -----------^</span>
 </pre></div>
 </div>
 <div class="rst-example admonition">
@@ -435,8 +444,8 @@ option to identfy a symbol to be exported.</p>
 <section id="bar">
 <span id="test-internals-a-bar"></span><h4>bar<a class="headerlink" href="#bar" title="Permalink to this heading">¶</a></h4>
 <dl class="c function">
-<dt class="sig sig-object c">
-<span class="sig-name descname"><span class="pre">API_EXP</span> <span class="pre">int</span> <span class="pre">bar(int</span> <span class="pre">a,</span>&#160; <span class="pre">...)</span></span></dt>
+<dt class="sig sig-object c" id="c.test_internals_A.bar">
+<span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bar</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n"><span class="pre">a</span></span>, <span class="p"><span class="pre">...</span></span><span class="sig-paren">)</span><a class="headerlink" href="#c.test_internals_A.bar" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>function that can only be called in user context</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -570,7 +579,7 @@ empty list of exported symbols is treated as an error:</p>
 <p class="admonition-title">Todo</p>
 <p>Oops: Document generation inconsistency.</p>
 <p>The template for this document tried to insert structured comment at this point, but an error occoured. This dummy section is inserted to allow generation to continue.:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/share/linuxdoc/docs/linuxdoc-howto/kernel-doc-tests.rst:345: (ERROR/3) using option :export: but there are no exported symbols
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/share/linuxdoc/docs/linuxdoc-howto/kernel-doc-tests.rst:355: (ERROR/3) using option :export: but there are no exported symbols
 
 .. kernel-doc::  ./all-in-a-tumble.c
    :export:  ./match_files_without_exports*
