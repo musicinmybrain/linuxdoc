@@ -1140,14 +1140,7 @@ LOG = SimpleLog()
 
             param = &quot;&quot;
             param_type = None
-            if self.FUNC_PTR.search(p_type):
-                # pointer to function
-                param = &quot;:param %s%s)(%s):&quot; % (self.FUNC_PTR[0], p_name, self.FUNC_PTR[1])
-            elif p_type.endswith(&quot;*&quot;):
-                # pointer &amp; pointer to pointer
-                param = &quot;:param %s:&quot; % (p_name)
-                param_type = &quot;:type %s: %s&quot; % (p_name, p_type)
-            elif p_name == &quot;...&quot;:
+            if p_name == &quot;...&quot;:
                 param = &quot;:param ellipsis ellipsis:&quot;
             else:
                 param = &quot;:param %s:&quot; % (p_name.replace(&#39;_&#39;, r&#39;\_&#39;))
